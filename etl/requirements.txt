@@ -1,0 +1,6 @@
+musicbrainzngs
+requests
+pandas
+lxml
+python-dotenv
+tenacity

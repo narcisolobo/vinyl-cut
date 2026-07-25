@@ -1,0 +1,37 @@
+# Local dev stack for the Medusa backend, per the PRD's Local Development spec.
+#
+# Postgres is intentionally NOT a service here: run `supabase start` (Supabase
+# CLI) separately instead of a bare postgres image, so local dev matches the
+# hosted project's Postgres version, extensions, and Supavisor pooler. The
+# `medusa` service below reaches it via host.docker.internal, since Supabase
+# CLI publishes its containers to the host, not this compose network.
+#
+# The Next.js storefront (apps/storefront) is not containerized locally or in
+# production; only Medusa is deployed as a Docker image (to Render).
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  medusa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    env_file:
+      - apps/backend/.env
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./apps/backend:/app/apps/backend
+      - backend-node-modules:/app/apps/backend/node_modules
+    depends_on:
+      - redis
+
+volumes:
+  redis-data:
+  backend-node-modules:
