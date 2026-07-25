@@ -89,6 +89,17 @@
           logged as a non-retryable skip: not a failure, and never backfilled
           with a placeholder image.
         </li>
+        <li>
+          <strong>Back cover (best-effort):</strong> the release's CAA metadata
+          endpoint (<code>/release/{mbid}</code>) is checked for an image
+          flagged <code>back: true</code>; when present, its 250px and 500px
+          thumbnails are fetched the same way as the front cover and added as a
+          second gallery image. Unlike the front cover, a missing back cover is
+          not a curation blocker — roughly 58% of releases have one (based on
+          the initial 500-release seed) and the rest simply get a single-image
+          gallery. This check is a separate CAA metadata call per release, so it
+          adds to the same 1 request/second budget as the front-cover fetch.
+        </li>
       </ul>
 
       <h3>Transform</h3>
@@ -125,7 +136,9 @@
           not written directly to Supabase Storage — this keeps the storage
           abstraction consistent with how Medusa itself manages files. Both
           thumbnail sizes are uploaded as separate file assets and their URLs
-          stored on the product.
+          stored on the product. When a back cover was found at the extract
+          stage, it's uploaded the same way and appended as a second image in
+          the product's gallery, ordered after the front cover.
         </li>
         <li>
           <strong>Load ordering:</strong> cover art is uploaded and the variant
@@ -180,7 +193,12 @@
           (network timeouts, MusicBrainz/CAA rate-limit responses) get a small
           retry with backoff; non-transient errors (404 on a bad MBID, malformed
           seed row) fail immediately and are logged for manual correction of the
-          seed file.
+          seed file. CAA's metadata endpoint occasionally redirects to
+          <code>archive.org</code> directly for older items rather than serving
+          from coverartarchive.org itself, and archive.org has been observed to
+          connection-timeout independently of CAA's own health — this is a
+          transient case and gets the same retry-with-backoff treatment, not
+          treated as a missing-art 404.
         </li>
         <li>
           <strong>Medusa Admin API failures:</strong> a failure at the load

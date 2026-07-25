@@ -1,0 +1,3600 @@
+[
+  {
+    "mbid": "ba91f9e2-2391-4bbd-9114-c9eff138fd98",
+    "rank": "1",
+    "title": "What's Going On",
+    "artist": "Marvin Gaye",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ba91f9e2-2391-4bbd-9114-c9eff138fd98/23121342421-1200.jpg",
+      "250": "http://coverartarchive.org/release/ba91f9e2-2391-4bbd-9114-c9eff138fd98/23121342421-250.jpg",
+      "500": "http://coverartarchive.org/release/ba91f9e2-2391-4bbd-9114-c9eff138fd98/23121342421-500.jpg",
+      "large": "http://coverartarchive.org/release/ba91f9e2-2391-4bbd-9114-c9eff138fd98/23121342421-500.jpg",
+      "small": "http://coverartarchive.org/release/ba91f9e2-2391-4bbd-9114-c9eff138fd98/23121342421-250.jpg"
+    }
+  },
+  {
+    "mbid": "eccae410-7577-4daa-b602-92d305828331",
+    "rank": "6",
+    "title": "Nevermind",
+    "artist": "Nirvana",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/eccae410-7577-4daa-b602-92d305828331/23500620370-1200.jpg",
+      "250": "http://coverartarchive.org/release/eccae410-7577-4daa-b602-92d305828331/23500620370-250.jpg",
+      "500": "http://coverartarchive.org/release/eccae410-7577-4daa-b602-92d305828331/23500620370-500.jpg",
+      "large": "http://coverartarchive.org/release/eccae410-7577-4daa-b602-92d305828331/23500620370-500.jpg",
+      "small": "http://coverartarchive.org/release/eccae410-7577-4daa-b602-92d305828331/23500620370-250.jpg"
+    }
+  },
+  {
+    "mbid": "081ea37e-db59-4332-8cd2-ad020cb93af6",
+    "rank": "7",
+    "title": "Rumours",
+    "artist": "Fleetwood Mac",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/081ea37e-db59-4332-8cd2-ad020cb93af6/11059970252-1200.jpg",
+      "250": "http://coverartarchive.org/release/081ea37e-db59-4332-8cd2-ad020cb93af6/11059970252-250.jpg",
+      "500": "http://coverartarchive.org/release/081ea37e-db59-4332-8cd2-ad020cb93af6/11059970252-500.jpg",
+      "large": "http://coverartarchive.org/release/081ea37e-db59-4332-8cd2-ad020cb93af6/11059970252-500.jpg",
+      "small": "http://coverartarchive.org/release/081ea37e-db59-4332-8cd2-ad020cb93af6/11059970252-250.jpg"
+    }
+  },
+  {
+    "mbid": "5b39a32b-9654-4534-a260-9bb56fd381c9",
+    "rank": "8",
+    "title": "Purple Rain",
+    "artist": "Prince and the Revolution",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5b39a32b-9654-4534-a260-9bb56fd381c9/19335728416-1200.jpg",
+      "250": "http://coverartarchive.org/release/5b39a32b-9654-4534-a260-9bb56fd381c9/19335728416-250.jpg",
+      "500": "http://coverartarchive.org/release/5b39a32b-9654-4534-a260-9bb56fd381c9/19335728416-500.jpg",
+      "large": "http://coverartarchive.org/release/5b39a32b-9654-4534-a260-9bb56fd381c9/19335728416-500.jpg",
+      "small": "http://coverartarchive.org/release/5b39a32b-9654-4534-a260-9bb56fd381c9/19335728416-250.jpg"
+    }
+  },
+  {
+    "mbid": "ee7f79c0-f52b-45e5-800e-daa8e1d69144",
+    "rank": "9",
+    "title": "Blood on the Tracks",
+    "artist": "Bob Dylan",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/ee7f79c0-f52b-45e5-800e-daa8e1d69144/3465810938-500.jpg",
+      "small": "http://coverartarchive.org/release/ee7f79c0-f52b-45e5-800e-daa8e1d69144/3465810938-250.jpg"
+    }
+  },
+  {
+    "mbid": "897b7802-6317-492f-8da1-d94e3bf9cba9",
+    "rank": "12",
+    "title": "Thriller",
+    "artist": "Michael Jackson",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/897b7802-6317-492f-8da1-d94e3bf9cba9/24124267798-1200.jpg",
+      "250": "http://coverartarchive.org/release/897b7802-6317-492f-8da1-d94e3bf9cba9/24124267798-250.jpg",
+      "500": "http://coverartarchive.org/release/897b7802-6317-492f-8da1-d94e3bf9cba9/24124267798-500.jpg",
+      "large": "http://coverartarchive.org/release/897b7802-6317-492f-8da1-d94e3bf9cba9/24124267798-500.jpg",
+      "small": "http://coverartarchive.org/release/897b7802-6317-492f-8da1-d94e3bf9cba9/24124267798-250.jpg"
+    }
+  },
+  {
+    "mbid": "f54d0e54-86d7-4e9d-975a-3fbf81c6ac80",
+    "rank": "15",
+    "title": "It Takes a Nation of Millions to Hold Us Back",
+    "artist": "Public Enemy",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/f54d0e54-86d7-4e9d-975a-3fbf81c6ac80/36830831496-1200.jpg",
+      "250": "http://coverartarchive.org/release/f54d0e54-86d7-4e9d-975a-3fbf81c6ac80/36830831496-250.jpg",
+      "500": "http://coverartarchive.org/release/f54d0e54-86d7-4e9d-975a-3fbf81c6ac80/36830831496-500.jpg",
+      "large": "http://coverartarchive.org/release/f54d0e54-86d7-4e9d-975a-3fbf81c6ac80/36830831496-500.jpg",
+      "small": "http://coverartarchive.org/release/f54d0e54-86d7-4e9d-975a-3fbf81c6ac80/36830831496-250.jpg"
+    }
+  },
+  {
+    "mbid": "d61a2bd9-81ac-4023-bd22-1c884d4a176c",
+    "rank": "18",
+    "title": "Highway 61 Revisited",
+    "artist": "Bob Dylan",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/d61a2bd9-81ac-4023-bd22-1c884d4a176c/10549446267-500.jpg",
+      "small": "http://coverartarchive.org/release/d61a2bd9-81ac-4023-bd22-1c884d4a176c/10549446267-250.jpg"
+    }
+  },
+  {
+    "mbid": "8a426098-714d-4897-b180-dfd8f0a70fc9",
+    "rank": "19",
+    "title": "To Pimp a Butterfly",
+    "artist": "Kendrick Lamar",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/8a426098-714d-4897-b180-dfd8f0a70fc9/29564002654-1200.jpg",
+      "250": "https://coverartarchive.org/release/8a426098-714d-4897-b180-dfd8f0a70fc9/29564002654-250.jpg",
+      "500": "https://coverartarchive.org/release/8a426098-714d-4897-b180-dfd8f0a70fc9/29564002654-500.jpg",
+      "large": "https://coverartarchive.org/release/8a426098-714d-4897-b180-dfd8f0a70fc9/29564002654-500.jpg",
+      "small": "https://coverartarchive.org/release/8a426098-714d-4897-b180-dfd8f0a70fc9/29564002654-250.jpg"
+    }
+  },
+  {
+    "mbid": "677cf459-923a-49ca-b144-90083728d2dc",
+    "rank": "20",
+    "title": "Kid A",
+    "artist": "Radiohead",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/677cf459-923a-49ca-b144-90083728d2dc/30809805200-1200.jpg",
+      "250": "http://coverartarchive.org/release/677cf459-923a-49ca-b144-90083728d2dc/30809805200-250.jpg",
+      "500": "http://coverartarchive.org/release/677cf459-923a-49ca-b144-90083728d2dc/30809805200-500.jpg",
+      "large": "http://coverartarchive.org/release/677cf459-923a-49ca-b144-90083728d2dc/30809805200-500.jpg",
+      "small": "http://coverartarchive.org/release/677cf459-923a-49ca-b144-90083728d2dc/30809805200-250.jpg"
+    }
+  },
+  {
+    "mbid": "4561ec75-1f2b-4742-8724-bf83fb420a2e",
+    "rank": "21",
+    "title": "Born to Run",
+    "artist": "Bruce Springsteen",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/4561ec75-1f2b-4742-8724-bf83fb420a2e/37008843825-1200.jpg",
+      "250": "http://coverartarchive.org/release/4561ec75-1f2b-4742-8724-bf83fb420a2e/37008843825-250.jpg",
+      "500": "http://coverartarchive.org/release/4561ec75-1f2b-4742-8724-bf83fb420a2e/37008843825-500.jpg",
+      "large": "http://coverartarchive.org/release/4561ec75-1f2b-4742-8724-bf83fb420a2e/37008843825-500.jpg",
+      "small": "http://coverartarchive.org/release/4561ec75-1f2b-4742-8724-bf83fb420a2e/37008843825-250.jpg"
+    }
+  },
+  {
+    "mbid": "2657e677-49ce-480f-8868-04a0b354aec2",
+    "rank": "23",
+    "title": "The Velvet Underground & Nico",
+    "artist": "The Velvet Underground",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2657e677-49ce-480f-8868-04a0b354aec2/1122369082-1200.jpg",
+      "250": "http://coverartarchive.org/release/2657e677-49ce-480f-8868-04a0b354aec2/1122369082-250.jpg",
+      "500": "http://coverartarchive.org/release/2657e677-49ce-480f-8868-04a0b354aec2/1122369082-500.jpg",
+      "large": "http://coverartarchive.org/release/2657e677-49ce-480f-8868-04a0b354aec2/1122369082-500.jpg",
+      "small": "http://coverartarchive.org/release/2657e677-49ce-480f-8868-04a0b354aec2/1122369082-250.jpg"
+    }
+  },
+  {
+    "mbid": "44b7cab1-0ce1-404e-9089-b458eb3fa530",
+    "rank": "24",
+    "title": "Sgt. Pepper's Lonely Hearts Club Band",
+    "artist": "The Beatles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/44b7cab1-0ce1-404e-9089-b458eb3fa530/25310298260-1200.jpg",
+      "250": "http://coverartarchive.org/release/44b7cab1-0ce1-404e-9089-b458eb3fa530/25310298260-250.jpg",
+      "500": "http://coverartarchive.org/release/44b7cab1-0ce1-404e-9089-b458eb3fa530/25310298260-500.jpg",
+      "large": "http://coverartarchive.org/release/44b7cab1-0ce1-404e-9089-b458eb3fa530/25310298260-500.jpg",
+      "small": "http://coverartarchive.org/release/44b7cab1-0ce1-404e-9089-b458eb3fa530/25310298260-250.jpg"
+    }
+  },
+  {
+    "mbid": "74467fc2-2b96-3e25-914b-082a82373014",
+    "rank": "25",
+    "title": "Tapestry",
+    "artist": "Carole King",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/74467fc2-2b96-3e25-914b-082a82373014/36793689632-1200.jpg",
+      "250": "http://coverartarchive.org/release/74467fc2-2b96-3e25-914b-082a82373014/36793689632-250.jpg",
+      "500": "http://coverartarchive.org/release/74467fc2-2b96-3e25-914b-082a82373014/36793689632-500.jpg",
+      "large": "http://coverartarchive.org/release/74467fc2-2b96-3e25-914b-082a82373014/36793689632-500.jpg",
+      "small": "http://coverartarchive.org/release/74467fc2-2b96-3e25-914b-082a82373014/36793689632-250.jpg"
+    }
+  },
+  {
+    "mbid": "c38e2ae2-ed32-4e8d-aa4a-4c8bac3bec64",
+    "rank": "28",
+    "title": "Voodoo",
+    "artist": "D'Angelo",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/c38e2ae2-ed32-4e8d-aa4a-4c8bac3bec64/28672062488-1200.jpg",
+      "250": "http://coverartarchive.org/release/c38e2ae2-ed32-4e8d-aa4a-4c8bac3bec64/28672062488-250.jpg",
+      "500": "http://coverartarchive.org/release/c38e2ae2-ed32-4e8d-aa4a-4c8bac3bec64/28672062488-500.jpg",
+      "large": "http://coverartarchive.org/release/c38e2ae2-ed32-4e8d-aa4a-4c8bac3bec64/28672062488-500.jpg",
+      "small": "http://coverartarchive.org/release/c38e2ae2-ed32-4e8d-aa4a-4c8bac3bec64/28672062488-250.jpg"
+    }
+  },
+  {
+    "mbid": "682cdf23-c89d-4594-94df-b01874be1682",
+    "rank": "29",
+    "title": "The Beatles",
+    "artist": "The Beatles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/682cdf23-c89d-4594-94df-b01874be1682/25275568744-1200.jpg",
+      "250": "http://coverartarchive.org/release/682cdf23-c89d-4594-94df-b01874be1682/25275568744-250.jpg",
+      "500": "http://coverartarchive.org/release/682cdf23-c89d-4594-94df-b01874be1682/25275568744-500.jpg",
+      "large": "http://coverartarchive.org/release/682cdf23-c89d-4594-94df-b01874be1682/25275568744-500.jpg",
+      "small": "http://coverartarchive.org/release/682cdf23-c89d-4594-94df-b01874be1682/25275568744-250.jpg"
+    }
+  },
+  {
+    "mbid": "bee5e0cd-1767-4a8e-9578-6455e87ba60b",
+    "rank": "31",
+    "title": "Kind of Blue",
+    "artist": "Miles Davis",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/bee5e0cd-1767-4a8e-9578-6455e87ba60b/32954427728-1200.jpg",
+      "250": "http://coverartarchive.org/release/bee5e0cd-1767-4a8e-9578-6455e87ba60b/32954427728-250.jpg",
+      "500": "http://coverartarchive.org/release/bee5e0cd-1767-4a8e-9578-6455e87ba60b/32954427728-500.jpg",
+      "large": "http://coverartarchive.org/release/bee5e0cd-1767-4a8e-9578-6455e87ba60b/32954427728-500.jpg",
+      "small": "http://coverartarchive.org/release/bee5e0cd-1767-4a8e-9578-6455e87ba60b/32954427728-250.jpg"
+    }
+  },
+  {
+    "mbid": "288cd84a-a357-461c-98d6-745077837816",
+    "rank": "35",
+    "title": "Rubber Soul",
+    "artist": "The Beatles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/288cd84a-a357-461c-98d6-745077837816/31984494524-1200.jpg",
+      "250": "http://coverartarchive.org/release/288cd84a-a357-461c-98d6-745077837816/31984494524-250.jpg",
+      "500": "http://coverartarchive.org/release/288cd84a-a357-461c-98d6-745077837816/31984494524-500.jpg",
+      "large": "http://coverartarchive.org/release/288cd84a-a357-461c-98d6-745077837816/31984494524-500.jpg",
+      "small": "http://coverartarchive.org/release/288cd84a-a357-461c-98d6-745077837816/31984494524-250.jpg"
+    }
+  },
+  {
+    "mbid": "24503c26-ddf3-493d-8311-5ec76f366942",
+    "rank": "36",
+    "title": "Off the Wall",
+    "artist": "Michael Jackson",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/24503c26-ddf3-493d-8311-5ec76f366942/41135654884-1200.jpg",
+      "250": "https://coverartarchive.org/release/24503c26-ddf3-493d-8311-5ec76f366942/41135654884-250.jpg",
+      "500": "https://coverartarchive.org/release/24503c26-ddf3-493d-8311-5ec76f366942/41135654884-500.jpg",
+      "large": "https://coverartarchive.org/release/24503c26-ddf3-493d-8311-5ec76f366942/41135654884-500.jpg",
+      "small": "https://coverartarchive.org/release/24503c26-ddf3-493d-8311-5ec76f366942/41135654884-250.jpg"
+    }
+  },
+  {
+    "mbid": "7d122d69-58cd-4f1f-82c8-bde77239122e",
+    "rank": "39",
+    "title": "Remain in Light",
+    "artist": "Talking Heads",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/7d122d69-58cd-4f1f-82c8-bde77239122e/43914848701-1200.jpg",
+      "250": "https://coverartarchive.org/release/7d122d69-58cd-4f1f-82c8-bde77239122e/43914848701-250.jpg",
+      "500": "https://coverartarchive.org/release/7d122d69-58cd-4f1f-82c8-bde77239122e/43914848701-500.jpg",
+      "large": "https://coverartarchive.org/release/7d122d69-58cd-4f1f-82c8-bde77239122e/43914848701-500.jpg",
+      "small": "https://coverartarchive.org/release/7d122d69-58cd-4f1f-82c8-bde77239122e/43914848701-250.jpg"
+    }
+  },
+  {
+    "mbid": "1834eae1-741b-3c03-9ca5-0df3decb43ea",
+    "rank": "42",
+    "title": "OK Computer",
+    "artist": "Radiohead",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/1834eae1-741b-3c03-9ca5-0df3decb43ea/17631970723-1200.jpg",
+      "250": "http://coverartarchive.org/release/1834eae1-741b-3c03-9ca5-0df3decb43ea/17631970723-250.jpg",
+      "500": "http://coverartarchive.org/release/1834eae1-741b-3c03-9ca5-0df3decb43ea/17631970723-500.jpg",
+      "large": "http://coverartarchive.org/release/1834eae1-741b-3c03-9ca5-0df3decb43ea/17631970723-500.jpg",
+      "small": "http://coverartarchive.org/release/1834eae1-741b-3c03-9ca5-0df3decb43ea/17631970723-250.jpg"
+    }
+  },
+  {
+    "mbid": "63747b49-c817-4688-a3c3-c6b534672f3e",
+    "rank": "43",
+    "title": "The Low End Theory",
+    "artist": "A Tribe Called Quest",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/63747b49-c817-4688-a3c3-c6b534672f3e/9900454869-500.jpg",
+      "small": "http://coverartarchive.org/release/63747b49-c817-4688-a3c3-c6b534672f3e/9900454869-250.jpg"
+    }
+  },
+  {
+    "mbid": "9651aac2-4296-381f-a595-f11e3242c997",
+    "rank": "44",
+    "title": "Illmatic",
+    "artist": "Nas",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9651aac2-4296-381f-a595-f11e3242c997/23542862183-1200.jpg",
+      "250": "http://coverartarchive.org/release/9651aac2-4296-381f-a595-f11e3242c997/23542862183-250.jpg",
+      "500": "http://coverartarchive.org/release/9651aac2-4296-381f-a595-f11e3242c997/23542862183-500.jpg",
+      "large": "http://coverartarchive.org/release/9651aac2-4296-381f-a595-f11e3242c997/23542862183-500.jpg",
+      "small": "http://coverartarchive.org/release/9651aac2-4296-381f-a595-f11e3242c997/23542862183-250.jpg"
+    }
+  },
+  {
+    "mbid": "e767460a-4c71-4563-8ac4-22a6f0f4d2fe",
+    "rank": "45",
+    "title": "Sign o' the Times",
+    "artist": "Prince",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/e767460a-4c71-4563-8ac4-22a6f0f4d2fe/44545492405-1200.jpg",
+      "250": "https://coverartarchive.org/release/e767460a-4c71-4563-8ac4-22a6f0f4d2fe/44545492405-250.jpg",
+      "500": "https://coverartarchive.org/release/e767460a-4c71-4563-8ac4-22a6f0f4d2fe/44545492405-500.jpg",
+      "large": "https://coverartarchive.org/release/e767460a-4c71-4563-8ac4-22a6f0f4d2fe/44545492405-500.jpg",
+      "small": "https://coverartarchive.org/release/e767460a-4c71-4563-8ac4-22a6f0f4d2fe/44545492405-250.jpg"
+    }
+  },
+  {
+    "mbid": "95718634-fc1e-3ccc-b0cf-a9df519230e9",
+    "rank": "46",
+    "title": "Graceland",
+    "artist": "Paul Simon",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/95718634-fc1e-3ccc-b0cf-a9df519230e9/4133819227-1200.jpg",
+      "250": "http://coverartarchive.org/release/95718634-fc1e-3ccc-b0cf-a9df519230e9/4133819227-250.jpg",
+      "500": "http://coverartarchive.org/release/95718634-fc1e-3ccc-b0cf-a9df519230e9/4133819227-500.jpg",
+      "large": "http://coverartarchive.org/release/95718634-fc1e-3ccc-b0cf-a9df519230e9/4133819227-500.jpg",
+      "small": "http://coverartarchive.org/release/95718634-fc1e-3ccc-b0cf-a9df519230e9/4133819227-250.jpg"
+    }
+  },
+  {
+    "mbid": "b4c816f2-ee1f-48dd-94e1-5950188182ff",
+    "rank": "48",
+    "title": "Exodus",
+    "artist": "Bob Marley and the Wailers",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/b4c816f2-ee1f-48dd-94e1-5950188182ff/31844499512-1200.jpg",
+      "250": "http://coverartarchive.org/release/b4c816f2-ee1f-48dd-94e1-5950188182ff/31844499512-250.jpg",
+      "500": "http://coverartarchive.org/release/b4c816f2-ee1f-48dd-94e1-5950188182ff/31844499512-500.jpg",
+      "large": "http://coverartarchive.org/release/b4c816f2-ee1f-48dd-94e1-5950188182ff/31844499512-500.jpg",
+      "small": "http://coverartarchive.org/release/b4c816f2-ee1f-48dd-94e1-5950188182ff/31844499512-250.jpg"
+    }
+  },
+  {
+    "mbid": "63f4592c-6f58-32bb-bd9f-a431dc14e04d",
+    "rank": "49",
+    "title": "Aquemini",
+    "artist": "Outkast",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/63f4592c-6f58-32bb-bd9f-a431dc14e04d/6640979874-1200.jpg",
+      "250": "http://coverartarchive.org/release/63f4592c-6f58-32bb-bd9f-a431dc14e04d/6640979874-250.jpg",
+      "500": "http://coverartarchive.org/release/63f4592c-6f58-32bb-bd9f-a431dc14e04d/6640979874-500.jpg",
+      "large": "http://coverartarchive.org/release/63f4592c-6f58-32bb-bd9f-a431dc14e04d/6640979874-500.jpg",
+      "small": "http://coverartarchive.org/release/63f4592c-6f58-32bb-bd9f-a431dc14e04d/6640979874-250.jpg"
+    }
+  },
+  {
+    "mbid": "c7e10920-cb41-4990-9bb7-3227a1f7b0a6",
+    "rank": "53",
+    "title": "Electric Ladyland",
+    "artist": "The Jimi Hendrix Experience",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/c7e10920-cb41-4990-9bb7-3227a1f7b0a6/27718889159-1200.jpg",
+      "250": "http://coverartarchive.org/release/c7e10920-cb41-4990-9bb7-3227a1f7b0a6/27718889159-250.jpg",
+      "500": "http://coverartarchive.org/release/c7e10920-cb41-4990-9bb7-3227a1f7b0a6/27718889159-500.jpg",
+      "large": "http://coverartarchive.org/release/c7e10920-cb41-4990-9bb7-3227a1f7b0a6/27718889159-500.jpg",
+      "small": "http://coverartarchive.org/release/c7e10920-cb41-4990-9bb7-3227a1f7b0a6/27718889159-250.jpg"
+    }
+  },
+  {
+    "mbid": "248e85fc-894d-42b0-a4ff-2c96b9f1e384",
+    "rank": "54",
+    "title": "Star Time",
+    "artist": "James Brown",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/248e85fc-894d-42b0-a4ff-2c96b9f1e384/5555250199-1200.jpg",
+      "250": "http://coverartarchive.org/release/248e85fc-894d-42b0-a4ff-2c96b9f1e384/5555250199-250.jpg",
+      "500": "http://coverartarchive.org/release/248e85fc-894d-42b0-a4ff-2c96b9f1e384/5555250199-500.jpg",
+      "large": "http://coverartarchive.org/release/248e85fc-894d-42b0-a4ff-2c96b9f1e384/5555250199-500.jpg",
+      "small": "http://coverartarchive.org/release/248e85fc-894d-42b0-a4ff-2c96b9f1e384/5555250199-250.jpg"
+    }
+  },
+  {
+    "mbid": "c888fbd9-0754-457a-92b1-1c8f6e8b2424",
+    "rank": "55",
+    "title": "The Dark Side of the Moon",
+    "artist": "Pink Floyd",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/c888fbd9-0754-457a-92b1-1c8f6e8b2424/35339418911-1200.jpg",
+      "250": "https://coverartarchive.org/release/c888fbd9-0754-457a-92b1-1c8f6e8b2424/35339418911-250.jpg",
+      "500": "https://coverartarchive.org/release/c888fbd9-0754-457a-92b1-1c8f6e8b2424/35339418911-500.jpg",
+      "large": "https://coverartarchive.org/release/c888fbd9-0754-457a-92b1-1c8f6e8b2424/35339418911-500.jpg",
+      "small": "https://coverartarchive.org/release/c888fbd9-0754-457a-92b1-1c8f6e8b2424/35339418911-250.jpg"
+    }
+  },
+  {
+    "mbid": "b08b6174-7f4d-4064-a4d8-b6824e0dc1c3",
+    "rank": "56",
+    "title": "Exile in Guyville",
+    "artist": "Liz Phair",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/b08b6174-7f4d-4064-a4d8-b6824e0dc1c3/45625055306-1200.jpg",
+      "250": "https://coverartarchive.org/release/b08b6174-7f4d-4064-a4d8-b6824e0dc1c3/45625055306-250.jpg",
+      "500": "https://coverartarchive.org/release/b08b6174-7f4d-4064-a4d8-b6824e0dc1c3/45625055306-500.jpg",
+      "large": "https://coverartarchive.org/release/b08b6174-7f4d-4064-a4d8-b6824e0dc1c3/45625055306-500.jpg",
+      "small": "https://coverartarchive.org/release/b08b6174-7f4d-4064-a4d8-b6824e0dc1c3/45625055306-250.jpg"
+    }
+  },
+  {
+    "mbid": "b12b86e1-098a-4610-8d3c-01b509e5fed7",
+    "rank": "62",
+    "title": "Appetite for Destruction",
+    "artist": "Guns N' Roses",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/b12b86e1-098a-4610-8d3c-01b509e5fed7/44397371147-1200.jpg",
+      "250": "https://coverartarchive.org/release/b12b86e1-098a-4610-8d3c-01b509e5fed7/44397371147-250.jpg",
+      "500": "https://coverartarchive.org/release/b12b86e1-098a-4610-8d3c-01b509e5fed7/44397371147-500.jpg",
+      "large": "https://coverartarchive.org/release/b12b86e1-098a-4610-8d3c-01b509e5fed7/44397371147-500.jpg",
+      "small": "https://coverartarchive.org/release/b12b86e1-098a-4610-8d3c-01b509e5fed7/44397371147-250.jpg"
+    }
+  },
+  {
+    "mbid": "77d06b99-117a-3ba3-8230-69361ad7be91",
+    "rank": "66",
+    "title": "A Love Supreme",
+    "artist": "John Coltrane",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/77d06b99-117a-3ba3-8230-69361ad7be91/5164598195-500.jpg",
+      "small": "http://coverartarchive.org/release/77d06b99-117a-3ba3-8230-69361ad7be91/5164598195-250.jpg"
+    }
+  },
+  {
+    "mbid": "9168fbd8-5820-48c6-85ef-6552de8f1d0d",
+    "rank": "67",
+    "title": "Reasonable Doubt",
+    "artist": "Jay-Z",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/9168fbd8-5820-48c6-85ef-6552de8f1d0d/40555235929-1200.jpg",
+      "250": "https://coverartarchive.org/release/9168fbd8-5820-48c6-85ef-6552de8f1d0d/40555235929-250.jpg",
+      "500": "https://coverartarchive.org/release/9168fbd8-5820-48c6-85ef-6552de8f1d0d/40555235929-500.jpg",
+      "large": "https://coverartarchive.org/release/9168fbd8-5820-48c6-85ef-6552de8f1d0d/40555235929-500.jpg",
+      "small": "https://coverartarchive.org/release/9168fbd8-5820-48c6-85ef-6552de8f1d0d/40555235929-250.jpg"
+    }
+  },
+  {
+    "mbid": "371439f4-b3ac-4f6f-badc-a95a8d1d1cd1",
+    "rank": "68",
+    "title": "Hounds of Love",
+    "artist": "Kate Bush",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/371439f4-b3ac-4f6f-badc-a95a8d1d1cd1/3472517126-500.jpg",
+      "small": "http://coverartarchive.org/release/371439f4-b3ac-4f6f-badc-a95a8d1d1cd1/3472517126-250.jpg"
+    }
+  },
+  {
+    "mbid": "630617b0-90ad-4153-91b8-5e03a4083c36",
+    "rank": "69",
+    "title": "Jagged Little Pill",
+    "artist": "Alanis Morissette",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/630617b0-90ad-4153-91b8-5e03a4083c36/10735299587-1200.jpg",
+      "250": "http://coverartarchive.org/release/630617b0-90ad-4153-91b8-5e03a4083c36/10735299587-250.jpg",
+      "500": "http://coverartarchive.org/release/630617b0-90ad-4153-91b8-5e03a4083c36/10735299587-500.jpg",
+      "large": "http://coverartarchive.org/release/630617b0-90ad-4153-91b8-5e03a4083c36/10735299587-500.jpg",
+      "small": "http://coverartarchive.org/release/630617b0-90ad-4153-91b8-5e03a4083c36/10735299587-250.jpg"
+    }
+  },
+  {
+    "mbid": "2fd724cb-63f0-4c50-a7bc-7a156d3d3f5a",
+    "rank": "73",
+    "title": "Loveless",
+    "artist": "My Bloody Valentine",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2fd724cb-63f0-4c50-a7bc-7a156d3d3f5a/6226830174-1200.jpg",
+      "250": "http://coverartarchive.org/release/2fd724cb-63f0-4c50-a7bc-7a156d3d3f5a/6226830174-250.jpg",
+      "500": "http://coverartarchive.org/release/2fd724cb-63f0-4c50-a7bc-7a156d3d3f5a/6226830174-500.jpg",
+      "large": "http://coverartarchive.org/release/2fd724cb-63f0-4c50-a7bc-7a156d3d3f5a/6226830174-500.jpg",
+      "small": "http://coverartarchive.org/release/2fd724cb-63f0-4c50-a7bc-7a156d3d3f5a/6226830174-250.jpg"
+    }
+  },
+  {
+    "mbid": "5c9b9213-c85c-43fd-8522-de03df8e0b1d",
+    "rank": "75",
+    "title": "Lady Soul",
+    "artist": "Aretha Franklin",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5c9b9213-c85c-43fd-8522-de03df8e0b1d/23107302625-1200.jpg",
+      "250": "http://coverartarchive.org/release/5c9b9213-c85c-43fd-8522-de03df8e0b1d/23107302625-250.jpg",
+      "500": "http://coverartarchive.org/release/5c9b9213-c85c-43fd-8522-de03df8e0b1d/23107302625-500.jpg",
+      "large": "http://coverartarchive.org/release/5c9b9213-c85c-43fd-8522-de03df8e0b1d/23107302625-500.jpg",
+      "small": "http://coverartarchive.org/release/5c9b9213-c85c-43fd-8522-de03df8e0b1d/23107302625-250.jpg"
+    }
+  },
+  {
+    "mbid": "d9c00e12-5fef-4183-bd14-b501dabc3613",
+    "rank": "76",
+    "title": "Super Fly",
+    "artist": "Curtis Mayfield",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/d9c00e12-5fef-4183-bd14-b501dabc3613/18106195264-1200.jpg",
+      "250": "http://coverartarchive.org/release/d9c00e12-5fef-4183-bd14-b501dabc3613/18106195264-250.jpg",
+      "500": "http://coverartarchive.org/release/d9c00e12-5fef-4183-bd14-b501dabc3613/18106195264-500.jpg",
+      "large": "http://coverartarchive.org/release/d9c00e12-5fef-4183-bd14-b501dabc3613/18106195264-500.jpg",
+      "small": "http://coverartarchive.org/release/d9c00e12-5fef-4183-bd14-b501dabc3613/18106195264-250.jpg"
+    }
+  },
+  {
+    "mbid": "a6545e7f-991e-3d1b-8ada-e2182adcbc8a",
+    "rank": "77",
+    "title": "Who's Next",
+    "artist": "The Who",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/a6545e7f-991e-3d1b-8ada-e2182adcbc8a/2013007725-500.jpg",
+      "small": "http://coverartarchive.org/release/a6545e7f-991e-3d1b-8ada-e2182adcbc8a/2013007725-250.jpg"
+    }
+  },
+  {
+    "mbid": "ffce7f9d-4a98-396d-bab7-97e52930cab9",
+    "rank": "82",
+    "title": "There's a Riot Goin' On",
+    "artist": "Sly and the Family Stone",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/ffce7f9d-4a98-396d-bab7-97e52930cab9/18319704266-500.jpg",
+      "small": "http://coverartarchive.org/release/ffce7f9d-4a98-396d-bab7-97e52930cab9/18319704266-250.jpg"
+    }
+  },
+  {
+    "mbid": "7358214c-e1d4-4ffe-932c-0b3b79609bc7",
+    "rank": "84",
+    "title": "Back in Black",
+    "artist": "AC/DC",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/7358214c-e1d4-4ffe-932c-0b3b79609bc7/40685047659-1200.jpg",
+      "250": "https://coverartarchive.org/release/7358214c-e1d4-4ffe-932c-0b3b79609bc7/40685047659-250.jpg",
+      "500": "https://coverartarchive.org/release/7358214c-e1d4-4ffe-932c-0b3b79609bc7/40685047659-500.jpg",
+      "large": "https://coverartarchive.org/release/7358214c-e1d4-4ffe-932c-0b3b79609bc7/40685047659-500.jpg",
+      "small": "https://coverartarchive.org/release/7358214c-e1d4-4ffe-932c-0b3b79609bc7/40685047659-250.jpg"
+    }
+  },
+  {
+    "mbid": "4438e99b-ef1e-32d0-962d-79e9f511f64e",
+    "rank": "86",
+    "title": "The Doors",
+    "artist": "The Doors",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/4438e99b-ef1e-32d0-962d-79e9f511f64e/3698592767-1200.jpg",
+      "250": "http://coverartarchive.org/release/4438e99b-ef1e-32d0-962d-79e9f511f64e/3698592767-250.jpg",
+      "500": "http://coverartarchive.org/release/4438e99b-ef1e-32d0-962d-79e9f511f64e/3698592767-500.jpg",
+      "large": "http://coverartarchive.org/release/4438e99b-ef1e-32d0-962d-79e9f511f64e/3698592767-500.jpg",
+      "small": "http://coverartarchive.org/release/4438e99b-ef1e-32d0-962d-79e9f511f64e/3698592767-250.jpg"
+    }
+  },
+  {
+    "mbid": "a3af4c37-0eee-4500-bfb3-4d8793b31743",
+    "rank": "87",
+    "title": "Bitches Brew",
+    "artist": "Miles Davis",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/a3af4c37-0eee-4500-bfb3-4d8793b31743/44176281973-1200.jpg",
+      "250": "https://coverartarchive.org/release/a3af4c37-0eee-4500-bfb3-4d8793b31743/44176281973-250.jpg",
+      "500": "https://coverartarchive.org/release/a3af4c37-0eee-4500-bfb3-4d8793b31743/44176281973-500.jpg",
+      "large": "https://coverartarchive.org/release/a3af4c37-0eee-4500-bfb3-4d8793b31743/44176281973-500.jpg",
+      "small": "https://coverartarchive.org/release/a3af4c37-0eee-4500-bfb3-4d8793b31743/44176281973-250.jpg"
+    }
+  },
+  {
+    "mbid": "4800c809-f22f-4aee-8533-d3fb5884ac5f",
+    "rank": "88",
+    "title": "Hunky Dory",
+    "artist": "David Bowie",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/4800c809-f22f-4aee-8533-d3fb5884ac5f/42947403488-1200.jpg",
+      "250": "https://coverartarchive.org/release/4800c809-f22f-4aee-8533-d3fb5884ac5f/42947403488-250.jpg",
+      "500": "https://coverartarchive.org/release/4800c809-f22f-4aee-8533-d3fb5884ac5f/42947403488-500.jpg",
+      "large": "https://coverartarchive.org/release/4800c809-f22f-4aee-8533-d3fb5884ac5f/42947403488-500.jpg",
+      "small": "https://coverartarchive.org/release/4800c809-f22f-4aee-8533-d3fb5884ac5f/42947403488-250.jpg"
+    }
+  },
+  {
+    "mbid": "92c85c68-e8e4-3c39-bf4e-dd9e7339427c",
+    "rank": "89",
+    "title": "Baduizm",
+    "artist": "Erykah Badu",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/92c85c68-e8e4-3c39-bf4e-dd9e7339427c/1114417121-1200.jpg",
+      "250": "http://coverartarchive.org/release/92c85c68-e8e4-3c39-bf4e-dd9e7339427c/1114417121-250.jpg",
+      "500": "http://coverartarchive.org/release/92c85c68-e8e4-3c39-bf4e-dd9e7339427c/1114417121-500.jpg",
+      "large": "http://coverartarchive.org/release/92c85c68-e8e4-3c39-bf4e-dd9e7339427c/1114417121-500.jpg",
+      "small": "http://coverartarchive.org/release/92c85c68-e8e4-3c39-bf4e-dd9e7339427c/1114417121-250.jpg"
+    }
+  },
+  {
+    "mbid": "95723f6f-f2e3-4a94-9ede-5d2f69932a8a",
+    "rank": "90",
+    "title": "After the Gold Rush",
+    "artist": "Neil Young",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/95723f6f-f2e3-4a94-9ede-5d2f69932a8a/3743166754-1200.jpg",
+      "250": "http://coverartarchive.org/release/95723f6f-f2e3-4a94-9ede-5d2f69932a8a/3743166754-250.jpg",
+      "500": "http://coverartarchive.org/release/95723f6f-f2e3-4a94-9ede-5d2f69932a8a/3743166754-500.jpg",
+      "large": "http://coverartarchive.org/release/95723f6f-f2e3-4a94-9ede-5d2f69932a8a/3743166754-500.jpg",
+      "small": "http://coverartarchive.org/release/95723f6f-f2e3-4a94-9ede-5d2f69932a8a/3743166754-250.jpg"
+    }
+  },
+  {
+    "mbid": "96f335a5-1c89-4cba-956e-b035d994e338",
+    "rank": "91",
+    "title": "Darkness on the Edge of Town",
+    "artist": "Bruce Springsteen",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/96f335a5-1c89-4cba-956e-b035d994e338/32571827156-1200.jpg",
+      "250": "http://coverartarchive.org/release/96f335a5-1c89-4cba-956e-b035d994e338/32571827156-250.jpg",
+      "500": "http://coverartarchive.org/release/96f335a5-1c89-4cba-956e-b035d994e338/32571827156-500.jpg",
+      "large": "http://coverartarchive.org/release/96f335a5-1c89-4cba-956e-b035d994e338/32571827156-500.jpg",
+      "small": "http://coverartarchive.org/release/96f335a5-1c89-4cba-956e-b035d994e338/32571827156-250.jpg"
+    }
+  },
+  {
+    "mbid": "a2662ae2-f06b-3cdd-892f-596646c03558",
+    "rank": "92",
+    "title": "Axis: Bold as Love",
+    "artist": "The Jimi Hendrix Experience",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/a2662ae2-f06b-3cdd-892f-596646c03558/4119596163-1200.jpg",
+      "250": "http://coverartarchive.org/release/a2662ae2-f06b-3cdd-892f-596646c03558/4119596163-250.jpg",
+      "500": "http://coverartarchive.org/release/a2662ae2-f06b-3cdd-892f-596646c03558/4119596163-500.jpg",
+      "large": "http://coverartarchive.org/release/a2662ae2-f06b-3cdd-892f-596646c03558/4119596163-500.jpg",
+      "small": "http://coverartarchive.org/release/a2662ae2-f06b-3cdd-892f-596646c03558/4119596163-250.jpg"
+    }
+  },
+  {
+    "mbid": "cf8fc7b7-a662-4af5-a42e-db3de68bcf0d",
+    "rank": "98",
+    "title": "Car Wheels on a Gravel Road",
+    "artist": "Lucinda Williams",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/cf8fc7b7-a662-4af5-a42e-db3de68bcf0d/9115695891-500.jpg",
+      "small": "http://coverartarchive.org/release/cf8fc7b7-a662-4af5-a42e-db3de68bcf0d/9115695891-250.jpg"
+    }
+  },
+  {
+    "mbid": "afacbcab-cdf6-408f-a483-abaa06b618f6",
+    "rank": "100",
+    "title": "Music from Big Pink",
+    "artist": "The Band",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/afacbcab-cdf6-408f-a483-abaa06b618f6/12148104377-1200.jpg",
+      "250": "http://coverartarchive.org/release/afacbcab-cdf6-408f-a483-abaa06b618f6/12148104377-250.jpg",
+      "500": "http://coverartarchive.org/release/afacbcab-cdf6-408f-a483-abaa06b618f6/12148104377-500.jpg",
+      "large": "http://coverartarchive.org/release/afacbcab-cdf6-408f-a483-abaa06b618f6/12148104377-500.jpg",
+      "small": "http://coverartarchive.org/release/afacbcab-cdf6-408f-a483-abaa06b618f6/12148104377-250.jpg"
+    }
+  },
+  {
+    "mbid": "e53120aa-ef15-491d-ad39-8ef159a6ca6b",
+    "rank": "101",
+    "title": "Led Zeppelin",
+    "artist": "Led Zeppelin",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/e53120aa-ef15-491d-ad39-8ef159a6ca6b/39142649371-1200.jpg",
+      "250": "https://coverartarchive.org/release/e53120aa-ef15-491d-ad39-8ef159a6ca6b/39142649371-250.jpg",
+      "500": "https://coverartarchive.org/release/e53120aa-ef15-491d-ad39-8ef159a6ca6b/39142649371-500.jpg",
+      "large": "https://coverartarchive.org/release/e53120aa-ef15-491d-ad39-8ef159a6ca6b/39142649371-500.jpg",
+      "small": "https://coverartarchive.org/release/e53120aa-ef15-491d-ad39-8ef159a6ca6b/39142649371-250.jpg"
+    }
+  },
+  {
+    "mbid": "6ec5c989-00a1-4960-89a3-818a52ae011f",
+    "rank": "103",
+    "title": "3 Feet High and Rising",
+    "artist": "De La Soul",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/6ec5c989-00a1-4960-89a3-818a52ae011f/17012193784-500.jpg",
+      "small": "http://coverartarchive.org/release/6ec5c989-00a1-4960-89a3-818a52ae011f/17012193784-250.jpg"
+    }
+  },
+  {
+    "mbid": "a31a62a5-bb69-45da-add9-2db818311dd5",
+    "rank": "106",
+    "title": "Live Through This",
+    "artist": "Hole",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/a31a62a5-bb69-45da-add9-2db818311dd5/16031342749-1200.jpg",
+      "250": "http://coverartarchive.org/release/a31a62a5-bb69-45da-add9-2db818311dd5/16031342749-250.jpg",
+      "500": "http://coverartarchive.org/release/a31a62a5-bb69-45da-add9-2db818311dd5/16031342749-500.jpg",
+      "large": "http://coverartarchive.org/release/a31a62a5-bb69-45da-add9-2db818311dd5/16031342749-500.jpg",
+      "small": "http://coverartarchive.org/release/a31a62a5-bb69-45da-add9-2db818311dd5/16031342749-250.jpg"
+    }
+  },
+  {
+    "mbid": "238563e4-f7d2-4cb4-9fd6-a1277058071e",
+    "rank": "107",
+    "title": "Marquee Moon",
+    "artist": "Television",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/238563e4-f7d2-4cb4-9fd6-a1277058071e/5648332863-500.jpg",
+      "small": "http://coverartarchive.org/release/238563e4-f7d2-4cb4-9fd6-a1277058071e/5648332863-250.jpg"
+    }
+  },
+  {
+    "mbid": "667487f6-0635-4f63-86d4-02e238e3a498",
+    "rank": "111",
+    "title": "Control",
+    "artist": "Janet Jackson",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/667487f6-0635-4f63-86d4-02e238e3a498/12049635124-250.jpg",
+      "large": "http://coverartarchive.org/release/667487f6-0635-4f63-86d4-02e238e3a498/12049635124-500.jpg"
+    }
+  },
+  {
+    "mbid": "1ef9a081-4b4c-460c-8581-a03ccb7b5d01",
+    "rank": "118",
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/1ef9a081-4b4c-460c-8581-a03ccb7b5d01/28871785747-1200.jpg",
+      "250": "http://coverartarchive.org/release/1ef9a081-4b4c-460c-8581-a03ccb7b5d01/28871785747-250.jpg",
+      "500": "http://coverartarchive.org/release/1ef9a081-4b4c-460c-8581-a03ccb7b5d01/28871785747-500.jpg",
+      "large": "http://coverartarchive.org/release/1ef9a081-4b4c-460c-8581-a03ccb7b5d01/28871785747-500.jpg",
+      "small": "http://coverartarchive.org/release/1ef9a081-4b4c-460c-8581-a03ccb7b5d01/28871785747-250.jpg"
+    }
+  },
+  {
+    "mbid": "fb7ba508-f362-4678-8b56-90ae19b2a888",
+    "rank": "121",
+    "title": "This Year's Model",
+    "artist": "Elvis Costello",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/fb7ba508-f362-4678-8b56-90ae19b2a888/30021532983-1200.jpg",
+      "250": "https://coverartarchive.org/release/fb7ba508-f362-4678-8b56-90ae19b2a888/30021532983-250.jpg",
+      "500": "https://coverartarchive.org/release/fb7ba508-f362-4678-8b56-90ae19b2a888/30021532983-500.jpg",
+      "large": "https://coverartarchive.org/release/fb7ba508-f362-4678-8b56-90ae19b2a888/30021532983-500.jpg",
+      "small": "https://coverartarchive.org/release/fb7ba508-f362-4678-8b56-90ae19b2a888/30021532983-250.jpg"
+    }
+  },
+  {
+    "mbid": "ba8701ba-dc7c-4bca-9c83-846ee8c3d576",
+    "rank": "122",
+    "title": "The Downward Spiral",
+    "artist": "Nine Inch Nails",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ba8701ba-dc7c-4bca-9c83-846ee8c3d576/36673808065-1200.jpg",
+      "250": "http://coverartarchive.org/release/ba8701ba-dc7c-4bca-9c83-846ee8c3d576/36673808065-250.jpg",
+      "500": "http://coverartarchive.org/release/ba8701ba-dc7c-4bca-9c83-846ee8c3d576/36673808065-500.jpg",
+      "large": "http://coverartarchive.org/release/ba8701ba-dc7c-4bca-9c83-846ee8c3d576/36673808065-500.jpg",
+      "small": "http://coverartarchive.org/release/ba8701ba-dc7c-4bca-9c83-846ee8c3d576/36673808065-250.jpg"
+    }
+  },
+  {
+    "mbid": "9b746946-202a-39b5-9964-9c578ad1c373",
+    "rank": "124",
+    "title": "Achtung Baby",
+    "artist": "U2",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/9b746946-202a-39b5-9964-9c578ad1c373/12913949858-1200.jpg",
+      "250": "https://coverartarchive.org/release/9b746946-202a-39b5-9964-9c578ad1c373/12913949858-250.jpg",
+      "500": "https://coverartarchive.org/release/9b746946-202a-39b5-9964-9c578ad1c373/12913949858-500.jpg",
+      "large": "https://coverartarchive.org/release/9b746946-202a-39b5-9964-9c578ad1c373/12913949858-500.jpg",
+      "small": "https://coverartarchive.org/release/9b746946-202a-39b5-9964-9c578ad1c373/12913949858-250.jpg"
+    }
+  },
+  {
+    "mbid": "c4944da6-84d6-498a-9aaa-94687305c8c2",
+    "rank": "125",
+    "title": "Paul's Boutique",
+    "artist": "Beastie Boys",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/c4944da6-84d6-498a-9aaa-94687305c8c2/38621850911-1200.jpg",
+      "250": "https://coverartarchive.org/release/c4944da6-84d6-498a-9aaa-94687305c8c2/38621850911-250.jpg",
+      "500": "https://coverartarchive.org/release/c4944da6-84d6-498a-9aaa-94687305c8c2/38621850911-500.jpg",
+      "large": "https://coverartarchive.org/release/c4944da6-84d6-498a-9aaa-94687305c8c2/38621850911-500.jpg",
+      "small": "https://coverartarchive.org/release/c4944da6-84d6-498a-9aaa-94687305c8c2/38621850911-250.jpg"
+    }
+  },
+  {
+    "mbid": "83dc4d86-f07e-468d-b925-42604d5a3995",
+    "rank": "126",
+    "title": "My Life",
+    "artist": "Mary J. Blige",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/83dc4d86-f07e-468d-b925-42604d5a3995/19772470584-1200.jpg",
+      "250": "https://coverartarchive.org/release/83dc4d86-f07e-468d-b925-42604d5a3995/19772470584-250.jpg",
+      "500": "https://coverartarchive.org/release/83dc4d86-f07e-468d-b925-42604d5a3995/19772470584-500.jpg",
+      "large": "https://coverartarchive.org/release/83dc4d86-f07e-468d-b925-42604d5a3995/19772470584-500.jpg",
+      "small": "https://coverartarchive.org/release/83dc4d86-f07e-468d-b925-42604d5a3995/19772470584-250.jpg"
+    }
+  },
+  {
+    "mbid": "37c10772-8ae9-49a9-8b6d-2b53338917ae",
+    "rank": "127",
+    "title": "Modern Sounds in Country and Western Music",
+    "artist": "Ray Charles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/37c10772-8ae9-49a9-8b6d-2b53338917ae/27591087116-1200.jpg",
+      "250": "http://coverartarchive.org/release/37c10772-8ae9-49a9-8b6d-2b53338917ae/27591087116-250.jpg",
+      "500": "http://coverartarchive.org/release/37c10772-8ae9-49a9-8b6d-2b53338917ae/27591087116-500.jpg",
+      "large": "http://coverartarchive.org/release/37c10772-8ae9-49a9-8b6d-2b53338917ae/27591087116-500.jpg",
+      "small": "http://coverartarchive.org/release/37c10772-8ae9-49a9-8b6d-2b53338917ae/27591087116-250.jpg"
+    }
+  },
+  {
+    "mbid": "492511c2-bc58-4f0c-ba73-7de3befc9710",
+    "rank": "128",
+    "title": "A Night at the Opera",
+    "artist": "Queen",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/492511c2-bc58-4f0c-ba73-7de3befc9710/29116830720-1200.jpg",
+      "250": "http://coverartarchive.org/release/492511c2-bc58-4f0c-ba73-7de3befc9710/29116830720-250.jpg",
+      "500": "http://coverartarchive.org/release/492511c2-bc58-4f0c-ba73-7de3befc9710/29116830720-500.jpg",
+      "large": "http://coverartarchive.org/release/492511c2-bc58-4f0c-ba73-7de3befc9710/29116830720-500.jpg",
+      "small": "http://coverartarchive.org/release/492511c2-bc58-4f0c-ba73-7de3befc9710/29116830720-250.jpg"
+    }
+  },
+  {
+    "mbid": "14db3839-4007-3b46-9e7c-619f37ac19a4",
+    "rank": "129",
+    "title": "The Wall",
+    "artist": "Pink Floyd",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/14db3839-4007-3b46-9e7c-619f37ac19a4/7465470950-1200.jpg",
+      "250": "http://coverartarchive.org/release/14db3839-4007-3b46-9e7c-619f37ac19a4/7465470950-250.jpg",
+      "500": "http://coverartarchive.org/release/14db3839-4007-3b46-9e7c-619f37ac19a4/7465470950-500.jpg",
+      "large": "http://coverartarchive.org/release/14db3839-4007-3b46-9e7c-619f37ac19a4/7465470950-500.jpg",
+      "small": "http://coverartarchive.org/release/14db3839-4007-3b46-9e7c-619f37ac19a4/7465470950-250.jpg"
+    }
+  },
+  {
+    "mbid": "d196f192-9a05-4289-bee3-704307c41f90",
+    "rank": "130",
+    "title": "1999",
+    "artist": "Prince",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/d196f192-9a05-4289-bee3-704307c41f90/41827268399-1200.jpg",
+      "250": "https://coverartarchive.org/release/d196f192-9a05-4289-bee3-704307c41f90/41827268399-250.jpg",
+      "500": "https://coverartarchive.org/release/d196f192-9a05-4289-bee3-704307c41f90/41827268399-500.jpg",
+      "large": "https://coverartarchive.org/release/d196f192-9a05-4289-bee3-704307c41f90/41827268399-500.jpg",
+      "small": "https://coverartarchive.org/release/d196f192-9a05-4289-bee3-704307c41f90/41827268399-250.jpg"
+    }
+  },
+  {
+    "mbid": "76df3287-6cda-33eb-8e9a-044b5e15ffdd",
+    "rank": "131",
+    "title": "Dummy",
+    "artist": "Portishead",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/76df3287-6cda-33eb-8e9a-044b5e15ffdd/5769317885-1200.jpg",
+      "250": "http://coverartarchive.org/release/76df3287-6cda-33eb-8e9a-044b5e15ffdd/5769317885-250.jpg",
+      "500": "http://coverartarchive.org/release/76df3287-6cda-33eb-8e9a-044b5e15ffdd/5769317885-500.jpg",
+      "large": "http://coverartarchive.org/release/76df3287-6cda-33eb-8e9a-044b5e15ffdd/5769317885-500.jpg",
+      "small": "http://coverartarchive.org/release/76df3287-6cda-33eb-8e9a-044b5e15ffdd/5769317885-250.jpg"
+    }
+  },
+  {
+    "mbid": "42a688de-3c8e-438f-acc7-a241ca26acb5",
+    "rank": "132",
+    "title": "40 Greatest Hits",
+    "artist": "Hank Williams",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/42a688de-3c8e-438f-acc7-a241ca26acb5/34436192510-1200.jpg",
+      "250": "http://coverartarchive.org/release/42a688de-3c8e-438f-acc7-a241ca26acb5/34436192510-250.jpg",
+      "500": "http://coverartarchive.org/release/42a688de-3c8e-438f-acc7-a241ca26acb5/34436192510-500.jpg",
+      "large": "http://coverartarchive.org/release/42a688de-3c8e-438f-acc7-a241ca26acb5/34436192510-500.jpg",
+      "small": "http://coverartarchive.org/release/42a688de-3c8e-438f-acc7-a241ca26acb5/34436192510-250.jpg"
+    }
+  },
+  {
+    "mbid": "866d4044-7a79-40ff-ba3c-a25dbc42317f",
+    "rank": "133",
+    "title": "Hejira",
+    "artist": "Joni Mitchell",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/866d4044-7a79-40ff-ba3c-a25dbc42317f/14268210102-250.jpg",
+      "large": "http://coverartarchive.org/release/866d4044-7a79-40ff-ba3c-a25dbc42317f/14268210102-500.jpg"
+    }
+  },
+  {
+    "mbid": "13027e7b-340c-4478-8dda-df5fa4af3564",
+    "rank": "134",
+    "title": "The Score",
+    "artist": "Fugees",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/13027e7b-340c-4478-8dda-df5fa4af3564/18986226483-1200.jpg",
+      "250": "https://coverartarchive.org/release/13027e7b-340c-4478-8dda-df5fa4af3564/18986226483-250.jpg",
+      "500": "https://coverartarchive.org/release/13027e7b-340c-4478-8dda-df5fa4af3564/18986226483-500.jpg",
+      "large": "https://coverartarchive.org/release/13027e7b-340c-4478-8dda-df5fa4af3564/18986226483-500.jpg",
+      "small": "https://coverartarchive.org/release/13027e7b-340c-4478-8dda-df5fa4af3564/18986226483-250.jpg"
+    }
+  },
+  {
+    "mbid": "b9d8ef7e-08be-435e-825c-925293f4f41d",
+    "rank": "138",
+    "title": "The Immaculate Collection",
+    "artist": "Madonna",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/b9d8ef7e-08be-435e-825c-925293f4f41d/2221190367-500.jpg",
+      "small": "http://coverartarchive.org/release/b9d8ef7e-08be-435e-825c-925293f4f41d/2221190367-250.jpg"
+    }
+  },
+  {
+    "mbid": "3537864f-8912-45f6-bc6c-c1fc9b3aa9ec",
+    "rank": "139",
+    "title": "Paranoid",
+    "artist": "Black Sabbath",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/3537864f-8912-45f6-bc6c-c1fc9b3aa9ec/19005626406-1200.jpg",
+      "250": "http://coverartarchive.org/release/3537864f-8912-45f6-bc6c-c1fc9b3aa9ec/19005626406-250.jpg",
+      "500": "http://coverartarchive.org/release/3537864f-8912-45f6-bc6c-c1fc9b3aa9ec/19005626406-500.jpg",
+      "large": "http://coverartarchive.org/release/3537864f-8912-45f6-bc6c-c1fc9b3aa9ec/19005626406-500.jpg",
+      "small": "http://coverartarchive.org/release/3537864f-8912-45f6-bc6c-c1fc9b3aa9ec/19005626406-250.jpg"
+    }
+  },
+  {
+    "mbid": "bdd0e35c-ce68-3f5b-b957-f83ab5846111",
+    "rank": "141",
+    "title": "Doolittle",
+    "artist": "Pixies",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/bdd0e35c-ce68-3f5b-b957-f83ab5846111/6094238805-1200.jpg",
+      "250": "http://coverartarchive.org/release/bdd0e35c-ce68-3f5b-b957-f83ab5846111/6094238805-250.jpg",
+      "500": "http://coverartarchive.org/release/bdd0e35c-ce68-3f5b-b957-f83ab5846111/6094238805-500.jpg",
+      "large": "http://coverartarchive.org/release/bdd0e35c-ce68-3f5b-b957-f83ab5846111/6094238805-500.jpg",
+      "small": "http://coverartarchive.org/release/bdd0e35c-ce68-3f5b-b957-f83ab5846111/6094238805-250.jpg"
+    }
+  },
+  {
+    "mbid": "5e9b3d61-49a4-4f5e-95ad-025f771be099",
+    "rank": "142",
+    "title": "Born in the U.S.A.",
+    "artist": "Bruce Springsteen",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5e9b3d61-49a4-4f5e-95ad-025f771be099/23869108673-1200.jpg",
+      "250": "http://coverartarchive.org/release/5e9b3d61-49a4-4f5e-95ad-025f771be099/23869108673-250.jpg",
+      "500": "http://coverartarchive.org/release/5e9b3d61-49a4-4f5e-95ad-025f771be099/23869108673-500.jpg",
+      "large": "http://coverartarchive.org/release/5e9b3d61-49a4-4f5e-95ad-025f771be099/23869108673-500.jpg",
+      "small": "http://coverartarchive.org/release/5e9b3d61-49a4-4f5e-95ad-025f771be099/23869108673-250.jpg"
+    }
+  },
+  {
+    "mbid": "fa20fff8-98c0-41a0-a60f-9c7cbafeb876",
+    "rank": "143",
+    "title": "The Velvet Underground",
+    "artist": "The Velvet Underground",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/fa20fff8-98c0-41a0-a60f-9c7cbafeb876/23110857687-1200.jpg",
+      "250": "http://coverartarchive.org/release/fa20fff8-98c0-41a0-a60f-9c7cbafeb876/23110857687-250.jpg",
+      "500": "http://coverartarchive.org/release/fa20fff8-98c0-41a0-a60f-9c7cbafeb876/23110857687-500.jpg",
+      "large": "http://coverartarchive.org/release/fa20fff8-98c0-41a0-a60f-9c7cbafeb876/23110857687-500.jpg",
+      "small": "http://coverartarchive.org/release/fa20fff8-98c0-41a0-a60f-9c7cbafeb876/23110857687-250.jpg"
+    }
+  },
+  {
+    "mbid": "e3f0f405-d50f-45a4-ba71-795e7333fb56",
+    "rank": "144",
+    "title": "Physical Graffiti",
+    "artist": "Led Zeppelin",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/e3f0f405-d50f-45a4-ba71-795e7333fb56/21965727414-1200.jpg",
+      "250": "http://coverartarchive.org/release/e3f0f405-d50f-45a4-ba71-795e7333fb56/21965727414-250.jpg",
+      "500": "http://coverartarchive.org/release/e3f0f405-d50f-45a4-ba71-795e7333fb56/21965727414-500.jpg",
+      "large": "http://coverartarchive.org/release/e3f0f405-d50f-45a4-ba71-795e7333fb56/21965727414-500.jpg",
+      "small": "http://coverartarchive.org/release/e3f0f405-d50f-45a4-ba71-795e7333fb56/21965727414-250.jpg"
+    }
+  },
+  {
+    "mbid": "8d2661e7-fd4a-3ea6-b4d1-0bc720115744",
+    "rank": "145",
+    "title": "The Marshall Mathers LP",
+    "artist": "Eminem",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/8d2661e7-fd4a-3ea6-b4d1-0bc720115744/1414704960-1200.jpg",
+      "250": "http://coverartarchive.org/release/8d2661e7-fd4a-3ea6-b4d1-0bc720115744/1414704960-250.jpg",
+      "500": "http://coverartarchive.org/release/8d2661e7-fd4a-3ea6-b4d1-0bc720115744/1414704960-500.jpg",
+      "large": "http://coverartarchive.org/release/8d2661e7-fd4a-3ea6-b4d1-0bc720115744/1414704960-500.jpg",
+      "small": "http://coverartarchive.org/release/8d2661e7-fd4a-3ea6-b4d1-0bc720115744/1414704960-250.jpg"
+    }
+  },
+  {
+    "mbid": "5388f17b-d0b9-4c82-99d5-7702d4befb6a",
+    "rank": "146",
+    "title": "Parallel Lines",
+    "artist": "Blondie",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/5388f17b-d0b9-4c82-99d5-7702d4befb6a/43646858533-1200.jpg",
+      "250": "https://coverartarchive.org/release/5388f17b-d0b9-4c82-99d5-7702d4befb6a/43646858533-250.jpg",
+      "500": "https://coverartarchive.org/release/5388f17b-d0b9-4c82-99d5-7702d4befb6a/43646858533-500.jpg",
+      "large": "https://coverartarchive.org/release/5388f17b-d0b9-4c82-99d5-7702d4befb6a/43646858533-500.jpg",
+      "small": "https://coverartarchive.org/release/5388f17b-d0b9-4c82-99d5-7702d4befb6a/43646858533-250.jpg"
+    }
+  },
+  {
+    "mbid": "e0d7cd0f-137c-41be-abc8-bec8c82912e0",
+    "rank": "147",
+    "title": "Grace",
+    "artist": "Jeff Buckley",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/e0d7cd0f-137c-41be-abc8-bec8c82912e0/44409722724-1200.jpg",
+      "250": "https://coverartarchive.org/release/e0d7cd0f-137c-41be-abc8-bec8c82912e0/44409722724-250.jpg",
+      "500": "https://coverartarchive.org/release/e0d7cd0f-137c-41be-abc8-bec8c82912e0/44409722724-500.jpg",
+      "large": "https://coverartarchive.org/release/e0d7cd0f-137c-41be-abc8-bec8c82912e0/44409722724-500.jpg",
+      "small": "https://coverartarchive.org/release/e0d7cd0f-137c-41be-abc8-bec8c82912e0/44409722724-250.jpg"
+    }
+  },
+  {
+    "mbid": "2b115165-6200-4a7f-9c78-f03b53d42b80",
+    "rank": "149",
+    "title": "John Prine",
+    "artist": "John Prine",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2b115165-6200-4a7f-9c78-f03b53d42b80/26589895305-1200.jpg",
+      "250": "http://coverartarchive.org/release/2b115165-6200-4a7f-9c78-f03b53d42b80/26589895305-250.jpg",
+      "500": "http://coverartarchive.org/release/2b115165-6200-4a7f-9c78-f03b53d42b80/26589895305-500.jpg",
+      "large": "http://coverartarchive.org/release/2b115165-6200-4a7f-9c78-f03b53d42b80/26589895305-500.jpg",
+      "small": "http://coverartarchive.org/release/2b115165-6200-4a7f-9c78-f03b53d42b80/26589895305-250.jpg"
+    }
+  },
+  {
+    "mbid": "093c881d-0c72-4e7d-b6da-16b2e51f2b64",
+    "rank": "150",
+    "title": "Nebraska",
+    "artist": "Bruce Springsteen",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/093c881d-0c72-4e7d-b6da-16b2e51f2b64/30565780513-1200.jpg",
+      "250": "http://coverartarchive.org/release/093c881d-0c72-4e7d-b6da-16b2e51f2b64/30565780513-250.jpg",
+      "500": "http://coverartarchive.org/release/093c881d-0c72-4e7d-b6da-16b2e51f2b64/30565780513-500.jpg",
+      "large": "http://coverartarchive.org/release/093c881d-0c72-4e7d-b6da-16b2e51f2b64/30565780513-500.jpg",
+      "small": "http://coverartarchive.org/release/093c881d-0c72-4e7d-b6da-16b2e51f2b64/30565780513-250.jpg"
+    }
+  },
+  {
+    "mbid": "1c0e9b1b-7f80-4601-8776-546953ae9cf2",
+    "rank": "153",
+    "title": "Rid of Me",
+    "artist": "PJ Harvey",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/1c0e9b1b-7f80-4601-8776-546953ae9cf2/37692092841-1200.jpg",
+      "250": "http://coverartarchive.org/release/1c0e9b1b-7f80-4601-8776-546953ae9cf2/37692092841-250.jpg",
+      "500": "http://coverartarchive.org/release/1c0e9b1b-7f80-4601-8776-546953ae9cf2/37692092841-500.jpg",
+      "large": "http://coverartarchive.org/release/1c0e9b1b-7f80-4601-8776-546953ae9cf2/37692092841-500.jpg",
+      "small": "http://coverartarchive.org/release/1c0e9b1b-7f80-4601-8776-546953ae9cf2/37692092841-250.jpg"
+    }
+  },
+  {
+    "mbid": "9407256c-6c05-4720-9fbe-d6d9e6a10640",
+    "rank": "154",
+    "title": "Amazing Grace",
+    "artist": "Aretha Franklin",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/9407256c-6c05-4720-9fbe-d6d9e6a10640/18298878350-500.jpg",
+      "small": "http://coverartarchive.org/release/9407256c-6c05-4720-9fbe-d6d9e6a10640/18298878350-250.jpg"
+    }
+  },
+  {
+    "mbid": "ce39c6c2-0829-3ce6-8378-199345285912",
+    "rank": "156",
+    "title": "Let It Be",
+    "artist": "The Replacements",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ce39c6c2-0829-3ce6-8378-199345285912/25274217650-1200.jpg",
+      "250": "http://coverartarchive.org/release/ce39c6c2-0829-3ce6-8378-199345285912/25274217650-250.jpg",
+      "500": "http://coverartarchive.org/release/ce39c6c2-0829-3ce6-8378-199345285912/25274217650-500.jpg",
+      "large": "http://coverartarchive.org/release/ce39c6c2-0829-3ce6-8378-199345285912/25274217650-500.jpg",
+      "small": "http://coverartarchive.org/release/ce39c6c2-0829-3ce6-8378-199345285912/25274217650-250.jpg"
+    }
+  },
+  {
+    "mbid": "ed286309-6e64-48e3-835b-61aaf86cdb86",
+    "rank": "157",
+    "title": "(What's the Story) Morning Glory?",
+    "artist": "Oasis",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/ed286309-6e64-48e3-835b-61aaf86cdb86/32451259245-1200.jpg",
+      "250": "https://coverartarchive.org/release/ed286309-6e64-48e3-835b-61aaf86cdb86/32451259245-250.jpg",
+      "500": "https://coverartarchive.org/release/ed286309-6e64-48e3-835b-61aaf86cdb86/32451259245-500.jpg",
+      "large": "https://coverartarchive.org/release/ed286309-6e64-48e3-835b-61aaf86cdb86/32451259245-500.jpg",
+      "small": "https://coverartarchive.org/release/ed286309-6e64-48e3-835b-61aaf86cdb86/32451259245-250.jpg"
+    }
+  },
+  {
+    "mbid": "8f46f199-851b-4cbe-8432-bbc30bba93b7",
+    "rank": "158",
+    "title": "Mama's Gun",
+    "artist": "Erykah Badu",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/8f46f199-851b-4cbe-8432-bbc30bba93b7/36629451234-1200.jpg",
+      "250": "http://coverartarchive.org/release/8f46f199-851b-4cbe-8432-bbc30bba93b7/36629451234-250.jpg",
+      "500": "http://coverartarchive.org/release/8f46f199-851b-4cbe-8432-bbc30bba93b7/36629451234-500.jpg",
+      "large": "http://coverartarchive.org/release/8f46f199-851b-4cbe-8432-bbc30bba93b7/36629451234-500.jpg",
+      "small": "http://coverartarchive.org/release/8f46f199-851b-4cbe-8432-bbc30bba93b7/36629451234-250.jpg"
+    }
+  },
+  {
+    "mbid": "53a7e6d5-077f-31a1-bd4d-9c4081dbd8f4",
+    "rank": "159",
+    "title": "Synchronicity",
+    "artist": "The Police",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/53a7e6d5-077f-31a1-bd4d-9c4081dbd8f4/39157501357-1200.jpg",
+      "250": "https://coverartarchive.org/release/53a7e6d5-077f-31a1-bd4d-9c4081dbd8f4/39157501357-250.jpg",
+      "500": "https://coverartarchive.org/release/53a7e6d5-077f-31a1-bd4d-9c4081dbd8f4/39157501357-500.jpg",
+      "large": "https://coverartarchive.org/release/53a7e6d5-077f-31a1-bd4d-9c4081dbd8f4/39157501357-500.jpg",
+      "small": "https://coverartarchive.org/release/53a7e6d5-077f-31a1-bd4d-9c4081dbd8f4/39157501357-250.jpg"
+    }
+  },
+  {
+    "mbid": "c65de253-52cf-4e9e-b48e-2042dbbbecdf",
+    "rank": "162",
+    "title": "Different Class",
+    "artist": "Pulp",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/c65de253-52cf-4e9e-b48e-2042dbbbecdf/34774391850-1200.jpg",
+      "250": "http://coverartarchive.org/release/c65de253-52cf-4e9e-b48e-2042dbbbecdf/34774391850-250.jpg",
+      "500": "http://coverartarchive.org/release/c65de253-52cf-4e9e-b48e-2042dbbbecdf/34774391850-500.jpg",
+      "large": "http://coverartarchive.org/release/c65de253-52cf-4e9e-b48e-2042dbbbecdf/34774391850-500.jpg",
+      "small": "http://coverartarchive.org/release/c65de253-52cf-4e9e-b48e-2042dbbbecdf/34774391850-250.jpg"
+    }
+  },
+  {
+    "mbid": "2a880c98-e963-363e-857c-8f8c5a963eb9",
+    "rank": "165",
+    "title": "Murmur",
+    "artist": "R.E.M.",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2a880c98-e963-363e-857c-8f8c5a963eb9/24587107402-1200.jpg",
+      "250": "http://coverartarchive.org/release/2a880c98-e963-363e-857c-8f8c5a963eb9/24587107402-250.jpg",
+      "500": "http://coverartarchive.org/release/2a880c98-e963-363e-857c-8f8c5a963eb9/24587107402-500.jpg",
+      "large": "http://coverartarchive.org/release/2a880c98-e963-363e-857c-8f8c5a963eb9/24587107402-500.jpg",
+      "small": "http://coverartarchive.org/release/2a880c98-e963-363e-857c-8f8c5a963eb9/24587107402-250.jpg"
+    }
+  },
+  {
+    "mbid": "06e837a6-ab33-4f96-aaf3-72a4ecabfe10",
+    "rank": "166",
+    "title": "20 Golden Greats",
+    "artist": "Buddy Holly",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/06e837a6-ab33-4f96-aaf3-72a4ecabfe10/44052146799-1200.jpg",
+      "250": "https://coverartarchive.org/release/06e837a6-ab33-4f96-aaf3-72a4ecabfe10/44052146799-250.jpg",
+      "500": "https://coverartarchive.org/release/06e837a6-ab33-4f96-aaf3-72a4ecabfe10/44052146799-500.jpg",
+      "large": "https://coverartarchive.org/release/06e837a6-ab33-4f96-aaf3-72a4ecabfe10/44052146799-500.jpg",
+      "small": "https://coverartarchive.org/release/06e837a6-ab33-4f96-aaf3-72a4ecabfe10/44052146799-250.jpg"
+    }
+  },
+  {
+    "mbid": "5454efa9-445a-4b73-8d16-e9fdbf022119",
+    "rank": "167",
+    "title": "Violator",
+    "artist": "Depeche Mode",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5454efa9-445a-4b73-8d16-e9fdbf022119/18529868327-1200.jpg",
+      "250": "http://coverartarchive.org/release/5454efa9-445a-4b73-8d16-e9fdbf022119/18529868327-250.jpg",
+      "500": "http://coverartarchive.org/release/5454efa9-445a-4b73-8d16-e9fdbf022119/18529868327-500.jpg",
+      "large": "http://coverartarchive.org/release/5454efa9-445a-4b73-8d16-e9fdbf022119/18529868327-500.jpg",
+      "small": "http://coverartarchive.org/release/5454efa9-445a-4b73-8d16-e9fdbf022119/18529868327-250.jpg"
+    }
+  },
+  {
+    "mbid": "2116c519-403d-4aa7-bc44-6fbb738a31df",
+    "rank": "171",
+    "title": "Daydream Nation",
+    "artist": "Sonic Youth",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/2116c519-403d-4aa7-bc44-6fbb738a31df/11991440402-250.jpg",
+      "large": "http://coverartarchive.org/release/2116c519-403d-4aa7-bc44-6fbb738a31df/11991440402-500.jpg"
+    }
+  },
+  {
+    "mbid": "036cf7d0-bca5-4be2-9ce9-8d263485a393",
+    "rank": "172",
+    "title": "Bridge over Troubled Water",
+    "artist": "Simon & Garfunkel",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/036cf7d0-bca5-4be2-9ce9-8d263485a393/30682852105-1200.jpg",
+      "250": "http://coverartarchive.org/release/036cf7d0-bca5-4be2-9ce9-8d263485a393/30682852105-250.jpg",
+      "500": "http://coverartarchive.org/release/036cf7d0-bca5-4be2-9ce9-8d263485a393/30682852105-500.jpg",
+      "large": "http://coverartarchive.org/release/036cf7d0-bca5-4be2-9ce9-8d263485a393/30682852105-500.jpg",
+      "small": "http://coverartarchive.org/release/036cf7d0-bca5-4be2-9ce9-8d263485a393/30682852105-250.jpg"
+    }
+  },
+  {
+    "mbid": "9402f68c-bc93-4278-8515-01d06fda1b39",
+    "rank": "173",
+    "title": "In Utero",
+    "artist": "Nirvana",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9402f68c-bc93-4278-8515-01d06fda1b39/32955579528-1200.jpg",
+      "250": "http://coverartarchive.org/release/9402f68c-bc93-4278-8515-01d06fda1b39/32955579528-250.jpg",
+      "500": "http://coverartarchive.org/release/9402f68c-bc93-4278-8515-01d06fda1b39/32955579528-500.jpg",
+      "large": "http://coverartarchive.org/release/9402f68c-bc93-4278-8515-01d06fda1b39/32955579528-500.jpg",
+      "small": "http://coverartarchive.org/release/9402f68c-bc93-4278-8515-01d06fda1b39/32955579528-250.jpg"
+    }
+  },
+  {
+    "mbid": "81ad6e82-8e70-4805-8866-42e246c6f68c",
+    "rank": "175",
+    "title": "Damn",
+    "artist": "Kendrick Lamar",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/81ad6e82-8e70-4805-8866-42e246c6f68c/19013816267-1200.jpg",
+      "250": "http://coverartarchive.org/release/81ad6e82-8e70-4805-8866-42e246c6f68c/19013816267-250.jpg",
+      "500": "http://coverartarchive.org/release/81ad6e82-8e70-4805-8866-42e246c6f68c/19013816267-500.jpg",
+      "large": "http://coverartarchive.org/release/81ad6e82-8e70-4805-8866-42e246c6f68c/19013816267-500.jpg",
+      "small": "http://coverartarchive.org/release/81ad6e82-8e70-4805-8866-42e246c6f68c/19013816267-250.jpg"
+    }
+  },
+  {
+    "mbid": "b1ec7150-bfd2-4dc2-b7c3-8a82826acc29",
+    "rank": "176",
+    "title": "Fear of a Black Planet",
+    "artist": "Public Enemy",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/b1ec7150-bfd2-4dc2-b7c3-8a82826acc29/14823272945-500.jpg",
+      "small": "http://coverartarchive.org/release/b1ec7150-bfd2-4dc2-b7c3-8a82826acc29/14823272945-250.jpg"
+    }
+  },
+  {
+    "mbid": "ce3ba3f1-6d9c-4b0c-af7a-0c3f7553ed35",
+    "rank": "177",
+    "title": "Every Picture Tells a Story",
+    "artist": "Rod Stewart",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/ce3ba3f1-6d9c-4b0c-af7a-0c3f7553ed35/6738345695-500.jpg",
+      "small": "http://coverartarchive.org/release/ce3ba3f1-6d9c-4b0c-af7a-0c3f7553ed35/6738345695-250.jpg"
+    }
+  },
+  {
+    "mbid": "03aa0355-70d2-4032-9985-f9a040978520",
+    "rank": "179",
+    "title": "Life After Death",
+    "artist": "The Notorious B.I.G.",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/03aa0355-70d2-4032-9985-f9a040978520/3409771415-500.jpg",
+      "small": "http://coverartarchive.org/release/03aa0355-70d2-4032-9985-f9a040978520/3409771415-250.jpg"
+    }
+  },
+  {
+    "mbid": "8c6227b9-7b73-4379-be86-df22d7e0406c",
+    "rank": "185",
+    "title": "Beggars Banquet",
+    "artist": "The Rolling Stones",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/8c6227b9-7b73-4379-be86-df22d7e0406c/33500758462-1200.jpg",
+      "250": "http://coverartarchive.org/release/8c6227b9-7b73-4379-be86-df22d7e0406c/33500758462-250.jpg",
+      "500": "http://coverartarchive.org/release/8c6227b9-7b73-4379-be86-df22d7e0406c/33500758462-500.jpg",
+      "large": "http://coverartarchive.org/release/8c6227b9-7b73-4379-be86-df22d7e0406c/33500758462-500.jpg",
+      "small": "http://coverartarchive.org/release/8c6227b9-7b73-4379-be86-df22d7e0406c/33500758462-250.jpg"
+    }
+  },
+  {
+    "mbid": "8b69a5f2-d3de-4df0-ae61-54b2227862c8",
+    "rank": "186",
+    "title": "Blood Sugar Sex Magik",
+    "artist": "Red Hot Chili Peppers",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/8b69a5f2-d3de-4df0-ae61-54b2227862c8/10539215815-1200.jpg",
+      "250": "http://coverartarchive.org/release/8b69a5f2-d3de-4df0-ae61-54b2227862c8/10539215815-250.jpg",
+      "500": "http://coverartarchive.org/release/8b69a5f2-d3de-4df0-ae61-54b2227862c8/10539215815-500.jpg",
+      "large": "http://coverartarchive.org/release/8b69a5f2-d3de-4df0-ae61-54b2227862c8/10539215815-500.jpg",
+      "small": "http://coverartarchive.org/release/8b69a5f2-d3de-4df0-ae61-54b2227862c8/10539215815-250.jpg"
+    }
+  },
+  {
+    "mbid": "9e749782-b390-47be-b2df-8cc32eef89e7",
+    "rank": "187",
+    "title": "AmeriKKKa's Most Wanted",
+    "artist": "Ice Cube",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9e749782-b390-47be-b2df-8cc32eef89e7/13320187438-1200.jpg",
+      "250": "http://coverartarchive.org/release/9e749782-b390-47be-b2df-8cc32eef89e7/13320187438-250.jpg",
+      "500": "http://coverartarchive.org/release/9e749782-b390-47be-b2df-8cc32eef89e7/13320187438-500.jpg",
+      "large": "http://coverartarchive.org/release/9e749782-b390-47be-b2df-8cc32eef89e7/13320187438-500.jpg",
+      "small": "http://coverartarchive.org/release/9e749782-b390-47be-b2df-8cc32eef89e7/13320187438-250.jpg"
+    }
+  },
+  {
+    "mbid": "d3bca172-fa17-4f55-8011-0a2851e59d19",
+    "rank": "189",
+    "title": "Dig Me Out",
+    "artist": "Sleater-Kinney",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/d3bca172-fa17-4f55-8011-0a2851e59d19/23576733283-1200.jpg",
+      "250": "http://coverartarchive.org/release/d3bca172-fa17-4f55-8011-0a2851e59d19/23576733283-250.jpg",
+      "500": "http://coverartarchive.org/release/d3bca172-fa17-4f55-8011-0a2851e59d19/23576733283-500.jpg",
+      "large": "http://coverartarchive.org/release/d3bca172-fa17-4f55-8011-0a2851e59d19/23576733283-500.jpg",
+      "small": "http://coverartarchive.org/release/d3bca172-fa17-4f55-8011-0a2851e59d19/23576733283-250.jpg"
+    }
+  },
+  {
+    "mbid": "8283a0d4-cdbc-4e6c-9f50-03c74235afb2",
+    "rank": "193",
+    "title": "Willy and the Poor Boys",
+    "artist": "Creedence Clearwater Revival",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/8283a0d4-cdbc-4e6c-9f50-03c74235afb2/19565785567-1200.jpg",
+      "250": "http://coverartarchive.org/release/8283a0d4-cdbc-4e6c-9f50-03c74235afb2/19565785567-250.jpg",
+      "500": "http://coverartarchive.org/release/8283a0d4-cdbc-4e6c-9f50-03c74235afb2/19565785567-500.jpg",
+      "large": "http://coverartarchive.org/release/8283a0d4-cdbc-4e6c-9f50-03c74235afb2/19565785567-500.jpg",
+      "small": "http://coverartarchive.org/release/8283a0d4-cdbc-4e6c-9f50-03c74235afb2/19565785567-250.jpg"
+    }
+  },
+  {
+    "mbid": "bcf7537d-6b5d-4987-b022-074215f3f9fa",
+    "rank": "194",
+    "title": "Bad",
+    "artist": "Michael Jackson",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/bcf7537d-6b5d-4987-b022-074215f3f9fa/1619825353-500.jpg",
+      "small": "http://coverartarchive.org/release/bcf7537d-6b5d-4987-b022-074215f3f9fa/1619825353-250.jpg"
+    }
+  },
+  {
+    "mbid": "d1aa46e4-414b-4488-a506-cfd72eae29d9",
+    "rank": "197",
+    "title": "Meet the Beatles!",
+    "artist": "The Beatles",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/d1aa46e4-414b-4488-a506-cfd72eae29d9/4013277987-500.jpg",
+      "small": "http://coverartarchive.org/release/d1aa46e4-414b-4488-a506-cfd72eae29d9/4013277987-250.jpg"
+    }
+  },
+  {
+    "mbid": "98063a3f-563e-3b9e-be19-af33da0fef52",
+    "rank": "200",
+    "title": "Diamond Life",
+    "artist": "Sade",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/98063a3f-563e-3b9e-be19-af33da0fef52/23441332062-1200.jpg",
+      "250": "http://coverartarchive.org/release/98063a3f-563e-3b9e-be19-af33da0fef52/23441332062-250.jpg",
+      "500": "http://coverartarchive.org/release/98063a3f-563e-3b9e-be19-af33da0fef52/23441332062-500.jpg",
+      "large": "http://coverartarchive.org/release/98063a3f-563e-3b9e-be19-af33da0fef52/23441332062-500.jpg",
+      "small": "http://coverartarchive.org/release/98063a3f-563e-3b9e-be19-af33da0fef52/23441332062-250.jpg"
+    }
+  },
+  {
+    "mbid": "cfbb2f15-835b-4bee-abc1-df30d7e3a381",
+    "rank": "202",
+    "title": "Homogenic",
+    "artist": "Bj\u00f6rk",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/cfbb2f15-835b-4bee-abc1-df30d7e3a381/3588363013-1200.jpg",
+      "250": "http://coverartarchive.org/release/cfbb2f15-835b-4bee-abc1-df30d7e3a381/3588363013-250.jpg",
+      "500": "http://coverartarchive.org/release/cfbb2f15-835b-4bee-abc1-df30d7e3a381/3588363013-500.jpg",
+      "large": "http://coverartarchive.org/release/cfbb2f15-835b-4bee-abc1-df30d7e3a381/3588363013-500.jpg",
+      "small": "http://coverartarchive.org/release/cfbb2f15-835b-4bee-abc1-df30d7e3a381/3588363013-250.jpg"
+    }
+  },
+  {
+    "mbid": "c356465b-656b-4081-b474-dda0d08018a5",
+    "rank": "203",
+    "title": "Pink Moon",
+    "artist": "Nick Drake",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/c356465b-656b-4081-b474-dda0d08018a5/23137765923-1200.jpg",
+      "250": "https://coverartarchive.org/release/c356465b-656b-4081-b474-dda0d08018a5/23137765923-250.jpg",
+      "500": "https://coverartarchive.org/release/c356465b-656b-4081-b474-dda0d08018a5/23137765923-500.jpg",
+      "large": "https://coverartarchive.org/release/c356465b-656b-4081-b474-dda0d08018a5/23137765923-500.jpg",
+      "small": "https://coverartarchive.org/release/c356465b-656b-4081-b474-dda0d08018a5/23137765923-250.jpg"
+    }
+  },
+  {
+    "mbid": "06a81817-093d-40f0-aef2-90673fa550ae",
+    "rank": "204",
+    "title": "Graduation",
+    "artist": "Kanye West",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/06a81817-093d-40f0-aef2-90673fa550ae/41286940407-1200.jpg",
+      "250": "https://coverartarchive.org/release/06a81817-093d-40f0-aef2-90673fa550ae/41286940407-250.jpg",
+      "500": "https://coverartarchive.org/release/06a81817-093d-40f0-aef2-90673fa550ae/41286940407-500.jpg",
+      "large": "https://coverartarchive.org/release/06a81817-093d-40f0-aef2-90673fa550ae/41286940407-500.jpg",
+      "small": "https://coverartarchive.org/release/06a81817-093d-40f0-aef2-90673fa550ae/41286940407-250.jpg"
+    }
+  },
+  {
+    "mbid": "3669ceae-11bf-49ef-b8f2-b5724d24a6f9",
+    "rank": "206",
+    "title": "Low",
+    "artist": "David Bowie",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/3669ceae-11bf-49ef-b8f2-b5724d24a6f9/1331071567-500.jpg",
+      "small": "http://coverartarchive.org/release/3669ceae-11bf-49ef-b8f2-b5724d24a6f9/1331071567-250.jpg"
+    }
+  },
+  {
+    "mbid": "150e50b2-570b-456a-baf4-0da3437d19bd",
+    "rank": "207",
+    "title": "Eagles",
+    "artist": "Eagles",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/150e50b2-570b-456a-baf4-0da3437d19bd/11716096495-250.jpg",
+      "large": "http://coverartarchive.org/release/150e50b2-570b-456a-baf4-0da3437d19bd/11716096495-500.jpg"
+    }
+  },
+  {
+    "mbid": "70266b79-66da-4a8d-9949-7332b8b755ba",
+    "rank": "209",
+    "title": "Raising Hell",
+    "artist": "Run-DMC",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/70266b79-66da-4a8d-9949-7332b8b755ba/38062327477-1200.jpg",
+      "250": "http://coverartarchive.org/release/70266b79-66da-4a8d-9949-7332b8b755ba/38062327477-250.jpg",
+      "500": "http://coverartarchive.org/release/70266b79-66da-4a8d-9949-7332b8b755ba/38062327477-500.jpg",
+      "large": "http://coverartarchive.org/release/70266b79-66da-4a8d-9949-7332b8b755ba/38062327477-500.jpg",
+      "small": "http://coverartarchive.org/release/70266b79-66da-4a8d-9949-7332b8b755ba/38062327477-250.jpg"
+    }
+  },
+  {
+    "mbid": "10751024-6530-4dc5-be0c-6d37bca3aefc",
+    "rank": "210",
+    "title": "The Birth of Soul",
+    "artist": "Ray Charles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/10751024-6530-4dc5-be0c-6d37bca3aefc/19310263245-1200.jpg",
+      "250": "http://coverartarchive.org/release/10751024-6530-4dc5-be0c-6d37bca3aefc/19310263245-250.jpg",
+      "500": "http://coverartarchive.org/release/10751024-6530-4dc5-be0c-6d37bca3aefc/19310263245-500.jpg",
+      "large": "http://coverartarchive.org/release/10751024-6530-4dc5-be0c-6d37bca3aefc/19310263245-500.jpg",
+      "small": "http://coverartarchive.org/release/10751024-6530-4dc5-be0c-6d37bca3aefc/19310263245-250.jpg"
+    }
+  },
+  {
+    "mbid": "2492d3a0-620e-48e1-aa5c-396457a41718",
+    "rank": "212",
+    "title": "Wild Is the Wind",
+    "artist": "Nina Simone",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2492d3a0-620e-48e1-aa5c-396457a41718/23069442081-1200.jpg",
+      "250": "http://coverartarchive.org/release/2492d3a0-620e-48e1-aa5c-396457a41718/23069442081-250.jpg",
+      "500": "http://coverartarchive.org/release/2492d3a0-620e-48e1-aa5c-396457a41718/23069442081-500.jpg",
+      "large": "http://coverartarchive.org/release/2492d3a0-620e-48e1-aa5c-396457a41718/23069442081-500.jpg",
+      "small": "http://coverartarchive.org/release/2492d3a0-620e-48e1-aa5c-396457a41718/23069442081-250.jpg"
+    }
+  },
+  {
+    "mbid": "04c72095-a6af-41f7-a18a-a1dd7e305620",
+    "rank": "213",
+    "title": "The Idler Wheel...",
+    "artist": "Fiona Apple",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/04c72095-a6af-41f7-a18a-a1dd7e305620/1390939722-250.jpg",
+      "large": "http://coverartarchive.org/release/04c72095-a6af-41f7-a18a-a1dd7e305620/1390939722-500.jpg"
+    }
+  },
+  {
+    "mbid": "193be930-94f7-340a-9131-70185d22d238",
+    "rank": "215",
+    "title": "American Beauty",
+    "artist": "Grateful Dead",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/193be930-94f7-340a-9131-70185d22d238/29348010553-1200.jpg",
+      "250": "http://coverartarchive.org/release/193be930-94f7-340a-9131-70185d22d238/29348010553-250.jpg",
+      "500": "http://coverartarchive.org/release/193be930-94f7-340a-9131-70185d22d238/29348010553-500.jpg",
+      "large": "http://coverartarchive.org/release/193be930-94f7-340a-9131-70185d22d238/29348010553-500.jpg",
+      "small": "http://coverartarchive.org/release/193be930-94f7-340a-9131-70185d22d238/29348010553-250.jpg"
+    }
+  },
+  {
+    "mbid": "821cfaab-a24e-4274-80d5-4b7eb96734f0",
+    "rank": "218",
+    "title": "CrazySexyCool",
+    "artist": "TLC",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/821cfaab-a24e-4274-80d5-4b7eb96734f0/23544814086-1200.jpg",
+      "250": "https://coverartarchive.org/release/821cfaab-a24e-4274-80d5-4b7eb96734f0/23544814086-250.jpg",
+      "500": "https://coverartarchive.org/release/821cfaab-a24e-4274-80d5-4b7eb96734f0/23544814086-500.jpg",
+      "large": "https://coverartarchive.org/release/821cfaab-a24e-4274-80d5-4b7eb96734f0/23544814086-500.jpg",
+      "small": "https://coverartarchive.org/release/821cfaab-a24e-4274-80d5-4b7eb96734f0/23544814086-250.jpg"
+    }
+  },
+  {
+    "mbid": "876f4c16-f0e1-40db-8586-87884d49b70d",
+    "rank": "219",
+    "title": "Only Built 4 Cuban Linx...",
+    "artist": "Raekwon",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/876f4c16-f0e1-40db-8586-87884d49b70d/9706279693-500.jpg",
+      "small": "http://coverartarchive.org/release/876f4c16-f0e1-40db-8586-87884d49b70d/9706279693-250.jpg"
+    }
+  },
+  {
+    "mbid": "ae4bffef-3f21-4930-8c10-9adf5ca8ceeb",
+    "rank": "221",
+    "title": "Rage Against the Machine",
+    "artist": "Rage Against the Machine",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/ae4bffef-3f21-4930-8c10-9adf5ca8ceeb/2267365026-500.jpg",
+      "small": "http://coverartarchive.org/release/ae4bffef-3f21-4930-8c10-9adf5ca8ceeb/2267365026-250.jpg"
+    }
+  },
+  {
+    "mbid": "08dcbc7b-2cd6-3155-bd02-631124dfa493",
+    "rank": "222",
+    "title": "Ray of Light",
+    "artist": "Madonna",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/08dcbc7b-2cd6-3155-bd02-631124dfa493/7049216300-1200.jpg",
+      "250": "https://coverartarchive.org/release/08dcbc7b-2cd6-3155-bd02-631124dfa493/7049216300-250.jpg",
+      "500": "https://coverartarchive.org/release/08dcbc7b-2cd6-3155-bd02-631124dfa493/7049216300-500.jpg",
+      "large": "https://coverartarchive.org/release/08dcbc7b-2cd6-3155-bd02-631124dfa493/7049216300-500.jpg",
+      "small": "https://coverartarchive.org/release/08dcbc7b-2cd6-3155-bd02-631124dfa493/7049216300-250.jpg"
+    }
+  },
+  {
+    "mbid": "c464169f-eec9-3406-9690-5e5667ec091d",
+    "rank": "224",
+    "title": "Fly",
+    "artist": "Dixie Chicks",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/c464169f-eec9-3406-9690-5e5667ec091d/6201892007-1200.jpg",
+      "250": "http://coverartarchive.org/release/c464169f-eec9-3406-9690-5e5667ec091d/6201892007-250.jpg",
+      "500": "http://coverartarchive.org/release/c464169f-eec9-3406-9690-5e5667ec091d/6201892007-500.jpg",
+      "large": "http://coverartarchive.org/release/c464169f-eec9-3406-9690-5e5667ec091d/6201892007-500.jpg",
+      "small": "http://coverartarchive.org/release/c464169f-eec9-3406-9690-5e5667ec091d/6201892007-250.jpg"
+    }
+  },
+  {
+    "mbid": "667f92d8-2ea5-49fd-914b-54f955622ea9",
+    "rank": "225",
+    "title": "Yankee Hotel Foxtrot",
+    "artist": "Wilco",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/667f92d8-2ea5-49fd-914b-54f955622ea9/23645488103-1200.jpg",
+      "250": "http://coverartarchive.org/release/667f92d8-2ea5-49fd-914b-54f955622ea9/23645488103-250.jpg",
+      "500": "http://coverartarchive.org/release/667f92d8-2ea5-49fd-914b-54f955622ea9/23645488103-500.jpg",
+      "large": "http://coverartarchive.org/release/667f92d8-2ea5-49fd-914b-54f955622ea9/23645488103-500.jpg",
+      "small": "http://coverartarchive.org/release/667f92d8-2ea5-49fd-914b-54f955622ea9/23645488103-250.jpg"
+    }
+  },
+  {
+    "mbid": "72a5da28-994d-4616-a178-93411e74ba24",
+    "rank": "226",
+    "title": "Layla and Other Assorted Love Songs",
+    "artist": "Derek and the Dominos",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/72a5da28-994d-4616-a178-93411e74ba24/23114297847-1200.jpg",
+      "250": "http://coverartarchive.org/release/72a5da28-994d-4616-a178-93411e74ba24/23114297847-250.jpg",
+      "500": "http://coverartarchive.org/release/72a5da28-994d-4616-a178-93411e74ba24/23114297847-500.jpg",
+      "large": "http://coverartarchive.org/release/72a5da28-994d-4616-a178-93411e74ba24/23114297847-500.jpg",
+      "small": "http://coverartarchive.org/release/72a5da28-994d-4616-a178-93411e74ba24/23114297847-250.jpg"
+    }
+  },
+  {
+    "mbid": "492475e3-a815-476d-b97b-1e64305c9821",
+    "rank": "227",
+    "title": "Here's Little Richard",
+    "artist": "Little Richard",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/492475e3-a815-476d-b97b-1e64305c9821/11547429612-500.jpg",
+      "small": "http://coverartarchive.org/release/492475e3-a815-476d-b97b-1e64305c9821/11547429612-250.jpg"
+    }
+  },
+  {
+    "mbid": "2fa48352-7734-4829-a8be-db1139e948cf",
+    "rank": "228",
+    "title": "De La Soul Is Dead",
+    "artist": "De La Soul",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2fa48352-7734-4829-a8be-db1139e948cf/23981593999-1200.jpg",
+      "250": "http://coverartarchive.org/release/2fa48352-7734-4829-a8be-db1139e948cf/23981593999-250.jpg",
+      "500": "http://coverartarchive.org/release/2fa48352-7734-4829-a8be-db1139e948cf/23981593999-500.jpg",
+      "large": "http://coverartarchive.org/release/2fa48352-7734-4829-a8be-db1139e948cf/23981593999-500.jpg",
+      "small": "http://coverartarchive.org/release/2fa48352-7734-4829-a8be-db1139e948cf/23981593999-250.jpg"
+    }
+  },
+  {
+    "mbid": "ba0a85e0-a55e-3c83-a2ea-01001856be69",
+    "rank": "231",
+    "title": "Damn the Torpedoes",
+    "artist": "Tom Petty and the Heartbreakers",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/ba0a85e0-a55e-3c83-a2ea-01001856be69/951188410-250.jpg",
+      "large": "http://coverartarchive.org/release/ba0a85e0-a55e-3c83-a2ea-01001856be69/951188410-500.jpg"
+    }
+  },
+  {
+    "mbid": "22689758-ffc1-450f-bb48-52b577077dba",
+    "rank": "232",
+    "title": "Giant Steps",
+    "artist": "John Coltrane",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/22689758-ffc1-450f-bb48-52b577077dba/4946914026-1200.jpg",
+      "250": "https://coverartarchive.org/release/22689758-ffc1-450f-bb48-52b577077dba/4946914026-250.jpg",
+      "500": "https://coverartarchive.org/release/22689758-ffc1-450f-bb48-52b577077dba/4946914026-500.jpg",
+      "large": "https://coverartarchive.org/release/22689758-ffc1-450f-bb48-52b577077dba/4946914026-500.jpg",
+      "small": "https://coverartarchive.org/release/22689758-ffc1-450f-bb48-52b577077dba/4946914026-250.jpg"
+    }
+  },
+  {
+    "mbid": "d8074ae7-e163-4e20-b711-40b759198dfd",
+    "rank": "233",
+    "title": "Little Earthquakes",
+    "artist": "Tori Amos",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/d8074ae7-e163-4e20-b711-40b759198dfd/38333429246-1200.jpg",
+      "250": "http://coverartarchive.org/release/d8074ae7-e163-4e20-b711-40b759198dfd/38333429246-250.jpg",
+      "500": "http://coverartarchive.org/release/d8074ae7-e163-4e20-b711-40b759198dfd/38333429246-500.jpg",
+      "large": "http://coverartarchive.org/release/d8074ae7-e163-4e20-b711-40b759198dfd/38333429246-500.jpg",
+      "small": "http://coverartarchive.org/release/d8074ae7-e163-4e20-b711-40b759198dfd/38333429246-250.jpg"
+    }
+  },
+  {
+    "mbid": "ad6c6b58-23bd-471d-bafa-bf0e2b3f2636",
+    "rank": "234",
+    "title": "Master of Reality",
+    "artist": "Black Sabbath",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/ad6c6b58-23bd-471d-bafa-bf0e2b3f2636/5254304155-250.jpg",
+      "large": "http://coverartarchive.org/release/ad6c6b58-23bd-471d-bafa-bf0e2b3f2636/5254304155-500.jpg"
+    }
+  },
+  {
+    "mbid": "d9812a80-e57b-4028-8df2-05d0e5d5a1dd",
+    "rank": "237",
+    "title": "Red Headed Stranger",
+    "artist": "Willie Nelson",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/d9812a80-e57b-4028-8df2-05d0e5d5a1dd/7516696485-1200.jpg",
+      "250": "https://coverartarchive.org/release/d9812a80-e57b-4028-8df2-05d0e5d5a1dd/7516696485-250.jpg",
+      "500": "https://coverartarchive.org/release/d9812a80-e57b-4028-8df2-05d0e5d5a1dd/7516696485-500.jpg",
+      "large": "https://coverartarchive.org/release/d9812a80-e57b-4028-8df2-05d0e5d5a1dd/7516696485-500.jpg",
+      "small": "https://coverartarchive.org/release/d9812a80-e57b-4028-8df2-05d0e5d5a1dd/7516696485-250.jpg"
+    }
+  },
+  {
+    "mbid": "3a25785e-50ec-383c-89cf-fd512181449c",
+    "rank": "241",
+    "title": "Blue Lines",
+    "artist": "Massive Attack",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/3a25785e-50ec-383c-89cf-fd512181449c/9708969100-1200.jpg",
+      "250": "https://coverartarchive.org/release/3a25785e-50ec-383c-89cf-fd512181449c/9708969100-250.jpg",
+      "500": "https://coverartarchive.org/release/3a25785e-50ec-383c-89cf-fd512181449c/9708969100-500.jpg",
+      "large": "https://coverartarchive.org/release/3a25785e-50ec-383c-89cf-fd512181449c/9708969100-500.jpg",
+      "small": "https://coverartarchive.org/release/3a25785e-50ec-383c-89cf-fd512181449c/9708969100-250.jpg"
+    }
+  },
+  {
+    "mbid": "3645588f-cdcf-4746-97ac-da059d332010",
+    "rank": "242",
+    "title": "Loaded",
+    "artist": "The Velvet Underground",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/3645588f-cdcf-4746-97ac-da059d332010/24372533976-1200.jpg",
+      "250": "http://coverartarchive.org/release/3645588f-cdcf-4746-97ac-da059d332010/24372533976-250.jpg",
+      "500": "http://coverartarchive.org/release/3645588f-cdcf-4746-97ac-da059d332010/24372533976-500.jpg",
+      "large": "http://coverartarchive.org/release/3645588f-cdcf-4746-97ac-da059d332010/24372533976-500.jpg",
+      "small": "http://coverartarchive.org/release/3645588f-cdcf-4746-97ac-da059d332010/24372533976-250.jpg"
+    }
+  },
+  {
+    "mbid": "f96df5d2-4ef9-3ef4-a4be-c743802b6f1e",
+    "rank": "245",
+    "title": "Heaven or Las Vegas",
+    "artist": "Cocteau Twins",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/f96df5d2-4ef9-3ef4-a4be-c743802b6f1e/33438900159-1200.jpg",
+      "250": "http://coverartarchive.org/release/f96df5d2-4ef9-3ef4-a4be-c743802b6f1e/33438900159-250.jpg",
+      "500": "http://coverartarchive.org/release/f96df5d2-4ef9-3ef4-a4be-c743802b6f1e/33438900159-500.jpg",
+      "large": "http://coverartarchive.org/release/f96df5d2-4ef9-3ef4-a4be-c743802b6f1e/33438900159-500.jpg",
+      "small": "http://coverartarchive.org/release/f96df5d2-4ef9-3ef4-a4be-c743802b6f1e/33438900159-250.jpg"
+    }
+  },
+  {
+    "mbid": "071dcca8-0b8b-4176-ba42-c2a465bfd7e7",
+    "rank": "246",
+    "title": "Mama Said Knock You Out",
+    "artist": "LL Cool J",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/071dcca8-0b8b-4176-ba42-c2a465bfd7e7/18876334528-500.jpg",
+      "small": "http://coverartarchive.org/release/071dcca8-0b8b-4176-ba42-c2a465bfd7e7/18876334528-250.jpg"
+    }
+  },
+  {
+    "mbid": "49c1eeeb-919f-33d2-b72d-71b3fa5572cf",
+    "rank": "247",
+    "title": "Love Deluxe",
+    "artist": "Sade",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/49c1eeeb-919f-33d2-b72d-71b3fa5572cf/5391929490-1200.jpg",
+      "250": "http://coverartarchive.org/release/49c1eeeb-919f-33d2-b72d-71b3fa5572cf/5391929490-250.jpg",
+      "500": "http://coverartarchive.org/release/49c1eeeb-919f-33d2-b72d-71b3fa5572cf/5391929490-500.jpg",
+      "large": "http://coverartarchive.org/release/49c1eeeb-919f-33d2-b72d-71b3fa5572cf/5391929490-500.jpg",
+      "small": "http://coverartarchive.org/release/49c1eeeb-919f-33d2-b72d-71b3fa5572cf/5391929490-250.jpg"
+    }
+  },
+  {
+    "mbid": "ca8f6aef-0707-4093-8536-be86988fcb4a",
+    "rank": "250",
+    "title": "Singles Going Steady",
+    "artist": "Buzzcocks",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ca8f6aef-0707-4093-8536-be86988fcb4a/32875486286-1200.jpg",
+      "250": "http://coverartarchive.org/release/ca8f6aef-0707-4093-8536-be86988fcb4a/32875486286-250.jpg",
+      "500": "http://coverartarchive.org/release/ca8f6aef-0707-4093-8536-be86988fcb4a/32875486286-500.jpg",
+      "large": "http://coverartarchive.org/release/ca8f6aef-0707-4093-8536-be86988fcb4a/32875486286-500.jpg",
+      "small": "http://coverartarchive.org/release/ca8f6aef-0707-4093-8536-be86988fcb4a/32875486286-250.jpg"
+    }
+  },
+  {
+    "mbid": "14aa2655-42b1-31f7-9e82-a567fba17953",
+    "rank": "251",
+    "title": "Honky Ch\u00e2teau",
+    "artist": "Elton John",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/14aa2655-42b1-31f7-9e82-a567fba17953/11663099854-500.jpg",
+      "small": "http://coverartarchive.org/release/14aa2655-42b1-31f7-9e82-a567fba17953/11663099854-250.jpg"
+    }
+  },
+  {
+    "mbid": "267a7c89-3624-4b7a-b7a2-aefc2bdc5e89",
+    "rank": "254",
+    "title": "Head Hunters",
+    "artist": "Herbie Hancock",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/267a7c89-3624-4b7a-b7a2-aefc2bdc5e89/36785254332-1200.jpg",
+      "250": "http://coverartarchive.org/release/267a7c89-3624-4b7a-b7a2-aefc2bdc5e89/36785254332-250.jpg",
+      "500": "http://coverartarchive.org/release/267a7c89-3624-4b7a-b7a2-aefc2bdc5e89/36785254332-500.jpg",
+      "large": "http://coverartarchive.org/release/267a7c89-3624-4b7a-b7a2-aefc2bdc5e89/36785254332-500.jpg",
+      "small": "http://coverartarchive.org/release/267a7c89-3624-4b7a-b7a2-aefc2bdc5e89/36785254332-250.jpg"
+    }
+  },
+  {
+    "mbid": "b0760dd1-8667-4b8d-b8e4-8385b21239bb",
+    "rank": "256",
+    "title": "Tracy Chapman",
+    "artist": "Tracy Chapman",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/b0760dd1-8667-4b8d-b8e4-8385b21239bb/5768432249-1200.jpg",
+      "250": "https://coverartarchive.org/release/b0760dd1-8667-4b8d-b8e4-8385b21239bb/5768432249-250.jpg",
+      "500": "https://coverartarchive.org/release/b0760dd1-8667-4b8d-b8e4-8385b21239bb/5768432249-500.jpg",
+      "large": "https://coverartarchive.org/release/b0760dd1-8667-4b8d-b8e4-8385b21239bb/5768432249-500.jpg",
+      "small": "https://coverartarchive.org/release/b0760dd1-8667-4b8d-b8e4-8385b21239bb/5768432249-250.jpg"
+    }
+  },
+  {
+    "mbid": "5df74932-a94b-4a20-b177-92ff4d3b47c3",
+    "rank": "257",
+    "title": "Coat of Many Colors",
+    "artist": "Dolly Parton",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5df74932-a94b-4a20-b177-92ff4d3b47c3/23121968255-1200.jpg",
+      "250": "http://coverartarchive.org/release/5df74932-a94b-4a20-b177-92ff4d3b47c3/23121968255-250.jpg",
+      "500": "http://coverartarchive.org/release/5df74932-a94b-4a20-b177-92ff4d3b47c3/23121968255-500.jpg",
+      "large": "http://coverartarchive.org/release/5df74932-a94b-4a20-b177-92ff4d3b47c3/23121968255-500.jpg",
+      "small": "http://coverartarchive.org/release/5df74932-a94b-4a20-b177-92ff4d3b47c3/23121968255-250.jpg"
+    }
+  },
+  {
+    "mbid": "72771116-bbfe-494f-ba38-68a6c9de0d95",
+    "rank": "259",
+    "title": "Pearl",
+    "artist": "Janis Joplin",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/72771116-bbfe-494f-ba38-68a6c9de0d95/10645743758-500.jpg",
+      "small": "http://coverartarchive.org/release/72771116-bbfe-494f-ba38-68a6c9de0d95/10645743758-250.jpg"
+    }
+  },
+  {
+    "mbid": "f0423e6b-2886-4e90-a60c-10f400b3f672",
+    "rank": "263",
+    "title": "A Hard Day's Night",
+    "artist": "The Beatles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/f0423e6b-2886-4e90-a60c-10f400b3f672/19264948382-1200.jpg",
+      "250": "http://coverartarchive.org/release/f0423e6b-2886-4e90-a60c-10f400b3f672/19264948382-250.jpg",
+      "500": "http://coverartarchive.org/release/f0423e6b-2886-4e90-a60c-10f400b3f672/19264948382-500.jpg",
+      "large": "http://coverartarchive.org/release/f0423e6b-2886-4e90-a60c-10f400b3f672/19264948382-500.jpg",
+      "small": "http://coverartarchive.org/release/f0423e6b-2886-4e90-a60c-10f400b3f672/19264948382-250.jpg"
+    }
+  },
+  {
+    "mbid": "f4a8aa35-da90-33d8-9307-c630d38a2bed",
+    "rank": "264",
+    "title": "Wish You Were Here",
+    "artist": "Pink Floyd",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/f4a8aa35-da90-33d8-9307-c630d38a2bed/14378454009-1200.jpg",
+      "250": "https://coverartarchive.org/release/f4a8aa35-da90-33d8-9307-c630d38a2bed/14378454009-250.jpg",
+      "500": "https://coverartarchive.org/release/f4a8aa35-da90-33d8-9307-c630d38a2bed/14378454009-500.jpg",
+      "large": "https://coverartarchive.org/release/f4a8aa35-da90-33d8-9307-c630d38a2bed/14378454009-500.jpg",
+      "small": "https://coverartarchive.org/release/f4a8aa35-da90-33d8-9307-c630d38a2bed/14378454009-250.jpg"
+    }
+  },
+  {
+    "mbid": "d919f8f0-1d66-3e03-a71f-2f1a7e9a3ebc",
+    "rank": "265",
+    "title": "Wowee Zowee",
+    "artist": "Pavement",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/d919f8f0-1d66-3e03-a71f-2f1a7e9a3ebc/43763417945-1200.jpg",
+      "250": "https://coverartarchive.org/release/d919f8f0-1d66-3e03-a71f-2f1a7e9a3ebc/43763417945-250.jpg",
+      "500": "https://coverartarchive.org/release/d919f8f0-1d66-3e03-a71f-2f1a7e9a3ebc/43763417945-500.jpg",
+      "large": "https://coverartarchive.org/release/d919f8f0-1d66-3e03-a71f-2f1a7e9a3ebc/43763417945-500.jpg",
+      "small": "https://coverartarchive.org/release/d919f8f0-1d66-3e03-a71f-2f1a7e9a3ebc/43763417945-250.jpg"
+    }
+  },
+  {
+    "mbid": "40825ca0-0568-3de0-bbe7-d5e07ed9a191",
+    "rank": "266",
+    "title": "Help!",
+    "artist": "The Beatles",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/40825ca0-0568-3de0-bbe7-d5e07ed9a191/22403088655-1200.jpg",
+      "250": "http://coverartarchive.org/release/40825ca0-0568-3de0-bbe7-d5e07ed9a191/22403088655-250.jpg",
+      "500": "http://coverartarchive.org/release/40825ca0-0568-3de0-bbe7-d5e07ed9a191/22403088655-500.jpg",
+      "large": "http://coverartarchive.org/release/40825ca0-0568-3de0-bbe7-d5e07ed9a191/22403088655-500.jpg",
+      "small": "http://coverartarchive.org/release/40825ca0-0568-3de0-bbe7-d5e07ed9a191/22403088655-250.jpg"
+    }
+  },
+  {
+    "mbid": "5b78aa6b-67be-43b5-8f56-a89116e48087",
+    "rank": "269",
+    "title": "Yeezus",
+    "artist": "Kanye West",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/5b78aa6b-67be-43b5-8f56-a89116e48087/40775042019-1200.jpg",
+      "250": "https://coverartarchive.org/release/5b78aa6b-67be-43b5-8f56-a89116e48087/40775042019-250.jpg",
+      "500": "https://coverartarchive.org/release/5b78aa6b-67be-43b5-8f56-a89116e48087/40775042019-500.jpg",
+      "large": "https://coverartarchive.org/release/5b78aa6b-67be-43b5-8f56-a89116e48087/40775042019-500.jpg",
+      "small": "https://coverartarchive.org/release/5b78aa6b-67be-43b5-8f56-a89116e48087/40775042019-250.jpg"
+    }
+  },
+  {
+    "mbid": "9ddfcd96-9c88-4525-8451-84d702e691d6",
+    "rank": "272",
+    "title": "White Light/White Heat",
+    "artist": "The Velvet Underground",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9ddfcd96-9c88-4525-8451-84d702e691d6/21487698006-1200.jpg",
+      "250": "http://coverartarchive.org/release/9ddfcd96-9c88-4525-8451-84d702e691d6/21487698006-250.jpg",
+      "500": "http://coverartarchive.org/release/9ddfcd96-9c88-4525-8451-84d702e691d6/21487698006-500.jpg",
+      "large": "http://coverartarchive.org/release/9ddfcd96-9c88-4525-8451-84d702e691d6/21487698006-500.jpg",
+      "small": "http://coverartarchive.org/release/9ddfcd96-9c88-4525-8451-84d702e691d6/21487698006-250.jpg"
+    }
+  },
+  {
+    "mbid": "844c0de9-d040-492b-af05-6ae2f8f6bcf5",
+    "rank": "273",
+    "title": "Entertainment!",
+    "artist": "Gang of Four",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/844c0de9-d040-492b-af05-6ae2f8f6bcf5/43109849230-1200.jpg",
+      "250": "https://coverartarchive.org/release/844c0de9-d040-492b-af05-6ae2f8f6bcf5/43109849230-250.jpg",
+      "500": "https://coverartarchive.org/release/844c0de9-d040-492b-af05-6ae2f8f6bcf5/43109849230-500.jpg",
+      "large": "https://coverartarchive.org/release/844c0de9-d040-492b-af05-6ae2f8f6bcf5/43109849230-500.jpg",
+      "small": "https://coverartarchive.org/release/844c0de9-d040-492b-af05-6ae2f8f6bcf5/43109849230-250.jpg"
+    }
+  },
+  {
+    "mbid": "c50176ce-676c-4f30-a168-b333cfe1ed82",
+    "rank": "276",
+    "title": "The Bends",
+    "artist": "Radiohead",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/c50176ce-676c-4f30-a168-b333cfe1ed82/19917980453-1200.jpg",
+      "250": "http://coverartarchive.org/release/c50176ce-676c-4f30-a168-b333cfe1ed82/19917980453-250.jpg",
+      "500": "http://coverartarchive.org/release/c50176ce-676c-4f30-a168-b333cfe1ed82/19917980453-500.jpg",
+      "large": "http://coverartarchive.org/release/c50176ce-676c-4f30-a168-b333cfe1ed82/19917980453-500.jpg",
+      "small": "http://coverartarchive.org/release/c50176ce-676c-4f30-a168-b333cfe1ed82/19917980453-250.jpg"
+    }
+  },
+  {
+    "mbid": "a21010bf-3193-4820-b00b-6b016999df86",
+    "rank": "277",
+    "title": "The Diary of Alicia Keys",
+    "artist": "Alicia Keys",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/a21010bf-3193-4820-b00b-6b016999df86/17149219904-250.jpg",
+      "large": "http://coverartarchive.org/release/a21010bf-3193-4820-b00b-6b016999df86/17149219904-500.jpg"
+    }
+  },
+  {
+    "mbid": "f4469159-1395-40b5-81e6-a507e2ad34ef",
+    "rank": "279",
+    "title": "MTV Unplugged in New York",
+    "artist": "Nirvana",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/f4469159-1395-40b5-81e6-a507e2ad34ef/44113913616-1200.jpg",
+      "250": "https://coverartarchive.org/release/f4469159-1395-40b5-81e6-a507e2ad34ef/44113913616-250.jpg",
+      "500": "https://coverartarchive.org/release/f4469159-1395-40b5-81e6-a507e2ad34ef/44113913616-500.jpg",
+      "large": "https://coverartarchive.org/release/f4469159-1395-40b5-81e6-a507e2ad34ef/44113913616-500.jpg",
+      "small": "https://coverartarchive.org/release/f4469159-1395-40b5-81e6-a507e2ad34ef/44113913616-250.jpg"
+    }
+  },
+  {
+    "mbid": "3914ae8e-3b64-3a5b-bc37-9ff5dddf367d",
+    "rank": "280",
+    "title": "Get Rich or Die Tryin'",
+    "artist": "50 Cent",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/3914ae8e-3b64-3a5b-bc37-9ff5dddf367d/31352549548-1200.jpg",
+      "250": "http://coverartarchive.org/release/3914ae8e-3b64-3a5b-bc37-9ff5dddf367d/31352549548-250.jpg",
+      "500": "http://coverartarchive.org/release/3914ae8e-3b64-3a5b-bc37-9ff5dddf367d/31352549548-500.jpg",
+      "large": "http://coverartarchive.org/release/3914ae8e-3b64-3a5b-bc37-9ff5dddf367d/31352549548-500.jpg",
+      "small": "http://coverartarchive.org/release/3914ae8e-3b64-3a5b-bc37-9ff5dddf367d/31352549548-250.jpg"
+    }
+  },
+  {
+    "mbid": "9be5bdcb-692b-4d7e-8d16-6d5741539ade",
+    "rank": "281",
+    "title": "Nilsson Schmilsson",
+    "artist": "Harry Nilsson",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9be5bdcb-692b-4d7e-8d16-6d5741539ade/23125834062-1200.jpg",
+      "250": "http://coverartarchive.org/release/9be5bdcb-692b-4d7e-8d16-6d5741539ade/23125834062-250.jpg",
+      "500": "http://coverartarchive.org/release/9be5bdcb-692b-4d7e-8d16-6d5741539ade/23125834062-500.jpg",
+      "large": "http://coverartarchive.org/release/9be5bdcb-692b-4d7e-8d16-6d5741539ade/23125834062-500.jpg",
+      "small": "http://coverartarchive.org/release/9be5bdcb-692b-4d7e-8d16-6d5741539ade/23125834062-250.jpg"
+    }
+  },
+  {
+    "mbid": "881f621c-618c-48da-80a8-50380996fe15",
+    "rank": "282",
+    "title": "In the Wee Small Hours",
+    "artist": "Frank Sinatra",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/881f621c-618c-48da-80a8-50380996fe15/31700163379-1200.jpg",
+      "250": "http://coverartarchive.org/release/881f621c-618c-48da-80a8-50380996fe15/31700163379-250.jpg",
+      "500": "http://coverartarchive.org/release/881f621c-618c-48da-80a8-50380996fe15/31700163379-500.jpg",
+      "large": "http://coverartarchive.org/release/881f621c-618c-48da-80a8-50380996fe15/31700163379-500.jpg",
+      "small": "http://coverartarchive.org/release/881f621c-618c-48da-80a8-50380996fe15/31700163379-250.jpg"
+    }
+  },
+  {
+    "mbid": "a855cd93-c192-4c42-96e3-14d2fdf9aa2b",
+    "rank": "283",
+    "title": "Bad Girls",
+    "artist": "Donna Summer",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/a855cd93-c192-4c42-96e3-14d2fdf9aa2b/18756111547-500.jpg",
+      "small": "http://coverartarchive.org/release/a855cd93-c192-4c42-96e3-14d2fdf9aa2b/18756111547-250.jpg"
+    }
+  },
+  {
+    "mbid": "3a5b55b8-a588-4d7e-b84c-43739e24685e",
+    "rank": "284",
+    "title": "Down Every Road 1962\u20131994",
+    "artist": "Merle Haggard",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/3a5b55b8-a588-4d7e-b84c-43739e24685e/13297601505-1200.jpg",
+      "250": "https://coverartarchive.org/release/3a5b55b8-a588-4d7e-b84c-43739e24685e/13297601505-250.jpg",
+      "500": "https://coverartarchive.org/release/3a5b55b8-a588-4d7e-b84c-43739e24685e/13297601505-500.jpg",
+      "large": "https://coverartarchive.org/release/3a5b55b8-a588-4d7e-b84c-43739e24685e/13297601505-500.jpg",
+      "small": "https://coverartarchive.org/release/3a5b55b8-a588-4d7e-b84c-43739e24685e/13297601505-250.jpg"
+    }
+  },
+  {
+    "mbid": "3d937f76-7149-472d-a910-55c2f1eba6bc",
+    "rank": "286",
+    "title": "Californication",
+    "artist": "Red Hot Chili Peppers",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/3d937f76-7149-472d-a910-55c2f1eba6bc/27566499681-1200.jpg",
+      "250": "http://coverartarchive.org/release/3d937f76-7149-472d-a910-55c2f1eba6bc/27566499681-250.jpg",
+      "500": "http://coverartarchive.org/release/3d937f76-7149-472d-a910-55c2f1eba6bc/27566499681-500.jpg",
+      "large": "http://coverartarchive.org/release/3d937f76-7149-472d-a910-55c2f1eba6bc/27566499681-500.jpg",
+      "small": "http://coverartarchive.org/release/3d937f76-7149-472d-a910-55c2f1eba6bc/27566499681-250.jpg"
+    }
+  },
+  {
+    "mbid": "192044cc-5ca6-4bea-a94e-aaa4861e92ee",
+    "rank": "287",
+    "title": "Mr. Tambourine Man",
+    "artist": "The Byrds",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/192044cc-5ca6-4bea-a94e-aaa4861e92ee/24664003881-1200.jpg",
+      "250": "http://coverartarchive.org/release/192044cc-5ca6-4bea-a94e-aaa4861e92ee/24664003881-250.jpg",
+      "500": "http://coverartarchive.org/release/192044cc-5ca6-4bea-a94e-aaa4861e92ee/24664003881-500.jpg",
+      "large": "http://coverartarchive.org/release/192044cc-5ca6-4bea-a94e-aaa4861e92ee/24664003881-500.jpg",
+      "small": "http://coverartarchive.org/release/192044cc-5ca6-4bea-a94e-aaa4861e92ee/24664003881-250.jpg"
+    }
+  },
+  {
+    "mbid": "d3ac571b-55ae-344e-aee9-f65c2e91ecef",
+    "rank": "289",
+    "title": "Post",
+    "artist": "Bj\u00f6rk",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/d3ac571b-55ae-344e-aee9-f65c2e91ecef/32217061491-1200.jpg",
+      "250": "http://coverartarchive.org/release/d3ac571b-55ae-344e-aee9-f65c2e91ecef/32217061491-250.jpg",
+      "500": "http://coverartarchive.org/release/d3ac571b-55ae-344e-aee9-f65c2e91ecef/32217061491-500.jpg",
+      "large": "http://coverartarchive.org/release/d3ac571b-55ae-344e-aee9-f65c2e91ecef/32217061491-500.jpg",
+      "small": "http://coverartarchive.org/release/d3ac571b-55ae-344e-aee9-f65c2e91ecef/32217061491-250.jpg"
+    }
+  },
+  {
+    "mbid": "50c273d5-2f92-340a-adc2-178d5adaab63",
+    "rank": "290",
+    "title": "Speakerboxxx/The Love Below",
+    "artist": "Outkast",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/50c273d5-2f92-340a-adc2-178d5adaab63/4350596153-1200.jpg",
+      "250": "https://coverartarchive.org/release/50c273d5-2f92-340a-adc2-178d5adaab63/4350596153-250.jpg",
+      "500": "https://coverartarchive.org/release/50c273d5-2f92-340a-adc2-178d5adaab63/4350596153-500.jpg",
+      "large": "https://coverartarchive.org/release/50c273d5-2f92-340a-adc2-178d5adaab63/4350596153-500.jpg",
+      "small": "https://coverartarchive.org/release/50c273d5-2f92-340a-adc2-178d5adaab63/4350596153-250.jpg"
+    }
+  },
+  {
+    "mbid": "9eb29df0-8ea8-4278-98cd-7ac2479fdfd3",
+    "rank": "291",
+    "title": "The Writing's on the Wall",
+    "artist": "Destiny's Child",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9eb29df0-8ea8-4278-98cd-7ac2479fdfd3/36195863634-1200.jpg",
+      "250": "http://coverartarchive.org/release/9eb29df0-8ea8-4278-98cd-7ac2479fdfd3/36195863634-250.jpg",
+      "500": "http://coverartarchive.org/release/9eb29df0-8ea8-4278-98cd-7ac2479fdfd3/36195863634-500.jpg",
+      "large": "http://coverartarchive.org/release/9eb29df0-8ea8-4278-98cd-7ac2479fdfd3/36195863634-500.jpg",
+      "small": "http://coverartarchive.org/release/9eb29df0-8ea8-4278-98cd-7ac2479fdfd3/36195863634-250.jpg"
+    }
+  },
+  {
+    "mbid": "57cda1d0-3dab-490d-b5b2-1caa70b641d2",
+    "rank": "293",
+    "title": "Last Splash",
+    "artist": "The Breeders",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/57cda1d0-3dab-490d-b5b2-1caa70b641d2/37152458882-1200.jpg",
+      "250": "http://coverartarchive.org/release/57cda1d0-3dab-490d-b5b2-1caa70b641d2/37152458882-250.jpg",
+      "500": "http://coverartarchive.org/release/57cda1d0-3dab-490d-b5b2-1caa70b641d2/37152458882-500.jpg",
+      "large": "http://coverartarchive.org/release/57cda1d0-3dab-490d-b5b2-1caa70b641d2/37152458882-500.jpg",
+      "small": "http://coverartarchive.org/release/57cda1d0-3dab-490d-b5b2-1caa70b641d2/37152458882-250.jpg"
+    }
+  },
+  {
+    "mbid": "b97e25b5-fb33-4145-95a1-8fec444283ee",
+    "rank": "294",
+    "title": "Weezer",
+    "artist": "Weezer",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/b97e25b5-fb33-4145-95a1-8fec444283ee/43261550330-1200.jpg",
+      "250": "https://coverartarchive.org/release/b97e25b5-fb33-4145-95a1-8fec444283ee/43261550330-250.jpg",
+      "500": "https://coverartarchive.org/release/b97e25b5-fb33-4145-95a1-8fec444283ee/43261550330-500.jpg",
+      "large": "https://coverartarchive.org/release/b97e25b5-fb33-4145-95a1-8fec444283ee/43261550330-500.jpg",
+      "small": "https://coverartarchive.org/release/b97e25b5-fb33-4145-95a1-8fec444283ee/43261550330-250.jpg"
+    }
+  },
+  {
+    "mbid": "e1416702-1b99-4dc5-a424-c154ab87d517",
+    "rank": "297",
+    "title": "So",
+    "artist": "Peter Gabriel",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/e1416702-1b99-4dc5-a424-c154ab87d517/30072681503-1200.jpg",
+      "250": "http://coverartarchive.org/release/e1416702-1b99-4dc5-a424-c154ab87d517/30072681503-250.jpg",
+      "500": "http://coverartarchive.org/release/e1416702-1b99-4dc5-a424-c154ab87d517/30072681503-500.jpg",
+      "large": "http://coverartarchive.org/release/e1416702-1b99-4dc5-a424-c154ab87d517/30072681503-500.jpg",
+      "small": "http://coverartarchive.org/release/e1416702-1b99-4dc5-a424-c154ab87d517/30072681503-250.jpg"
+    }
+  },
+  {
+    "mbid": "d37bb9e5-c696-3591-af7a-3ee1c9a26886",
+    "rank": "298",
+    "title": "Full Moon Fever",
+    "artist": "Tom Petty",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/d37bb9e5-c696-3591-af7a-3ee1c9a26886/22911636507-1200.jpg",
+      "250": "http://coverartarchive.org/release/d37bb9e5-c696-3591-af7a-3ee1c9a26886/22911636507-250.jpg",
+      "500": "http://coverartarchive.org/release/d37bb9e5-c696-3591-af7a-3ee1c9a26886/22911636507-500.jpg",
+      "large": "http://coverartarchive.org/release/d37bb9e5-c696-3591-af7a-3ee1c9a26886/22911636507-500.jpg",
+      "small": "http://coverartarchive.org/release/d37bb9e5-c696-3591-af7a-3ee1c9a26886/22911636507-250.jpg"
+    }
+  },
+  {
+    "mbid": "4c884d96-8e0e-34cf-8f75-b6db47687d5f",
+    "rank": "299",
+    "title": "Live at the Regal",
+    "artist": "B.B. King",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/4c884d96-8e0e-34cf-8f75-b6db47687d5f/24079852044-1200.jpg",
+      "250": "http://coverartarchive.org/release/4c884d96-8e0e-34cf-8f75-b6db47687d5f/24079852044-250.jpg",
+      "500": "http://coverartarchive.org/release/4c884d96-8e0e-34cf-8f75-b6db47687d5f/24079852044-500.jpg",
+      "large": "http://coverartarchive.org/release/4c884d96-8e0e-34cf-8f75-b6db47687d5f/24079852044-500.jpg",
+      "small": "http://coverartarchive.org/release/4c884d96-8e0e-34cf-8f75-b6db47687d5f/24079852044-250.jpg"
+    }
+  },
+  {
+    "mbid": "b3defcfe-0c3c-4a44-a9c1-54ea4bcb2fcf",
+    "rank": "300",
+    "title": "Come On Over",
+    "artist": "Shania Twain",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/b3defcfe-0c3c-4a44-a9c1-54ea4bcb2fcf/5071131767-1200.jpg",
+      "250": "http://coverartarchive.org/release/b3defcfe-0c3c-4a44-a9c1-54ea4bcb2fcf/5071131767-250.jpg",
+      "500": "http://coverartarchive.org/release/b3defcfe-0c3c-4a44-a9c1-54ea4bcb2fcf/5071131767-500.jpg",
+      "large": "http://coverartarchive.org/release/b3defcfe-0c3c-4a44-a9c1-54ea4bcb2fcf/5071131767-500.jpg",
+      "small": "http://coverartarchive.org/release/b3defcfe-0c3c-4a44-a9c1-54ea4bcb2fcf/5071131767-250.jpg"
+    }
+  },
+  {
+    "mbid": "7594668c-4c43-491e-b0a7-2ef7e6f34b71",
+    "rank": "303",
+    "title": "The Definitive Collection",
+    "artist": "ABBA",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/7594668c-4c43-491e-b0a7-2ef7e6f34b71/43233914846-1200.jpg",
+      "250": "https://coverartarchive.org/release/7594668c-4c43-491e-b0a7-2ef7e6f34b71/43233914846-250.jpg",
+      "500": "https://coverartarchive.org/release/7594668c-4c43-491e-b0a7-2ef7e6f34b71/43233914846-500.jpg",
+      "large": "https://coverartarchive.org/release/7594668c-4c43-491e-b0a7-2ef7e6f34b71/43233914846-500.jpg",
+      "small": "https://coverartarchive.org/release/7594668c-4c43-491e-b0a7-2ef7e6f34b71/43233914846-250.jpg"
+    }
+  },
+  {
+    "mbid": "7e0f7789-8410-44ba-8100-78dafcb8e158",
+    "rank": "304",
+    "title": "Just as I Am",
+    "artist": "Bill Withers",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/7e0f7789-8410-44ba-8100-78dafcb8e158/43398219551-1200.jpg",
+      "250": "https://coverartarchive.org/release/7e0f7789-8410-44ba-8100-78dafcb8e158/43398219551-250.jpg",
+      "500": "https://coverartarchive.org/release/7e0f7789-8410-44ba-8100-78dafcb8e158/43398219551-500.jpg",
+      "large": "https://coverartarchive.org/release/7e0f7789-8410-44ba-8100-78dafcb8e158/43398219551-500.jpg",
+      "small": "https://coverartarchive.org/release/7e0f7789-8410-44ba-8100-78dafcb8e158/43398219551-250.jpg"
+    }
+  },
+  {
+    "mbid": "1e2a1278-2ee6-47ce-b12c-9278ad053339",
+    "rank": "305",
+    "title": "Alive!",
+    "artist": "Kiss",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/1e2a1278-2ee6-47ce-b12c-9278ad053339/20635498030-1200.jpg",
+      "250": "http://coverartarchive.org/release/1e2a1278-2ee6-47ce-b12c-9278ad053339/20635498030-250.jpg",
+      "500": "http://coverartarchive.org/release/1e2a1278-2ee6-47ce-b12c-9278ad053339/20635498030-500.jpg",
+      "large": "http://coverartarchive.org/release/1e2a1278-2ee6-47ce-b12c-9278ad053339/20635498030-500.jpg",
+      "small": "http://coverartarchive.org/release/1e2a1278-2ee6-47ce-b12c-9278ad053339/20635498030-250.jpg"
+    }
+  },
+  {
+    "mbid": "adf924e8-8a2d-4e16-bf56-ebffd5bec3b5",
+    "rank": "307",
+    "title": "Portrait of a Legend: 1951\u20131964",
+    "artist": "Sam Cooke",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/adf924e8-8a2d-4e16-bf56-ebffd5bec3b5/44535201135-1200.jpg",
+      "250": "https://coverartarchive.org/release/adf924e8-8a2d-4e16-bf56-ebffd5bec3b5/44535201135-250.jpg",
+      "500": "https://coverartarchive.org/release/adf924e8-8a2d-4e16-bf56-ebffd5bec3b5/44535201135-500.jpg",
+      "large": "https://coverartarchive.org/release/adf924e8-8a2d-4e16-bf56-ebffd5bec3b5/44535201135-500.jpg",
+      "small": "https://coverartarchive.org/release/adf924e8-8a2d-4e16-bf56-ebffd5bec3b5/44535201135-250.jpg"
+    }
+  },
+  {
+    "mbid": "46a2f184-ef38-4025-a6e8-c0507f790d90",
+    "rank": "308",
+    "title": "Here Come the Warm Jets",
+    "artist": "Brian Eno",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/46a2f184-ef38-4025-a6e8-c0507f790d90/5358644283-500.jpg",
+      "small": "http://coverartarchive.org/release/46a2f184-ef38-4025-a6e8-c0507f790d90/5358644283-250.jpg"
+    }
+  },
+  {
+    "mbid": "4fbcc7d9-5c59-4283-9181-d92dd391924c",
+    "rank": "309",
+    "title": "Closer",
+    "artist": "Joy Division",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/4fbcc7d9-5c59-4283-9181-d92dd391924c/26576656644-1200.jpg",
+      "250": "http://coverartarchive.org/release/4fbcc7d9-5c59-4283-9181-d92dd391924c/26576656644-250.jpg",
+      "500": "http://coverartarchive.org/release/4fbcc7d9-5c59-4283-9181-d92dd391924c/26576656644-500.jpg",
+      "large": "http://coverartarchive.org/release/4fbcc7d9-5c59-4283-9181-d92dd391924c/26576656644-500.jpg",
+      "small": "http://coverartarchive.org/release/4fbcc7d9-5c59-4283-9181-d92dd391924c/26576656644-250.jpg"
+    }
+  },
+  {
+    "mbid": "80d0a4c9-ce91-4a15-bf15-1bb9913b814c",
+    "rank": "310",
+    "title": "Pink Flag",
+    "artist": "Wire",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/80d0a4c9-ce91-4a15-bf15-1bb9913b814c/5851121023-500.jpg",
+      "small": "http://coverartarchive.org/release/80d0a4c9-ce91-4a15-bf15-1bb9913b814c/5851121023-250.jpg"
+    }
+  },
+  {
+    "mbid": "39fe3778-362c-4762-89fc-c03235fd8117",
+    "rank": "311",
+    "title": "On the Beach",
+    "artist": "Neil Young",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/39fe3778-362c-4762-89fc-c03235fd8117/4477005914-500.jpg",
+      "small": "http://coverartarchive.org/release/39fe3778-362c-4762-89fc-c03235fd8117/4477005914-250.jpg"
+    }
+  },
+  {
+    "mbid": "f80eea39-8a33-41ba-aa63-a4179cc19156",
+    "rank": "313",
+    "title": "Stories from the City, Stories from the Sea",
+    "artist": "PJ Harvey",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/f80eea39-8a33-41ba-aa63-a4179cc19156/23637939561-1200.jpg",
+      "250": "http://coverartarchive.org/release/f80eea39-8a33-41ba-aa63-a4179cc19156/23637939561-250.jpg",
+      "500": "http://coverartarchive.org/release/f80eea39-8a33-41ba-aa63-a4179cc19156/23637939561-500.jpg",
+      "large": "http://coverartarchive.org/release/f80eea39-8a33-41ba-aa63-a4179cc19156/23637939561-500.jpg",
+      "small": "http://coverartarchive.org/release/f80eea39-8a33-41ba-aa63-a4179cc19156/23637939561-250.jpg"
+    }
+  },
+  {
+    "mbid": "caf135a8-6851-484f-9e32-2c530cf4dc82",
+    "rank": "314",
+    "title": "One in a Million",
+    "artist": "Aaliyah",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/caf135a8-6851-484f-9e32-2c530cf4dc82/45584290458-1200.jpg",
+      "250": "https://coverartarchive.org/release/caf135a8-6851-484f-9e32-2c530cf4dc82/45584290458-250.jpg",
+      "500": "https://coverartarchive.org/release/caf135a8-6851-484f-9e32-2c530cf4dc82/45584290458-500.jpg",
+      "large": "https://coverartarchive.org/release/caf135a8-6851-484f-9e32-2c530cf4dc82/45584290458-500.jpg",
+      "small": "https://coverartarchive.org/release/caf135a8-6851-484f-9e32-2c530cf4dc82/45584290458-250.jpg"
+    }
+  },
+  {
+    "mbid": "ce7591dd-625d-4697-90f1-57245b08e206",
+    "rank": "315",
+    "title": "El Mal Querer",
+    "artist": "Rosal\u00eda",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ce7591dd-625d-4697-90f1-57245b08e206/21382137140-1200.jpg",
+      "250": "http://coverartarchive.org/release/ce7591dd-625d-4697-90f1-57245b08e206/21382137140-250.jpg",
+      "500": "http://coverartarchive.org/release/ce7591dd-625d-4697-90f1-57245b08e206/21382137140-500.jpg",
+      "large": "http://coverartarchive.org/release/ce7591dd-625d-4697-90f1-57245b08e206/21382137140-500.jpg",
+      "small": "http://coverartarchive.org/release/ce7591dd-625d-4697-90f1-57245b08e206/21382137140-250.jpg"
+    }
+  },
+  {
+    "mbid": "c0a8c48f-130f-42af-be0d-6afc04593a23",
+    "rank": "316",
+    "title": "The Who Sell Out",
+    "artist": "The Who",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/c0a8c48f-130f-42af-be0d-6afc04593a23/23077540675-1200.jpg",
+      "250": "http://coverartarchive.org/release/c0a8c48f-130f-42af-be0d-6afc04593a23/23077540675-250.jpg",
+      "500": "http://coverartarchive.org/release/c0a8c48f-130f-42af-be0d-6afc04593a23/23077540675-500.jpg",
+      "large": "http://coverartarchive.org/release/c0a8c48f-130f-42af-be0d-6afc04593a23/23077540675-500.jpg",
+      "small": "http://coverartarchive.org/release/c0a8c48f-130f-42af-be0d-6afc04593a23/23077540675-250.jpg"
+    }
+  },
+  {
+    "mbid": "595d4a7d-452a-49e8-82d6-a39b2d189b2d",
+    "rank": "319",
+    "title": "The Stone Roses",
+    "artist": "The Stone Roses",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/595d4a7d-452a-49e8-82d6-a39b2d189b2d/14012582260-500.jpg",
+      "small": "http://coverartarchive.org/release/595d4a7d-452a-49e8-82d6-a39b2d189b2d/14012582260-250.jpg"
+    }
+  },
+  {
+    "mbid": "a65dd03d-a7d7-4708-aa43-ef6b0dde77e2",
+    "rank": "321",
+    "title": "Norman Fucking Rockwell!",
+    "artist": "Lana Del Rey",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/a65dd03d-a7d7-4708-aa43-ef6b0dde77e2/25584195441-1200.jpg",
+      "250": "https://coverartarchive.org/release/a65dd03d-a7d7-4708-aa43-ef6b0dde77e2/25584195441-250.jpg",
+      "500": "https://coverartarchive.org/release/a65dd03d-a7d7-4708-aa43-ef6b0dde77e2/25584195441-500.jpg",
+      "large": "https://coverartarchive.org/release/a65dd03d-a7d7-4708-aa43-ef6b0dde77e2/25584195441-500.jpg",
+      "small": "https://coverartarchive.org/release/a65dd03d-a7d7-4708-aa43-ef6b0dde77e2/25584195441-250.jpg"
+    }
+  },
+  {
+    "mbid": "7393dc7e-0123-4d83-9b61-582c4dfa8a30",
+    "rank": "322",
+    "title": "From Elvis in Memphis",
+    "artist": "Elvis Presley",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/7393dc7e-0123-4d83-9b61-582c4dfa8a30/19982410534-1200.jpg",
+      "250": "http://coverartarchive.org/release/7393dc7e-0123-4d83-9b61-582c4dfa8a30/19982410534-250.jpg",
+      "500": "http://coverartarchive.org/release/7393dc7e-0123-4d83-9b61-582c4dfa8a30/19982410534-500.jpg",
+      "large": "http://coverartarchive.org/release/7393dc7e-0123-4d83-9b61-582c4dfa8a30/19982410534-500.jpg",
+      "small": "http://coverartarchive.org/release/7393dc7e-0123-4d83-9b61-582c4dfa8a30/19982410534-250.jpg"
+    }
+  },
+  {
+    "mbid": "64c5a490-dbbd-3887-a489-d95ab8ba4dc9",
+    "rank": "324",
+    "title": "A Rush of Blood to the Head",
+    "artist": "Coldplay",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/64c5a490-dbbd-3887-a489-d95ab8ba4dc9/26268382620-1200.jpg",
+      "250": "https://coverartarchive.org/release/64c5a490-dbbd-3887-a489-d95ab8ba4dc9/26268382620-250.jpg",
+      "500": "https://coverartarchive.org/release/64c5a490-dbbd-3887-a489-d95ab8ba4dc9/26268382620-500.jpg",
+      "large": "https://coverartarchive.org/release/64c5a490-dbbd-3887-a489-d95ab8ba4dc9/26268382620-500.jpg",
+      "small": "https://coverartarchive.org/release/64c5a490-dbbd-3887-a489-d95ab8ba4dc9/26268382620-250.jpg"
+    }
+  },
+  {
+    "mbid": "dfc3022d-0469-4b70-abb8-3b8199efb52c",
+    "rank": "325",
+    "title": "All Killer, No Filler: The Anthology",
+    "artist": "Jerry Lee Lewis",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/dfc3022d-0469-4b70-abb8-3b8199efb52c/9141219719-500.jpg",
+      "small": "http://coverartarchive.org/release/dfc3022d-0469-4b70-abb8-3b8199efb52c/9141219719-250.jpg"
+    }
+  },
+  {
+    "mbid": "3109f245-c0a0-4bd1-947a-8988b120a564",
+    "rank": "327",
+    "title": "Live at Leeds",
+    "artist": "The Who",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/3109f245-c0a0-4bd1-947a-8988b120a564/23120921558-1200.jpg",
+      "250": "http://coverartarchive.org/release/3109f245-c0a0-4bd1-947a-8988b120a564/23120921558-250.jpg",
+      "500": "http://coverartarchive.org/release/3109f245-c0a0-4bd1-947a-8988b120a564/23120921558-500.jpg",
+      "large": "http://coverartarchive.org/release/3109f245-c0a0-4bd1-947a-8988b120a564/23120921558-500.jpg",
+      "small": "http://coverartarchive.org/release/3109f245-c0a0-4bd1-947a-8988b120a564/23120921558-250.jpg"
+    }
+  },
+  {
+    "mbid": "76bd6217-5f4a-4402-ab0d-9e859b2efdb6",
+    "rank": "329",
+    "title": "Endtroducing.....",
+    "artist": "DJ Shadow",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/76bd6217-5f4a-4402-ab0d-9e859b2efdb6/23572065238-1200.jpg",
+      "250": "http://coverartarchive.org/release/76bd6217-5f4a-4402-ab0d-9e859b2efdb6/23572065238-250.jpg",
+      "500": "http://coverartarchive.org/release/76bd6217-5f4a-4402-ab0d-9e859b2efdb6/23572065238-500.jpg",
+      "large": "http://coverartarchive.org/release/76bd6217-5f4a-4402-ab0d-9e859b2efdb6/23572065238-500.jpg",
+      "small": "http://coverartarchive.org/release/76bd6217-5f4a-4402-ab0d-9e859b2efdb6/23572065238-250.jpg"
+    }
+  },
+  {
+    "mbid": "ac452eb8-b63c-43ba-b389-e8762bf1de83",
+    "rank": "330",
+    "title": "Aftermath",
+    "artist": "The Rolling Stones",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/ac452eb8-b63c-43ba-b389-e8762bf1de83/11958602815-500.jpg",
+      "small": "http://coverartarchive.org/release/ac452eb8-b63c-43ba-b389-e8762bf1de83/11958602815-250.jpg"
+    }
+  },
+  {
+    "mbid": "14fe4456-ae4a-4863-92a8-8a76edadc9ce",
+    "rank": "332",
+    "title": "Elvis Presley",
+    "artist": "Elvis Presley",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/14fe4456-ae4a-4863-92a8-8a76edadc9ce/31915731110-1200.jpg",
+      "250": "http://coverartarchive.org/release/14fe4456-ae4a-4863-92a8-8a76edadc9ce/31915731110-250.jpg",
+      "500": "http://coverartarchive.org/release/14fe4456-ae4a-4863-92a8-8a76edadc9ce/31915731110-500.jpg",
+      "large": "http://coverartarchive.org/release/14fe4456-ae4a-4863-92a8-8a76edadc9ce/31915731110-500.jpg",
+      "small": "http://coverartarchive.org/release/14fe4456-ae4a-4863-92a8-8a76edadc9ce/31915731110-250.jpg"
+    }
+  },
+  {
+    "mbid": "de3fc9ac-4f6b-42a4-bbe6-f06b9ba7411c",
+    "rank": "333",
+    "title": "Still Bill",
+    "artist": "Bill Withers",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/de3fc9ac-4f6b-42a4-bbe6-f06b9ba7411c/43400883381-1200.jpg",
+      "250": "https://coverartarchive.org/release/de3fc9ac-4f6b-42a4-bbe6-f06b9ba7411c/43400883381-250.jpg",
+      "500": "https://coverartarchive.org/release/de3fc9ac-4f6b-42a4-bbe6-f06b9ba7411c/43400883381-500.jpg",
+      "large": "https://coverartarchive.org/release/de3fc9ac-4f6b-42a4-bbe6-f06b9ba7411c/43400883381-500.jpg",
+      "small": "https://coverartarchive.org/release/de3fc9ac-4f6b-42a4-bbe6-f06b9ba7411c/43400883381-250.jpg"
+    }
+  },
+  {
+    "mbid": "31f149bc-b826-423b-9c2a-3c10aac3836a",
+    "rank": "334",
+    "title": "Abraxas",
+    "artist": "Santana",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/31f149bc-b826-423b-9c2a-3c10aac3836a/13324105992-250.jpg",
+      "large": "http://coverartarchive.org/release/31f149bc-b826-423b-9c2a-3c10aac3836a/13324105992-500.jpg"
+    }
+  },
+  {
+    "mbid": "3eaf71ed-853f-4f68-9623-b6f0a64ecf40",
+    "rank": "335",
+    "title": "The Basement Tapes",
+    "artist": "Bob Dylan and the Band",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/3eaf71ed-853f-4f68-9623-b6f0a64ecf40/34653658997-1200.jpg",
+      "250": "http://coverartarchive.org/release/3eaf71ed-853f-4f68-9623-b6f0a64ecf40/34653658997-250.jpg",
+      "500": "http://coverartarchive.org/release/3eaf71ed-853f-4f68-9623-b6f0a64ecf40/34653658997-500.jpg",
+      "large": "http://coverartarchive.org/release/3eaf71ed-853f-4f68-9623-b6f0a64ecf40/34653658997-500.jpg",
+      "small": "http://coverartarchive.org/release/3eaf71ed-853f-4f68-9623-b6f0a64ecf40/34653658997-250.jpg"
+    }
+  },
+  {
+    "mbid": "8e7e12b2-46ff-4e6b-8384-2ce538d90dcc",
+    "rank": "337",
+    "title": "John Wesley Harding",
+    "artist": "Bob Dylan",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/8e7e12b2-46ff-4e6b-8384-2ce538d90dcc/11093142501-500.jpg",
+      "small": "http://coverartarchive.org/release/8e7e12b2-46ff-4e6b-8384-2ce538d90dcc/11093142501-250.jpg"
+    }
+  },
+  {
+    "mbid": "ae71c892-ecb6-4834-b520-6c88351e3b6c",
+    "rank": "338",
+    "title": "Another Green World",
+    "artist": "Brian Eno",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ae71c892-ecb6-4834-b520-6c88351e3b6c/22845505178-1200.jpg",
+      "250": "http://coverartarchive.org/release/ae71c892-ecb6-4834-b520-6c88351e3b6c/22845505178-250.jpg",
+      "500": "http://coverartarchive.org/release/ae71c892-ecb6-4834-b520-6c88351e3b6c/22845505178-500.jpg",
+      "large": "http://coverartarchive.org/release/ae71c892-ecb6-4834-b520-6c88351e3b6c/22845505178-500.jpg",
+      "small": "http://coverartarchive.org/release/ae71c892-ecb6-4834-b520-6c88351e3b6c/22845505178-250.jpg"
+    }
+  },
+  {
+    "mbid": "03f47647-35d3-3a64-832b-ff9846a154af",
+    "rank": "339",
+    "title": "Janet Jackson's Rhythm Nation 1814",
+    "artist": "Janet Jackson",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/03f47647-35d3-3a64-832b-ff9846a154af/3890727072-1200.jpg",
+      "250": "http://coverartarchive.org/release/03f47647-35d3-3a64-832b-ff9846a154af/3890727072-250.jpg",
+      "500": "http://coverartarchive.org/release/03f47647-35d3-3a64-832b-ff9846a154af/3890727072-500.jpg",
+      "large": "http://coverartarchive.org/release/03f47647-35d3-3a64-832b-ff9846a154af/3890727072-500.jpg",
+      "small": "http://coverartarchive.org/release/03f47647-35d3-3a64-832b-ff9846a154af/3890727072-250.jpg"
+    }
+  },
+  {
+    "mbid": "3f5ef113-ed23-33f3-bd6d-14ee75e15b1b",
+    "rank": "343",
+    "title": "Greatest Hits",
+    "artist": "Sly and the Family Stone",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/3f5ef113-ed23-33f3-bd6d-14ee75e15b1b/24031698434-1200.jpg",
+      "250": "https://coverartarchive.org/release/3f5ef113-ed23-33f3-bd6d-14ee75e15b1b/24031698434-250.jpg",
+      "500": "https://coverartarchive.org/release/3f5ef113-ed23-33f3-bd6d-14ee75e15b1b/24031698434-500.jpg",
+      "large": "https://coverartarchive.org/release/3f5ef113-ed23-33f3-bd6d-14ee75e15b1b/24031698434-500.jpg",
+      "small": "https://coverartarchive.org/release/3f5ef113-ed23-33f3-bd6d-14ee75e15b1b/24031698434-250.jpg"
+    }
+  },
+  {
+    "mbid": "00b2740b-1261-4f48-b663-1e9a2295a950",
+    "rank": "344",
+    "title": "Funky Kingston",
+    "artist": "Toots and the Maytals",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/00b2740b-1261-4f48-b663-1e9a2295a950/6764939184-500.jpg",
+      "small": "http://coverartarchive.org/release/00b2740b-1261-4f48-b663-1e9a2295a950/6764939184-250.jpg"
+    }
+  },
+  {
+    "mbid": "5b0c80bc-e570-4bb3-a9cb-ccec2bbd7255",
+    "rank": "345",
+    "title": "The Wild, the Innocent & the E Street Shuffle",
+    "artist": "Bruce Springsteen",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5b0c80bc-e570-4bb3-a9cb-ccec2bbd7255/31317353370-1200.jpg",
+      "250": "http://coverartarchive.org/release/5b0c80bc-e570-4bb3-a9cb-ccec2bbd7255/31317353370-250.jpg",
+      "500": "http://coverartarchive.org/release/5b0c80bc-e570-4bb3-a9cb-ccec2bbd7255/31317353370-500.jpg",
+      "large": "http://coverartarchive.org/release/5b0c80bc-e570-4bb3-a9cb-ccec2bbd7255/31317353370-500.jpg",
+      "small": "http://coverartarchive.org/release/5b0c80bc-e570-4bb3-a9cb-ccec2bbd7255/31317353370-250.jpg"
+    }
+  },
+  {
+    "mbid": "55171afe-440e-4c63-947c-e49074f3d5b5",
+    "rank": "346",
+    "title": "AM",
+    "artist": "Arctic Monkeys",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/55171afe-440e-4c63-947c-e49074f3d5b5/32131849167-1200.jpg",
+      "250": "http://coverartarchive.org/release/55171afe-440e-4c63-947c-e49074f3d5b5/32131849167-250.jpg",
+      "500": "http://coverartarchive.org/release/55171afe-440e-4c63-947c-e49074f3d5b5/32131849167-500.jpg",
+      "large": "http://coverartarchive.org/release/55171afe-440e-4c63-947c-e49074f3d5b5/32131849167-500.jpg",
+      "small": "http://coverartarchive.org/release/55171afe-440e-4c63-947c-e49074f3d5b5/32131849167-250.jpg"
+    }
+  },
+  {
+    "mbid": "62fff24a-b6e6-4c85-9c8a-98fc2169b6d9",
+    "rank": "347",
+    "title": "Liquid Swords",
+    "artist": "GZA",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/62fff24a-b6e6-4c85-9c8a-98fc2169b6d9/2083102150-500.jpg",
+      "small": "http://coverartarchive.org/release/62fff24a-b6e6-4c85-9c8a-98fc2169b6d9/2083102150-250.jpg"
+    }
+  },
+  {
+    "mbid": "917a723a-9449-4517-83be-1bc8a56ae64b",
+    "rank": "348",
+    "title": "Time (The Revelator)",
+    "artist": "Gillian Welch",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/917a723a-9449-4517-83be-1bc8a56ae64b/15358414164-500.jpg",
+      "small": "http://coverartarchive.org/release/917a723a-9449-4517-83be-1bc8a56ae64b/15358414164-250.jpg"
+    }
+  },
+  {
+    "mbid": "54d0d4ee-1b1b-464c-8bbe-dd4417acf276",
+    "rank": "350",
+    "title": "Music of My Mind",
+    "artist": "Stevie Wonder",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/54d0d4ee-1b1b-464c-8bbe-dd4417acf276/29848177311-1200.jpg",
+      "250": "http://coverartarchive.org/release/54d0d4ee-1b1b-464c-8bbe-dd4417acf276/29848177311-250.jpg",
+      "500": "http://coverartarchive.org/release/54d0d4ee-1b1b-464c-8bbe-dd4417acf276/29848177311-500.jpg",
+      "large": "http://coverartarchive.org/release/54d0d4ee-1b1b-464c-8bbe-dd4417acf276/29848177311-500.jpg",
+      "small": "http://coverartarchive.org/release/54d0d4ee-1b1b-464c-8bbe-dd4417acf276/29848177311-250.jpg"
+    }
+  },
+  {
+    "mbid": "7b4d84ae-1c36-4a34-a7b4-c1d41899c0d1",
+    "rank": "352",
+    "title": "The Slim Shady LP",
+    "artist": "Eminem",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/7b4d84ae-1c36-4a34-a7b4-c1d41899c0d1/30950519765-1200.jpg",
+      "250": "http://coverartarchive.org/release/7b4d84ae-1c36-4a34-a7b4-c1d41899c0d1/30950519765-250.jpg",
+      "500": "http://coverartarchive.org/release/7b4d84ae-1c36-4a34-a7b4-c1d41899c0d1/30950519765-500.jpg",
+      "large": "http://coverartarchive.org/release/7b4d84ae-1c36-4a34-a7b4-c1d41899c0d1/30950519765-500.jpg",
+      "small": "http://coverartarchive.org/release/7b4d84ae-1c36-4a34-a7b4-c1d41899c0d1/30950519765-250.jpg"
+    }
+  },
+  {
+    "mbid": "a47b6ee6-266e-44d8-9a26-251107eae25a",
+    "rank": "353",
+    "title": "The Cars",
+    "artist": "The Cars",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/a47b6ee6-266e-44d8-9a26-251107eae25a/4487282555-500.jpg",
+      "small": "http://coverartarchive.org/release/a47b6ee6-266e-44d8-9a26-251107eae25a/4487282555-250.jpg"
+    }
+  },
+  {
+    "mbid": "d9c0f4c7-add9-4c59-86bb-3a9ae336350d",
+    "rank": "354",
+    "title": "Germfree Adolescents",
+    "artist": "X-Ray Spex",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/d9c0f4c7-add9-4c59-86bb-3a9ae336350d/6262768637-500.jpg",
+      "small": "http://coverartarchive.org/release/d9c0f4c7-add9-4c59-86bb-3a9ae336350d/6262768637-250.jpg"
+    }
+  },
+  {
+    "mbid": "7bf3d510-5c38-406b-a63e-d0373d35bf8f",
+    "rank": "355",
+    "title": "Black Sabbath",
+    "artist": "Black Sabbath",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/7bf3d510-5c38-406b-a63e-d0373d35bf8f/36215375531-1200.jpg",
+      "250": "http://coverartarchive.org/release/7bf3d510-5c38-406b-a63e-d0373d35bf8f/36215375531-250.jpg",
+      "500": "http://coverartarchive.org/release/7bf3d510-5c38-406b-a63e-d0373d35bf8f/36215375531-500.jpg",
+      "large": "http://coverartarchive.org/release/7bf3d510-5c38-406b-a63e-d0373d35bf8f/36215375531-500.jpg",
+      "small": "http://coverartarchive.org/release/7bf3d510-5c38-406b-a63e-d0373d35bf8f/36215375531-250.jpg"
+    }
+  },
+  {
+    "mbid": "22b80055-83d9-46a1-a441-4b0757628cf6",
+    "rank": "356",
+    "title": "Gris-Gris",
+    "artist": "Dr. John",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/22b80055-83d9-46a1-a441-4b0757628cf6/36454938350-1200.jpg",
+      "250": "http://coverartarchive.org/release/22b80055-83d9-46a1-a441-4b0757628cf6/36454938350-250.jpg",
+      "500": "http://coverartarchive.org/release/22b80055-83d9-46a1-a441-4b0757628cf6/36454938350-500.jpg",
+      "large": "http://coverartarchive.org/release/22b80055-83d9-46a1-a441-4b0757628cf6/36454938350-500.jpg",
+      "small": "http://coverartarchive.org/release/22b80055-83d9-46a1-a441-4b0757628cf6/36454938350-250.jpg"
+    }
+  },
+  {
+    "mbid": "b9adb8c5-f482-36a5-bb00-6566c37f5af8",
+    "rank": "357",
+    "title": "Rain Dogs",
+    "artist": "Tom Waits",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/b9adb8c5-f482-36a5-bb00-6566c37f5af8/7947931384-500.jpg",
+      "small": "http://coverartarchive.org/release/b9adb8c5-f482-36a5-bb00-6566c37f5af8/7947931384-250.jpg"
+    }
+  },
+  {
+    "mbid": "f82ab78b-9082-415c-8404-3a32225acec4",
+    "rank": "358",
+    "title": "Sour",
+    "artist": "Olivia Rodrigo",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/f82ab78b-9082-415c-8404-3a32225acec4/31525051324-1200.jpg",
+      "250": "http://coverartarchive.org/release/f82ab78b-9082-415c-8404-3a32225acec4/31525051324-250.jpg",
+      "500": "http://coverartarchive.org/release/f82ab78b-9082-415c-8404-3a32225acec4/31525051324-500.jpg",
+      "large": "http://coverartarchive.org/release/f82ab78b-9082-415c-8404-3a32225acec4/31525051324-500.jpg",
+      "small": "http://coverartarchive.org/release/f82ab78b-9082-415c-8404-3a32225acec4/31525051324-250.jpg"
+    }
+  },
+  {
+    "mbid": "d09de1f8-0ad8-37cc-ac71-342890279916",
+    "rank": "361",
+    "title": "The Black Parade",
+    "artist": "My Chemical Romance",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/d09de1f8-0ad8-37cc-ac71-342890279916/1218859006-1200.jpg",
+      "250": "https://coverartarchive.org/release/d09de1f8-0ad8-37cc-ac71-342890279916/1218859006-250.jpg",
+      "500": "https://coverartarchive.org/release/d09de1f8-0ad8-37cc-ac71-342890279916/1218859006-500.jpg",
+      "large": "https://coverartarchive.org/release/d09de1f8-0ad8-37cc-ac71-342890279916/1218859006-500.jpg",
+      "small": "https://coverartarchive.org/release/d09de1f8-0ad8-37cc-ac71-342890279916/1218859006-250.jpg"
+    }
+  },
+  {
+    "mbid": "ae4656ed-7fbe-4ba9-a44f-ddb439e19be3",
+    "rank": "362",
+    "title": "Never Too Much",
+    "artist": "Luther Vandross",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/ae4656ed-7fbe-4ba9-a44f-ddb439e19be3/40778486309-1200.jpg",
+      "250": "https://coverartarchive.org/release/ae4656ed-7fbe-4ba9-a44f-ddb439e19be3/40778486309-250.jpg",
+      "500": "https://coverartarchive.org/release/ae4656ed-7fbe-4ba9-a44f-ddb439e19be3/40778486309-500.jpg",
+      "large": "https://coverartarchive.org/release/ae4656ed-7fbe-4ba9-a44f-ddb439e19be3/40778486309-500.jpg",
+      "small": "https://coverartarchive.org/release/ae4656ed-7fbe-4ba9-a44f-ddb439e19be3/40778486309-250.jpg"
+    }
+  },
+  {
+    "mbid": "84bd98a9-017d-30eb-b557-d075957d802f",
+    "rank": "363",
+    "title": "Mothership Connection",
+    "artist": "Parliament",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/84bd98a9-017d-30eb-b557-d075957d802f/5544744795-500.jpg",
+      "small": "http://coverartarchive.org/release/84bd98a9-017d-30eb-b557-d075957d802f/5544744795-250.jpg"
+    }
+  },
+  {
+    "mbid": "66c399b8-e67f-4031-82d5-fec6251fc6b0",
+    "rank": "364",
+    "title": "More Songs About Buildings and Food",
+    "artist": "Talking Heads",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/66c399b8-e67f-4031-82d5-fec6251fc6b0/10611892481-500.jpg",
+      "small": "http://coverartarchive.org/release/66c399b8-e67f-4031-82d5-fec6251fc6b0/10611892481-250.jpg"
+    }
+  },
+  {
+    "mbid": "a63ffa0d-d6f0-4941-9659-8e199ca14a60",
+    "rank": "365",
+    "title": "Madvillainy",
+    "artist": "Madvillain",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/a63ffa0d-d6f0-4941-9659-8e199ca14a60/42057514658-1200.jpg",
+      "250": "https://coverartarchive.org/release/a63ffa0d-d6f0-4941-9659-8e199ca14a60/42057514658-250.jpg",
+      "500": "https://coverartarchive.org/release/a63ffa0d-d6f0-4941-9659-8e199ca14a60/42057514658-500.jpg",
+      "large": "https://coverartarchive.org/release/a63ffa0d-d6f0-4941-9659-8e199ca14a60/42057514658-500.jpg",
+      "small": "https://coverartarchive.org/release/a63ffa0d-d6f0-4941-9659-8e199ca14a60/42057514658-250.jpg"
+    }
+  },
+  {
+    "mbid": "6d4956da-5489-4371-8a87-62ff3b2c985b",
+    "rank": "366",
+    "title": "Rocks",
+    "artist": "Aerosmith",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/6d4956da-5489-4371-8a87-62ff3b2c985b/43418966650-1200.jpg",
+      "250": "https://coverartarchive.org/release/6d4956da-5489-4371-8a87-62ff3b2c985b/43418966650-250.jpg",
+      "500": "https://coverartarchive.org/release/6d4956da-5489-4371-8a87-62ff3b2c985b/43418966650-500.jpg",
+      "large": "https://coverartarchive.org/release/6d4956da-5489-4371-8a87-62ff3b2c985b/43418966650-500.jpg",
+      "small": "https://coverartarchive.org/release/6d4956da-5489-4371-8a87-62ff3b2c985b/43418966650-250.jpg"
+    }
+  },
+  {
+    "mbid": "07d51bc7-64c9-3fba-b6fc-0695f6e8d6a4",
+    "rank": "368",
+    "title": "All Things Must Pass",
+    "artist": "George Harrison",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/07d51bc7-64c9-3fba-b6fc-0695f6e8d6a4/34144519324-1200.jpg",
+      "250": "https://coverartarchive.org/release/07d51bc7-64c9-3fba-b6fc-0695f6e8d6a4/34144519324-250.jpg",
+      "500": "https://coverartarchive.org/release/07d51bc7-64c9-3fba-b6fc-0695f6e8d6a4/34144519324-500.jpg",
+      "large": "https://coverartarchive.org/release/07d51bc7-64c9-3fba-b6fc-0695f6e8d6a4/34144519324-500.jpg",
+      "small": "https://coverartarchive.org/release/07d51bc7-64c9-3fba-b6fc-0695f6e8d6a4/34144519324-250.jpg"
+    }
+  },
+  {
+    "mbid": "fc6ef0f1-5dc9-4b30-bdad-22cb9db92220",
+    "rank": "369",
+    "title": "The Infamous",
+    "artist": "Mobb Deep",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/fc6ef0f1-5dc9-4b30-bdad-22cb9db92220/20158512916-1200.jpg",
+      "250": "https://coverartarchive.org/release/fc6ef0f1-5dc9-4b30-bdad-22cb9db92220/20158512916-250.jpg",
+      "500": "https://coverartarchive.org/release/fc6ef0f1-5dc9-4b30-bdad-22cb9db92220/20158512916-500.jpg",
+      "large": "https://coverartarchive.org/release/fc6ef0f1-5dc9-4b30-bdad-22cb9db92220/20158512916-500.jpg",
+      "small": "https://coverartarchive.org/release/fc6ef0f1-5dc9-4b30-bdad-22cb9db92220/20158512916-250.jpg"
+    }
+  },
+  {
+    "mbid": "6050064d-0f82-4635-a01f-30b60d0afddd",
+    "rank": "371",
+    "title": "Anthology",
+    "artist": "The Temptations",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/6050064d-0f82-4635-a01f-30b60d0afddd/22134026872-1200.jpg",
+      "250": "http://coverartarchive.org/release/6050064d-0f82-4635-a01f-30b60d0afddd/22134026872-250.jpg",
+      "500": "http://coverartarchive.org/release/6050064d-0f82-4635-a01f-30b60d0afddd/22134026872-500.jpg",
+      "large": "http://coverartarchive.org/release/6050064d-0f82-4635-a01f-30b60d0afddd/22134026872-500.jpg",
+      "small": "http://coverartarchive.org/release/6050064d-0f82-4635-a01f-30b60d0afddd/22134026872-250.jpg"
+    }
+  },
+  {
+    "mbid": "04c0cf55-541f-4565-820c-439be5cc9178",
+    "rank": "372",
+    "title": "Cheap Thrills",
+    "artist": "Big Brother and the Holding Company",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/04c0cf55-541f-4565-820c-439be5cc9178/11243741975-500.jpg",
+      "small": "http://coverartarchive.org/release/04c0cf55-541f-4565-820c-439be5cc9178/11243741975-250.jpg"
+    }
+  },
+  {
+    "mbid": "20fef8d3-72b5-369a-9712-ad0b1ee6d226",
+    "rank": "375",
+    "title": "Dookie",
+    "artist": "Green Day",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/20fef8d3-72b5-369a-9712-ad0b1ee6d226/7378928036-500.jpg",
+      "small": "http://coverartarchive.org/release/20fef8d3-72b5-369a-9712-ad0b1ee6d226/7378928036-250.jpg"
+    }
+  },
+  {
+    "mbid": "ce74eeee-8e30-34db-addd-5ea135500e2e",
+    "rank": "377",
+    "title": "Fever to Tell",
+    "artist": "Yeah Yeah Yeahs",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/ce74eeee-8e30-34db-addd-5ea135500e2e/5835213460-500.jpg",
+      "small": "http://coverartarchive.org/release/ce74eeee-8e30-34db-addd-5ea135500e2e/5835213460-250.jpg"
+    }
+  },
+  {
+    "mbid": "e8bb591d-d71d-47a7-963c-93fbd4871500",
+    "rank": "378",
+    "title": "Run-D.M.C.",
+    "artist": "Run-DMC",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/e8bb591d-d71d-47a7-963c-93fbd4871500/5197820903-1200.jpg",
+      "250": "http://coverartarchive.org/release/e8bb591d-d71d-47a7-963c-93fbd4871500/5197820903-250.jpg",
+      "500": "http://coverartarchive.org/release/e8bb591d-d71d-47a7-963c-93fbd4871500/5197820903-500.jpg",
+      "large": "http://coverartarchive.org/release/e8bb591d-d71d-47a7-963c-93fbd4871500/5197820903-500.jpg",
+      "small": "http://coverartarchive.org/release/e8bb591d-d71d-47a7-963c-93fbd4871500/5197820903-250.jpg"
+    }
+  },
+  {
+    "mbid": "fecf8eef-cbb6-49b3-bc7d-b2912766cacc",
+    "rank": "379",
+    "title": "Moving Pictures",
+    "artist": "Rush",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/fecf8eef-cbb6-49b3-bc7d-b2912766cacc/24125655291-1200.jpg",
+      "250": "http://coverartarchive.org/release/fecf8eef-cbb6-49b3-bc7d-b2912766cacc/24125655291-250.jpg",
+      "500": "http://coverartarchive.org/release/fecf8eef-cbb6-49b3-bc7d-b2912766cacc/24125655291-500.jpg",
+      "large": "http://coverartarchive.org/release/fecf8eef-cbb6-49b3-bc7d-b2912766cacc/24125655291-500.jpg",
+      "small": "http://coverartarchive.org/release/fecf8eef-cbb6-49b3-bc7d-b2912766cacc/24125655291-250.jpg"
+    }
+  },
+  {
+    "mbid": "e3655e9f-3db1-434d-bb4b-3529d09b2989",
+    "rank": "386",
+    "title": "Donuts",
+    "artist": "J Dilla",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/e3655e9f-3db1-434d-bb4b-3529d09b2989/1373318521-500.jpg",
+      "small": "http://coverartarchive.org/release/e3655e9f-3db1-434d-bb4b-3529d09b2989/1373318521-250.jpg"
+    }
+  },
+  {
+    "mbid": "ea92a194-2d60-35c7-9d56-0e1dba20cd45",
+    "rank": "387",
+    "title": "In Rainbows",
+    "artist": "Radiohead",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ea92a194-2d60-35c7-9d56-0e1dba20cd45/31783219635-1200.jpg",
+      "250": "http://coverartarchive.org/release/ea92a194-2d60-35c7-9d56-0e1dba20cd45/31783219635-250.jpg",
+      "500": "http://coverartarchive.org/release/ea92a194-2d60-35c7-9d56-0e1dba20cd45/31783219635-500.jpg",
+      "large": "http://coverartarchive.org/release/ea92a194-2d60-35c7-9d56-0e1dba20cd45/31783219635-500.jpg",
+      "small": "http://coverartarchive.org/release/ea92a194-2d60-35c7-9d56-0e1dba20cd45/31783219635-250.jpg"
+    }
+  },
+  {
+    "mbid": "b95151ff-e3e8-4eff-8708-079e782d3498",
+    "rank": "388",
+    "title": "Young, Gifted and Black",
+    "artist": "Aretha Franklin",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/b95151ff-e3e8-4eff-8708-079e782d3498/26594431775-1200.jpg",
+      "250": "http://coverartarchive.org/release/b95151ff-e3e8-4eff-8708-079e782d3498/26594431775-250.jpg",
+      "500": "http://coverartarchive.org/release/b95151ff-e3e8-4eff-8708-079e782d3498/26594431775-500.jpg",
+      "large": "http://coverartarchive.org/release/b95151ff-e3e8-4eff-8708-079e782d3498/26594431775-500.jpg",
+      "small": "http://coverartarchive.org/release/b95151ff-e3e8-4eff-8708-079e782d3498/26594431775-250.jpg"
+    }
+  },
+  {
+    "mbid": "93746222-c422-4bcc-b636-42d04370fa9f",
+    "rank": "389",
+    "title": "The Emancipation of Mimi",
+    "artist": "Mariah Carey",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/93746222-c422-4bcc-b636-42d04370fa9f/40029357412-1200.jpg",
+      "250": "https://coverartarchive.org/release/93746222-c422-4bcc-b636-42d04370fa9f/40029357412-250.jpg",
+      "500": "https://coverartarchive.org/release/93746222-c422-4bcc-b636-42d04370fa9f/40029357412-500.jpg",
+      "large": "https://coverartarchive.org/release/93746222-c422-4bcc-b636-42d04370fa9f/40029357412-500.jpg",
+      "small": "https://coverartarchive.org/release/93746222-c422-4bcc-b636-42d04370fa9f/40029357412-250.jpg"
+    }
+  },
+  {
+    "mbid": "e1b8c1c5-5fc5-43ca-95b9-bb7152fce99e",
+    "rank": "391",
+    "title": "Kaleidoscope",
+    "artist": "Kelis",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/e1b8c1c5-5fc5-43ca-95b9-bb7152fce99e/45396677403-1200.jpg",
+      "250": "https://coverartarchive.org/release/e1b8c1c5-5fc5-43ca-95b9-bb7152fce99e/45396677403-250.jpg",
+      "500": "https://coverartarchive.org/release/e1b8c1c5-5fc5-43ca-95b9-bb7152fce99e/45396677403-500.jpg",
+      "large": "https://coverartarchive.org/release/e1b8c1c5-5fc5-43ca-95b9-bb7152fce99e/45396677403-500.jpg",
+      "small": "https://coverartarchive.org/release/e1b8c1c5-5fc5-43ca-95b9-bb7152fce99e/45396677403-250.jpg"
+    }
+  },
+  {
+    "mbid": "4ace427c-3e98-4216-b22a-a43f90418f42",
+    "rank": "392",
+    "title": "Proud Mary: The Best of Ike & Tina Turner",
+    "artist": "Ike & Tina Turner",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/4ace427c-3e98-4216-b22a-a43f90418f42/4049003012-1200.jpg",
+      "250": "https://coverartarchive.org/release/4ace427c-3e98-4216-b22a-a43f90418f42/4049003012-250.jpg",
+      "500": "https://coverartarchive.org/release/4ace427c-3e98-4216-b22a-a43f90418f42/4049003012-500.jpg",
+      "large": "https://coverartarchive.org/release/4ace427c-3e98-4216-b22a-a43f90418f42/4049003012-500.jpg",
+      "small": "https://coverartarchive.org/release/4ace427c-3e98-4216-b22a-a43f90418f42/4049003012-250.jpg"
+    }
+  },
+  {
+    "mbid": "e3f0984a-4036-4cd7-8c8c-0217b87c577a",
+    "rank": "393",
+    "title": "1989",
+    "artist": "Taylor Swift",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/e3f0984a-4036-4cd7-8c8c-0217b87c577a/31605948430-1200.jpg",
+      "250": "http://coverartarchive.org/release/e3f0984a-4036-4cd7-8c8c-0217b87c577a/31605948430-250.jpg",
+      "500": "http://coverartarchive.org/release/e3f0984a-4036-4cd7-8c8c-0217b87c577a/31605948430-500.jpg",
+      "large": "http://coverartarchive.org/release/e3f0984a-4036-4cd7-8c8c-0217b87c577a/31605948430-500.jpg",
+      "small": "http://coverartarchive.org/release/e3f0984a-4036-4cd7-8c8c-0217b87c577a/31605948430-250.jpg"
+    }
+  },
+  {
+    "mbid": "daa89cce-3e72-4e6a-a4dc-0337dee8f9cf",
+    "rank": "395",
+    "title": "Black Messiah",
+    "artist": "D'Angelo and the Vanguard",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/daa89cce-3e72-4e6a-a4dc-0337dee8f9cf/12882997554-250.jpg",
+      "large": "http://coverartarchive.org/release/daa89cce-3e72-4e6a-a4dc-0337dee8f9cf/12882997554-500.jpg"
+    }
+  },
+  {
+    "mbid": "552dcfcd-91ca-440b-9b58-a9618dd88dd0",
+    "rank": "396",
+    "title": "Something/Anything?",
+    "artist": "Todd Rundgren",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/552dcfcd-91ca-440b-9b58-a9618dd88dd0/23131590064-1200.jpg",
+      "250": "http://coverartarchive.org/release/552dcfcd-91ca-440b-9b58-a9618dd88dd0/23131590064-250.jpg",
+      "500": "http://coverartarchive.org/release/552dcfcd-91ca-440b-9b58-a9618dd88dd0/23131590064-500.jpg",
+      "large": "http://coverartarchive.org/release/552dcfcd-91ca-440b-9b58-a9618dd88dd0/23131590064-500.jpg",
+      "small": "http://coverartarchive.org/release/552dcfcd-91ca-440b-9b58-a9618dd88dd0/23131590064-250.jpg"
+    }
+  },
+  {
+    "mbid": "90e71188-380e-4bc2-9031-3ec22c03e133",
+    "rank": "398",
+    "title": "The Raincoats",
+    "artist": "The Raincoats",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/90e71188-380e-4bc2-9031-3ec22c03e133/19137667450-1200.jpg",
+      "250": "http://coverartarchive.org/release/90e71188-380e-4bc2-9031-3ec22c03e133/19137667450-250.jpg",
+      "500": "http://coverartarchive.org/release/90e71188-380e-4bc2-9031-3ec22c03e133/19137667450-500.jpg",
+      "large": "http://coverartarchive.org/release/90e71188-380e-4bc2-9031-3ec22c03e133/19137667450-500.jpg",
+      "small": "http://coverartarchive.org/release/90e71188-380e-4bc2-9031-3ec22c03e133/19137667450-250.jpg"
+    }
+  },
+  {
+    "mbid": "e28dd80b-834a-4fb6-bb39-ffbe023b2fb8",
+    "rank": "399",
+    "title": "Brian Wilson Presents Smile",
+    "artist": "Brian Wilson",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/e28dd80b-834a-4fb6-bb39-ffbe023b2fb8/15310600198-250.jpg",
+      "large": "http://coverartarchive.org/release/e28dd80b-834a-4fb6-bb39-ffbe023b2fb8/15310600198-500.jpg"
+    }
+  },
+  {
+    "mbid": "937e786e-4e74-3079-8a83-5a9cb0908807",
+    "rank": "400",
+    "title": "Beauty and the Beat",
+    "artist": "The Go-Go's",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/937e786e-4e74-3079-8a83-5a9cb0908807/26861350220-1200.jpg",
+      "250": "https://coverartarchive.org/release/937e786e-4e74-3079-8a83-5a9cb0908807/26861350220-250.jpg",
+      "500": "https://coverartarchive.org/release/937e786e-4e74-3079-8a83-5a9cb0908807/26861350220-500.jpg",
+      "large": "https://coverartarchive.org/release/937e786e-4e74-3079-8a83-5a9cb0908807/26861350220-500.jpg",
+      "small": "https://coverartarchive.org/release/937e786e-4e74-3079-8a83-5a9cb0908807/26861350220-250.jpg"
+    }
+  },
+  {
+    "mbid": "ab9033d5-01e5-48d5-bd03-4afb15f0a685",
+    "rank": "401",
+    "title": "Blondie",
+    "artist": "Blondie",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ab9033d5-01e5-48d5-bd03-4afb15f0a685/23334911571-1200.jpg",
+      "250": "http://coverartarchive.org/release/ab9033d5-01e5-48d5-bd03-4afb15f0a685/23334911571-250.jpg",
+      "500": "http://coverartarchive.org/release/ab9033d5-01e5-48d5-bd03-4afb15f0a685/23334911571-500.jpg",
+      "large": "http://coverartarchive.org/release/ab9033d5-01e5-48d5-bd03-4afb15f0a685/23334911571-500.jpg",
+      "small": "http://coverartarchive.org/release/ab9033d5-01e5-48d5-bd03-4afb15f0a685/23334911571-250.jpg"
+    }
+  },
+  {
+    "mbid": "90f3f3b9-8492-3f66-a660-cdbc5fc4d4ad",
+    "rank": "404",
+    "title": "Rapture",
+    "artist": "Anita Baker",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/90f3f3b9-8492-3f66-a660-cdbc5fc4d4ad/20999523488-1200.jpg",
+      "250": "http://coverartarchive.org/release/90f3f3b9-8492-3f66-a660-cdbc5fc4d4ad/20999523488-250.jpg",
+      "500": "http://coverartarchive.org/release/90f3f3b9-8492-3f66-a660-cdbc5fc4d4ad/20999523488-500.jpg",
+      "large": "http://coverartarchive.org/release/90f3f3b9-8492-3f66-a660-cdbc5fc4d4ad/20999523488-500.jpg",
+      "small": "http://coverartarchive.org/release/90f3f3b9-8492-3f66-a660-cdbc5fc4d4ad/20999523488-250.jpg"
+    }
+  },
+  {
+    "mbid": "a1f4d5f1-a8c7-4e81-b98d-1e98accf63e3",
+    "rank": "410",
+    "title": "Wild Honey",
+    "artist": "The Beach Boys",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/a1f4d5f1-a8c7-4e81-b98d-1e98accf63e3/24718543249-1200.jpg",
+      "250": "http://coverartarchive.org/release/a1f4d5f1-a8c7-4e81-b98d-1e98accf63e3/24718543249-250.jpg",
+      "500": "http://coverartarchive.org/release/a1f4d5f1-a8c7-4e81-b98d-1e98accf63e3/24718543249-500.jpg",
+      "large": "http://coverartarchive.org/release/a1f4d5f1-a8c7-4e81-b98d-1e98accf63e3/24718543249-500.jpg",
+      "small": "http://coverartarchive.org/release/a1f4d5f1-a8c7-4e81-b98d-1e98accf63e3/24718543249-250.jpg"
+    }
+  },
+  {
+    "mbid": "47aca000-014b-3c10-91e2-d420cceca249",
+    "rank": "411",
+    "title": "Love and Theft",
+    "artist": "Bob Dylan",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/47aca000-014b-3c10-91e2-d420cceca249/14970573402-1200.jpg",
+      "250": "http://coverartarchive.org/release/47aca000-014b-3c10-91e2-d420cceca249/14970573402-250.jpg",
+      "500": "http://coverartarchive.org/release/47aca000-014b-3c10-91e2-d420cceca249/14970573402-500.jpg",
+      "large": "http://coverartarchive.org/release/47aca000-014b-3c10-91e2-d420cceca249/14970573402-500.jpg",
+      "small": "http://coverartarchive.org/release/47aca000-014b-3c10-91e2-d420cceca249/14970573402-250.jpg"
+    }
+  },
+  {
+    "mbid": "5245862c-b985-4c9f-9126-0e76d7e4bad5",
+    "rank": "412",
+    "title": "Going to a Go-Go",
+    "artist": "Smokey Robinson",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5245862c-b985-4c9f-9126-0e76d7e4bad5/30412932560-1200.jpg",
+      "250": "http://coverartarchive.org/release/5245862c-b985-4c9f-9126-0e76d7e4bad5/30412932560-250.jpg",
+      "500": "http://coverartarchive.org/release/5245862c-b985-4c9f-9126-0e76d7e4bad5/30412932560-500.jpg",
+      "large": "http://coverartarchive.org/release/5245862c-b985-4c9f-9126-0e76d7e4bad5/30412932560-500.jpg",
+      "small": "http://coverartarchive.org/release/5245862c-b985-4c9f-9126-0e76d7e4bad5/30412932560-250.jpg"
+    }
+  },
+  {
+    "mbid": "067c3d38-1f5c-4596-baf3-e494a4342d1f",
+    "rank": "413",
+    "title": "Cosmo's Factory",
+    "artist": "Creedence Clearwater Revival",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/067c3d38-1f5c-4596-baf3-e494a4342d1f/19556714404-1200.jpg",
+      "250": "http://coverartarchive.org/release/067c3d38-1f5c-4596-baf3-e494a4342d1f/19556714404-250.jpg",
+      "500": "http://coverartarchive.org/release/067c3d38-1f5c-4596-baf3-e494a4342d1f/19556714404-500.jpg",
+      "large": "http://coverartarchive.org/release/067c3d38-1f5c-4596-baf3-e494a4342d1f/19556714404-500.jpg",
+      "small": "http://coverartarchive.org/release/067c3d38-1f5c-4596-baf3-e494a4342d1f/19556714404-250.jpg"
+    }
+  },
+  {
+    "mbid": "e7f2c9bb-d26d-4afe-9ac3-54ed8772196d",
+    "rank": "414",
+    "title": "Risqu\u00e9",
+    "artist": "Chic",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/e7f2c9bb-d26d-4afe-9ac3-54ed8772196d/23419932152-1200.jpg",
+      "250": "http://coverartarchive.org/release/e7f2c9bb-d26d-4afe-9ac3-54ed8772196d/23419932152-250.jpg",
+      "500": "http://coverartarchive.org/release/e7f2c9bb-d26d-4afe-9ac3-54ed8772196d/23419932152-500.jpg",
+      "large": "http://coverartarchive.org/release/e7f2c9bb-d26d-4afe-9ac3-54ed8772196d/23419932152-500.jpg",
+      "small": "http://coverartarchive.org/release/e7f2c9bb-d26d-4afe-9ac3-54ed8772196d/23419932152-250.jpg"
+    }
+  },
+  {
+    "mbid": "7415ea1b-6c48-4720-8bce-87a9a0719cb1",
+    "rank": "415",
+    "title": "Look-Ka Py Py",
+    "artist": "The Meters",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/7415ea1b-6c48-4720-8bce-87a9a0719cb1/3553002460-500.jpg",
+      "small": "http://coverartarchive.org/release/7415ea1b-6c48-4720-8bce-87a9a0719cb1/3553002460-250.jpg"
+    }
+  },
+  {
+    "mbid": "45b0cfa6-826c-4736-9c74-f0b73ec14bc7",
+    "rank": "416",
+    "title": "Things Fall Apart",
+    "artist": "The Roots",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/45b0cfa6-826c-4736-9c74-f0b73ec14bc7/28128125455-1200.jpg",
+      "250": "http://coverartarchive.org/release/45b0cfa6-826c-4736-9c74-f0b73ec14bc7/28128125455-250.jpg",
+      "500": "http://coverartarchive.org/release/45b0cfa6-826c-4736-9c74-f0b73ec14bc7/28128125455-500.jpg",
+      "large": "http://coverartarchive.org/release/45b0cfa6-826c-4736-9c74-f0b73ec14bc7/28128125455-500.jpg",
+      "small": "http://coverartarchive.org/release/45b0cfa6-826c-4736-9c74-f0b73ec14bc7/28128125455-250.jpg"
+    }
+  },
+  {
+    "mbid": "59105e60-a6f7-4a86-aaab-2c4f02ddb4f8",
+    "rank": "417",
+    "title": "The Shape of Jazz to Come",
+    "artist": "Ornette Coleman",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/59105e60-a6f7-4a86-aaab-2c4f02ddb4f8/2460325617-1200.jpg",
+      "250": "http://coverartarchive.org/release/59105e60-a6f7-4a86-aaab-2c4f02ddb4f8/2460325617-250.jpg",
+      "500": "http://coverartarchive.org/release/59105e60-a6f7-4a86-aaab-2c4f02ddb4f8/2460325617-500.jpg",
+      "large": "http://coverartarchive.org/release/59105e60-a6f7-4a86-aaab-2c4f02ddb4f8/2460325617-500.jpg",
+      "small": "http://coverartarchive.org/release/59105e60-a6f7-4a86-aaab-2c4f02ddb4f8/2460325617-250.jpg"
+    }
+  },
+  {
+    "mbid": "999528b0-c3d3-4306-bb23-9891e60ea1f1",
+    "rank": "418",
+    "title": "Brothers in Arms",
+    "artist": "Dire Straits",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/999528b0-c3d3-4306-bb23-9891e60ea1f1/9066064417-500.jpg",
+      "small": "http://coverartarchive.org/release/999528b0-c3d3-4306-bb23-9891e60ea1f1/9066064417-250.jpg"
+    }
+  },
+  {
+    "mbid": "0610cfdc-f25f-41d0-9f15-9e12745fe8e6",
+    "rank": "420",
+    "title": "That's the Way of the World",
+    "artist": "Earth, Wind & Fire",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/0610cfdc-f25f-41d0-9f15-9e12745fe8e6/45698899223-1200.jpg",
+      "250": "https://coverartarchive.org/release/0610cfdc-f25f-41d0-9f15-9e12745fe8e6/45698899223-250.jpg",
+      "500": "https://coverartarchive.org/release/0610cfdc-f25f-41d0-9f15-9e12745fe8e6/45698899223-500.jpg",
+      "large": "https://coverartarchive.org/release/0610cfdc-f25f-41d0-9f15-9e12745fe8e6/45698899223-500.jpg",
+      "small": "https://coverartarchive.org/release/0610cfdc-f25f-41d0-9f15-9e12745fe8e6/45698899223-250.jpg"
+    }
+  },
+  {
+    "mbid": "c3d10658-391c-4444-baf5-e26492068f96",
+    "rank": "421",
+    "title": "Arular",
+    "artist": "M.I.A.",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/c3d10658-391c-4444-baf5-e26492068f96/40611020227-1200.jpg",
+      "250": "https://coverartarchive.org/release/c3d10658-391c-4444-baf5-e26492068f96/40611020227-250.jpg",
+      "500": "https://coverartarchive.org/release/c3d10658-391c-4444-baf5-e26492068f96/40611020227-500.jpg",
+      "large": "https://coverartarchive.org/release/c3d10658-391c-4444-baf5-e26492068f96/40611020227-500.jpg",
+      "small": "https://coverartarchive.org/release/c3d10658-391c-4444-baf5-e26492068f96/40611020227-250.jpg"
+    }
+  },
+  {
+    "mbid": "dc5ee2df-7e5b-4a43-b67b-b9551e65c361",
+    "rank": "423",
+    "title": "I Can Hear the Heart Beating as One",
+    "artist": "Yo La Tengo",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/dc5ee2df-7e5b-4a43-b67b-b9551e65c361/3592372804-1200.jpg",
+      "250": "http://coverartarchive.org/release/dc5ee2df-7e5b-4a43-b67b-b9551e65c361/3592372804-250.jpg",
+      "500": "http://coverartarchive.org/release/dc5ee2df-7e5b-4a43-b67b-b9551e65c361/3592372804-500.jpg",
+      "large": "http://coverartarchive.org/release/dc5ee2df-7e5b-4a43-b67b-b9551e65c361/3592372804-500.jpg",
+      "small": "http://coverartarchive.org/release/dc5ee2df-7e5b-4a43-b67b-b9551e65c361/3592372804-250.jpg"
+    }
+  },
+  {
+    "mbid": "98525987-1acb-4a44-898e-fb44fa17a2ba",
+    "rank": "425",
+    "title": "Paul Simon",
+    "artist": "Paul Simon",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/98525987-1acb-4a44-898e-fb44fa17a2ba/23138405337-1200.jpg",
+      "250": "http://coverartarchive.org/release/98525987-1acb-4a44-898e-fb44fa17a2ba/23138405337-250.jpg",
+      "500": "http://coverartarchive.org/release/98525987-1acb-4a44-898e-fb44fa17a2ba/23138405337-500.jpg",
+      "large": "http://coverartarchive.org/release/98525987-1acb-4a44-898e-fb44fa17a2ba/23138405337-500.jpg",
+      "small": "http://coverartarchive.org/release/98525987-1acb-4a44-898e-fb44fa17a2ba/23138405337-250.jpg"
+    }
+  },
+  {
+    "mbid": "9996d6ce-fca9-48bc-8457-499dd30793ad",
+    "rank": "426",
+    "title": "Lucinda Williams",
+    "artist": "Lucinda Williams",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9996d6ce-fca9-48bc-8457-499dd30793ad/32468484020-1200.jpg",
+      "250": "http://coverartarchive.org/release/9996d6ce-fca9-48bc-8457-499dd30793ad/32468484020-250.jpg",
+      "500": "http://coverartarchive.org/release/9996d6ce-fca9-48bc-8457-499dd30793ad/32468484020-500.jpg",
+      "large": "http://coverartarchive.org/release/9996d6ce-fca9-48bc-8457-499dd30793ad/32468484020-500.jpg",
+      "small": "http://coverartarchive.org/release/9996d6ce-fca9-48bc-8457-499dd30793ad/32468484020-250.jpg"
+    }
+  },
+  {
+    "mbid": "93f45485-305a-3cab-8823-ac4fb703657d",
+    "rank": "428",
+    "title": "New Day Rising",
+    "artist": "H\u00fcsker D\u00fc",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/93f45485-305a-3cab-8823-ac4fb703657d/27118692540-1200.jpg",
+      "250": "http://coverartarchive.org/release/93f45485-305a-3cab-8823-ac4fb703657d/27118692540-250.jpg",
+      "500": "http://coverartarchive.org/release/93f45485-305a-3cab-8823-ac4fb703657d/27118692540-500.jpg",
+      "large": "http://coverartarchive.org/release/93f45485-305a-3cab-8823-ac4fb703657d/27118692540-500.jpg",
+      "small": "http://coverartarchive.org/release/93f45485-305a-3cab-8823-ac4fb703657d/27118692540-250.jpg"
+    }
+  },
+  {
+    "mbid": "e9c7cbfa-bc5a-3183-a01b-28ed5817164f",
+    "rank": "432",
+    "title": "Confessions",
+    "artist": "Usher",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/e9c7cbfa-bc5a-3183-a01b-28ed5817164f/21521398295-1200.jpg",
+      "250": "http://coverartarchive.org/release/e9c7cbfa-bc5a-3183-a01b-28ed5817164f/21521398295-250.jpg",
+      "500": "http://coverartarchive.org/release/e9c7cbfa-bc5a-3183-a01b-28ed5817164f/21521398295-500.jpg",
+      "large": "http://coverartarchive.org/release/e9c7cbfa-bc5a-3183-a01b-28ed5817164f/21521398295-500.jpg",
+      "small": "http://coverartarchive.org/release/e9c7cbfa-bc5a-3183-a01b-28ed5817164f/21521398295-250.jpg"
+    }
+  },
+  {
+    "mbid": "76a05bcd-9a8b-4c38-9110-f6d7d8bd67fe",
+    "rank": "433",
+    "title": "Sound of Silver",
+    "artist": "LCD Soundsystem",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/76a05bcd-9a8b-4c38-9110-f6d7d8bd67fe/35811156535-1200.jpg",
+      "250": "http://coverartarchive.org/release/76a05bcd-9a8b-4c38-9110-f6d7d8bd67fe/35811156535-250.jpg",
+      "500": "http://coverartarchive.org/release/76a05bcd-9a8b-4c38-9110-f6d7d8bd67fe/35811156535-500.jpg",
+      "large": "http://coverartarchive.org/release/76a05bcd-9a8b-4c38-9110-f6d7d8bd67fe/35811156535-500.jpg",
+      "small": "http://coverartarchive.org/release/76a05bcd-9a8b-4c38-9110-f6d7d8bd67fe/35811156535-250.jpg"
+    }
+  },
+  {
+    "mbid": "8684f971-08a2-3551-8e5c-a87440408725",
+    "rank": "434",
+    "title": "Crooked Rain, Crooked Rain",
+    "artist": "Pavement",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/8684f971-08a2-3551-8e5c-a87440408725/23540681245-1200.jpg",
+      "250": "http://coverartarchive.org/release/8684f971-08a2-3551-8e5c-a87440408725/23540681245-250.jpg",
+      "500": "http://coverartarchive.org/release/8684f971-08a2-3551-8e5c-a87440408725/23540681245-500.jpg",
+      "large": "http://coverartarchive.org/release/8684f971-08a2-3551-8e5c-a87440408725/23540681245-500.jpg",
+      "small": "http://coverartarchive.org/release/8684f971-08a2-3551-8e5c-a87440408725/23540681245-250.jpg"
+    }
+  },
+  {
+    "mbid": "6c40ed1a-d37b-4ae0-8af9-7728f64b2ecd",
+    "rank": "435",
+    "title": "Actually",
+    "artist": "Pet Shop Boys",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/6c40ed1a-d37b-4ae0-8af9-7728f64b2ecd/44244078918-1200.jpg",
+      "250": "https://coverartarchive.org/release/6c40ed1a-d37b-4ae0-8af9-7728f64b2ecd/44244078918-250.jpg",
+      "500": "https://coverartarchive.org/release/6c40ed1a-d37b-4ae0-8af9-7728f64b2ecd/44244078918-500.jpg",
+      "large": "https://coverartarchive.org/release/6c40ed1a-d37b-4ae0-8af9-7728f64b2ecd/44244078918-500.jpg",
+      "small": "https://coverartarchive.org/release/6c40ed1a-d37b-4ae0-8af9-7728f64b2ecd/44244078918-250.jpg"
+    }
+  },
+  {
+    "mbid": "f62e6093-19a1-451a-96bd-763fa51f3816",
+    "rank": "436",
+    "title": "All Eyez on Me",
+    "artist": "2Pac",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/f62e6093-19a1-451a-96bd-763fa51f3816/38890149361-1200.jpg",
+      "250": "https://coverartarchive.org/release/f62e6093-19a1-451a-96bd-763fa51f3816/38890149361-250.jpg",
+      "500": "https://coverartarchive.org/release/f62e6093-19a1-451a-96bd-763fa51f3816/38890149361-500.jpg",
+      "large": "https://coverartarchive.org/release/f62e6093-19a1-451a-96bd-763fa51f3816/38890149361-500.jpg",
+      "small": "https://coverartarchive.org/release/f62e6093-19a1-451a-96bd-763fa51f3816/38890149361-250.jpg"
+    }
+  },
+  {
+    "mbid": "fcd89fc6-5e45-4c43-b281-98627ea0fadc",
+    "rank": "438",
+    "title": "Parklife",
+    "artist": "Blur",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/fcd89fc6-5e45-4c43-b281-98627ea0fadc/29850753309-1200.jpg",
+      "250": "http://coverartarchive.org/release/fcd89fc6-5e45-4c43-b281-98627ea0fadc/29850753309-250.jpg",
+      "500": "http://coverartarchive.org/release/fcd89fc6-5e45-4c43-b281-98627ea0fadc/29850753309-500.jpg",
+      "large": "http://coverartarchive.org/release/fcd89fc6-5e45-4c43-b281-98627ea0fadc/29850753309-500.jpg",
+      "small": "http://coverartarchive.org/release/fcd89fc6-5e45-4c43-b281-98627ea0fadc/29850753309-250.jpg"
+    }
+  },
+  {
+    "mbid": "b2482d08-f326-4d9f-bfeb-205040e28658",
+    "rank": "439",
+    "title": "Sex Machine",
+    "artist": "James Brown",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/b2482d08-f326-4d9f-bfeb-205040e28658/28969244809-1200.jpg",
+      "250": "https://coverartarchive.org/release/b2482d08-f326-4d9f-bfeb-205040e28658/28969244809-250.jpg",
+      "500": "https://coverartarchive.org/release/b2482d08-f326-4d9f-bfeb-205040e28658/28969244809-500.jpg",
+      "large": "https://coverartarchive.org/release/b2482d08-f326-4d9f-bfeb-205040e28658/28969244809-500.jpg",
+      "small": "https://coverartarchive.org/release/b2482d08-f326-4d9f-bfeb-205040e28658/28969244809-250.jpg"
+    }
+  },
+  {
+    "mbid": "5ef25d9f-8571-4116-aa12-493f5f01f66d",
+    "rank": "440",
+    "title": "Coal Miner's Daughter",
+    "artist": "Loretta Lynn",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/5ef25d9f-8571-4116-aa12-493f5f01f66d/7721876749-500.jpg",
+      "small": "http://coverartarchive.org/release/5ef25d9f-8571-4116-aa12-493f5f01f66d/7721876749-250.jpg"
+    }
+  },
+  {
+    "mbid": "1b0930aa-2044-4709-bef0-85bc4e9a356b",
+    "rank": "441",
+    "title": "Blackout",
+    "artist": "Britney Spears",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/1b0930aa-2044-4709-bef0-85bc4e9a356b/32508910315-1200.jpg",
+      "250": "http://coverartarchive.org/release/1b0930aa-2044-4709-bef0-85bc4e9a356b/32508910315-250.jpg",
+      "500": "http://coverartarchive.org/release/1b0930aa-2044-4709-bef0-85bc4e9a356b/32508910315-500.jpg",
+      "large": "http://coverartarchive.org/release/1b0930aa-2044-4709-bef0-85bc4e9a356b/32508910315-500.jpg",
+      "small": "http://coverartarchive.org/release/1b0930aa-2044-4709-bef0-85bc4e9a356b/32508910315-250.jpg"
+    }
+  },
+  {
+    "mbid": "dbb8fc63-1013-488e-8711-c4a5918f37d9",
+    "rank": "444",
+    "title": "Extraordinary Machine",
+    "artist": "Fiona Apple",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/dbb8fc63-1013-488e-8711-c4a5918f37d9/17235298465-500.jpg",
+      "small": "http://coverartarchive.org/release/dbb8fc63-1013-488e-8711-c4a5918f37d9/17235298465-250.jpg"
+    }
+  },
+  {
+    "mbid": "8e181bc6-7453-4cdc-bc42-3a0a99d07690",
+    "rank": "448",
+    "title": "Complete & Unbelievable: The Otis Redding Dictionary of Soul",
+    "artist": "Otis Redding",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/8e181bc6-7453-4cdc-bc42-3a0a99d07690/18213423944-500.jpg",
+      "small": "http://coverartarchive.org/release/8e181bc6-7453-4cdc-bc42-3a0a99d07690/18213423944-250.jpg"
+    }
+  },
+  {
+    "mbid": "9bf86596-1ef0-4bd4-8f5e-bb205a77b075",
+    "rank": "449",
+    "title": "Elephant",
+    "artist": "The White Stripes",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9bf86596-1ef0-4bd4-8f5e-bb205a77b075/35612917950-1200.jpg",
+      "250": "http://coverartarchive.org/release/9bf86596-1ef0-4bd4-8f5e-bb205a77b075/35612917950-250.jpg",
+      "500": "http://coverartarchive.org/release/9bf86596-1ef0-4bd4-8f5e-bb205a77b075/35612917950-500.jpg",
+      "large": "http://coverartarchive.org/release/9bf86596-1ef0-4bd4-8f5e-bb205a77b075/35612917950-500.jpg",
+      "small": "http://coverartarchive.org/release/9bf86596-1ef0-4bd4-8f5e-bb205a77b075/35612917950-250.jpg"
+    }
+  },
+  {
+    "mbid": "cd0e72a6-0170-43ac-9399-cd0bb960e48a",
+    "rank": "451",
+    "title": "First Take",
+    "artist": "Roberta Flack",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/cd0e72a6-0170-43ac-9399-cd0bb960e48a/26559364318-1200.jpg",
+      "250": "http://coverartarchive.org/release/cd0e72a6-0170-43ac-9399-cd0bb960e48a/26559364318-250.jpg",
+      "500": "http://coverartarchive.org/release/cd0e72a6-0170-43ac-9399-cd0bb960e48a/26559364318-500.jpg",
+      "large": "http://coverartarchive.org/release/cd0e72a6-0170-43ac-9399-cd0bb960e48a/26559364318-500.jpg",
+      "small": "http://coverartarchive.org/release/cd0e72a6-0170-43ac-9399-cd0bb960e48a/26559364318-250.jpg"
+    }
+  },
+  {
+    "mbid": "d502a247-7ac9-4250-bdcf-51274b10b227",
+    "rank": "453",
+    "title": "Pretty Hate Machine",
+    "artist": "Nine Inch Nails",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/d502a247-7ac9-4250-bdcf-51274b10b227/45737159113-1200.jpg",
+      "250": "https://coverartarchive.org/release/d502a247-7ac9-4250-bdcf-51274b10b227/45737159113-250.jpg",
+      "500": "https://coverartarchive.org/release/d502a247-7ac9-4250-bdcf-51274b10b227/45737159113-500.jpg",
+      "large": "https://coverartarchive.org/release/d502a247-7ac9-4250-bdcf-51274b10b227/45737159113-500.jpg",
+      "small": "https://coverartarchive.org/release/d502a247-7ac9-4250-bdcf-51274b10b227/45737159113-250.jpg"
+    }
+  },
+  {
+    "mbid": "65d4135f-36c0-44e7-801f-d5a00c51cf57",
+    "rank": "455",
+    "title": "Bo Diddley/Go Bo Diddley",
+    "artist": "Bo Diddley",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/65d4135f-36c0-44e7-801f-d5a00c51cf57/20560211537-1200.jpg",
+      "250": "https://coverartarchive.org/release/65d4135f-36c0-44e7-801f-d5a00c51cf57/20560211537-250.jpg",
+      "500": "https://coverartarchive.org/release/65d4135f-36c0-44e7-801f-d5a00c51cf57/20560211537-500.jpg",
+      "large": "https://coverartarchive.org/release/65d4135f-36c0-44e7-801f-d5a00c51cf57/20560211537-500.jpg",
+      "small": "https://coverartarchive.org/release/65d4135f-36c0-44e7-801f-d5a00c51cf57/20560211537-250.jpg"
+    }
+  },
+  {
+    "mbid": "64426649-ae25-4ef2-83fb-8a2a4d9ae192",
+    "rank": "456",
+    "title": "Al Green's Greatest Hits",
+    "artist": "Al Green",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/64426649-ae25-4ef2-83fb-8a2a4d9ae192/12329434487-500.jpg",
+      "small": "http://coverartarchive.org/release/64426649-ae25-4ef2-83fb-8a2a4d9ae192/12329434487-250.jpg"
+    }
+  },
+  {
+    "mbid": "c06af11d-bd8a-4743-ad41-e788aeacff7a",
+    "rank": "460",
+    "title": "Melodrama",
+    "artist": "Lorde",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/c06af11d-bd8a-4743-ad41-e788aeacff7a/43717644146-1200.jpg",
+      "250": "https://coverartarchive.org/release/c06af11d-bd8a-4743-ad41-e788aeacff7a/43717644146-250.jpg",
+      "500": "https://coverartarchive.org/release/c06af11d-bd8a-4743-ad41-e788aeacff7a/43717644146-500.jpg",
+      "large": "https://coverartarchive.org/release/c06af11d-bd8a-4743-ad41-e788aeacff7a/43717644146-500.jpg",
+      "small": "https://coverartarchive.org/release/c06af11d-bd8a-4743-ad41-e788aeacff7a/43717644146-250.jpg"
+    }
+  },
+  {
+    "mbid": "475ef81f-3cff-47ad-becf-f4d5c32b2d99",
+    "rank": "463",
+    "title": "Eli and the Thirteenth Confession",
+    "artist": "Laura Nyro",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/475ef81f-3cff-47ad-becf-f4d5c32b2d99/23107254324-1200.jpg",
+      "250": "http://coverartarchive.org/release/475ef81f-3cff-47ad-becf-f4d5c32b2d99/23107254324-250.jpg",
+      "500": "http://coverartarchive.org/release/475ef81f-3cff-47ad-becf-f4d5c32b2d99/23107254324-500.jpg",
+      "large": "http://coverartarchive.org/release/475ef81f-3cff-47ad-becf-f4d5c32b2d99/23107254324-500.jpg",
+      "small": "http://coverartarchive.org/release/475ef81f-3cff-47ad-becf-f4d5c32b2d99/23107254324-250.jpg"
+    }
+  },
+  {
+    "mbid": "9ca473e8-209a-4d8a-bb8b-78d6e9e2ac30",
+    "rank": "464",
+    "title": "3 + 3",
+    "artist": "The Isley Brothers",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/9ca473e8-209a-4d8a-bb8b-78d6e9e2ac30/1928488540-500.jpg",
+      "small": "http://coverartarchive.org/release/9ca473e8-209a-4d8a-bb8b-78d6e9e2ac30/1928488540-250.jpg"
+    }
+  },
+  {
+    "mbid": "4d8ca766-068d-45df-80bf-fa57932d1694",
+    "rank": "466",
+    "title": "Red",
+    "artist": "Black Uhuru",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/4d8ca766-068d-45df-80bf-fa57932d1694/44980614214-1200.jpg",
+      "250": "https://coverartarchive.org/release/4d8ca766-068d-45df-80bf-fa57932d1694/44980614214-250.jpg",
+      "500": "https://coverartarchive.org/release/4d8ca766-068d-45df-80bf-fa57932d1694/44980614214-500.jpg",
+      "large": "https://coverartarchive.org/release/4d8ca766-068d-45df-80bf-fa57932d1694/44980614214-500.jpg",
+      "small": "https://coverartarchive.org/release/4d8ca766-068d-45df-80bf-fa57932d1694/44980614214-250.jpg"
+    }
+  },
+  {
+    "mbid": "72931641-d8dc-4da3-b161-37a8e7101980",
+    "rank": "468",
+    "title": "Some Girls",
+    "artist": "The Rolling Stones",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/72931641-d8dc-4da3-b161-37a8e7101980/24285087164-1200.jpg",
+      "250": "http://coverartarchive.org/release/72931641-d8dc-4da3-b161-37a8e7101980/24285087164-250.jpg",
+      "500": "http://coverartarchive.org/release/72931641-d8dc-4da3-b161-37a8e7101980/24285087164-500.jpg",
+      "large": "http://coverartarchive.org/release/72931641-d8dc-4da3-b161-37a8e7101980/24285087164-500.jpg",
+      "small": "http://coverartarchive.org/release/72931641-d8dc-4da3-b161-37a8e7101980/24285087164-250.jpg"
+    }
+  },
+  {
+    "mbid": "294a4054-8a15-446d-bb57-23fcc4552ce9",
+    "rank": "470",
+    "title": "400 Degreez",
+    "artist": "Juvenile",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/294a4054-8a15-446d-bb57-23fcc4552ce9/37256493996-1200.jpg",
+      "250": "http://coverartarchive.org/release/294a4054-8a15-446d-bb57-23fcc4552ce9/37256493996-250.jpg",
+      "500": "http://coverartarchive.org/release/294a4054-8a15-446d-bb57-23fcc4552ce9/37256493996-500.jpg",
+      "large": "http://coverartarchive.org/release/294a4054-8a15-446d-bb57-23fcc4552ce9/37256493996-500.jpg",
+      "small": "http://coverartarchive.org/release/294a4054-8a15-446d-bb57-23fcc4552ce9/37256493996-250.jpg"
+    }
+  },
+  {
+    "mbid": "2d5626a5-0fea-4604-97bb-4778c5c1e52f",
+    "rank": "472",
+    "title": "Ctrl",
+    "artist": "SZA",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/2d5626a5-0fea-4604-97bb-4778c5c1e52f/34543665492-1200.jpg",
+      "250": "http://coverartarchive.org/release/2d5626a5-0fea-4604-97bb-4778c5c1e52f/34543665492-250.jpg",
+      "500": "http://coverartarchive.org/release/2d5626a5-0fea-4604-97bb-4778c5c1e52f/34543665492-500.jpg",
+      "large": "http://coverartarchive.org/release/2d5626a5-0fea-4604-97bb-4778c5c1e52f/34543665492-500.jpg",
+      "small": "http://coverartarchive.org/release/2d5626a5-0fea-4604-97bb-4778c5c1e52f/34543665492-250.jpg"
+    }
+  },
+  {
+    "mbid": "5d0f09f3-3b00-42e7-8109-21c31427573b",
+    "rank": "473",
+    "title": "Barrio Fino",
+    "artist": "Daddy Yankee",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/5d0f09f3-3b00-42e7-8109-21c31427573b/17608551056-1200.jpg",
+      "250": "http://coverartarchive.org/release/5d0f09f3-3b00-42e7-8109-21c31427573b/17608551056-250.jpg",
+      "500": "http://coverartarchive.org/release/5d0f09f3-3b00-42e7-8109-21c31427573b/17608551056-500.jpg",
+      "large": "http://coverartarchive.org/release/5d0f09f3-3b00-42e7-8109-21c31427573b/17608551056-500.jpg",
+      "small": "http://coverartarchive.org/release/5d0f09f3-3b00-42e7-8109-21c31427573b/17608551056-250.jpg"
+    }
+  },
+  {
+    "mbid": "85455e7b-953e-404c-a8f9-061d71fc4aba",
+    "rank": "474",
+    "title": "#1 Record",
+    "artist": "Big Star",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/85455e7b-953e-404c-a8f9-061d71fc4aba/23130889642-1200.jpg",
+      "250": "http://coverartarchive.org/release/85455e7b-953e-404c-a8f9-061d71fc4aba/23130889642-250.jpg",
+      "500": "http://coverartarchive.org/release/85455e7b-953e-404c-a8f9-061d71fc4aba/23130889642-500.jpg",
+      "large": "http://coverartarchive.org/release/85455e7b-953e-404c-a8f9-061d71fc4aba/23130889642-500.jpg",
+      "small": "http://coverartarchive.org/release/85455e7b-953e-404c-a8f9-061d71fc4aba/23130889642-250.jpg"
+    }
+  },
+  {
+    "mbid": "55ae0a9a-e9b3-4910-b998-34875b74785f",
+    "rank": "475",
+    "title": "Sheryl Crow",
+    "artist": "Sheryl Crow",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/55ae0a9a-e9b3-4910-b998-34875b74785f/1707957420-500.jpg",
+      "small": "http://coverartarchive.org/release/55ae0a9a-e9b3-4910-b998-34875b74785f/1707957420-250.jpg"
+    }
+  },
+  {
+    "mbid": "940f4f66-33da-4fd4-bfbe-b9f256406761",
+    "rank": "476",
+    "title": "Kimono My House",
+    "artist": "Sparks",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/940f4f66-33da-4fd4-bfbe-b9f256406761/23185704307-1200.jpg",
+      "250": "http://coverartarchive.org/release/940f4f66-33da-4fd4-bfbe-b9f256406761/23185704307-250.jpg",
+      "500": "http://coverartarchive.org/release/940f4f66-33da-4fd4-bfbe-b9f256406761/23185704307-500.jpg",
+      "large": "http://coverartarchive.org/release/940f4f66-33da-4fd4-bfbe-b9f256406761/23185704307-500.jpg",
+      "small": "http://coverartarchive.org/release/940f4f66-33da-4fd4-bfbe-b9f256406761/23185704307-250.jpg"
+    }
+  },
+  {
+    "mbid": "ad0615da-12b5-421d-b5d5-dbb6ceda8350",
+    "rank": "478",
+    "title": "Something Else by the Kinks",
+    "artist": "The Kinks",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/ad0615da-12b5-421d-b5d5-dbb6ceda8350/23078116407-1200.jpg",
+      "250": "http://coverartarchive.org/release/ad0615da-12b5-421d-b5d5-dbb6ceda8350/23078116407-250.jpg",
+      "500": "http://coverartarchive.org/release/ad0615da-12b5-421d-b5d5-dbb6ceda8350/23078116407-500.jpg",
+      "large": "http://coverartarchive.org/release/ad0615da-12b5-421d-b5d5-dbb6ceda8350/23078116407-500.jpg",
+      "small": "http://coverartarchive.org/release/ad0615da-12b5-421d-b5d5-dbb6ceda8350/23078116407-250.jpg"
+    }
+  },
+  {
+    "mbid": "1588e25f-bc10-4e76-abfb-7e4701da733d",
+    "rank": "480",
+    "title": "The Weight of These Wings",
+    "artist": "Miranda Lambert",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/1588e25f-bc10-4e76-abfb-7e4701da733d/39876309563-1200.jpg",
+      "250": "https://coverartarchive.org/release/1588e25f-bc10-4e76-abfb-7e4701da733d/39876309563-250.jpg",
+      "500": "https://coverartarchive.org/release/1588e25f-bc10-4e76-abfb-7e4701da733d/39876309563-500.jpg",
+      "large": "https://coverartarchive.org/release/1588e25f-bc10-4e76-abfb-7e4701da733d/39876309563-500.jpg",
+      "small": "https://coverartarchive.org/release/1588e25f-bc10-4e76-abfb-7e4701da733d/39876309563-250.jpg"
+    }
+  },
+  {
+    "mbid": "1ed64b0a-be41-3bff-b8ee-dab8f73546c0",
+    "rank": "481",
+    "title": "If You're Feeling Sinister",
+    "artist": "Belle and Sebastian",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/1ed64b0a-be41-3bff-b8ee-dab8f73546c0/12048926309-500.jpg",
+      "small": "http://coverartarchive.org/release/1ed64b0a-be41-3bff-b8ee-dab8f73546c0/12048926309-250.jpg"
+    }
+  },
+  {
+    "mbid": "fb04a209-3b71-4388-92a0-b5d3eed241fb",
+    "rank": "483",
+    "title": "The Anthology: 1947\u20131972",
+    "artist": "Muddy Waters",
+    "back_thumbnails": {
+      "large": "http://coverartarchive.org/release/fb04a209-3b71-4388-92a0-b5d3eed241fb/5584407129-500.jpg",
+      "small": "http://coverartarchive.org/release/fb04a209-3b71-4388-92a0-b5d3eed241fb/5584407129-250.jpg"
+    }
+  },
+  {
+    "mbid": "9841dd14-f7a3-4a40-a0f5-5cfd2b0999ed",
+    "rank": "488",
+    "title": "The Stooges",
+    "artist": "The Stooges",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/9841dd14-f7a3-4a40-a0f5-5cfd2b0999ed/23113188730-1200.jpg",
+      "250": "http://coverartarchive.org/release/9841dd14-f7a3-4a40-a0f5-5cfd2b0999ed/23113188730-250.jpg",
+      "500": "http://coverartarchive.org/release/9841dd14-f7a3-4a40-a0f5-5cfd2b0999ed/23113188730-500.jpg",
+      "large": "http://coverartarchive.org/release/9841dd14-f7a3-4a40-a0f5-5cfd2b0999ed/23113188730-500.jpg",
+      "small": "http://coverartarchive.org/release/9841dd14-f7a3-4a40-a0f5-5cfd2b0999ed/23113188730-250.jpg"
+    }
+  },
+  {
+    "mbid": "e94cff78-9f77-4799-a473-fdf812603863",
+    "rank": "489",
+    "title": "Back to Mono (1958\u20131969)",
+    "artist": "Various artists",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/e94cff78-9f77-4799-a473-fdf812603863/18623488122-1200.jpg",
+      "250": "https://coverartarchive.org/release/e94cff78-9f77-4799-a473-fdf812603863/18623488122-250.jpg",
+      "500": "https://coverartarchive.org/release/e94cff78-9f77-4799-a473-fdf812603863/18623488122-500.jpg",
+      "large": "https://coverartarchive.org/release/e94cff78-9f77-4799-a473-fdf812603863/18623488122-500.jpg",
+      "small": "https://coverartarchive.org/release/e94cff78-9f77-4799-a473-fdf812603863/18623488122-250.jpg"
+    }
+  },
+  {
+    "mbid": "7ce123fd-0e5c-463b-bf60-a8e5f0acd926",
+    "rank": "490",
+    "title": "Heart Like a Wheel",
+    "artist": "Linda Ronstadt",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/7ce123fd-0e5c-463b-bf60-a8e5f0acd926/18602099730-1200.jpg",
+      "250": "https://coverartarchive.org/release/7ce123fd-0e5c-463b-bf60-a8e5f0acd926/18602099730-250.jpg",
+      "500": "https://coverartarchive.org/release/7ce123fd-0e5c-463b-bf60-a8e5f0acd926/18602099730-500.jpg",
+      "large": "https://coverartarchive.org/release/7ce123fd-0e5c-463b-bf60-a8e5f0acd926/18602099730-500.jpg",
+      "small": "https://coverartarchive.org/release/7ce123fd-0e5c-463b-bf60-a8e5f0acd926/18602099730-250.jpg"
+    }
+  },
+  {
+    "mbid": "ec0beb3b-443d-41d4-8991-ba6030c76b7e",
+    "rank": "491",
+    "title": "Harry's House",
+    "artist": "Harry Styles",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/ec0beb3b-443d-41d4-8991-ba6030c76b7e/35669007822-1200.jpg",
+      "250": "https://coverartarchive.org/release/ec0beb3b-443d-41d4-8991-ba6030c76b7e/35669007822-250.jpg",
+      "500": "https://coverartarchive.org/release/ec0beb3b-443d-41d4-8991-ba6030c76b7e/35669007822-500.jpg",
+      "large": "https://coverartarchive.org/release/ec0beb3b-443d-41d4-8991-ba6030c76b7e/35669007822-500.jpg",
+      "small": "https://coverartarchive.org/release/ec0beb3b-443d-41d4-8991-ba6030c76b7e/35669007822-250.jpg"
+    }
+  },
+  {
+    "mbid": "4c413791-f9de-4259-b971-1bb2f7c678a4",
+    "rank": "493",
+    "title": "Here, My Dear",
+    "artist": "Marvin Gaye",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/4c413791-f9de-4259-b971-1bb2f7c678a4/41657323425-1200.jpg",
+      "250": "https://coverartarchive.org/release/4c413791-f9de-4259-b971-1bb2f7c678a4/41657323425-250.jpg",
+      "500": "https://coverartarchive.org/release/4c413791-f9de-4259-b971-1bb2f7c678a4/41657323425-500.jpg",
+      "large": "https://coverartarchive.org/release/4c413791-f9de-4259-b971-1bb2f7c678a4/41657323425-500.jpg",
+      "small": "https://coverartarchive.org/release/4c413791-f9de-4259-b971-1bb2f7c678a4/41657323425-250.jpg"
+    }
+  },
+  {
+    "mbid": "4f3dbbd3-fd84-4223-90ad-3505df50ffbf",
+    "rank": "497",
+    "title": "The Indestructible Beat of Soweto",
+    "artist": "Various artists",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/4f3dbbd3-fd84-4223-90ad-3505df50ffbf/33580381272-1200.jpg",
+      "250": "http://coverartarchive.org/release/4f3dbbd3-fd84-4223-90ad-3505df50ffbf/33580381272-250.jpg",
+      "500": "http://coverartarchive.org/release/4f3dbbd3-fd84-4223-90ad-3505df50ffbf/33580381272-500.jpg",
+      "large": "http://coverartarchive.org/release/4f3dbbd3-fd84-4223-90ad-3505df50ffbf/33580381272-500.jpg",
+      "small": "http://coverartarchive.org/release/4f3dbbd3-fd84-4223-90ad-3505df50ffbf/33580381272-250.jpg"
+    }
+  },
+  {
+    "mbid": "26cdc327-38f2-4200-b5dc-f2fa0e13fcfe",
+    "rank": "500",
+    "title": "Funeral",
+    "artist": "Arcade Fire",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/26cdc327-38f2-4200-b5dc-f2fa0e13fcfe/38471400579-1200.jpg",
+      "250": "https://coverartarchive.org/release/26cdc327-38f2-4200-b5dc-f2fa0e13fcfe/38471400579-250.jpg",
+      "500": "https://coverartarchive.org/release/26cdc327-38f2-4200-b5dc-f2fa0e13fcfe/38471400579-500.jpg",
+      "large": "https://coverartarchive.org/release/26cdc327-38f2-4200-b5dc-f2fa0e13fcfe/38471400579-500.jpg",
+      "small": "https://coverartarchive.org/release/26cdc327-38f2-4200-b5dc-f2fa0e13fcfe/38471400579-250.jpg"
+    }
+  },
+  {
+    "mbid": "14cd0c13-c5b9-41fd-a680-039a52d9765a",
+    "rank": "99",
+    "title": "Red",
+    "artist": "Taylor Swift",
+    "back_thumbnails": {
+      "1200": "http://coverartarchive.org/release/14cd0c13-c5b9-41fd-a680-039a52d9765a/31501307018-1200.jpg",
+      "250": "http://coverartarchive.org/release/14cd0c13-c5b9-41fd-a680-039a52d9765a/31501307018-250.jpg",
+      "500": "http://coverartarchive.org/release/14cd0c13-c5b9-41fd-a680-039a52d9765a/31501307018-500.jpg",
+      "large": "http://coverartarchive.org/release/14cd0c13-c5b9-41fd-a680-039a52d9765a/31501307018-500.jpg",
+      "small": "http://coverartarchive.org/release/14cd0c13-c5b9-41fd-a680-039a52d9765a/31501307018-250.jpg"
+    }
+  },
+  {
+    "mbid": "f54d5d53-e85a-3b4e-b35c-3c86400f18aa",
+    "rank": "105",
+    "title": "At Fillmore East",
+    "artist": "The Allman Brothers Band",
+    "back_thumbnails": {
+      "small": "http://coverartarchive.org/release/f54d5d53-e85a-3b4e-b35c-3c86400f18aa/12109774793-250.jpg",
+      "large": "http://coverartarchive.org/release/f54d5d53-e85a-3b4e-b35c-3c86400f18aa/12109774793-500.jpg"
+    }
+  },
+  {
+    "mbid": "6a87e042-f9d6-437d-a218-263aceaa209b",
+    "rank": "214",
+    "title": "Wildflowers",
+    "artist": "Tom Petty",
+    "back_thumbnails": {
+      "1200": "https://coverartarchive.org/release/6a87e042-f9d6-437d-a218-263aceaa209b/39502582965-1200.jpg",
+      "250": "https://coverartarchive.org/release/6a87e042-f9d6-437d-a218-263aceaa209b/39502582965-250.jpg",
+      "500": "https://coverartarchive.org/release/6a87e042-f9d6-437d-a218-263aceaa209b/39502582965-500.jpg",
+      "large": "https://coverartarchive.org/release/6a87e042-f9d6-437d-a218-263aceaa209b/39502582965-500.jpg",
+      "small": "https://coverartarchive.org/release/6a87e042-f9d6-437d-a218-263aceaa209b/39502582965-250.jpg"
+    }
+  }
+]

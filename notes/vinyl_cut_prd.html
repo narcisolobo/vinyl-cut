@@ -102,6 +102,14 @@
           coverartarchive.org at request time.
         </li>
         <li>
+          <strong>Back cover art:</strong> fetched the same way as the front
+          cover, at the same two thumbnail sizes, and added as a second image in
+          the PDP artwork gallery when present. Unlike the front cover, a
+          missing back cover is not a curation blocker — roughly 58% of the
+          catalog (based on the initial 500-release seed) has one available in
+          the Cover Art Archive; the rest simply show a single-image gallery.
+        </li>
+        <li>
           <strong>Genre:</strong> not sourced from MusicBrainz's own tag data,
           which is user-submitted and inconsistent rather than a clean taxonomy.
           Genre is assigned from a small curated list at import time instead.
@@ -165,15 +173,18 @@
           already used for Postgres. <code>forcePathStyle</code> must be set to
           <code>true</code> in the S3 provider config, since Supabase (like
           MinIO) doesn't support virtual-hosted-style URLs. All catalog cover
-          art is downloaded once at import time and uploaded here (see Data
-          Sourcing); the File Module isn't otherwise load-bearing for the
-          catalog pipeline, only for any supplementary Admin-uploaded assets
-          like a store logo or banner. The bucket is configured public-read,
-          since cover art is non-sensitive, publicly cacheable catalog content
-          and needs no signed URLs for the storefront to render it. Supabase's
-          free tier caps storage at 1 GB total; with two thumbnail sizes per
-          release, catalog size should be sanity-checked against that budget
-          before finalizing the seed list.
+          art (front and back, where available) is downloaded once at import
+          time and uploaded here (see Data Sourcing); the File Module isn't
+          otherwise load-bearing for the catalog pipeline, only for any
+          supplementary Admin-uploaded assets like a store logo or banner. The
+          bucket is configured public-read, since cover art is non-sensitive,
+          publicly cacheable catalog content and needs no signed URLs for the
+          storefront to render it. Supabase's free tier caps storage at 1 GB
+          total; for the initial 500-release catalog that's up to 1,000
+          front-cover thumbnails (500 releases &times; 2 sizes) plus up to 584
+          back-cover thumbnails (roughly 292 releases with one available
+          &times; 2 sizes), so catalog size should be sanity-checked against
+          that budget before finalizing the seed list.
         </li>
         <li>
           <strong>Keep-alive strategy:</strong> two independent free-tier timers
