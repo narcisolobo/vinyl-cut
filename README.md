@@ -142,13 +142,12 @@ then `pnpm storefront:dev` (or skip straight to `pnpm dev:full`).
 
 | Script                                                    | Description                                                                                                                                                       |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm dev`                                                | Run the storefront in dev mode (`pnpm -r --filter=@dtc/storefront dev`) — the backend runs via Docker Compose, not this script, to avoid a port collision on 9000 |
+| `pnpm storefront:dev`                                     | Run the storefront in dev mode (`pnpm --filter=@dtc/storefront dev`) — the backend runs via Docker Compose, not this script, to avoid a port collision on 9000    |
 | `pnpm dev:full`                                           | `env:up`, then `pnpm storefront:dev` — one command for a fresh session                                                                                            |
 | `pnpm build`                                              | Build all apps (`pnpm -r build`)                                                                                                                                  |
 | `pnpm start`                                              | Start all apps in production mode (`turbo start`)                                                                                                                 |
 | `pnpm lint`                                               | Lint all apps (`turbo lint`)                                                                                                                                      |
 | `pnpm test`                                               | Run tests across all apps (`turbo test`)                                                                                                                          |
-| `pnpm storefront:dev`                                     | Run only the Next.js storefront in dev mode                                                                                                                       |
 | `pnpm env:up` / `env:down` / `env:status` / `env:restart` | Local infrastructure lifecycle — see Session Management above                                                                                                     |
 | `pnpm backend:logs`                                       | Tail the Medusa container's logs                                                                                                                                  |
 
