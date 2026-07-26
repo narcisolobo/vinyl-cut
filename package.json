@@ -1,13 +1,13 @@
 {
   "name": "vinyl-cut",
   "private": true,
-  "packageManager": "pnpm@11.13.0",
+  "packageManager": "pnpm@11.17.0",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "storefront:dev": "pnpm --filter=@dtc/storefront dev",
-    "rebuild:dev": "pnpm --filter=@vinyl-cut dev",
+    "rebuild:dev": "pnpm --filter=@vc/storefront dev",
     "env:up": "supabase start && docker compose up -d",
     "env:down": "docker compose down && supabase stop",
     "env:status": "supabase status && docker compose ps",

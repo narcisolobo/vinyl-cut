@@ -1,5 +1,5 @@
 {
-  "name": "@vinyl-cut",
+  "name": "@vc/storefront",
   "version": "0.1.0",
   "description": "The Vinyl-Cut Storefront.",
   "author": "Narciso Lobo <narciso@narcisolobo.com>",
@@ -23,9 +23,17 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "daisyui": "^5.7.4",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
+  },
+  "packageManager": "pnpm@11.17.0"
 }
