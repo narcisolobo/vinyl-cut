@@ -79,7 +79,7 @@ custom restock-notification module as the centerpiece.
 2. **Start local infrastructure** (Postgres via Supabase CLI, Redis, Medusa — see `docker-compose.yml`)
 
    ```bash
-   docker compose up -d
+   pnpm env:up
    ```
 
 3. **Bootstrap Medusa** (one-time per environment: admin user, region, sales channel, stock location, shipping profile — see Bootstrap Prerequisites in `notes/vinyl_cut_etl_pipeline.html`)
@@ -102,25 +102,55 @@ custom restock-notification module as the centerpiece.
    run history, and `back_cover_available.json` / `back_cover_missing.json`
    tracking which releases got a second gallery image.
 
-5. **Run the apps**
+5. **Run the storefront**
 
    ```bash
-   pnpm dev
+   pnpm storefront:dev
    ```
+
+   Or combine steps 2 and 5 into one command for a fresh session:
+   `pnpm dev:full`.
+
+## Session Management
+
+Local infra (Supabase CLI + Docker Compose) doesn't share a lifecycle with
+the Next.js dev server, and none of these processes stop each other
+automatically — worth being deliberate about start/stop rather than leaving
+things running indefinitely across sessions.
+
+| Script              | Description                                                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm env:up`       | `supabase start` + `docker compose up -d` — brings up Postgres, Storage, Redis, and the Medusa container                           |
+| `pnpm env:down`     | `docker compose down` + `supabase stop` — full teardown; named volumes (Postgres/Storage data, `node_modules`, pnpm store) persist |
+| `pnpm env:status`   | `supabase status` + `docker compose ps` — quick check before starting a session                                                    |
+| `pnpm env:restart`  | `env:down` then `env:up` — useful if the backend is behaving oddly after a long-running session                                    |
+| `pnpm backend:logs` | Tail the Medusa container's logs (`docker compose logs -f medusa`)                                                                 |
+
+**End of session**: `Ctrl+C` the storefront dev server, then `pnpm env:down`.
+Prefer a full teardown over leaving containers paused indefinitely — a
+long-lived Medusa dev process that's been through many hot-reloads is more
+prone to drifting into an odd state (e.g. a route not re-registering
+cleanly) than one restarted fresh each session, and Docker Desktop plus
+Supabase's local stack is meaningful sustained load to leave idling.
+
+**Start of a new session**: `pnpm env:up`, confirm with `pnpm env:status`,
+then `pnpm storefront:dev` (or skip straight to `pnpm dev:full`).
 
 ## Available Scripts
 
 ### Root
 
-| Script                | Description                                       |
-| --------------------- | ------------------------------------------------- |
-| `pnpm dev`            | Run all apps in dev mode (`pnpm -r dev`)          |
-| `pnpm build`          | Build all apps (`pnpm -r build`)                  |
-| `pnpm start`          | Start all apps in production mode (`turbo start`) |
-| `pnpm lint`           | Lint all apps (`turbo lint`)                      |
-| `pnpm test`           | Run tests across all apps (`turbo test`)          |
-| `pnpm backend:dev`    | Run only the Medusa backend in dev mode           |
-| `pnpm storefront:dev` | Run only the Next.js storefront in dev mode       |
+| Script                                                    | Description                                                                                                                                                       |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm dev`                                                | Run the storefront in dev mode (`pnpm -r --filter=@dtc/storefront dev`) — the backend runs via Docker Compose, not this script, to avoid a port collision on 9000 |
+| `pnpm dev:full`                                           | `env:up`, then `pnpm storefront:dev` — one command for a fresh session                                                                                            |
+| `pnpm build`                                              | Build all apps (`pnpm -r build`)                                                                                                                                  |
+| `pnpm start`                                              | Start all apps in production mode (`turbo start`)                                                                                                                 |
+| `pnpm lint`                                               | Lint all apps (`turbo lint`)                                                                                                                                      |
+| `pnpm test`                                               | Run tests across all apps (`turbo test`)                                                                                                                          |
+| `pnpm storefront:dev`                                     | Run only the Next.js storefront in dev mode                                                                                                                       |
+| `pnpm env:up` / `env:down` / `env:status` / `env:restart` | Local infrastructure lifecycle — see Session Management above                                                                                                     |
+| `pnpm backend:logs`                                       | Tail the Medusa container's logs                                                                                                                                  |
 
 ### `apps/backend` (`@dtc/backend`)
 

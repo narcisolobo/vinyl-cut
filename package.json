@@ -6,13 +6,13 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "pnpm -r dev",
-    "build": "pnpm -r build",
-    "start": "turbo start",
-    "lint": "turbo lint",
-    "test": "turbo test",
-    "backend:dev": "turbo dev --filter=@dtc/backend",
-    "storefront:dev": "turbo dev --filter=@dtc/storefront"
+    "dev": "pnpm -r --filter=@dtc/storefront dev",
+    "env:up": "supabase start && docker compose up -d",
+    "env:down": "docker compose down && supabase stop",
+    "env:status": "supabase status && docker compose ps",
+    "env:restart": "pnpm env:down && pnpm env:up",
+    "backend:logs": "docker compose logs -f medusa",
+    "dev:full": "pnpm env:up && pnpm storefront:dev"
   },
   "devDependencies": {
     "@medusajs/eslint-plugin": "2.16.0",
