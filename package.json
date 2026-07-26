@@ -7,6 +7,7 @@
   },
   "scripts": {
     "storefront:dev": "pnpm --filter=@dtc/storefront dev",
+    "rebuild:dev": "pnpm --filter=@vinyl-cut dev",
     "env:up": "supabase start && docker compose up -d",
     "env:down": "docker compose down && supabase stop",
     "env:status": "supabase status && docker compose ps",
