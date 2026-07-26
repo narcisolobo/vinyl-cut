@@ -4,6 +4,7 @@ packages:
 overrides:
   "@types/react": "19.0.5"
   "@types/react-dom": "19.0.5"
+  caniuse-lite: "^1.0.30001806"
 allowBuilds:
   '@medusajs/telemetry': true
   '@swc/core': true

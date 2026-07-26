@@ -1,8 +1,6 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
 
-@plugin "daisyui"
+@plugin "daisyui";
 
 @plugin "daisyui/theme" {
   name: "vinyl-cut";
@@ -39,6 +37,266 @@
   --noise: 0;
 }
 
+@theme {
+  --breakpoint-2xsmall: 320px;
+  --breakpoint-xsmall: 512px;
+  --breakpoint-small: 1024px;
+  --breakpoint-medium: 1280px;
+  --breakpoint-large: 1440px;
+  --breakpoint-xlarge: 1680px;
+  --breakpoint-2xlarge: 1920px;
+
+  --color-grey-0: #ffffff;
+  --color-grey-5: #f9fafb;
+  --color-grey-10: #f3f4f6;
+  --color-grey-20: #e5e7eb;
+  --color-grey-30: #d1d5db;
+  --color-grey-40: #9ca3af;
+  --color-grey-50: #6b7280;
+  --color-grey-60: #4b5563;
+  --color-grey-70: #374151;
+  --color-grey-80: #1f2937;
+  --color-grey-90: #111827;
+
+  --radius-rounded: 8px;
+  --radius-large: 16px;
+  --radius-circle: 9999px;
+
+  --text-3xl: 2rem;
+
+  /*
+   * Stand-ins for the @medusajs/ui-preset color tokens previously used
+   * across the codebase (via bg-ui-, text-ui-, and border-ui- utilities),
+   * backed by the daisyUI "vinyl-cut" theme tokens above instead of the
+   * preset color palette.
+   */
+  --color-ui-bg-base: var(--color-base-100);
+  --color-ui-bg-subtle: var(--color-base-200);
+  --color-ui-bg-field: var(--color-base-200);
+  --color-ui-bg-field-hover: var(--color-base-300);
+  --color-ui-bg-component-pressed: var(--color-base-300);
+  --color-ui-bg-disabled: var(--color-base-300);
+  --color-ui-button-neutral-hover: var(--color-base-300);
+  --color-ui-bg-interactive: var(--color-primary);
+
+  --color-ui-border-base: var(--color-base-300);
+  --color-ui-border-interactive: var(--color-primary);
+
+  --color-ui-fg-base: var(--color-base-content);
+  --color-ui-fg-subtle: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+  --color-ui-fg-muted: color-mix(in oklab, var(--color-base-content) 50%, transparent);
+  --color-ui-fg-disabled: color-mix(in oklab, var(--color-base-content) 30%, transparent);
+  --color-ui-fg-interactive: var(--color-primary);
+  --color-ui-fg-interactive-hover: color-mix(in oklab, var(--color-primary) 80%, transparent);
+  --color-ui-fg-on-color: var(--color-primary-content);
+
+  --animate-accordion-open: accordion-slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards;
+  --animate-accordion-close: accordion-slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards;
+
+  @keyframes accordion-slide-down {
+    0% {
+      min-height: 0;
+      max-height: 0;
+      opacity: 0;
+    }
+    100% {
+      min-height: var(--radix-accordion-content-height);
+      max-height: none;
+      opacity: 1;
+    }
+  }
+
+  @keyframes accordion-slide-up {
+    0% {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+    100% {
+      height: 0;
+      opacity: 0;
+    }
+  }
+}
+
+/*
+ * Stand-ins for the @medusajs/ui-preset classes previously used across the
+ * codebase, backed by the daisyUI "vinyl-cut" theme tokens above instead of
+ * the preset's own color palette.
+ */
+@utility ui-bg-base {
+  background-color: var(--color-base-100);
+}
+@utility ui-bg-subtle {
+  background-color: var(--color-base-200);
+}
+@utility ui-bg-field {
+  background-color: var(--color-base-200);
+}
+@utility ui-bg-field-hover {
+  background-color: var(--color-base-300);
+}
+@utility ui-bg-component-pressed {
+  background-color: var(--color-base-300);
+}
+@utility ui-bg-disabled {
+  background-color: var(--color-base-300);
+}
+@utility ui-button-neutral-hover {
+  background-color: var(--color-base-300);
+}
+@utility ui-bg-interactive {
+  background-color: var(--color-primary);
+}
+
+@utility ui-border-base {
+  border-color: var(--color-base-300);
+}
+@utility ui-border-interactive {
+  border-color: var(--color-primary);
+}
+
+@utility ui-fg-base {
+  color: var(--color-base-content);
+}
+@utility ui-fg-subtle {
+  color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+}
+@utility ui-fg-muted {
+  color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
+}
+@utility ui-fg-disabled {
+  color: color-mix(in oklab, var(--color-base-content) 30%, transparent);
+}
+@utility ui-fg-interactive {
+  color: var(--color-primary);
+}
+@utility ui-fg-interactive-hover {
+  color: color-mix(in oklab, var(--color-primary) 80%, transparent);
+}
+@utility ui-fg-on-color {
+  color: var(--color-primary-content);
+}
+
+@utility shadow-borders-base {
+  box-shadow: 0 0 0 1px var(--color-base-300);
+}
+@utility shadow-borders-interactive {
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+@utility shadow-borders-interactive-with-active {
+  box-shadow:
+    0 0 0 1px var(--color-primary),
+    0 0 0 4px color-mix(in oklab, var(--color-primary) 25%, transparent);
+}
+@utility shadow-borders-interactive-with-focus {
+  box-shadow:
+    0 0 0 1px var(--color-base-100),
+    0 0 0 3px var(--color-primary);
+}
+@utility shadow-elevation-card-rest {
+  box-shadow:
+    0 0 0 1px var(--color-base-300),
+    0 1px 2px color-mix(in oklab, var(--color-neutral) 10%, transparent);
+}
+@utility shadow-elevation-card-hover {
+  box-shadow:
+    0 0 0 1px var(--color-base-300),
+    0 2px 8px color-mix(in oklab, var(--color-neutral) 20%, transparent);
+}
+@utility shadow-details-contrast-on-bg-interactive {
+  box-shadow: 0 1px 2px color-mix(in oklab, var(--color-primary-content) 40%, transparent);
+}
+
+@utility txt-compact-xsmall {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+@utility txt-xsmall-plus {
+  font-size: 0.75rem;
+  line-height: 1.2rem;
+  font-weight: 500;
+}
+@utility txt-compact-small {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+@utility txt-compact-small-plus {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+@utility txt-small {
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+  font-weight: 400;
+}
+@utility txt-small-plus {
+  font-size: 0.8125rem;
+  line-height: 1.3rem;
+  font-weight: 500;
+}
+@utility txt-compact-medium {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+@utility txt-compact-medium-plus {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+@utility txt-medium {
+  font-size: 0.875rem;
+  line-height: 1.4rem;
+  font-weight: 400;
+}
+@utility txt-medium-plus {
+  font-size: 0.875rem;
+  line-height: 1.4rem;
+  font-weight: 500;
+}
+@utility txt-compact-large {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+@utility txt-compact-large-plus {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+@utility txt-large {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+}
+@utility txt-large-plus {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 500;
+}
+@utility txt-compact-xlarge {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+@utility txt-compact-xlarge-plus {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+@utility txt-xlarge {
+  font-size: 1.125rem;
+  line-height: 1.8rem;
+  font-weight: 400;
+}
+@utility txt-xlarge-plus {
+  font-size: 1.125rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+}
 
 @layer utilities {
   /* Chrome, Safari and Opera */
@@ -57,7 +315,7 @@
 
   input:focus ~ label,
   input:not(:placeholder-shown) ~ label {
-    @apply -translate-y-2 text-xsmall-regular;
+    @apply -translate-y-2 text-[10px] leading-4 font-normal;
   }
 
   input:focus ~ label {

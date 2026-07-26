@@ -260,7 +260,7 @@ const Shipping: React.FC<ShippingProps> = ({
                           {
                             "border-ui-border-interactive":
                               option.id === shippingMethodId,
-                            "hover:shadow-brders-none cursor-not-allowed":
+                            "hover:shadow-none cursor-not-allowed":
                               isDisabled,
                           }
                         )}
@@ -330,7 +330,7 @@ const Shipping: React.FC<ShippingProps> = ({
                             {
                               "border-ui-border-interactive":
                                 option.id === shippingMethodId,
-                              "hover:shadow-brders-none cursor-not-allowed":
+                              "hover:shadow-none cursor-not-allowed":
                                 option.insufficient_inventory,
                             }
                           )}
