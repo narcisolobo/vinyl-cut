@@ -3,6 +3,7 @@
 import { type ReactNode } from "react";
 import { useDrawer } from "@/hooks/use-drawer";
 import DrawerSide from "./DrawerSide";
+import NavBar from "./NavBar";
 
 interface DrawerProps {
   children: ReactNode;
@@ -21,7 +22,10 @@ function Drawer({ children }: DrawerProps) {
         aria-hidden="true"
         tabIndex={-1}
       />
-      <div className="drawer-content flex min-h-dvh flex-col">{children}</div>
+      <div className="drawer-content flex min-h-dvh flex-col">
+        <NavBar />
+        {children}
+      </div>
       <DrawerSide />
     </div>
   );

@@ -1,5 +1,6 @@
 import DrawerProvider from "@/context/DrawerProvider";
 import { fraunces, geistMono, lobster, workSans } from "@/fonts";
+import Drawer from "@/navigation/Drawer";
 import "@/styles/globals.css";
 import { type ReactNode } from "react";
 
@@ -14,8 +15,10 @@ function RootLayout({ children }: RootLayoutProps) {
       data-theme="vinyl-cut"
       className={`${fraunces.variable} ${geistMono.variable} ${lobster.variable} ${workSans.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <DrawerProvider>{children}</DrawerProvider>
+      <body className="relative flex min-h-full flex-col">
+        <DrawerProvider>
+          <Drawer>{children}</Drawer>
+        </DrawerProvider>
       </body>
     </html>
   );

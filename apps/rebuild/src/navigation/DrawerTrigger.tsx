@@ -1,7 +1,7 @@
 "use client";
 
 import { useDrawer } from "@/hooks/use-drawer";
-import { DotsThreeOutlineVerticalIcon } from "@phosphor-icons/react/DotsThreeOutlineVertical";
+import { ListIcon } from "@phosphor-icons/react/List";
 
 function DrawerTrigger() {
   const { checkboxRef, triggerRef } = useDrawer();
@@ -16,10 +16,10 @@ function DrawerTrigger() {
     <button
       ref={triggerRef}
       onClick={toggleDrawer}
-      aria-label="open navigation"
+      aria-label="open navigation menu"
       className="btn btn-square btn-ghost drawer-button md:hidden"
     >
-      <DotsThreeOutlineVerticalIcon size={42} />
+      <ListIcon size={24} />
     </button>
   );
 }

@@ -1,4 +1,3 @@
-import Drawer from "@/navigation/Drawer";
 import DrawerTrigger from "@/navigation/DrawerTrigger";
 import { type Metadata } from "next";
 import Image from "next/image";
@@ -11,7 +10,7 @@ const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Drawer>
+    <>
       <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
         <main className="flex w-full max-w-3xl flex-1 flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
           <Image
@@ -72,7 +71,7 @@ export default function Home() {
           </div>
         </main>
       </div>
-    </Drawer>
+    </>
   );
 }
 
