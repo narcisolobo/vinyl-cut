@@ -1,4 +1,10 @@
-import { Fraunces, Geist_Mono, Lobster, Work_Sans } from "next/font/google";
+import {
+  Bungee,
+  Fraunces,
+  Geist_Mono,
+  Lobster,
+  Space_Grotesk,
+} from "next/font/google";
 
 const lobster = Lobster({
   subsets: ["latin"],
@@ -7,10 +13,11 @@ const lobster = Lobster({
   variable: "--font-lobster",
 });
 
-const fraunces = Fraunces({
+const bungee = Bungee({
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
+  variable: "--font-bungee",
 });
 
 const geistMono = Geist_Mono({
@@ -18,10 +25,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const workSans = Work_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-work-sans",
+  variable: "--font-space-grotesk",
 });
 
-export { fraunces, geistMono, lobster, workSans };
+export { bungee, geistMono, lobster, spaceGrotesk };
