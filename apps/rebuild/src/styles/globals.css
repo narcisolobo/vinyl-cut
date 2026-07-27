@@ -6,11 +6,18 @@
 @theme inline {
   --font-brand: var(--font-lobster), cursive;
   --font-heading:
-    var(--font-fraunces), ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    var(--font-bungee), ui-serif, Georgia, Cambria, "Times New Roman", Times,
     serif;
   --font-sans:
-    var(--font-work-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+    var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --text-shadow-headline:
+    4px 4px 0px color-mix(in oklch, var(--color-accent) 85%, transparent),
+    8px 8px 0px oklch(0.52 0.16 25 / 0.4);
+  --text-shadow-headline-inverted:
+    4px 4px 0px color-mix(in oklch, var(--color-base-content) 85%, transparent),
+    8px 8px 0px oklch(0.52 0.16 25 / 0.4);
+  --text-shadow-logo: 2px 2px 0px oklch(0.52 0.16 25 / 0.6);
 }
 
 @layer components {
@@ -18,9 +25,4 @@
     @apply font-heading;
     font-optical-sizing: auto;
   }
-}
-
-@utility container {
-  margin-inline: auto;
-  padding-inline: 2rem;
 }

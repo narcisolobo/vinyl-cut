@@ -1,0 +1,69 @@
+.funky-sun {
+  position: absolute;
+  width: 175%;
+  aspect-ratio: 1/1;
+  background: repeating-conic-gradient(
+    oklch(0.75 0.183 55.934 / 0.65) 0deg,
+    oklch(0.75 0.183 55.934 / 0.65) 6deg,
+    transparent 6deg,
+    transparent 18deg
+  );
+  border-radius: 50%;
+  filter: blur(0.3px);
+  z-index: 0;
+  mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
+  -webkit-mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size:
+    100% 100%,
+    min(52%, 460px) min(52%, 460px);
+  -webkit-mask-size:
+    100% 100%,
+    min(52%, 460px) min(52%, 460px);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+.vinyl {
+  position: absolute;
+  width: 120%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(
+    circle,
+    transparent 45%,
+    oklch(0.1786 0.034 265.754) 72%
+  );
+  border-radius: 50%;
+  z-index: 1;
+  mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
+  -webkit-mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size:
+    100% 100%,
+    min(65%, 460px) min(65%, 460px);
+  -webkit-mask-size:
+    100% 100%,
+    min(65%, 460px) min(65%, 460px);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+.adapter {
+  position: relative;
+  z-index: 2;
+  width: min(78%, 460px);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    oklch(0.20768 0.039 265.754) 0px 0px 0px 6px,
+    oklch(0.75 0.183 55.934 / 0.5) 0px 0px 0px 8px,
+    oklch(0 0 0 / 0.6) 0px 30px 70px;
+  animation-duration: 20s;
+}
