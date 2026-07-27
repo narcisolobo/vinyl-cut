@@ -14,7 +14,7 @@ function CopyPane() {
         <br />
         to the
         <br />
-        <span className="text-accent">Cut.</span>
+        <span className="text-accent text-shadow-headline-inverted">Cut.</span>
       </h1>
       <p className="text-[clamp(1.05rem,1.4vw,1.3rem)]">
         New pressings, rare finds, and records worth digging for.

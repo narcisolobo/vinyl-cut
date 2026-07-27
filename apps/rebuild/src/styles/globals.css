@@ -14,6 +14,9 @@
   --text-shadow-headline:
     4px 4px 0px color-mix(in oklch, var(--color-accent) 85%, transparent),
     8px 8px 0px oklch(0.52 0.16 25 / 0.4);
+  --text-shadow-headline-inverted:
+    4px 4px 0px color-mix(in oklch, var(--color-base-content) 85%, transparent),
+    8px 8px 0px oklch(0.52 0.16 25 / 0.4);
 }
 
 @layer components {
