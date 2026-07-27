@@ -1,10 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import DrawerTrigger from "./DrawerTrigger";
-import { ShoppingCartIcon } from "@phosphor-icons/react";
+import NavMenu from "./NavMenu";
+import { useEffect, useState } from "react";
+
+const SCROLL_THRESHOLD_PX = 64;
 
 function NavBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > SCROLL_THRESHOLD_PX);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="bg-base-100 fixed top-0 w-full shadow-sm">
+    <div
+      className={`fixed top-0 z-10 w-full transition-all duration-300 ease-in-out ${
+        isScrolled ? "bg-base-100 shadow-sm" : "bg-transparent shadow-none"
+      }`}
+    >
       <div className="relative flex min-h-16 items-center justify-between p-2">
         <div className="flex-1">
           <div className="flex items-center">
@@ -18,13 +39,7 @@ function NavBar() {
           </div>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal gap-2">
-            <li>
-              <button className="btn btn-ghost">
-                <ShoppingCartIcon size={24} />
-              </button>
-            </li>
-          </ul>
+          <NavMenu />
         </div>
       </div>
     </div>

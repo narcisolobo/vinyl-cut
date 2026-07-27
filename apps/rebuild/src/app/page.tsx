@@ -14,7 +14,7 @@ const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="pt-16">
+    <main>
       <HeroSection />
       <FeaturesSection />
       <NewArrivalsSection />

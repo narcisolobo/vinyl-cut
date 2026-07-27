@@ -6,7 +6,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
+    <footer className="footer sm:footer-horizontal bg-base-300 p-10">
       <aside>
         <p>
           <span className="text-xl">The Vinyl Cut</span>
