@@ -4,6 +4,7 @@ import { type ReactNode } from "react";
 import { useDrawer } from "@/hooks/use-drawer";
 import DrawerSide from "./DrawerSide";
 import NavBar from "./NavBar";
+import Footer from "@/layout/Footer";
 
 interface DrawerProps {
   children: ReactNode;
@@ -25,6 +26,7 @@ function Drawer({ children }: DrawerProps) {
       <div className="drawer-content flex min-h-dvh flex-col">
         <NavBar />
         {children}
+        <Footer />
       </div>
       <DrawerSide />
     </div>

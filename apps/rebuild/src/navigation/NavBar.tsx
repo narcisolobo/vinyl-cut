@@ -13,7 +13,7 @@ function NavBar() {
               href="/"
               className="font-brand text-accent btn btn-ghost text-4xl"
             >
-              Vinyl Cut
+              The Vinyl Cut
             </Link>
           </div>
         </div>
