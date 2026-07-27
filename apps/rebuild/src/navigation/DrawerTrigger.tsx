@@ -1,7 +1,7 @@
 "use client";
 
 import { useDrawer } from "@/hooks/use-drawer";
-import { ListIcon } from "@phosphor-icons/react/List";
+import { ListIcon } from "@phosphor-icons/react";
 
 function DrawerTrigger() {
   const { checkboxRef, triggerRef } = useDrawer();
