@@ -5,17 +5,4 @@
     oklch(0.20768 0.039 265.754) 45%,
     oklch(0.1786 0.034 265.754) 100%
   );
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 70dvh;
-  overflow: hidden;
-}
-
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  width: 100%;
 }
