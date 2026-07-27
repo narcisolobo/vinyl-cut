@@ -11,7 +11,7 @@ function NavBar() {
             <DrawerTrigger />
             <Link
               href="/"
-              className="font-brand text-accent btn btn-ghost text-4xl"
+              className="font-brand text-primary btn btn-ghost text-shadow-logo text-4xl"
             >
               The Vinyl Cut
             </Link>
