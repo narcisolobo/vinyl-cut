@@ -1,5 +1,6 @@
-.album-stack {
-  width: clamp(300px, 25vw, 500px);
+.genre-tile-link {
+  width: 100%;
+  max-width: 500px;
 }
 
 .album-cover {

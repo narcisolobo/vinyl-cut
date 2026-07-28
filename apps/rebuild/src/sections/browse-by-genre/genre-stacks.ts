@@ -1,19 +1,19 @@
 import { type AlbumStacks } from "@/components/album-stack/types";
 
 // soul
-import imStillInLoveWithYou from "./covers/im-still-in-love-with-you.jpg";
-import songsInTheKeyOfLife from "./covers/songs-in-the-key-of-life.jpg";
-import whatsGoingOn from "./covers/whats-going-on.jpg";
+import imStillInLoveWithYou from "./covers/soul/im-still-in-love-with-you.jpg";
+import songsInTheKeyOfLife from "./covers/soul/songs-in-the-key-of-life.jpg";
+import whatsGoingOn from "./covers/soul/whats-going-on.jpg";
 
 // rock
-import ledZeppelinIV from "./covers/led-zeppelin-iv.jpg";
-import theDarkSideOfTheMoon from "./covers/the-dark-side-of-the-moon.jpg";
-import tommy from "./covers/tommy.jpg";
+import ledZeppelinIV from "./covers/rock/led-zeppelin-iv.jpg";
+import theDarkSideOfTheMoon from "./covers/rock/the-dark-side-of-the-moon.jpg";
+import tommy from "./covers/rock/tommy.jpg";
 
 // rap
-import enterTheWuTang from "./covers/enter-the-wu-tang.jpg";
-import itTakesANation from "./covers/it-takes-a-nation.jpg";
-import readyToDie from "./covers/ready-to-die.jpeg";
+import enterTheWuTang from "./covers/rap/enter-the-wu-tang.jpg";
+import itTakesANation from "./covers/rap/it-takes-a-nation.jpg";
+import readyToDie from "./covers/rap/ready-to-die.jpeg";
 
 const genreStacks: AlbumStacks = {
   filter: "genre",
