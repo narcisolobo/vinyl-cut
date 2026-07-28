@@ -1,14 +1,10 @@
+import Eyebrow from "@/components/Eyebrow";
 import CallToAction from "../cta/CallToAction";
 
 function CopyPane() {
   return (
     <div className="flex flex-col items-start gap-7 pr-6">
-      <div className="inline-flex items-center gap-3">
-        <div className="from-accent h-0.5 w-14 bg-linear-to-r to-transparent"></div>
-        <span className="text-primary text-sm font-semibold tracking-[4px] uppercase">
-          Used & Rare Vinyl
-        </span>
-      </div>
+      <Eyebrow message="Used & Rare Vinyl" />
       <h1 className="font-heading text-shadow-headline text-[clamp(2.6rem,6.2vw,6rem)] leading-none uppercase">
         Welcome
         <br />

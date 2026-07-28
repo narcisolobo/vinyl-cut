@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
+    "@playwright/test": "^1.62.0",
     "@medusajs/types": "2.18.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.14.0",
