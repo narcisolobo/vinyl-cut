@@ -13,6 +13,7 @@ function FunkySun() {
       >
         <Image
           src={adapter}
+          loading="eager"
           alt="An image of a 45 RPM record adapter"
           className="block h-full w-full object-cover"
         />
