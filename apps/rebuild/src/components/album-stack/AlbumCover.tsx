@@ -1,5 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
-import styles from "./browse-by-genre-section.module.css";
+import styles from "./album-stack.module.css";
 
 interface AlbumCoverProps {
   cover: StaticImageData;
