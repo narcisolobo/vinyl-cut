@@ -15,7 +15,7 @@ function AlbumStack({ albumStack }: AlbumStackProps) {
       className={styles["genre-tile-link"]}
     >
       <div
-        className={`${styles["album-stack"]} relative aspect-square transition-transform duration-500 transform-3d`}
+        className={`${styles["album-stack"]} relative aspect-square transition-transform duration-500`}
       >
         {albumStack.covers.map(({ title, cover }) => (
           <AlbumCover key={title} cover={cover} />
