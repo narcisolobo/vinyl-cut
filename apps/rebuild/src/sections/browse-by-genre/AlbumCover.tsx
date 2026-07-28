@@ -7,13 +7,13 @@ interface AlbumCoverProps {
 
 function AlbumCover({ cover }: AlbumCoverProps) {
   return (
-    <div className={styles["album-cover"]}>
+    <div className={`${styles["album-cover"]} absolute inset-0 origin-bottom`}>
       <Image
         fill
-        sizes="300px"
+        sizes="(max-width: 1200px) 300px, (max-width: 2000px) 25vw, 500px"
         alt=""
         src={cover}
-        className={styles["cover-image"]}
+        className="object-cover"
       />
     </div>
   );
