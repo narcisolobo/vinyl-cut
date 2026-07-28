@@ -11,7 +11,7 @@ function BrowseByGenreSection() {
           Browse by Genre.
         </h2>
       </hgroup>
-      <div className="flex flex-col items-center gap-20 lg:flex-row">
+      <div className="flex flex-col items-center justify-between gap-20 p-3 lg:flex-row">
         {albumStacks.map((albumStack) => (
           <AlbumStack key={albumStack.slug} albumStack={albumStack} />
         ))}

@@ -56,4 +56,4 @@ const albumStacks: AlbumStack[] = [
   },
 ];
 
-export { albumStacks, AlbumStack };
+export { albumStacks, type AlbumStack };
