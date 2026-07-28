@@ -16,7 +16,7 @@ function CopyPane() {
           </span>
         </h1>
       </hgroup>
-      <p className="text-[clamp(1.05rem,1.4vw,1.3rem)]">
+      <p className="max-w-[25ch] text-[clamp(1.05rem,1.4vw,1.3rem)]">
         New pressings, rare finds, and records worth digging for.
       </p>
       <CallToAction />
