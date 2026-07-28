@@ -1,6 +1,4 @@
-"use client";
-
-import { ArrowRightIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
 
 function CallToAction() {
   return (
