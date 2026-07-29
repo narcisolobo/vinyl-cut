@@ -1,6 +1,6 @@
 .funky-sun {
   position: absolute;
-  width: 175%;
+  width: 200%;
   aspect-ratio: 1/1;
   background: repeating-conic-gradient(
     oklch(0.75 0.183 55.934 / 0.65) 0deg,
