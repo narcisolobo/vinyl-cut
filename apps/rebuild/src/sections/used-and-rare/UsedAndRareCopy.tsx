@@ -1,7 +1,6 @@
 import Eyebrow from "@/components/Eyebrow";
-import Step from "./Step";
+import Steps from "@/components/steps/Steps";
 import { steps } from "./steps";
-import styles from "./used-and-rare-copy.module.css";
 
 function UsedAndRareCopy() {
   return (
@@ -19,11 +18,7 @@ function UsedAndRareCopy() {
           you&apos;ll be the first to know.
         </p>
       </hgroup>
-      <ol className={`${styles.steps} flex flex-col gap-8`}>
-        {steps.map(({ step, title, subtitle }) => (
-          <Step key={step} step={step} title={title} subtitle={subtitle} />
-        ))}
-      </ol>
+      <Steps steps={steps} />
     </div>
   );
 }

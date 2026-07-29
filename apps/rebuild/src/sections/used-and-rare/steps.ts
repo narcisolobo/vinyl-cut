@@ -1,8 +1,4 @@
-type Step = {
-  step: number;
-  title: string;
-  subtitle: string;
-};
+import type { Step } from "@/components/steps/types";
 
 const steps: Step[] = [
   {

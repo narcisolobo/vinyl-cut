@@ -1,11 +1,11 @@
-import type { Step } from "./steps";
-import styles from "./used-and-rare-copy.module.css";
+import type { Step } from "./types";
+import styles from "./steps.module.css";
 
 function Step({ title, subtitle }: Step) {
   return (
     <li className={`${styles.step} flex items-center gap-4`}>
       <div className="flex flex-col gap-0.5">
-        <strong className="text-lg font-bold">{title}</strong>
+        <strong className="text-primary text-lg font-bold">{title}</strong>
         <p>{subtitle}</p>
       </div>
     </li>
