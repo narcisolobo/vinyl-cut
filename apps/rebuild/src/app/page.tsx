@@ -1,9 +1,9 @@
-import BrowseByEraSection from "@/sections/browse-by-era/BrowseByEraSection";
-import BrowseByGenreSection from "@/sections/browse-by-genre/BrowseByGenreSection";
-import FeaturesSection from "@/sections/features/FeaturesSection";
-import HeroSection from "@/sections/hero/HeroSection";
-import NewArrivalsSection from "@/sections/new-arrivals/NewArrivalsSection";
-import UsedAndRareSection from "@/sections/used-and-rare/UsedAndRareSection";
+import BrowseByEraSection from "@/pages/landing-page/sections/browse-by-era/BrowseByEraSection";
+import BrowseByGenreSection from "@/pages/landing-page/sections/browse-by-genre/BrowseByGenreSection";
+import FeaturesSection from "@/pages/landing-page/sections/features/FeaturesSection";
+import HeroSection from "@/pages/landing-page/sections/hero/HeroSection";
+import NewArrivalsSection from "@/pages/landing-page/sections/new-arrivals/NewArrivalsSection";
+import UsedAndRareSection from "@/pages/landing-page/sections/used-and-rare/UsedAndRareSection";
 import { type Metadata } from "next";
 
 const metadata: Metadata = {
