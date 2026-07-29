@@ -15,11 +15,11 @@ function DrawerMenu() {
         const isActive = link.href === pathname;
 
         return (
-          <li key={link.href}>
+          <li key={link.href} className="uppercase">
             <Link
               href={link.href}
               onClick={closeDrawer}
-              className={isActive ? "menu-active" : ""}
+              className={`link-primary ${isActive ? "menu-active" : ""}`}
             >
               {link.label}
             </Link>

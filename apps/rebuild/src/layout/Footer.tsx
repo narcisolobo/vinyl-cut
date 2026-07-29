@@ -20,11 +20,13 @@ function State({ state }: StateProps) {
 
 function Footer() {
   return (
-    <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+    <footer className="footer lg:footer-horizontal bg-base-200 text-base-content gap-16 p-10">
       <aside>
         <h4 className="font-brand text-primary text-4xl">The Vinyl Cut</h4>
         <p className="mb-6">
-          New pressings, rare finds, and records worth digging for.
+          New pressings, rare finds,
+          <br />
+          and records worth digging for.
         </p>
         <div className="flex items-center gap-4">
           <TiktokLogoIcon size={32} />

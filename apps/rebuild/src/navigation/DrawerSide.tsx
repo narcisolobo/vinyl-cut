@@ -2,7 +2,7 @@ import DrawerMenu from "./DrawerMenu";
 
 function DrawerSide() {
   return (
-    <div className="drawer-side">
+    <div className="drawer-side z-30">
       <label
         htmlFor="mobile-navigation"
         aria-label="close sidebar"
