@@ -5,6 +5,7 @@ import { useDrawer } from "@/hooks/use-drawer";
 import DrawerSide from "./DrawerSide";
 import NavBar from "./NavBar";
 import Footer from "@/layout/Footer";
+import Disclaimer from "@/layout/Disclaimer";
 
 interface DrawerProps {
   children: ReactNode;
@@ -27,6 +28,7 @@ function Drawer({ children }: DrawerProps) {
         <NavBar />
         {children}
         <Footer />
+        <Disclaimer />
       </div>
       <DrawerSide />
     </div>
