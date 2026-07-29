@@ -23,7 +23,7 @@ function LocalizedClientLink({
   href,
   ...props
 }: LocalizedClientLinkProps) {
-  const { countryCode } = useParams();
+  const { countryCode } = useParams() ?? {};
 
   return (
     <Link href={`/${countryCode}${href}`} {...props}>

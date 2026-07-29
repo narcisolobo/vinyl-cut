@@ -26,4 +26,13 @@
     @apply font-heading;
     font-optical-sizing: auto;
   }
+
+  .vc-gradient {
+    background: radial-gradient(
+      90% 70% at 78% 30%,
+      oklch(0.27949 0.036 260.03) 0%,
+      oklch(0.20768 0.039 265.754) 45%,
+      oklch(0.1786 0.034 265.754) 100%
+    );
+  }
 }

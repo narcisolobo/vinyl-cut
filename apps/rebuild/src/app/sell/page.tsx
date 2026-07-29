@@ -1,5 +1,11 @@
+import BringUsYourCrates from "@/views/sell-your-records/sections/BringUsYourCrates";
+
 function SellYourRecordsPage() {
-  return <div>SellYourRecordsPage</div>;
+  return (
+    <main>
+      <BringUsYourCrates />
+    </main>
+  );
 }
 
 export default SellYourRecordsPage;
