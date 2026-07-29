@@ -3,7 +3,7 @@ import CallToAction from "../cta/CallToAction";
 
 function CopyPane() {
   return (
-    <div className="flex flex-col items-start gap-7 pr-6">
+    <div className="relative z-10 flex flex-col items-start gap-7 pr-6">
       <hgroup role="group" aria-roledescription="Heading group">
         <Eyebrow message="Used & Rare Vinyl" />
         <h1 className="font-heading text-shadow-headline text-[clamp(2.6rem,6.2vw,6rem)] leading-none uppercase">
