@@ -7,7 +7,7 @@ function FeaturesSection() {
     <section className="bg-base-100 px-8 py-12 md:py-16 lg:py-20">
       <hgroup role="group" aria-roledescription="Heading group">
         <Eyebrow message="Three things we get right" />
-        <h2 className="font-heading text-shadow-headline text-heading mb-16 text-3xl uppercase">
+        <h2 className="font-heading text-shadow-headline text-heading mb-16 uppercase">
           Straight Up, No Skips.
         </h2>
       </hgroup>

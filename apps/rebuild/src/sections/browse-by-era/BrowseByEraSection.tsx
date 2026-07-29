@@ -9,7 +9,7 @@ function BrowseByEraSection() {
     <section className="bg-base-300 overflow-hidden px-8 py-12 md:py-16 lg:py-20">
       <hgroup role="group" aria-roledescription="Heading group">
         <Eyebrow message="Set the dial" />
-        <h2 className="font-heading text-shadow-headline text-heading mb-24 text-3xl uppercase">
+        <h2 className="font-heading text-shadow-headline text-heading mb-24 uppercase">
           Browse by Era.
         </h2>
       </hgroup>

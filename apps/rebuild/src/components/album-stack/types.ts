@@ -2,7 +2,7 @@ import { type StaticImageData } from "next/image";
 
 type AlbumCover = {
   title: string;
-  cover: StaticImageData | string;
+  cover: StaticImageData;
 };
 
 type AlbumStack = {

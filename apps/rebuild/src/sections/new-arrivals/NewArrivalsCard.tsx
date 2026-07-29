@@ -4,7 +4,10 @@ import type { NewArrival } from "./new-arrivals";
 
 function NewArrivalsCard({ cover, title, artist, handle }: NewArrival) {
   return (
-    <LocalizedClientLink href={`/products/${handle}`}>
+    <LocalizedClientLink
+      href={`/products/${handle}`}
+      className="transition-all hover:scale-110"
+    >
       <article className="relative isolate">
         <figure className="relative mb-4 aspect-square">
           <Image

@@ -23,7 +23,7 @@ function AlbumStack({ filter, albumStack }: AlbumStackProps) {
         {covers.map(({ title, cover }) => (
           <AlbumCover key={title} cover={cover} />
         ))}
-        <span className="btn btn-outline btn-accent text-base-content font-heading bg-base-100 absolute -bottom-3 -left-3 z-10 text-sm font-semibold whitespace-nowrap uppercase">
+        <span className="badge badge-outline badge-primary font-heading bg-base-100 badge-lg absolute -bottom-3 -left-3 z-10 text-sm font-semibold whitespace-nowrap uppercase">
           {label}
         </span>
       </div>
