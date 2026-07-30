@@ -7,7 +7,7 @@ import UsedAndRareSection from "@/views/landing-page/sections/used-and-rare/Used
 import { type Metadata } from "next";
 
 const metadata: Metadata = {
-  title: "The Vinyl Cut | Home",
+  title: "Home | The Vinyl Cut",
   description:
     "Browse new and used vinyl at The Vinyl Cut — condition-graded records, genre and era filters, and restock alerts when sold-out pressings come back in.",
 };
