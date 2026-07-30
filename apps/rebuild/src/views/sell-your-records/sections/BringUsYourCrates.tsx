@@ -7,7 +7,7 @@ function BringUsYourCrates() {
   return (
     <section
       id="home"
-      className="vc-gradient min-h-[70dvh] overflow-hidden px-8 pt-32 pb-24 md:pb-28 lg:pb-32"
+      className="vc-gradient overflow-hidden px-8 pt-32 pb-24 md:pb-28 lg:pb-32"
     >
       <div className="relative isolate">
         <div className="z-10">
@@ -25,7 +25,7 @@ function BringUsYourCrates() {
               </span>
             </h1>
           </hgroup>
-          <p className="mb-8 max-w-[50ch] text-[clamp(1.05rem,1.4vw,1.3rem)]">
+          <p className="mb-8 text-[clamp(1.05rem,1.4vw,1.3rem)] md:max-w-[35ch] lg:max-w-[50ch]">
             Downsizing, decluttering, or just done with that box in the closet —
             come in and let&apos;s see what you&apos;ve got. No appointment, no
             pressure, no lowball games.
@@ -35,7 +35,7 @@ function BringUsYourCrates() {
             <ArrowRightIcon />
           </button>
         </div>
-        <div className="outline-accent border-base-content absolute z-0 aspect-square w-[clamp(400px,80vw,1024px)] overflow-hidden rounded-full border-8 shadow-[0px_30px_60px_oklch(0_0_0/0.4)] outline-4 xl:top-1/4 xl:left-1/2">
+        <div className="outline-accent border-base-content absolute z-0 hidden aspect-square w-[clamp(400px,80vw,1024px)] overflow-hidden rounded-full border-8 shadow-[0px_30px_60px_oklch(0_0_0/0.4)] outline-4 md:top-1/4 md:left-1/2 md:block">
           <Image
             src={recordCrate}
             alt="Photo of man browsing records in a crate"
