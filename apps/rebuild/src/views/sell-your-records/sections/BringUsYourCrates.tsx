@@ -42,6 +42,7 @@ function BringUsYourCrates() {
             fill
             sizes="(max-width: 1024px) 40vw, 500px"
             className="object-cover"
+            loading="eager"
           />
         </div>
       </div>

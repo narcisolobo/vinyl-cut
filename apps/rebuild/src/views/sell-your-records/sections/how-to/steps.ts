@@ -17,7 +17,7 @@ const steps: Step[] = [
     step: 3,
     title: "We'll tell you straight.",
     subtitle:
-      "If it's a fit, walk out with cash or credit. If it's not — wrong condition, not something we stock — we'll say so, and tell you why.",
+      "If it's a fit, walk out with cash or credit. If it's not, we'll say so, and tell you why.",
   },
 ];
 

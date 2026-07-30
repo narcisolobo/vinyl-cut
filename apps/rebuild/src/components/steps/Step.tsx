@@ -6,7 +6,7 @@ function Step({ title, subtitle }: Step) {
     <li className={`${styles.step} flex items-center gap-4`}>
       <div className="flex flex-col gap-0.5">
         <strong className="text-primary text-lg font-bold">{title}</strong>
-        <p>{subtitle}</p>
+        <p className="max-w-[60ch]">{subtitle}</p>
       </div>
     </li>
   );
