@@ -3,7 +3,7 @@
 import { useParams, usePathname } from "next/navigation";
 import { useDrawer } from "@/hooks/use-drawer";
 import { navItems } from "./nav-items";
-import Link from "next/link";
+import Link from "@/components/LocalizedClientLink";
 
 function DrawerMenu() {
   const { closeDrawer } = useDrawer();
