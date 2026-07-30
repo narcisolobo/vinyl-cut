@@ -30,7 +30,7 @@ function IfItSpins() {
           >
             <Image
               src={recordSpinning}
-              alt="Store employee at the counter with a stack of vinyl records"
+              alt="Photo of record spinning on turntable"
               fill
               sizes="(max-width: 1024px) 90vw, 600px"
               className="object-cover"
