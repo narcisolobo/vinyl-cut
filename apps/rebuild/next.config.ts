@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   experimental: {
     optimizePackageImports: ["@phosphor-icons/react"],
+    viewTransition: true,
   },
   turbopack: {
     root: path.join(__dirname, "..", ".."),
