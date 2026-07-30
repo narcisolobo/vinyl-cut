@@ -6,10 +6,10 @@ function IfItSpins() {
   return (
     <section className="bg-base-100 mx-auto w-full max-w-7xl overflow-hidden px-8 py-12 md:py-16 lg:py-20">
       <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
-        <div className="flex-1">
+        <div className="order-2 flex-1 md:order-1">
           <hgroup role="group" aria-roledescription="Heading group">
             <Eyebrow message="What we're looking for" />
-            <h2 className="font-heading text-shadow-headline text-heading mb-16 leading-14 uppercase">
+            <h2 className="font-heading text-shadow-headline text-heading mb-8 leading-14 uppercase">
               If it spins,
               <br /> bring it in.
             </h2>
@@ -22,7 +22,7 @@ function IfItSpins() {
         </div>
         <div
           id="thin-border"
-          className="border-accent/30 relative max-w-160 min-w-75 flex-1 -translate-6 border-2"
+          className="border-accent/30 relative order-1 max-w-160 min-w-75 flex-1 -translate-6 border-2 md:order-2"
         >
           <div
             id="thick-shadow"
