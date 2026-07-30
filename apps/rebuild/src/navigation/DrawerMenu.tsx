@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useDrawer } from "@/hooks/use-drawer";
 import { navItems } from "./nav-items";
 import Link from "next/link";
@@ -9,10 +9,16 @@ function DrawerMenu() {
   const { closeDrawer } = useDrawer();
   const pathname = usePathname();
 
+  const { "country-code": countryCode } = useParams() as {
+    "country-code": string;
+  };
+  const pathWithoutCountryCode =
+    pathname.replace(new RegExp(`^/${countryCode}`), "") || "/";
+
   return (
     <ul className="menu bg-base-200 min-h-full w-80 p-4 text-lg">
       {navItems.map((link) => {
-        const isActive = link.href === pathname;
+        const isActive = link.href === pathWithoutCountryCode;
 
         return (
           <li key={link.href} className="uppercase">

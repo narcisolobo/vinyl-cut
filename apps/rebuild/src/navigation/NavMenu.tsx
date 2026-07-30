@@ -7,10 +7,10 @@ import { navItems } from "./nav-items";
 
 function NavMenu() {
   const pathname = usePathname();
+
   const { "country-code": countryCode } = useParams() as {
     "country-code": string;
   };
-
   const pathWithoutCountryCode =
     pathname.replace(new RegExp(`^/${countryCode}`), "") || "/";
 
