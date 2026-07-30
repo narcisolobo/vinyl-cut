@@ -5,6 +5,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "Sell Your Records", href: "/sell" },
   { label: "Store", href: "/store" },
 ];
 
