@@ -62,15 +62,18 @@ async function getRegionMap(cacheId: string) {
 }
 
 /**
- * Fetches regions from Medusa and sets the region cookie.
- * @param request
- * @param response
+ * Determines the country code for a request by checking, in order: the URL
+ * path segment, Cloudflare's geo header, Vercel's geo header, the configured
+ * default region, then falling back to the first available region.
+ * @param request - The incoming request.
+ * @param regionMap - A map of country codes to their corresponding Medusa region.
+ * @returns The resolved country code, or undefined if no region is available.
  */
 async function getCountryCode(
   request: NextRequest,
   regionMap: Map<string, HttpTypes.StoreRegion | number>,
 ) {
-  let countryCode;
+  let countryCode: string | undefined;
 
   const urlCountryCode = request.nextUrl.pathname.split("/")[1]?.toLowerCase();
 
