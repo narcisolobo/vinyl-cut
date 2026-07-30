@@ -122,6 +122,9 @@ importers:
 
   apps/rebuild:
     dependencies:
+      '@medusajs/types':
+        specifier: 2.18.0
+        version: 2.18.0(ioredis@5.8.2(supports-color@8.1.1))(vite@5.4.21(@types/node@20.19.26)(lightningcss@1.32.0)(terser@5.44.1))
       '@phosphor-icons/react':
         specifier: ^2.1.10
         version: 2.1.10(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
