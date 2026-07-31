@@ -11,8 +11,9 @@
   border-radius: 50%;
   filter: blur(0.3px);
   z-index: 0;
-  mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
-  -webkit-mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
+  mask-image: linear-gradient(#000, #000), url("./images/circle-mask.svg");
+  -webkit-mask-image:
+    linear-gradient(#000, #000), url("./images/circle-mask.svg");
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
@@ -38,8 +39,9 @@
   );
   border-radius: 50%;
   z-index: 1;
-  mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
-  -webkit-mask-image: linear-gradient(#000, #000), url("./circle-mask.svg");
+  mask-image: linear-gradient(#000, #000), url("./images/circle-mask.svg");
+  -webkit-mask-image:
+    linear-gradient(#000, #000), url("./images/circle-mask.svg");
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-position: center;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./funky-sun.module.css";
-import adapter from "@/images/adapter.svg";
+import adapter from "./images/adapter.svg";
 
 function FunkySun() {
   return (
