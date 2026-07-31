@@ -1,3 +1,4 @@
+import CallToAction from "@/components/CallToAction";
 import BrowseByEraSection from "@/views/landing-page/sections/browse-by-era/BrowseByEraSection";
 import BrowseByGenreSection from "@/views/landing-page/sections/browse-by-genre/BrowseByGenreSection";
 import FeaturesSection from "@/views/landing-page/sections/features/FeaturesSection";
@@ -21,6 +22,10 @@ export default function Home() {
       <BrowseByGenreSection />
       <BrowseByEraSection />
       <UsedAndRareSection />
+      <CallToAction
+        headline="Time to Dig In."
+        flavorText="New arrivals, deep cuts, and a few surprises — the crates are waiting."
+      />
     </main>
   );
 }

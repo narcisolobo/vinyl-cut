@@ -1,5 +1,5 @@
 import CallToAction from "@/components/CallToAction";
-import VisitUs from "@/views/contact-us/map/VisitUs";
+import VisitUs from "@/components/VisitUs";
 import FAQs from "@/views/contact-us/faqs/FAQs";
 import ContactHero from "@/views/contact-us/hero/ContactHero";
 import DropUsALine from "@/views/contact-us/email/DropUsALine";
@@ -17,7 +17,7 @@ function ContactUsPage() {
       <ContactHero />
       <DropUsALine />
       <FAQs />
-      <VisitUs />
+      <VisitUs className="bg-base-100" />
       <CallToAction
         headline="Don't Just Wait Around."
         flavorText="We'll get back to you soon — no reason not to browse in the meantime."
