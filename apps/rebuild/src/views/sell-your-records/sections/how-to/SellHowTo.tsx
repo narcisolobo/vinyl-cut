@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import Steps from "@/components/steps/Steps";
 import Image from "next/image";
 import storeCounter from "../../images/store-counter.jpg";
-import { steps } from "./steps";
+import { steps } from "./how-to-steps";
 
 function SellHowTo() {
   return (

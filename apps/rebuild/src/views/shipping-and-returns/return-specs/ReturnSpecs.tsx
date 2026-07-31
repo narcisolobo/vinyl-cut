@@ -1,6 +1,6 @@
 import Eyebrow from "@/components/Eyebrow";
 import FeatureCard from "@/components/FeatureCard";
-import { features } from "./features";
+import { features } from "./return-features";
 
 function ReturnSpecs() {
   return (

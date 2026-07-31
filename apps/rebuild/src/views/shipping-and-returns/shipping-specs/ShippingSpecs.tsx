@@ -1,7 +1,7 @@
 import Eyebrow from "@/components/Eyebrow";
 import FeatureCard from "@/components/FeatureCard";
 import { states } from "./states";
-import { features } from "./features";
+import { features } from "./shipping-features";
 
 function ShippingSpecs() {
   return (
