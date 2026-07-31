@@ -4,8 +4,8 @@ import recordSpinning from "@/views/sell-your-records/images/record-spinning.jpg
 
 function SellSpecs() {
   return (
-    <section className="bg-base-100 mx-auto w-full max-w-7xl overflow-hidden px-8 py-12 md:py-16 lg:py-20">
-      <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
+    <section className="bg-base-100 px-8 py-12 md:py-16 lg:py-20 2xl:px-0">
+      <div className="mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:items-center">
         <div className="order-2 flex-1 md:order-1">
           <hgroup role="group" aria-roledescription="Heading group">
             <Eyebrow message="What we're looking for" />
