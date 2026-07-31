@@ -1,3 +1,4 @@
+import GradingGuideButton from "@/components/GradingGuide/GradingGuideButton";
 import {
   TiktokLogoIcon,
   YoutubeLogoIcon,
@@ -43,7 +44,7 @@ function Footer() {
       </nav>
       <nav>
         <h4 className="text-primary font-bold uppercase">Help</h4>
-        <a className="link link-hover">Grading Guide</a>
+        <GradingGuideButton label="Grading Guide" />
         <a className="link link-hover">Shipping & Returns</a>
         <a className="link link-hover">FAQ</a>
         <a className="link link-hover">Contact</a>
