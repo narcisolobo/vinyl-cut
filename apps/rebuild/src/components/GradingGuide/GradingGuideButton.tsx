@@ -1,7 +1,6 @@
 "use client";
 
-import { Fragment, useRef } from "react";
-import GradingGuideModal from "./GradingGuideModal";
+import { useGradingGuide } from "@/hooks/use-grading-guide";
 import { cn } from "@/lib/utils/cn";
 
 interface GradingGuideButtonProps {
@@ -10,23 +9,15 @@ interface GradingGuideButtonProps {
 }
 
 function GradingGuideButton({ label, className }: GradingGuideButtonProps) {
-  const modalRef = useRef<HTMLDialogElement | null>(null);
-
-  const handleClickOpen = () => {
-    if (!modalRef.current) return;
-    modalRef.current.showModal();
-  };
+  const openGradingGuide = useGradingGuide();
 
   return (
-    <Fragment>
-      <button
-        className={cn("link link-hover", className && className)}
-        onClick={handleClickOpen}
-      >
-        {label}
-      </button>
-      <GradingGuideModal ref={modalRef} />
-    </Fragment>
+    <button
+      className={cn("link link-hover", className && className)}
+      onClick={openGradingGuide}
+    >
+      {label}
+    </button>
   );
 }
 
