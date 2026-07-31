@@ -1,4 +1,4 @@
-import DrawerProvider from "@/context/DrawerProvider";
+import Providers from "@/context/Providers";
 import Drawer from "@/navigation/Drawer";
 import { type ReactNode } from "react";
 
@@ -8,9 +8,9 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
   return (
-    <DrawerProvider>
+    <Providers>
       <Drawer>{children}</Drawer>
-    </DrawerProvider>
+    </Providers>
   );
 }
 
