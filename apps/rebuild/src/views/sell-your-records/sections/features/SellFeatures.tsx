@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import { features } from "./features";
 import FeatureCard from "@/components/FeatureCard";
 
-function NoLowBallGames() {
+function SellFeatures() {
   return (
     <section className="bg-base-100 px-8 py-12 md:py-16 lg:py-20">
       <hgroup role="group" aria-roledescription="Heading group">
@@ -25,4 +25,4 @@ function NoLowBallGames() {
   );
 }
 
-export default NoLowBallGames;
+export default SellFeatures;

@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import { features } from "./features";
 import FeatureCard from "@/components/FeatureCard";
 
-function FeaturesSection() {
+function HomeFeatures() {
   return (
     <section className="bg-base-100 px-8 py-12 md:py-16 lg:py-20">
       <hgroup role="group" aria-roledescription="Heading group">
@@ -25,4 +25,4 @@ function FeaturesSection() {
   );
 }
 
-export default FeaturesSection;
+export default HomeFeatures;

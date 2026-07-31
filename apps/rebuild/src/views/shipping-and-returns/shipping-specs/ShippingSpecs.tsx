@@ -3,7 +3,7 @@ import FeatureCard from "@/components/FeatureCard";
 import { states } from "./states";
 import { features } from "./features";
 
-function WeKeepItClose() {
+function ShippingSpecs() {
   return (
     <section className="mx-auto max-w-7xl px-8 py-12 md:py-16 lg:py-20 2xl:px-0">
       <div className="flex flex-col items-center gap-16 lg:flex-row">
@@ -52,4 +52,4 @@ function WeKeepItClose() {
     </section>
   );
 }
-export default WeKeepItClose;
+export default ShippingSpecs;

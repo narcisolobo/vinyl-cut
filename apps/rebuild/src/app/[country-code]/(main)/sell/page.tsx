@@ -1,9 +1,9 @@
-import CallToAction from "@/components/CallToAction";
-import BringUsYourCrates from "@/views/sell-your-records/sections/BringUsYourCrates";
+import ClosingCta from "@/components/ClosingCta";
+import SellHero from "@/views/sell-your-records/sections/SellHero";
 import VisitUs from "@/components/VisitUs";
-import NoLowBallGames from "@/views/sell-your-records/sections/features/NoLowBallGames";
-import FromCrateToCounter from "@/views/sell-your-records/sections/how-to/FromCrateToCounter";
-import IfItSpins from "@/views/sell-your-records/sections/specs/IfItSpins";
+import SellFeatures from "@/views/sell-your-records/sections/features/SellFeatures";
+import SellHowTo from "@/views/sell-your-records/sections/how-to/SellHowTo";
+import SellSpecs from "@/views/sell-your-records/sections/specs/SellSpecs";
 import { Metadata } from "next";
 
 const metadata: Metadata = {
@@ -15,12 +15,12 @@ const metadata: Metadata = {
 function SellYourRecordsPage() {
   return (
     <main>
-      <BringUsYourCrates />
-      <NoLowBallGames />
-      <FromCrateToCounter />
-      <IfItSpins />
+      <SellHero />
+      <SellFeatures />
+      <SellHowTo />
+      <SellSpecs />
       <VisitUs className="bg-base-300" />
-      <CallToAction
+      <ClosingCta
         headline="Browsing Never Hurt Anybody."
         flavorText="Since you're already thinking about vinyl, might as well see what's on the shelves."
       />

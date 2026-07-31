@@ -3,7 +3,7 @@ import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
 import Image from "next/image";
 import recordCrate from "../images/record-crate.jpg";
 
-function BringUsYourCrates() {
+function SellHero() {
   return (
     <section
       id="home"
@@ -50,4 +50,4 @@ function BringUsYourCrates() {
   );
 }
 
-export default BringUsYourCrates;
+export default SellHero;

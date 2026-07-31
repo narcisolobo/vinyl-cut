@@ -1,4 +1,4 @@
-import CallToAction from "@/components/CallToAction";
+import ClosingCta from "@/components/ClosingCta";
 import VisitUs from "@/components/VisitUs";
 import FAQs from "@/views/contact-us/faqs/FAQs";
 import ContactHero from "@/views/contact-us/hero/ContactHero";
@@ -18,7 +18,7 @@ function ContactUsPage() {
       <DropUsALine />
       <FAQs />
       <VisitUs className="bg-base-100" />
-      <CallToAction
+      <ClosingCta
         headline="Don't Just Wait Around."
         flavorText="We'll get back to you soon — no reason not to browse in the meantime."
       />

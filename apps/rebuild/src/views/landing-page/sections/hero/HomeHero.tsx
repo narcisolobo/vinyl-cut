@@ -1,7 +1,7 @@
 import CopyPane from "./copy/CopyPane";
 import FunkySun from "./funky-sun/FunkySun";
 
-function HeroSection() {
+function HomeHero() {
   return (
     <section
       id="home"
@@ -13,4 +13,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default HomeHero;

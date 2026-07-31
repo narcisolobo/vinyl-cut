@@ -4,7 +4,7 @@ import Image from "next/image";
 import storeCounter from "../../images/store-counter.jpg";
 import { steps } from "./steps";
 
-function FromCrateToCounter() {
+function SellHowTo() {
   return (
     <section className="bg-base-300 overflow-hidden px-8 py-12 md:py-16 lg:py-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 lg:flex-row lg:items-center">
@@ -39,4 +39,4 @@ function FromCrateToCounter() {
   );
 }
 
-export default FromCrateToCounter;
+export default SellHowTo;

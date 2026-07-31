@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import { eraStacks } from "./era-stacks";
 import AlbumStack from "@/components/album-stack/AlbumStack";
 
-function BrowseByEraSection() {
+function HomeBrowseByEra() {
   const filter = eraStacks.filter;
 
   return (
@@ -22,4 +22,4 @@ function BrowseByEraSection() {
   );
 }
 
-export default BrowseByEraSection;
+export default HomeBrowseByEra;

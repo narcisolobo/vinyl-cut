@@ -1,10 +1,10 @@
-import CallToAction from "@/components/CallToAction";
-import BrowseByEraSection from "@/views/landing-page/sections/browse-by-era/BrowseByEraSection";
-import BrowseByGenreSection from "@/views/landing-page/sections/browse-by-genre/BrowseByGenreSection";
-import FeaturesSection from "@/views/landing-page/sections/features/FeaturesSection";
-import HeroSection from "@/views/landing-page/sections/hero/HeroSection";
-import NewArrivalsSection from "@/views/landing-page/sections/new-arrivals/NewArrivalsSection";
-import UsedAndRareSection from "@/views/landing-page/sections/used-and-rare/UsedAndRareSection";
+import ClosingCta from "@/components/ClosingCta";
+import HomeBrowseByEra from "@/views/landing-page/sections/browse-by-era/HomeBrowseByEra";
+import HomeBrowseByGenre from "@/views/landing-page/sections/browse-by-genre/HomeBrowseByGenre";
+import HomeFeatures from "@/views/landing-page/sections/features/HomeFeatures";
+import HomeHero from "@/views/landing-page/sections/hero/HomeHero";
+import HomeNewArrivals from "@/views/landing-page/sections/new-arrivals/HomeNewArrivals";
+import HomeUsedAndRare from "@/views/landing-page/sections/used-and-rare/HomeUsedAndRare";
 import { type Metadata } from "next";
 
 const metadata: Metadata = {
@@ -16,13 +16,13 @@ const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <FeaturesSection />
-      <NewArrivalsSection />
-      <BrowseByGenreSection />
-      <BrowseByEraSection />
-      <UsedAndRareSection />
-      <CallToAction
+      <HomeHero />
+      <HomeFeatures />
+      <HomeNewArrivals />
+      <HomeBrowseByGenre />
+      <HomeBrowseByEra />
+      <HomeUsedAndRare />
+      <ClosingCta
         headline="Time to Dig In."
         flavorText="New arrivals, deep cuts, and a few surprises — the crates are waiting."
       />
