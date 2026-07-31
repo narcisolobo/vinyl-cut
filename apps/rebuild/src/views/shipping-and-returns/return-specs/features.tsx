@@ -11,7 +11,7 @@ interface Feature {
   id: number;
   icon: ComponentType<IconProps>;
   title: string;
-  description: ReactNode;
+  description: ReactNode | string;
 }
 
 const features: Feature[] = [
