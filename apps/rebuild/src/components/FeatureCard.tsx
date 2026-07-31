@@ -1,11 +1,11 @@
 import type { IconProps } from "@phosphor-icons/react";
-import { type ComponentType } from "react";
+import { ReactNode, type ComponentType } from "react";
 import { cn } from "@/lib/utils/cn";
 
 interface FeatureCardProps {
   icon: ComponentType<IconProps>;
   title: string;
-  description: string;
+  description: string | ReactNode;
   orientation?: "vertical" | "horizontal";
 }
 
