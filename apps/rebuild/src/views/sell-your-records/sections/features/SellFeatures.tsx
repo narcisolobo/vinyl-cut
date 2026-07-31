@@ -1,5 +1,5 @@
 import Eyebrow from "@/components/Eyebrow";
-import { features } from "./features";
+import { features } from "./sell-features";
 import FeatureCard from "@/components/FeatureCard";
 
 function SellFeatures() {

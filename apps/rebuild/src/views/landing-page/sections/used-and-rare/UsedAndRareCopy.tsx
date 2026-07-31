@@ -1,6 +1,6 @@
 import Eyebrow from "@/components/Eyebrow";
 import Steps from "@/components/steps/Steps";
-import { steps } from "./steps";
+import { steps } from "./notify-steps";
 
 function UsedAndRareCopy() {
   return (
