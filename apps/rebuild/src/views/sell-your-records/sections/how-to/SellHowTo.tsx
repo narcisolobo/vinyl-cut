@@ -6,7 +6,7 @@ import { steps } from "./how-to-steps";
 
 function SellHowTo() {
   return (
-    <section className="bg-base-300 overflow-hidden px-8 py-12 md:py-16 lg:py-20">
+    <section className="bg-base-300 px-8 py-12 md:py-16 lg:py-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 lg:flex-row lg:items-center">
         <div
           id="thin-border"
