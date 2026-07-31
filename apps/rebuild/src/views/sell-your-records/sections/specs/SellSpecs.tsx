@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import Image from "next/image";
 import recordSpinning from "@/views/sell-your-records/images/record-spinning.jpg";
 
-function IfItSpins() {
+function SellSpecs() {
   return (
     <section className="bg-base-100 mx-auto w-full max-w-7xl overflow-hidden px-8 py-12 md:py-16 lg:py-20">
       <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
@@ -42,4 +42,4 @@ function IfItSpins() {
   );
 }
 
-export default IfItSpins;
+export default SellSpecs;

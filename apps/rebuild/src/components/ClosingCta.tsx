@@ -1,12 +1,12 @@
 import Link from "@/components/LocalizedClientLink";
 import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
 
-interface CallToActionProps {
+interface ClosingCtaProps {
   headline: string;
   flavorText: string;
 }
 
-function CallToAction({ headline, flavorText }: CallToActionProps) {
+function ClosingCta({ headline, flavorText }: ClosingCtaProps) {
   return (
     <section className="bg-primary text-primary-content px-8 py-16 text-center lg:py-24">
       <h2 className="font-heading text-shadow-cta text-heading mb-4 uppercase">
@@ -27,4 +27,4 @@ function CallToAction({ headline, flavorText }: CallToActionProps) {
   );
 }
 
-export default CallToAction;
+export default ClosingCta;

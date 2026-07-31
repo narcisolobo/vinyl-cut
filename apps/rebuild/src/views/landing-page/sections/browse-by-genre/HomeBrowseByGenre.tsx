@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import { genreStacks } from "./genre-stacks";
 import AlbumStack from "@/components/album-stack/AlbumStack";
 
-function BrowseByGenreSection() {
+function HomeBrowseByGenre() {
   const filter = genreStacks.filter;
 
   return (
@@ -22,4 +22,4 @@ function BrowseByGenreSection() {
   );
 }
 
-export default BrowseByGenreSection;
+export default HomeBrowseByGenre;

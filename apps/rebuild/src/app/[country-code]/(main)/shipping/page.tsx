@@ -1,7 +1,7 @@
-import CallToAction from "@/components/CallToAction";
+import ClosingCta from "@/components/ClosingCta";
 import ShippingAndReturnsHero from "@/views/shipping-and-returns/hero/ShippingAndReturnsHero";
-import WhatsListedIsWhatYouGet from "@/views/shipping-and-returns/return-specs/WhatsListedIsWhatYouGet";
-import WeKeepItClose from "@/views/shipping-and-returns/shipping-specs/WeKeepItClose";
+import ReturnSpecs from "@/views/shipping-and-returns/return-specs/ReturnSpecs";
+import ShippingSpecs from "@/views/shipping-and-returns/shipping-specs/ShippingSpecs";
 import type { Metadata } from "next";
 
 const metadata: Metadata = {
@@ -14,9 +14,9 @@ function ShippingAndReturnsPage() {
   return (
     <main>
       <ShippingAndReturnsHero />
-      <WeKeepItClose />
-      <WhatsListedIsWhatYouGet />
-      <CallToAction
+      <ShippingSpecs />
+      <ReturnSpecs />
+      <ClosingCta
         headline="Good. Now Let's Shop."
         flavorText="Shipping's sorted, returns are covered — nothing left to do but pick something out."
       />

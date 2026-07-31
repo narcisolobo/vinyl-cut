@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import FeatureCard from "@/components/FeatureCard";
 import { features } from "./features";
 
-function WhatsListedIsWhatYouGet() {
+function ReturnSpecs() {
   return (
     <section className="bg-base-300 px-8 py-12 md:py-16 lg:py-20 2xl:px-0">
       <div className="mx-auto max-w-7xl">
@@ -32,4 +32,4 @@ function WhatsListedIsWhatYouGet() {
   );
 }
 
-export default WhatsListedIsWhatYouGet;
+export default ReturnSpecs;

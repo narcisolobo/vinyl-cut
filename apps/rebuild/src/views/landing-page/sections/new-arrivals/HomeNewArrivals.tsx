@@ -2,7 +2,7 @@ import Eyebrow from "@/components/Eyebrow";
 import { newArrivals } from "./new-arrivals";
 import NewArrivalsCard from "./NewArrivalsCard";
 
-function NewArrivalsSection() {
+function HomeNewArrivals() {
   return (
     <section className="bg-base-300 px-8 py-12 md:py-16 lg:py-20">
       <hgroup role="group" aria-roledescription="Heading group">
@@ -26,4 +26,4 @@ function NewArrivalsSection() {
   );
 }
 
-export default NewArrivalsSection;
+export default HomeNewArrivals;
