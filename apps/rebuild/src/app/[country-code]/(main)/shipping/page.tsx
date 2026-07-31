@@ -1,3 +1,6 @@
+import ShippingAndReturnsHero from "@/views/shipping-and-returns/hero/ShippingAndReturnsHero";
+import WhatsListedIsWhatYouGet from "@/views/shipping-and-returns/return-specs/WhatsListedIsWhatYouGet";
+import WeKeepItClose from "@/views/shipping-and-returns/shipping-specs/WeKeepItClose";
 import type { Metadata } from "next";
 
 const metadata: Metadata = {
@@ -7,7 +10,13 @@ const metadata: Metadata = {
 };
 
 function ShippingAndReturnsPage() {
-  return <div>ShippingAndReturnsPage</div>;
+  return (
+    <main>
+      <ShippingAndReturnsHero />
+      <WeKeepItClose />
+      <WhatsListedIsWhatYouGet />
+    </main>
+  );
 }
 
 export { metadata };
