@@ -1,4 +1,5 @@
-import { ComponentType } from "react";
+import { ComponentType, Fragment, ReactNode } from "react";
+import GradingGuideButton from "@/components/GradingGuide/GradingGuideButton";
 import { type IconProps } from "@phosphor-icons/react";
 import {
   SealCheckIcon,
@@ -10,7 +11,7 @@ interface Feature {
   id: number;
   icon: ComponentType<IconProps>;
   title: string;
-  description: string;
+  description: ReactNode;
 }
 
 const features: Feature[] = [
@@ -18,8 +19,14 @@ const features: Feature[] = [
     id: 1,
     icon: SealCheckIcon,
     title: "Used Records",
-    description:
-      "We inspect and grade every used record by hand before it hits the shelf (see our Grading Guide), so what's listed is what you're getting — no surprises, no returns for condition once it's left our hands.",
+    description: (
+      <Fragment>
+        We inspect and grade every used record by hand before it hits the shelf
+        (see our <GradingGuideButton label="Grading Guide" />
+        ), so what&apos;s listed is what you&apos;re getting — no surprises, no
+        returns for condition once it&apos;s left our hands.
+      </Fragment>
+    ),
   },
   {
     id: 2,

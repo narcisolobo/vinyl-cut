@@ -1,10 +1,10 @@
-import { Ref } from "react";
 import { grades } from "./grades";
 import Eyebrow from "../Eyebrow";
 import GradingGuideTableRow from "./GradingGuideTableRow";
+import { RefObject } from "react";
 
 interface GradingGuideModalProps {
-  ref: Ref<HTMLDialogElement>;
+  ref: RefObject<HTMLDialogElement | null>;
 }
 
 function GradingGuideModal({ ref }: GradingGuideModalProps) {
