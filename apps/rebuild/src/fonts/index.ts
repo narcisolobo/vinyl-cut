@@ -1,10 +1,4 @@
-import {
-  Bungee,
-  Fraunces,
-  Geist_Mono,
-  Lobster,
-  Space_Grotesk,
-} from "next/font/google";
+import { Bungee, Geist_Mono, Lobster, Space_Grotesk } from "next/font/google";
 
 const lobster = Lobster({
   subsets: ["latin"],
