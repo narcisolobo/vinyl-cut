@@ -1,5 +1,6 @@
+import CallToAction from "@/components/CallToAction";
 import BringUsYourCrates from "@/views/sell-your-records/sections/BringUsYourCrates";
-import VisitUs from "@/views/sell-your-records/sections/cta/VisitUs";
+import VisitUs from "@/components/VisitUs";
 import NoLowBallGames from "@/views/sell-your-records/sections/features/NoLowBallGames";
 import FromCrateToCounter from "@/views/sell-your-records/sections/how-to/FromCrateToCounter";
 import IfItSpins from "@/views/sell-your-records/sections/specs/IfItSpins";
@@ -18,7 +19,11 @@ function SellYourRecordsPage() {
       <NoLowBallGames />
       <FromCrateToCounter />
       <IfItSpins />
-      <VisitUs />
+      <VisitUs className="bg-base-300" />
+      <CallToAction
+        headline="Browsing Never Hurt Anybody."
+        flavorText="Since you're already thinking about vinyl, might as well see what's on the shelves."
+      />
     </main>
   );
 }

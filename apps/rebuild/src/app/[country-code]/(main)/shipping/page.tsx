@@ -1,3 +1,4 @@
+import CallToAction from "@/components/CallToAction";
 import ShippingAndReturnsHero from "@/views/shipping-and-returns/hero/ShippingAndReturnsHero";
 import WhatsListedIsWhatYouGet from "@/views/shipping-and-returns/return-specs/WhatsListedIsWhatYouGet";
 import WeKeepItClose from "@/views/shipping-and-returns/shipping-specs/WeKeepItClose";
@@ -15,6 +16,10 @@ function ShippingAndReturnsPage() {
       <ShippingAndReturnsHero />
       <WeKeepItClose />
       <WhatsListedIsWhatYouGet />
+      <CallToAction
+        headline="Good. Now Let's Shop."
+        flavorText="Shipping's sorted, returns are covered — nothing left to do but pick something out."
+      />
     </main>
   );
 }
