@@ -15,6 +15,7 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
+    "@medusajs/js-sdk": "^2.18.0",
     "@medusajs/types": "2.18.0",
     "@phosphor-icons/react": "^2.1.10",
     "clsx": "^2.1.1",

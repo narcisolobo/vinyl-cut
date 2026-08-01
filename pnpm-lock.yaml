@@ -122,6 +122,9 @@ importers:
 
   apps/rebuild:
     dependencies:
+      '@medusajs/js-sdk':
+        specifier: ^2.18.0
+        version: 2.18.0
       '@medusajs/types':
         specifier: 2.18.0
         version: 2.18.0(ioredis@5.8.2(supports-color@8.1.1))(vite@5.4.21(@types/node@20.19.26)(lightningcss@1.32.0)(terser@5.44.1))
