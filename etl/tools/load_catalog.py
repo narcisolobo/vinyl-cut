@@ -493,6 +493,7 @@ def create_new_product(
 
     payload = {
         "title": record["title"],
+        "subtitle": record["artist"],
         "handle": record["handle"],
         "description": record["description"],
         "status": "published",
@@ -523,6 +524,7 @@ def update_existing_product(client: MedusaAdminClient, existing: dict, seed_row:
 
     payload = {
         "title": record["title"],
+        "subtitle": record["artist"],
         "description": record["description"],
         "metadata": record["metadata"],
         "images": images,
