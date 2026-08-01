@@ -1,6 +1,6 @@
-[1/500] #1 Marvin Gaye - What's Going On (ba91f9e2-2391-4bbd-9114-c9eff138fd98): updated
-[2/500] #2 The Beach Boys - Pet Sounds (7e8a98c2-5847-43dd-891a-c872a850266c): updated
-[3/500] #3 Joni Mitchell - Blue (243fb7b0-e7f3-42e8-bdfc-a66fd9e23d0e): updated
+[1/500] #1 Marvin Gaye - What's Going On (ba91f9e2-2391-4bbd-9114-c9eff138fd98): created
+[2/500] #2 The Beach Boys - Pet Sounds (7e8a98c2-5847-43dd-891a-c872a850266c): created
+[3/500] #3 Joni Mitchell - Blue (243fb7b0-e7f3-42e8-bdfc-a66fd9e23d0e): created
 [4/500] #4 Stevie Wonder - Songs in the Key of Life (9b51a6b5-7f55-4dc7-8e10-a69410c7b306): created
 [5/500] #5 The Beatles - Abbey Road (d6010be3-98f8-422c-a6c9-787e2e491e58): created
 [6/500] #6 Nirvana - Nevermind (eccae410-7577-4daa-b602-92d305828331): created
@@ -45,14 +45,14 @@
 [45/500] #45 Prince - Sign o' the Times (e767460a-4c71-4563-8ac4-22a6f0f4d2fe): created
 [46/500] #46 Paul Simon - Graceland (95718634-fc1e-3ccc-b0cf-a9df519230e9): created
 [47/500] #47 Ramones - Ramones (627e3a2a-2df4-46c3-afb3-f734dcc90100): created
-[48/500] #48 Bob Marley and the Wailers - Exodus (b4c816f2-ee1f-48dd-94e1-5950188182ff): created
+[48/500] #48 Bob Marley and the Wailers - Exodus (41ec6d32-57ca-4e67-803a-2260f957888e): created
 [49/500] #49 Outkast - Aquemini (63f4592c-6f58-32bb-bd9f-a431dc14e04d): created
 [50/500] #50 Jay-Z - The Blueprint (a28c25b5-0178-4a3c-b3a1-41d3468fca33): created
 [51/500] #51 Chuck Berry - The Great Twenty-Eight (2e443d48-c3e7-420b-936b-b0026238f027): created
 [52/500] #52 David Bowie - Station to Station (6cd16d0d-4269-4cd2-ac9a-067d746d5c94): created
 [53/500] #53 The Jimi Hendrix Experience - Electric Ladyland (c7e10920-cb41-4990-9bb7-3227a1f7b0a6): created
 [54/500] #54 James Brown - Star Time (248e85fc-894d-42b0-a4ff-2c96b9f1e384): created
-[55/500] #55 Pink Floyd - The Dark Side of the Moon (c888fbd9-0754-457a-92b1-1c8f6e8b2424): created
+[55/500] #55 Pink Floyd - The Dark Side of the Moon (b84ee12a-09ef-421b-82de-0441a926375b): created
 [56/500] #56 Liz Phair - Exile in Guyville (b08b6174-7f4d-4064-a4d8-b6824e0dc1c3): created
 [57/500] #57 The Band - The Band (7b8a9e84-de1b-43eb-bf64-92a4309cc619): created
 [58/500] #58 Led Zeppelin - Led Zeppelin IV (d204c2a6-665a-35ef-9b7c-799df194dea1): created
@@ -99,7 +99,7 @@
 [99/500] #99 Taylor Swift - Red (14cd0c13-c5b9-41fd-a680-039a52d9765a): created
 [100/500] #100 The Band - Music from Big Pink (afacbcab-cdf6-408f-a483-abaa06b618f6): created
 [101/500] #101 Led Zeppelin - Led Zeppelin (e53120aa-ef15-491d-ad39-8ef159a6ca6b): created
-[102/500] #102 The Clash - The Clash (a2a3dc88-82a7-4814-acb5-224b9a7d3614): created
+[102/500] #102 The Clash - The Clash (64d16be8-0039-4c74-86ed-4d16b61ed59b): created
 [103/500] #103 De La Soul - 3 Feet High and Rising (6ec5c989-00a1-4960-89a3-818a52ae011f): created
 [104/500] #104 The Rolling Stones - Sticky Fingers (d883e644-5ec0-4928-9ccd-fc78bc306a46): created
 [105/500] #105 The Allman Brothers Band - At Fillmore East (f54d5d53-e85a-3b4e-b35c-3c86400f18aa): created
@@ -116,7 +116,7 @@
 [116/500] #116 The Cure - Disintegration (11af85e2-c272-4c59-a902-47f75141dc97): created
 [117/500] #117 Kanye West - Late Registration (c4a2e331-9b7d-429f-8117-7749e64f75e8): created
 [118/500] #118 Eagles - Hotel California (1ef9a081-4b4c-460c-8581-a03ccb7b5d01): created
-[119/500] #119 Sly and the Family Stone - Stand! (c6a21811-4e7b-4f84-a752-1fa032004965): created
+[119/500] #119 Sly and the Family Stone - Stand! (13a61b22-7072-4561-a939-4abb4c823b1f): created
 [120/500] #120 Van Morrison - Moondance (f4953bda-b642-3a9b-a934-78e0e3b7eb6e): created
 [121/500] #121 Elvis Costello - This Year's Model (fb7ba508-f362-4678-8b56-90ae19b2a888): created
 [122/500] #122 Nine Inch Nails - The Downward Spiral (ba8701ba-dc7c-4bca-9c83-846ee8c3d576): created
@@ -235,7 +235,7 @@
 [235/500] #235 Metallica - Metallica (d87a6b90-7a9e-4ca1-a170-194bf443e2e9): created
 [236/500] #236 Daft Punk - Discovery (bd3bb36e-16c8-438f-850e-dfbf4d1478f0): created
 [237/500] #237 Willie Nelson - Red Headed Stranger (d9812a80-e57b-4028-8df2-05d0e5d5a1dd): created
-[238/500] #238 Kraftwerk - Trans-Europe Express (8898c1de-6b46-42ff-b180-117b0f6ffea1): created
+[238/500] #238 Kraftwerk - Trans-Europe Express (8327a929-e283-4307-8219-50a9166ef335): created
 [239/500] #239 Boogie Down Productions - Criminal Minded (f91244bf-8b14-4548-be56-60f32640f14d): created
 [240/500] #240 Sam Cooke - Live at the Harlem Square Club, 1963 (89995145-7157-48ca-89f4-03653b607b78): created
 [241/500] #241 Massive Attack - Blue Lines (3a25785e-50ec-383c-89cf-fd512181449c): created
@@ -282,7 +282,7 @@
 [282/500] #282 Frank Sinatra - In the Wee Small Hours (881f621c-618c-48da-80a8-50380996fe15): created
 [283/500] #283 Donna Summer - Bad Girls (a855cd93-c192-4c42-96e3-14d2fdf9aa2b): created
 [284/500] #284 Merle Haggard - Down Every Road 1962–1994 (3a5b55b8-a588-4d7e-b84c-43739e24685e): created
-[285/500] #285 Big Star - Third/Sister Lovers (83ec2f89-b120-30c9-9f8d-335081cfb18e): created
+[285/500] #285 Big Star - Third/Sister Lovers (1e33bfe8-0eaf-4b27-a689-0142b324006e): created
 [286/500] #286 Red Hot Chili Peppers - Californication (3d937f76-7149-472d-a910-55c2f1eba6bc): created
 [287/500] #287 The Byrds - Mr. Tambourine Man (192044cc-5ca6-4bea-a94e-aaa4861e92ee): created
 [288/500] #288 The Modern Lovers - The Modern Lovers (4071d957-1ac3-3f35-9437-c06d364ea8a3): created
@@ -337,7 +337,7 @@
 [337/500] #337 Bob Dylan - John Wesley Harding (8e7e12b2-46ff-4e6b-8384-2ce538d90dcc): created
 [338/500] #338 Brian Eno - Another Green World (ae71c892-ecb6-4834-b520-6c88351e3b6c): created
 [339/500] #339 Janet Jackson - Janet Jackson's Rhythm Nation 1814 (03f47647-35d3-3a64-832b-ff9846a154af): created
-[340/500] #340 Snoop Doggy Dogg - Doggystyle (e09dcf1f-9164-47ab-b081-2cd6b7214789): created
+[340/500] #340 Snoop Doggy Dogg - Doggystyle (b9b3c63b-4764-4c25-aff7-7007395420ec): created
 [341/500] #341 The Smashing Pumpkins - Siamese Dream (33593826-03ef-3393-a905-ccde90824301): created
 [342/500] #342 The Beatles - Let It Be (5dd15484-b41a-4749-a901-8027c3283169): created
 [343/500] #343 Sly and the Family Stone - Greatest Hits (3f5ef113-ed23-33f3-bd6d-14ee75e15b1b): created
@@ -499,7 +499,7 @@
 [499/500] #499 Rufus featuring Chaka Khan - Ask Rufus (e728466f-4bf7-4947-bd28-36513f8611eb): created
 [500/500] #500 Arcade Fire - Funeral (26cdc327-38f2-4200-b5dc-f2fa0e13fcfe): created
 
-Created: 497
-Updated: 3
+Created: 500
+Updated: 0
 Failed:  0
 
