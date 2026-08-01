@@ -69,3 +69,6 @@ __pycache__/
 
 # Agents
 .claude
+
+# N0tes
+notes/store-implementation-plan.md
