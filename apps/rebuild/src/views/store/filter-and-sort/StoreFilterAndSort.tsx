@@ -4,11 +4,24 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import StoreFilter from "./StoreFilter";
 import StoreFilterBadge from "./StoreFilterBadge";
 import { CONDITIONS, ERAS, GENRES, toggleValue } from "./store-filter-utils";
+import { SORTING_OPTIONS } from "./store-sorting-options";
 
 function StoreFilterAndSort() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const selectedSort = searchParams.get("sort") ?? "latest";
+
+  const updateSort = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value !== "latest") {
+      params.set("sort", value);
+    } else {
+      params.delete("sort");
+    }
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   const selectedGenres =
     searchParams.get("genre")?.split(",").filter(Boolean) ?? [];
@@ -77,13 +90,15 @@ function StoreFilterAndSort() {
             <label htmlFor="sorting-options">Sort: </label>
             <select
               name="sorting-options"
-              defaultValue="latest"
+              value={selectedSort}
               className="select select-soft max-w-80 min-w-52 font-semibold"
+              onChange={(e) => updateSort(e.target.value)}
             >
-              <option value="latest">Latest Arrivals</option>
-              <option value="artist">Artist: A → Z</option>
-              <option value="price-low">Price: Low → High</option>
-              <option value="price-high">Price: High → Low</option>
+              {SORTING_OPTIONS.map(({ value, label }) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
             </select>
           </fieldset>
         </section>
