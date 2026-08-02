@@ -48,7 +48,9 @@ type ListProductsWithSortParams = {
  * Fetches a page of products for a region, resolved from either
  * `countryCode` or `regionId` (exactly one is required). Requests a
  * fixed `fields` selection covering what product cards/detail pages
- * need — calculated price, inventory, images, options, metadata, tags.
+ * need — calculated price, inventory, variant/product images, options,
+ * categories (with `parent_category`, needed to tell a genre category
+ * from an era category), metadata, tags.
  */
 async function listProducts({
   pageParam = 1,
@@ -93,7 +95,7 @@ async function listProducts({
           offset,
           region_id: region.id,
           fields:
-            "*variants.calculated_price,+variants.inventory_quantity,*variants.images,*variants.options,+metadata,+tags,",
+            "*variants.calculated_price,+variants.inventory_quantity,*variants.images,*variants.options,*images,+categories.name,+categories.parent_category.name,+metadata,+tags,",
           ...queryParams,
         },
         next,
