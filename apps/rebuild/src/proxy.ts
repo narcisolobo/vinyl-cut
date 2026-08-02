@@ -5,12 +5,22 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL;
 const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY;
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "dk";
 
+const ONE_HOUR_MS = 60 * 60 * 1000;
+const ONE_HOUR_SECONDS = 60 * 60;
+const ONE_DAY_SECONDS = 60 * 60 * 24;
+
+interface CloudflareRequest extends NextRequest {
+  cf?: { country?: string };
+}
+
 const regionMapCache = {
   regionMap: new Map<string, HttpTypes.StoreRegion>(),
   regionMapUpdated: Date.now(),
 };
 
-async function getRegionMap(cacheId: string) {
+async function getRegionMap(
+  cacheId: string,
+): Promise<Map<string, HttpTypes.StoreRegion>> {
   const { regionMap, regionMapUpdated } = regionMapCache;
 
   if (!BACKEND_URL) {
@@ -19,18 +29,21 @@ async function getRegionMap(cacheId: string) {
     );
   }
 
-  if (
-    !regionMap.keys().next().value ||
-    regionMapUpdated < Date.now() - 3600 * 1000
-  ) {
+  if (!PUBLISHABLE_API_KEY) {
+    throw new Error(
+      "Middleware.ts: Error fetching regions. Did you define a NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY environment variable.",
+    );
+  }
+
+  if (regionMap.size === 0 || regionMapUpdated < Date.now() - ONE_HOUR_MS) {
     // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
     const response = await fetch(`${BACKEND_URL}/store/regions`, {
       method: "GET",
       headers: {
-        "x-publishable-api-key": PUBLISHABLE_API_KEY!,
+        "x-publishable-api-key": PUBLISHABLE_API_KEY,
       },
       next: {
-        revalidate: 3600,
+        revalidate: ONE_HOUR_SECONDS,
         tags: [`regions-${cacheId}`],
       },
       cache: "force-cache",
@@ -40,16 +53,15 @@ async function getRegionMap(cacheId: string) {
       throw new Error(`Backend returned ${response.status}`);
     }
 
-    const json = await response.json();
-
-    const { regions } = json;
+    const { regions }: HttpTypes.StoreRegionListResponse =
+      await response.json();
 
     if (!regions?.length) {
       return new Map<string, HttpTypes.StoreRegion>();
     }
 
     // Create a map of country codes to regions.
-    regions.forEach((region: HttpTypes.StoreRegion) => {
+    regions.forEach((region) => {
       region.countries?.forEach((c) => {
         regionMapCache.regionMap.set(c.iso_2 ?? "", region);
       });
@@ -65,22 +77,17 @@ async function getRegionMap(cacheId: string) {
  * Determines the country code for a request by checking, in order: the URL
  * path segment, Cloudflare's geo header, Vercel's geo header, the configured
  * default region, then falling back to the first available region.
- * @param request - The incoming request.
- * @param regionMap - A map of country codes to their corresponding Medusa region.
- * @returns The resolved country code, or undefined if no region is available.
  */
 async function getCountryCode(
-  request: NextRequest,
+  request: CloudflareRequest,
   regionMap: Map<string, HttpTypes.StoreRegion | number>,
-) {
+): Promise<string | undefined> {
   let countryCode: string | undefined;
 
   const urlCountryCode = request.nextUrl.pathname.split("/")[1]?.toLowerCase();
 
   // Cloudflare Workers provides country via request.cf.country
-  const cloudflareCountryCode = (
-    request as { cf?: { country?: string } }
-  ).cf?.country?.toLowerCase();
+  const cloudflareCountryCode = request.cf?.country?.toLowerCase();
 
   // Vercel provides x-vercel-ip-country header
   const vercelCountryCode = request.headers
@@ -95,14 +102,14 @@ async function getCountryCode(
     countryCode = vercelCountryCode;
   } else if (regionMap.has(DEFAULT_REGION)) {
     countryCode = DEFAULT_REGION;
-  } else if (regionMap.keys().next().value) {
+  } else if (regionMap.size > 0) {
     countryCode = regionMap.keys().next().value;
   }
 
   return countryCode;
 }
 
-export async function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest): Promise<NextResponse> {
   if (request.nextUrl.pathname.includes(".")) {
     return NextResponse.next();
   }
@@ -124,7 +131,7 @@ export async function proxy(request: NextRequest) {
     if (!cacheIdCookie) {
       const response = NextResponse.next();
       response.cookies.set("_medusa_cache_id", cacheId, {
-        maxAge: 60 * 60 * 24,
+        maxAge: ONE_DAY_SECONDS,
       });
       return response;
     }
