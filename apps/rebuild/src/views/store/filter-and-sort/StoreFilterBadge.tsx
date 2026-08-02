@@ -9,7 +9,11 @@ function StoreFilterBadge({ filterName, onDelete }: StoreFilterBadgeProps) {
   return (
     <span className="badge badge-primary">
       {filterName}{" "}
-      <button className="cursor-pointer" onClick={() => onDelete(filterName)}>
+      <button
+        className="cursor-pointer"
+        onClick={() => onDelete(filterName)}
+        aria-label={`Remove ${filterName} filter`}
+      >
         <XIcon />
       </button>
     </span>

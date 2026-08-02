@@ -1,3 +1,5 @@
+import slugify from "slugify";
+
 interface StoreFilterProps {
   label: string;
   options: string[];
@@ -17,21 +19,24 @@ function StoreFilter({ label, options, selected, onToggle }: StoreFilterProps) {
           </span>
         </summary>
         <ul className="dropdown-content menu bg-base-100 z-30 max-h-72 w-52 flex-nowrap overflow-y-auto p-2 shadow-sm">
-          {options.map((option) => (
-            <li key={option} className="text-primary">
-              <label htmlFor={option}>
-                <input
-                  id={option}
-                  type="checkbox"
-                  value={option}
-                  checked={selected.includes(option)}
-                  className="checkbox checkbox-sm checkbox-primary"
-                  onChange={() => onToggle(option)}
-                />
-                {option}
-              </label>
-            </li>
-          ))}
+          {options.map((option) => {
+            const id = slugify(`${label} ${option}`.toLowerCase());
+            return (
+              <li key={option} className="text-primary">
+                <label htmlFor={id}>
+                  <input
+                    id={id}
+                    type="checkbox"
+                    value={option}
+                    checked={selected.includes(option)}
+                    className="checkbox checkbox-sm checkbox-primary"
+                    onChange={() => onToggle(option)}
+                  />
+                  {option}
+                </label>
+              </li>
+            );
+          })}
         </ul>
       </details>
     </fieldset>

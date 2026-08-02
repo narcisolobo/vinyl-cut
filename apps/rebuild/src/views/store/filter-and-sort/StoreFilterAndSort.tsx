@@ -1,38 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import StoreFilter from "./StoreFilter";
 import StoreFilterBadge from "./StoreFilterBadge";
-import { GENRES, ERAS, CONDITIONS, toggleValue } from "./store-filter-utils";
+import { CONDITIONS, ERAS, GENRES, toggleValue } from "./store-filter-utils";
 
 function StoreFilterAndSort() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [selectedGenres, setSelectedGenres] = useState<string[]>(
-    () => searchParams.get("genre")?.split(",") ?? [],
-  );
-  const [selectedEras, setSelectedEras] = useState<string[]>(
-    () => searchParams.get("era")?.split(",") ?? [],
-  );
-  const [selectedConditions, setSelectedConditions] = useState<string[]>(
-    () => searchParams.get("condition")?.split(",") ?? [],
-  );
+  const selectedGenres =
+    searchParams.get("genre")?.split(",").filter(Boolean) ?? [];
+  const selectedEras =
+    searchParams.get("era")?.split(",").filter(Boolean) ?? [];
+  const selectedConditions =
+    searchParams.get("condition")?.split(",").filter(Boolean) ?? [];
 
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (selectedGenres.length > 0) params.set("genre", selectedGenres.join(","));
-    if (selectedEras.length > 0) params.set("era", selectedEras.join(","));
-    if (selectedConditions.length > 0)
-      params.set("condition", selectedConditions.join(","));
-
-    const query = params.toString();
-    router.replace(query ? `${pathname}?${query}` : pathname, {
-      scroll: false,
-    });
-  }, [selectedGenres, selectedEras, selectedConditions, pathname, router]);
+  const updateFilter = (key: string, values: string[]) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (values.length > 0) {
+      params.set(key, values.join(","));
+    } else {
+      params.delete(key);
+    }
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   const filters = [
     {
@@ -40,21 +33,21 @@ function StoreFilterAndSort() {
       options: GENRES,
       selected: selectedGenres,
       handleToggle: (value: string) =>
-        setSelectedGenres((prev) => toggleValue(prev, value)),
+        updateFilter("genre", toggleValue(selectedGenres, value)),
     },
     {
       label: "Eras",
       options: ERAS,
       selected: selectedEras,
       handleToggle: (value: string) =>
-        setSelectedEras((prev) => toggleValue(prev, value)),
+        updateFilter("era", toggleValue(selectedEras, value)),
     },
     {
       label: "Conditions",
       options: CONDITIONS,
       selected: selectedConditions,
       handleToggle: (value: string) =>
-        setSelectedConditions((prev) => toggleValue(prev, value)),
+        updateFilter("condition", toggleValue(selectedConditions, value)),
     },
   ];
 
