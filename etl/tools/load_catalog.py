@@ -11,6 +11,7 @@ Usage (from etl/):
     python tools/load_catalog.py --limit 5         # smoke test
     python tools/load_catalog.py --mbid <mbid>      # single record
     python tools/load_catalog.py --dry-run          # extract+transform only, no Medusa writes
+    python tools/load_catalog.py --reset            # wipe all products/categories, then full run
 
 Config (etl/.env):
     MB_CONTACT             required by MusicBrainz/CAA API etiquette
@@ -45,8 +46,10 @@ CAA_METADATA_URL = "https://coverartarchive.org/release/{mbid}"
 CAA_REQUEST_INTERVAL = 1.0
 
 CONDITIONS_USED = ["M", "NM", "VG+", "VG", "G"]
+CONDITION_GRADES = ["New", "M", "NM", "VG+", "VG", "G"]
 USED_PRICE_FACTOR = {"M": 0.85, "NM": 0.70, "VG+": 0.50, "VG": 0.35, "G": 0.20}
 NEW_PRICE_RANGE_CENTS = (2200, 4200)
+ERAS_ROOT_CATEGORY_NAME = "Eras"
 
 _last_caa_call = 0.0
 
@@ -255,6 +258,15 @@ def fabricate_variants(mbid: str, seed_rank: str) -> list[dict]:
     return variants
 
 
+def decade_for(release_year: str | None) -> str | None:
+    """Buckets a release year into a decade label ("1977" -> "1970s") for the
+    Eras taxonomy. Returns None when the year is unknown -- there's no sensible
+    default decade to fabricate, unlike genre's curated fallback."""
+    if not release_year:
+        return None
+    return f"{(int(release_year) // 10) * 10}s"
+
+
 def transform(seed_row: dict, mb: dict) -> dict:
     artist = mb["artist"] or seed_row["artist"]
     title = mb["title"] or seed_row["title"]
@@ -268,6 +280,7 @@ def transform(seed_row: dict, mb: dict) -> dict:
         "handle": slugify(f"{artist}-{title}"),
         "description": build_description(seed_row, mb),
         "genre": genre,
+        "decade": decade_for(mb["release_year"]),
         "metadata": {
             "label": mb["label"],
             "catalog_number": mb["catalog_number"],
@@ -287,7 +300,8 @@ class MedusaAdminClient:
     def __init__(self, base_url: str, api_key: str):
         self.base_url = base_url.rstrip("/")
         self.auth = (api_key, "")
-        self._category_cache: dict[str, str] = {}
+        self._category_cache: dict[tuple[str, str | None], str] = {}
+        self._condition_option: tuple[str, dict[str, str]] | None = None
 
     def _request(self, method: str, path: str, **kwargs) -> dict:
         url = f"{self.base_url}{path}"
@@ -327,22 +341,72 @@ class MedusaAdminClient:
         products = data.get("products", [])
         return products[0] if products else None
 
-    def get_or_create_category(self, name: str) -> str:
-        if name in self._category_cache:
-            return self._category_cache[name]
-        # Medusa derives a category's handle as name.lower() verbatim (not a
-        # real slug -- punctuation like "&" and "/" survives), so match that
-        # exactly rather than using our own slugify (which is for product
-        # handles, an unrelated field).
-        data = self._request("GET", "/admin/product-categories", params={"handle": name.lower()})
+    def get_or_create_category(self, name: str, parent_category_id: str | None = None) -> str:
+        cache_key = (name, parent_category_id)
+        if cache_key in self._category_cache:
+            return self._category_cache[cache_key]
+        # Medusa derives a category's handle as name.lower() verbatim by default
+        # (not a real slug -- punctuation like "&" and "/" survives, and "/" in
+        # particular collides with handle-as-URL-path-segment conventions), so
+        # supply an explicit slugified handle instead of trusting the default.
+        handle = slugify(name)
+        data = self._request("GET", "/admin/product-categories", params={"handle": handle})
         existing = data.get("product_categories", [])
         if existing:
             category_id = existing[0]["id"]
         else:
-            created = self._request("POST", "/admin/product-categories", json={"name": name, "is_active": True})
+            payload = {"name": name, "handle": handle, "is_active": True}
+            if parent_category_id:
+                payload["parent_category_id"] = parent_category_id
+            created = self._request("POST", "/admin/product-categories", json=payload)
             category_id = created["product_category"]["id"]
-        self._category_cache[name] = category_id
+        self._category_cache[cache_key] = category_id
         return category_id
+
+    def get_or_create_condition_option(self) -> tuple[str, dict[str, str]]:
+        """Returns (option_id, {grade_label: option_value_id}) for a single,
+        store-wide "Condition" option shared by every product. Product options
+        default to exclusive/private-to-one-product unless explicitly created
+        as shared (is_exclusive=False) -- see notes/vinyl_cut_etl_pipeline.html
+        for why the original inline per-product option definition was wrong."""
+        if self._condition_option is not None:
+            return self._condition_option
+        data = self._request(
+            "GET",
+            "/admin/product-options",
+            params={"title": "Condition", "is_exclusive": "false", "fields": "*values"},
+        )
+        existing = data.get("product_options", [])
+        if existing:
+            option = existing[0]
+        else:
+            option = self._request(
+                "POST",
+                "/admin/product-options",
+                json={"title": "Condition", "is_exclusive": False, "values": CONDITION_GRADES},
+            )["product_option"]
+        self._condition_option = (option["id"], {v["value"]: v["id"] for v in option["values"]})
+        return self._condition_option
+
+    def list_all_products(self) -> list[dict]:
+        products, offset, limit = [], 0, 200
+        while True:
+            data = self._request("GET", "/admin/products", params={"limit": limit, "offset": offset, "fields": "id"})
+            batch = data.get("products", [])
+            products.extend(batch)
+            if len(batch) < limit:
+                return products
+            offset += limit
+
+    def delete_product(self, product_id: str):
+        self._request("DELETE", f"/admin/products/{product_id}")
+
+    def list_all_categories(self) -> list[dict]:
+        data = self._request("GET", "/admin/product-categories", params={"limit": 200, "fields": "id,parent_category_id"})
+        return data.get("product_categories", [])
+
+    def delete_category(self, category_id: str):
+        self._request("DELETE", f"/admin/product-categories/{category_id}")
 
     def upload_file(self, filename: str, content: bytes, content_type: str = "image/jpeg") -> str:
         resp = requests.post(
@@ -404,6 +468,14 @@ def build_variant_payloads(mbid: str, variants: list[dict]) -> list[dict]:
     ]
 
 
+def build_category_refs(client: MedusaAdminClient, record: dict) -> list[dict]:
+    refs = [{"id": client.get_or_create_category(record["genre"])}]
+    if record["decade"]:
+        eras_root_id = client.get_or_create_category(ERAS_ROOT_CATEGORY_NAME)
+        refs.append({"id": client.get_or_create_category(record["decade"], parent_category_id=eras_root_id)})
+    return refs
+
+
 def create_new_product(
     client: MedusaAdminClient,
     seed_row: dict,
@@ -416,10 +488,12 @@ def create_new_product(
 ) -> dict:
     sku_prefix = record["metadata"].get("catalog_number") or seed_row["mbid"][:8].upper()
     images, thumbnail = build_images(seed_row["mbid"], sku_prefix, client, front, back)
-    category_id = client.get_or_create_category(record["genre"])
+    condition_option_id, condition_value_ids = client.get_or_create_condition_option()
+    option_value_ids = [condition_value_ids[v["condition"]] for v in record["variants"]]
 
     payload = {
         "title": record["title"],
+        "subtitle": record["artist"],
         "handle": record["handle"],
         "description": record["description"],
         "status": "published",
@@ -427,10 +501,10 @@ def create_new_product(
         "metadata": record["metadata"],
         "images": images,
         "thumbnail": thumbnail,
-        "categories": [{"id": category_id}],
+        "categories": build_category_refs(client, record),
         "shipping_profile_id": shipping_profile_id,
         "sales_channels": [{"id": sales_channel_id}],
-        "options": [{"title": "Condition", "values": [v["condition"] for v in record["variants"]]}],
+        "options": [{"id": condition_option_id, "value_ids": option_value_ids}],
         "variants": build_variant_payloads(seed_row["mbid"], record["variants"]),
     }
     product = client.create_product(payload)
@@ -447,17 +521,41 @@ def update_existing_product(client: MedusaAdminClient, existing: dict, seed_row:
     Load/Idempotency section) -- variants are intentionally left untouched."""
     sku_prefix = record["metadata"].get("catalog_number") or seed_row["mbid"][:8].upper()
     images, thumbnail = build_images(seed_row["mbid"], sku_prefix, client, front, back)
-    category_id = client.get_or_create_category(record["genre"])
 
     payload = {
         "title": record["title"],
+        "subtitle": record["artist"],
         "description": record["description"],
         "metadata": record["metadata"],
         "images": images,
         "thumbnail": thumbnail,
-        "categories": [{"id": category_id}],
+        "categories": build_category_refs(client, record),
     }
     return client.update_product(existing["id"], payload)
+
+
+def reset_catalog(client: MedusaAdminClient):
+    """Wipes all products and categories so a fresh run starts clean. Needed
+    when the load-time payload shape changes in a way that only applies to
+    newly-created products -- update_existing_product intentionally never
+    touches options or category structure on re-run, only static metadata,
+    so an in-place re-run can't migrate existing rows onto a new shape."""
+    products = client.list_all_products()
+    print(f"Deleting {len(products)} existing products...")
+    for i, product in enumerate(products, start=1):
+        client.delete_product(product["id"])
+        if i % 50 == 0 or i == len(products):
+            print(f"  deleted {i}/{len(products)} products")
+
+    categories = client.list_all_categories()
+    # Children before parents, so a parent category is never deleted while
+    # a decade category still references it via parent_category_id.
+    children = [c for c in categories if c.get("parent_category_id")]
+    roots = [c for c in categories if not c.get("parent_category_id")]
+    print(f"Deleting {len(categories)} existing categories...")
+    for category in children + roots:
+        client.delete_category(category["id"])
+    print("Reset complete.\n")
 
 
 # ---------------------------------------------------------------------------
@@ -491,7 +589,15 @@ def main():
     parser.add_argument("--limit", type=int, default=None, help="Only process the first N rows (smoke test).")
     parser.add_argument("--mbid", type=str, default=None, help="Only process a single MBID (debugging a failure).")
     parser.add_argument("--dry-run", action="store_true", help="Run extract+transform only; skip all Medusa writes.")
+    parser.add_argument(
+        "--reset",
+        action="store_true",
+        help="Delete all existing products and categories before loading (required after option/category shape changes, since re-runs never migrate existing rows).",
+    )
     args = parser.parse_args()
+
+    if args.reset and args.dry_run:
+        raise SystemExit("--reset cannot be combined with --dry-run")
 
     load_dotenv()
     configure_musicbrainz()
@@ -513,6 +619,8 @@ def main():
     channel_ids = ("", "", "")
     if not args.dry_run:
         client = MedusaAdminClient(base_url, api_key)
+        if args.reset:
+            reset_catalog(client)
         channel_ids = (
             client.find_sales_channel_id("Default Sales Channel"),
             client.find_stock_location_id("The Vinyl Cut Warehouse"),

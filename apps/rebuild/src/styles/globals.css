@@ -4,6 +4,8 @@
 @import "./themes/vinyl-cut.css";
 
 @theme inline {
+  --breakpoint-8xl: 1536px;
+  --container-8xl: 1536px;
   --font-brand: var(--font-lobster), cursive;
   --font-heading:
     var(--font-bungee), ui-serif, Georgia, Cambria, "Times New Roman", Times,
@@ -36,4 +38,20 @@
       oklch(0.1786 0.034 265.754) 100%
     );
   }
+}
+
+@utility select-soft {
+  --select-soft-color: var(--color-primary);
+  background-color: color-mix(
+    in oklab,
+    var(--select-soft-color) 8%,
+    var(--color-base-100)
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--select-soft-color) 10%,
+    var(--color-base-100)
+  );
+  color: var(--select-soft-color);
+  box-shadow: none;
 }

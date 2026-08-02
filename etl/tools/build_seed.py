@@ -113,8 +113,17 @@ def has_front_art(release_mbid: str) -> bool:
     return any(image.get("front") for image in images)
 
 
-def pick_release_with_art(release_group_id: str) -> dict | None:
-    for release in browse_releases(release_group_id):
+def pick_release_with_art(candidate: dict) -> dict | None:
+    # A release-group can bundle releases that don't actually share a title
+    # (messy back-catalog reissue merges are common) -- picking the first
+    # one with CAA art regardless of its own title can silently swap in a
+    # different, wrongly-titled pressing even when the group itself matched
+    # correctly. Require the individual release's own title to still agree
+    # with the group's before accepting its art as good enough.
+    expected_title = normalize(candidate.get("title", ""))
+    for release in browse_releases(candidate["id"]):
+        if normalize(release.get("title", "")) != expected_title:
+            continue
         if has_front_art(release["id"]):
             return release
     return None
@@ -128,7 +137,7 @@ def find_release_among_candidates(candidates: list[dict]) -> list[tuple[dict, di
     hits = []
     for candidate in candidates:
         try:
-            release = pick_release_with_art(candidate["id"])
+            release = pick_release_with_art(candidate)
         except Exception:
             release = None
         if release is not None:
@@ -151,9 +160,19 @@ def resolve_row(row: dict, score_threshold: int, min_score_gap: int) -> dict:
     runner_up_score = int(ranked[1].get("ext:score", 0)) if len(ranked) > 1 else 0
     is_clear_winner = score >= score_threshold and (score - runner_up_score) >= min_score_gap
 
-    if is_clear_winner:
+    # A high, clearly-separated score only means the top hit is the best *text*
+    # match for the query -- MusicBrainz's search has no notion of "canonical
+    # release" vs. a same-titled cover/tribute album, which can out-score the
+    # real thing (e.g. "A Tribute to Pink Floyd's Dark Side of the Moon" contains
+    # both query terms verbatim). Require the top hit's own title/artist to
+    # actually match what was searched for before trusting the score alone.
+    is_identity_match = normalize(best.get("title", "")) == normalize(row["title"]) and normalize(
+        best.get("artist-credit-phrase", "")
+    ) == normalize(row["artist"])
+
+    if is_clear_winner and is_identity_match:
         try:
-            release = pick_release_with_art(best["id"])
+            release = pick_release_with_art(best)
         except Exception:
             release = None
         if release is not None:
@@ -171,43 +190,32 @@ def resolve_row(row: dict, score_threshold: int, min_score_gap: int) -> dict:
             "reason": "no candidate release group has an official release with a Cover Art Archive front image",
         }
 
-    if len(hits) == 1:
-        candidate, release = hits[0]
-        return {
-            **row,
-            "status": "accepted",
-            "mbid": release["id"],
-            "release_group_id": candidate["id"],
-            "match_score": int(candidate.get("ext:score", 0)),
-        }
-
-    same_album = all(
-        normalize(candidate.get("title", "")) == normalize(hits[0][0].get("title", ""))
-        and normalize(candidate.get("artist-credit-phrase", "")) == normalize(hits[0][0].get("artist-credit-phrase", ""))
-        for candidate, _ in hits
-    )
-    if same_album:
-        candidate, release = min(hits, key=lambda hit: hit[1].get("date") or "9999")
-        return {
-            **row,
-            "status": "accepted",
-            "mbid": release["id"],
-            "release_group_id": candidate["id"],
-            "match_score": int(candidate.get("ext:score", 0)),
-        }
-
-    # Among surviving candidates, prefer one whose title AND artist are an exact match
-    # over variants with extra qualifiers ("Live", ": Best", "(Remixes)", etc.) - title
-    # alone isn't enough, since a same-titled cover/tribute by a different artist can
-    # otherwise out-rank the real artist's own (differently-subtitled) release.
-    exact_title_hits = [
+    # Having CAA art -- or being the only candidate with art, or every candidate
+    # agreeing with each OTHER -- says nothing about whether any of them are the
+    # right album; only agreement with `row` itself counts. Apply that check
+    # uniformly instead of special-casing "just one hit" as good enough.
+    identity_hits = [
         (candidate, release)
         for candidate, release in hits
         if normalize(candidate.get("title", "")) == normalize(row["title"])
         and normalize(candidate.get("artist-credit-phrase", "")) == normalize(row["artist"])
     ]
-    if len(exact_title_hits) == 1:
-        candidate, release = exact_title_hits[0]
+
+    if len(identity_hits) == 1:
+        candidate, release = identity_hits[0]
+        return {
+            **row,
+            "status": "accepted",
+            "mbid": release["id"],
+            "release_group_id": candidate["id"],
+            "match_score": int(candidate.get("ext:score", 0)),
+        }
+
+    if len(identity_hits) > 1:
+        # Multiple release-groups all genuinely match the searched title/artist -
+        # usually unmerged duplicate entries for the same album. Prefer the
+        # earliest release date as the closest to an "original" pressing.
+        candidate, release = min(identity_hits, key=lambda hit: hit[1].get("date") or "9999")
         return {
             **row,
             "status": "accepted",

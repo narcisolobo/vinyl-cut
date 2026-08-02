@@ -37,8 +37,8 @@ const genreStacks: AlbumStacks = {
       ],
     },
     {
-      slug: "rap",
-      label: "rap",
+      slug: "hip-hop",
+      label: "hip-hop",
       covers: [
         { title: "Enter the Wu-Tang", cover: enterTheWuTang },
         { title: "It Takes a Nation of Millions", cover: itTakesANation },
