@@ -85,6 +85,23 @@ describe("getRegion", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it("falls back to 'us' on a warm cache, even when a country-less region cached under the empty key", async () => {
+    const noIso2Region = {
+      id: "reg_no_iso2",
+      name: "No ISO2",
+      countries: [{}],
+    };
+    fetchMock.mockResolvedValueOnce({
+      regions: [usRegion, caRegion, noIso2Region],
+    });
+
+    // Warms the cache, incidentally caching noIso2Region under "".
+    await regions.getRegion("us");
+
+    expect(await regions.getRegion("")).toEqual(usRegion);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
   it("logs and returns null when the region fetch fails", async () => {
     const consoleError = vi
       .spyOn(console, "error")
