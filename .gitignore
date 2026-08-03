@@ -67,6 +67,10 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# Not reproducible (fresh random timestamps every run, unlike the other
+# etl/seed/ run artifacts), so not meaningful to keep committed.
+etl/seed/randomize_created_at.sql
+
 # Agents
 .claude
 
