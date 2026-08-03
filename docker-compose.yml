@@ -29,10 +29,21 @@ services:
       # setup, but the AAAA route isn't actually usable inside the container;
       # without this, Node hangs on the IPv6 attempt until it times out.
       NODE_OPTIONS: --dns-result-order=ipv4first --max-old-space-size=4096
+      # The admin dashboard's dev-mode Vite server otherwise opens its HMR
+      # websocket on a random port every boot (@medusajs/admin-bundler,
+      # via `get-port`), which this compose file can never publish in
+      # advance -- the page loads but stays blank, with the browser
+      # console full of ERR_CONNECTION_REFUSED. Pinning the port and
+      # binding it on all interfaces (not just the container's loopback,
+      # which Docker's port publishing can't reach) fixes that; the
+      # published port below has to match HMR_PORT.
+      HMR_PORT: "24678"
+      HMR_BIND_HOST: "0.0.0.0"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
       - "9000:9000"
+      - "24678:24678"
     volumes:
       - ./apps/backend:/app/apps/backend
       - backend-node-modules:/app/apps/backend/node_modules

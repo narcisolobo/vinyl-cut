@@ -14,6 +14,31 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET,
     }
   },
+  admin: {
+    // @medusajs/medusa's admin loader auto-registers src/admin as a
+    // "local plugin" source and generates its virtual-module import
+    // specifiers root-relative to the *workspace* root (correctly
+    // /app in this container -- two levels up from apps/backend).
+    // But @medusajs/admin-bundler actually configures Vite's `root`
+    // as .medusa/client, a different, deeper directory -- so the
+    // generated specifier (e.g. "/apps/backend/src/admin/i18n/index.ts")
+    // is wrong from Vite's perspective and fails to resolve ("Failed
+    // to resolve import ... Does the file exist?"). This looks like
+    // an upstream bug (confirmed: process.cwd(), the Docker bind
+    // mount, and the workspace-root math are all correct), not a
+    // config mistake here. Working around it by aliasing the broken
+    // prefix back to the real absolute path.
+    vite: (config) => ({
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: [
+          ...(Array.isArray(config.resolve?.alias) ? config.resolve!.alias : []),
+          { find: /^\/apps\/backend\//, replacement: "/app/apps/backend/" },
+        ],
+      },
+    }),
+  },
   modules: [
     {
       resolve: "@medusajs/file",
