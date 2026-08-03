@@ -4,6 +4,7 @@ import { listProductsWithSort } from "@/lib/data/products";
 import { toAlbum } from "@/lib/utils/map-to-album";
 import { type SortOptions } from "@/types/sort-options";
 import AlbumGrid from "./AlbumGrid";
+import Pagination from "./Pagination";
 
 type AlbumsProps = {
   sort?: SortOptions;
@@ -43,11 +44,19 @@ async function Albums({
 
   const albums = response.products.map(toAlbum);
   const totalPages = Math.ceil(response.count / DEFAULT_PRODUCTS_PER_PAGE);
+  const currentPage = page ? Number(page) : 1;
 
   return (
-    <section className="max-w-8xl mx-auto">
-      <h2>Total Pages: {totalPages}</h2>
-      <AlbumGrid albums={albums} />
+    <section className="px-8 py-12 md:py-16 lg:py-20 2xl:px-0">
+      <div className="mx-auto max-w-7xl">
+        <AlbumGrid albums={albums} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          basePath={`/${countryCode}/store`}
+          searchParams={{ sort, genre, era, condition }}
+        />
+      </div>
     </section>
   );
 }
