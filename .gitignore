@@ -74,5 +74,8 @@ etl/seed/randomize_created_at.sql
 # Agents
 .claude
 
-# N0tes
+# Notes
 notes/store-implementation-plan.md
+
+# Secrets
+admin/

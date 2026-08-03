@@ -36,7 +36,9 @@ custom restock-notification module as the centerpiece.
 ├── apps/
 │   ├── backend/          # @dtc/backend — Medusa.js commerce engine
 │   │   └── medusa-config.ts
-│   └── storefront/        # @dtc/storefront — Next.js storefront
+│   ├── rebuild/            # @vc/storefront — active from-scratch storefront rebuild
+│   │   └── next.config.ts
+│   └── storefront/        # @dtc/storefront — original medusa-next starter (reference only)
 │       └── check-env-variables.js
 ├── etl/                   # Python catalog ETL pipeline (not a pnpm workspace)
 │   ├── requirements.txt
@@ -59,6 +61,11 @@ custom restock-notification module as the centerpiece.
 ├── LICENSE
 └── package.json
 ```
+
+`apps/rebuild` is a from-scratch rebuild of the storefront and is the actively
+developed app. `apps/storefront` is the original `medusa-next` starter
+template, kept temporarily as a reference during the rebuild; it will be
+deleted once `apps/rebuild` reaches feature parity.
 
 ## Prerequisites
 
