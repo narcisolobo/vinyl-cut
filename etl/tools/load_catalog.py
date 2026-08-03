@@ -388,10 +388,10 @@ class MedusaAdminClient:
         self._condition_option = (option["id"], {v["value"]: v["id"] for v in option["values"]})
         return self._condition_option
 
-    def list_all_products(self) -> list[dict]:
+    def list_all_products(self, fields: str = "id") -> list[dict]:
         products, offset, limit = [], 0, 200
         while True:
-            data = self._request("GET", "/admin/products", params={"limit": limit, "offset": offset, "fields": "id"})
+            data = self._request("GET", "/admin/products", params={"limit": limit, "offset": offset, "fields": fields})
             batch = data.get("products", [])
             products.extend(batch)
             if len(batch) < limit:
