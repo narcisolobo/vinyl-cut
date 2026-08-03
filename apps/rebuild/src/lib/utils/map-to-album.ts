@@ -2,8 +2,8 @@ import { type HttpTypes } from "@medusajs/types";
 import { type Album, type AlbumVariant } from "@/types/album";
 
 const PLACEHOLDER_IMAGE = "/placeholder-album.svg";
-const FRONT_IMAGE_MARKER = "-front-250";
-const BACK_IMAGE_MARKER = "-back-250";
+const FRONT_IMAGE_MARKER = "-front-500";
+const BACK_IMAGE_MARKER = "-back-500";
 const ERAS_CATEGORY_NAME = "Eras";
 const CONDITION_OPTION_TITLE = "Condition";
 
