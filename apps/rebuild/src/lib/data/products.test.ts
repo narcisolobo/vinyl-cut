@@ -111,7 +111,11 @@ describe("listProducts", () => {
       count: 20,
     });
 
-    const result = await listProducts({ countryCode: "us", pageParam: 1 });
+    const result = await listProducts({
+      countryCode: "us",
+      pageParam: 1,
+      queryParams: { limit: 12 },
+    });
 
     expect(result.nextPage).toBe(2);
   });
@@ -145,7 +149,7 @@ describe("listProductsWithSort", () => {
   it("requests order=subtitle for artist-asc", async () => {
     fetchMock.mockResolvedValueOnce({ products: [], count: 0 });
 
-    await listProductsWithSort({ countryCode: "us", sortBy: "artist-asc" });
+    await listProductsWithSort({ countryCode: "us", sort: "artist-asc" });
 
     expect(fetchMock).toHaveBeenCalledWith(
       "/store/products",
@@ -162,7 +166,8 @@ describe("listProductsWithSort", () => {
 
     const result = await listProductsWithSort({
       countryCode: "us",
-      sortBy: "price-asc",
+      sort: "price-asc",
+      queryParams: { limit: 12 },
     });
 
     expect(fetchMock).toHaveBeenCalledWith(
@@ -183,8 +188,9 @@ describe("listProductsWithSort", () => {
 
     const result = await listProductsWithSort({
       countryCode: "us",
-      sortBy: "price-asc",
+      sort: "price-asc",
       page: 2,
+      queryParams: { limit: 12 },
     });
 
     expect(result.response.products).toHaveLength(3);

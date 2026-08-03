@@ -1,4 +1,4 @@
-import { type SortOptions } from "@/lib/data/products";
+import { type SortOptions } from "@/types/sort-options";
 
 type SortingOption = {
   label: string;

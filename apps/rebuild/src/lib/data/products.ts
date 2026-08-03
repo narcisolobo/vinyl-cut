@@ -6,11 +6,11 @@ import {
   type OptionValueIds,
 } from "@/lib/utils/product-option-filters";
 import { sortProducts } from "@/lib/utils/sort-products";
+import { type SortOptions } from "@/types/sort-options";
 import { type HttpTypes } from "@medusajs/types";
 import { getCacheOptions } from "./cookies";
+import { DEFAULT_PRODUCTS_PER_PAGE } from "./product-list-defaults";
 import { getRegion, retrieveRegion } from "./regions";
-
-type SortOptions = "latest" | "artist-asc" | "price-asc" | "price-desc";
 
 type ProductListQueryParams = (HttpTypes.FindParams &
   HttpTypes.StoreProductListParams) & {
@@ -39,7 +39,7 @@ type ListProductsParams = {
 type ListProductsWithSortParams = {
   page?: number;
   queryParams?: ProductListQueryParams;
-  sortBy?: SortOptions;
+  sort?: SortOptions;
   countryCode: string;
   optionValueIds?: OptionValueIds;
 };
@@ -62,7 +62,7 @@ async function listProducts({
     throw new Error("Country code or region ID is required");
   }
 
-  const limit = queryParams?.limit ?? 12;
+  const limit = queryParams?.limit ?? DEFAULT_PRODUCTS_PER_PAGE;
   const _pageParam = Math.max(pageParam, 1);
   const offset = _pageParam === 1 ? 0 : (_pageParam - 1) * limit;
 
@@ -128,18 +128,18 @@ async function listProducts({
 async function listProductsWithSort({
   page = 1,
   queryParams,
-  sortBy = "latest",
+  sort = "latest",
   countryCode,
   optionValueIds,
 }: ListProductsWithSortParams): Promise<ProductListResult> {
-  const limit = queryParams?.limit ?? 12;
+  const limit = queryParams?.limit ?? DEFAULT_PRODUCTS_PER_PAGE;
   const optionFilters = dedupeTruthy(optionValueIds ?? []);
   const optionValueIdParams = optionFilters.length
     ? { option_value_id: optionFilters }
     : {};
 
-  if (sortBy === "artist-asc" || sortBy === "latest") {
-    const order = sortBy === "artist-asc" ? "subtitle" : "-created_at";
+  if (sort === "artist-asc" || sort === "latest") {
+    const order = sort === "artist-asc" ? "subtitle" : "-created_at";
 
     const {
       response: { products, count },
@@ -169,7 +169,7 @@ async function listProductsWithSort({
     countryCode,
   });
 
-  const sortedProducts = sortProducts(products, sortBy);
+  const sortedProducts = sortProducts(products, sort);
   const offset = (page - 1) * limit;
   const fetchedCount = products.length;
   const nextPage = fetchedCount > offset + limit ? page + 1 : null;
@@ -185,5 +185,4 @@ async function listProductsWithSort({
   };
 }
 
-export type { SortOptions };
 export { listProducts, listProductsWithSort };

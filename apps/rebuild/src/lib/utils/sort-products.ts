@@ -1,5 +1,5 @@
 import { HttpTypes } from "@medusajs/types";
-import { type SortOptions } from "@/lib/data/products";
+import { type SortOptions } from "@/types/sort-options";
 
 type PriceSortOptions = Extract<SortOptions, "price-asc" | "price-desc">;
 
