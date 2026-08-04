@@ -16,17 +16,23 @@ interface LocalizedClientLinkProps {
   onClick?: () => void;
   passHref?: true;
   [x: string]: unknown;
+  transitionTypes?: string[];
 }
 
 function LocalizedClientLink({
-  children,
   href,
+  children,
+  transitionTypes,
   ...props
 }: LocalizedClientLinkProps) {
   const { "country-code": countryCode } = useParams() ?? {};
 
   return (
-    <Link href={`/${countryCode}${href}`} {...props}>
+    <Link
+      href={`/${countryCode}${href}`}
+      transitionTypes={transitionTypes}
+      {...props}
+    >
       {children}
     </Link>
   );

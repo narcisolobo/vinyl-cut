@@ -4,7 +4,10 @@ import NavMenu from "./NavMenu";
 
 function NavBar() {
   return (
-    <div className="bg-base-200 fixed top-0 z-30 w-full shadow-sm transition-all duration-300 ease-in-out">
+    <div
+      className="bg-base-200 fixed top-0 z-30 w-full shadow-sm transition-all duration-300 ease-in-out"
+      style={{ viewTransitionName: "site-header" }}
+    >
       <div className="relative flex min-h-16 items-center justify-between p-2">
         <div className="flex-1">
           <div className="flex items-center">
