@@ -6,14 +6,14 @@ import { type SortOptions } from "@/types/sort-options";
 import AlbumGrid from "./AlbumGrid";
 import Pagination from "./Pagination";
 
-type AlbumsProps = {
+interface AlbumsProps {
   sort?: SortOptions;
   page?: string;
   genre?: string;
   era?: string;
   condition?: string;
   countryCode: string;
-};
+}
 
 /** Splits a comma-joined `?genre=`/`?era=`/`?condition=` value into names. */
 function splitFilterParam(value?: string): string[] {
@@ -47,8 +47,14 @@ async function Albums({
   const currentPage = page ? Number(page) : 1;
 
   return (
-    <section className="px-8 py-12 md:py-16 lg:py-20 2xl:px-0">
-      <div className="mx-auto max-w-7xl">
+    <section className="px-8 2xl:px-0">
+      <div className="max-w-8xl mx-auto">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          basePath={`/${countryCode}/store`}
+          searchParams={{ sort, genre, era, condition }}
+        />
         <AlbumGrid albums={albums} />
         <Pagination
           currentPage={currentPage}

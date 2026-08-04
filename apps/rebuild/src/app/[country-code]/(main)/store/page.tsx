@@ -2,7 +2,6 @@ import Divider from "@/components/Divider";
 import { type SortOptions } from "@/types/sort-options";
 import Albums from "@/views/store/albums/Albums";
 import StoreFilterAndSort from "@/views/store/filter-and-sort/StoreFilterAndSort";
-import StoreHeader from "@/views/store/header/StoreHeader";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -40,8 +39,7 @@ async function StorePage({ params, searchParams }: StorePageProps) {
   const { "country-code": countryCode } = await params;
   const { sort, page, genre, era, condition } = await searchParams;
   return (
-    <main>
-      <StoreHeader />
+    <main className="vc-gradient">
       <Divider />
       <Suspense fallback={<div className="bg-base-300 h-27" />}>
         <StoreFilterAndSort />

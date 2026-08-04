@@ -69,9 +69,9 @@ function StoreFilterAndSort() {
   );
 
   return (
-    <section className="bg-base-300 px-8 py-4">
+    <section className="mt-18 bg-transparent px-8 py-4">
       <h2 className="sr-only">Filter and Sort Products</h2>
-      <div className="mx-auto flex max-w-7xl justify-between">
+      <div className="max-w-8xl mx-auto flex justify-between">
         <section className="flex items-center gap-2">
           <h3 className="sr-only">Filtering Options</h3>
           {filters.map(({ label, options, selected, handleToggle }) => (
