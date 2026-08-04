@@ -40,13 +40,6 @@
   }
 }
 
-/*
- * Album cover morph (PLP grid card -> PDP hero, matched by
- * `ViewTransition name="album-cover-{handle}"` with `share="morph"`
- * in AlbumGridCard.tsx / AlbumDetails.tsx). The blur mid-flight hides
- * pixel-interpolation artifacts as the browser scales between the
- * two image sizes -- see the Next.js view-transitions guide.
- */
 ::view-transition-group(.morph) {
   animation-duration: 400ms;
 }
