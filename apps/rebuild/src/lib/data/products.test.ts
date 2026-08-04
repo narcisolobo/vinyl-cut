@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { listProducts, listProductsWithSort } from "./products";
+import { getProductByHandle, listProducts, listProductsWithSort } from "./products";
 
 const { fetchMock, getRegionMock, retrieveRegionMock, sortProductsMock } =
   vi.hoisted(() => ({
@@ -220,5 +220,43 @@ describe("listProductsWithSort", () => {
 
     const query = fetchMock.mock.calls[0][1].query;
     expect(query).not.toHaveProperty("option_value_id");
+  });
+});
+
+describe("getProductByHandle", () => {
+  it("requests a single product filtered by handle", async () => {
+    fetchMock.mockResolvedValueOnce({
+      products: [{ id: "p1", handle: "what-s-going-on" }],
+      count: 1,
+    });
+
+    await getProductByHandle("what-s-going-on", "us");
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/store/products",
+      expect.objectContaining({
+        query: expect.objectContaining({
+          handle: "what-s-going-on",
+          limit: 1,
+        }),
+      }),
+    );
+  });
+
+  it("returns the matched product", async () => {
+    const product = { id: "p1", handle: "what-s-going-on" };
+    fetchMock.mockResolvedValueOnce({ products: [product], count: 1 });
+
+    const result = await getProductByHandle("what-s-going-on", "us");
+
+    expect(result).toEqual(product);
+  });
+
+  it("returns null when no product matches the handle", async () => {
+    fetchMock.mockResolvedValueOnce({ products: [], count: 0 });
+
+    const result = await getProductByHandle("does-not-exist", "us");
+
+    expect(result).toBeNull();
   });
 });
