@@ -2,6 +2,7 @@ import ScrollRestoration from "@/components/ScrollRestoration";
 import { resolveProductFilters } from "@/lib/data/product-filters";
 import { DEFAULT_PRODUCTS_PER_PAGE } from "@/lib/data/product-list-defaults";
 import { listProductsWithSort } from "@/lib/data/products";
+import { buildStoreUrl } from "@/lib/utils/build-store-url";
 import { toAlbum } from "@/lib/utils/map-to-album";
 import { type SortOptions } from "@/types/sort-options";
 import AlbumGrid from "./AlbumGrid";
@@ -46,6 +47,11 @@ async function Albums({
   const albums = response.products.map(toAlbum);
   const totalPages = Math.ceil(response.count / DEFAULT_PRODUCTS_PER_PAGE);
   const currentPage = page ? Number(page) : 1;
+  const returnTo = buildStoreUrl(
+    "/store",
+    { sort, genre, era, condition },
+    currentPage,
+  );
 
   return (
     <>
@@ -58,7 +64,7 @@ async function Albums({
             basePath={`/${countryCode}/store`}
             searchParams={{ sort, genre, era, condition }}
           />
-          <AlbumGrid albums={albums} />
+          <AlbumGrid albums={albums} returnTo={returnTo} />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

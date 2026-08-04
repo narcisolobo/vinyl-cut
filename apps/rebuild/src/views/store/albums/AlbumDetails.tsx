@@ -9,6 +9,7 @@ import { useState, ViewTransition } from "react";
 
 interface AlbumDetailsProps {
   album: Album;
+  backHref: string;
 }
 
 /** Cheapest variant — selected by default so the price starts low. */
@@ -33,7 +34,7 @@ function formatDuration(durationMs: number | null): string {
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-function AlbumDetails({ album }: AlbumDetailsProps) {
+function AlbumDetails({ album, backHref }: AlbumDetailsProps) {
   const [selectedImage, setSelectedImage] = useState<string>(album.frontImage);
   const [selectedVariantId, setSelectedVariantId] = useState(
     () => getLowestPriceVariant(album.variants)?.id,
@@ -54,7 +55,7 @@ function AlbumDetails({ album }: AlbumDetailsProps) {
   return (
     <div className="mx-auto max-w-5xl px-8 pt-24 pb-16">
       <LocalizedClientLink
-        href="/store"
+        href={backHref}
         transitionTypes={["nav-back"]}
         scroll={false}
         className="btn btn-ghost btn-sm btn-primary mb-4"
