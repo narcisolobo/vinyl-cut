@@ -93,4 +93,28 @@ describe("cart id cookie", () => {
       maxAge: -1,
     });
   });
+
+  it("getCartId throws a wrapped error when reading cookies fails", async () => {
+    cookiesMock.mockRejectedValueOnce(new Error("no request context"));
+
+    await expect(getCartId()).rejects.toThrow(
+      /Failed to read "_medusa_cart_id"/,
+    );
+  });
+
+  it("setCartId throws a wrapped error when writing cookies fails", async () => {
+    cookiesMock.mockRejectedValueOnce(new Error("no request context"));
+
+    await expect(setCartId("cart_123")).rejects.toThrow(
+      /Failed to set "_medusa_cart_id"/,
+    );
+  });
+
+  it("removeCartId throws a wrapped error when clearing cookies fails", async () => {
+    cookiesMock.mockRejectedValueOnce(new Error("no request context"));
+
+    await expect(removeCartId()).rejects.toThrow(
+      /Failed to clear "_medusa_cart_id"/,
+    );
+  });
 });

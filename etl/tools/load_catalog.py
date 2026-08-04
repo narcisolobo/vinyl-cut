@@ -42,6 +42,7 @@ LOG_PATH = SEED_DIR / "load_run.log"
 ERRORS_PATH = SEED_DIR / "load_errors.json"
 
 CAA_FRONT_URL = "https://coverartarchive.org/release/{mbid}/front-{size}"
+CAA_RELEASE_GROUP_FRONT_URL = "https://coverartarchive.org/release-group/{mbid}/front-{size}"
 CAA_METADATA_URL = "https://coverartarchive.org/release/{mbid}"
 CAA_REQUEST_INTERVAL = 1.0
 
@@ -106,7 +107,7 @@ def slugify(text: str) -> str:
 )
 def _mb_get_release(mbid: str) -> dict:
     try:
-        return musicbrainzngs.get_release_by_id(mbid, includes=["labels", "recordings", "artist-credits"])["release"]
+        return musicbrainzngs.get_release_by_id(mbid, includes=["labels", "recordings", "artist-credits", "release-groups"])["release"]
     except musicbrainzngs.ResponseError as exc:
         code = getattr(exc.cause, "code", None)
         if code in (429, 500, 502, 503, 504):
@@ -146,6 +147,7 @@ def fetch_release_metadata(mbid: str) -> dict:
         "press_type": press_type,
         "release_year": release_year,
         "tracklist": tracklist,
+        "release_group_mbid": release.get("release-group", {}).get("id"),
     }
 
 
@@ -163,11 +165,35 @@ def _caa_get(url: str) -> requests.Response:
     return resp
 
 
-def fetch_front_cover(mbid: str) -> dict[str, bytes]:
-    return {
-        "250": _caa_get(CAA_FRONT_URL.format(mbid=mbid, size=250)).content,
-        "500": _caa_get(CAA_FRONT_URL.format(mbid=mbid, size=500)).content,
-    }
+def fetch_front_cover(mbid: str, release_group_mbid: str | None = None) -> dict[str, bytes] | None:
+    """Some releases -- often older or various-edition vinyl pressings --
+    have no front-tagged scan at the release level in CAA, even when a
+    sibling release in the same release-group does (e.g. AC/DC's "Back in
+    Black", MBID f7c680af-5b09-3fea-be84-5e00a7da56a0: only back/label
+    scans at the release level, but CAA's release-group endpoint resolves
+    to a front scan from a different pressing). Falls back to that
+    release-group aggregate endpoint when the release-level fetch 404s.
+
+    Some releases have no front art anywhere in CAA, at either level --
+    that's not a failure either, matching fetch_back_cover's handling:
+    returns None so the product loads with no images (or just a back
+    cover) rather than blocking the whole row, and can be filled in by
+    hand later (e.g. via the admin dashboard)."""
+    try:
+        return {
+            "250": _caa_get(CAA_FRONT_URL.format(mbid=mbid, size=250)).content,
+            "500": _caa_get(CAA_FRONT_URL.format(mbid=mbid, size=500)).content,
+        }
+    except NonRetryableError:
+        if not release_group_mbid:
+            return None
+        try:
+            return {
+                "250": _caa_get(CAA_RELEASE_GROUP_FRONT_URL.format(mbid=release_group_mbid, size=250)).content,
+                "500": _caa_get(CAA_RELEASE_GROUP_FRONT_URL.format(mbid=release_group_mbid, size=500)).content,
+            }
+        except NonRetryableError:
+            return None
 
 
 def fetch_back_cover(mbid: str) -> dict[str, bytes] | None:
@@ -341,6 +367,22 @@ class MedusaAdminClient:
         products = data.get("products", [])
         return products[0] if products else None
 
+    def get_product(self, product_id: str) -> dict:
+        data = self._request(
+            "GET",
+            f"/admin/products/{product_id}",
+            params={"fields": "id,title,subtitle,external_id"},
+        )
+        return data["product"]
+
+    def find_products_by_title(self, query: str) -> list[dict]:
+        data = self._request(
+            "GET",
+            "/admin/products",
+            params={"q": query, "fields": "id,title,subtitle,external_id"},
+        )
+        return data.get("products", [])
+
     def get_or_create_category(self, name: str, parent_category_id: str | None = None) -> str:
         cache_key = (name, parent_category_id)
         if cache_key in self._category_cache:
@@ -388,10 +430,10 @@ class MedusaAdminClient:
         self._condition_option = (option["id"], {v["value"]: v["id"] for v in option["values"]})
         return self._condition_option
 
-    def list_all_products(self) -> list[dict]:
+    def list_all_products(self, fields: str = "id") -> list[dict]:
         products, offset, limit = [], 0, 200
         while True:
-            data = self._request("GET", "/admin/products", params={"limit": limit, "offset": offset, "fields": "id"})
+            data = self._request("GET", "/admin/products", params={"limit": limit, "offset": offset, "fields": fields})
             batch = data.get("products", [])
             products.extend(batch)
             if len(batch) < limit:
@@ -438,16 +480,19 @@ class MedusaAdminClient:
         )
 
 
-def build_images(mbid: str, sku_prefix: str, client: MedusaAdminClient, front: dict, back: dict | None) -> tuple[list[dict], str]:
+def build_images(
+    mbid: str, sku_prefix: str, client: MedusaAdminClient, front: dict | None, back: dict | None
+) -> tuple[list[dict], str | None]:
     images = []
-    for size in ("250", "500"):
-        url = client.upload_file(f"{sku_prefix}-front-{size}.jpg", front[size])
-        images.append({"url": url})
-    thumbnail = images[0]["url"]
+    if front:
+        for size in ("250", "500"):
+            url = client.upload_file(f"{sku_prefix}-front-{size}.jpg", front[size])
+            images.append({"url": url})
     if back:
         for size in ("250", "500"):
             url = client.upload_file(f"{sku_prefix}-back-{size}.jpg", back[size])
             images.append({"url": url})
+    thumbnail = images[0]["url"] if images else None
     return images, thumbnail
 
 
@@ -480,7 +525,7 @@ def create_new_product(
     client: MedusaAdminClient,
     seed_row: dict,
     record: dict,
-    front: dict,
+    front: dict | None,
     back: dict | None,
     sales_channel_id: str,
     stock_location_id: str,
@@ -515,7 +560,7 @@ def create_new_product(
     return product
 
 
-def update_existing_product(client: MedusaAdminClient, existing: dict, seed_row: dict, record: dict, front: dict, back: dict | None) -> dict:
+def update_existing_product(client: MedusaAdminClient, existing: dict, seed_row: dict, record: dict, front: dict | None, back: dict | None) -> dict:
     """Only static catalog metadata is upserted on re-run. Price and quantity
     are commerce-sensitive and set only at first creation (see pipeline doc's
     Load/Idempotency section) -- variants are intentionally left untouched."""
@@ -567,7 +612,9 @@ def process_row(client: MedusaAdminClient, seed_row: dict, channel_ids: tuple[st
     mbid = seed_row["mbid"]
 
     mb = fetch_release_metadata(mbid)
-    front = fetch_front_cover(mbid)
+    front = fetch_front_cover(mbid, mb.get("release_group_mbid"))
+    if front is None:
+        print(f"  [warn] no front cover art in CAA for {mbid} (release or release-group) -- loading with no images")
     back = fetch_back_cover(mbid)
     record = transform(seed_row, mb)
 

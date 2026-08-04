@@ -69,7 +69,7 @@ function StoreFilterAndSort() {
   );
 
   return (
-    <section className="bg-base-300 px-8 py-4">
+    <section className="mt-18 bg-transparent px-8 py-4">
       <h2 className="sr-only">Filter and Sort Products</h2>
       <div className="max-w-8xl mx-auto flex justify-between">
         <section className="flex items-center gap-2">
@@ -103,7 +103,7 @@ function StoreFilterAndSort() {
           </fieldset>
         </section>
       </div>
-      <section className="max-w-8xl mx-auto py-4">
+      <section className="mx-auto max-w-7xl py-4">
         <h2 className="sr-only">Selected Filters</h2>
         <div className="space-x-2">
           {selectedFilters.length > 0 &&

@@ -105,9 +105,9 @@
           <strong>Back cover art:</strong> fetched the same way as the front
           cover, at the same two thumbnail sizes, and added as a second image in
           the PDP artwork gallery when present. Unlike the front cover, a
-          missing back cover is not a curation blocker — roughly 58% of the
-          catalog (based on the initial 500-release seed) has one available in
-          the Cover Art Archive; the rest simply show a single-image gallery.
+          missing back cover is not a curation blocker — roughly 45% of the
+          catalog (227 of the 500-release seed, verified live) has one available
+          in the Cover Art Archive; the rest simply show a single-image gallery.
         </li>
         <li>
           <strong>Genre:</strong> not sourced from MusicBrainz's own tag data,
@@ -181,8 +181,8 @@
           publicly cacheable catalog content and needs no signed URLs for the
           storefront to render it. Supabase's free tier caps storage at 1 GB
           total; for the initial 500-release catalog that's up to 1,000
-          front-cover thumbnails (500 releases &times; 2 sizes) plus up to 584
-          back-cover thumbnails (roughly 292 releases with one available
+          front-cover thumbnails (500 releases &times; 2 sizes) plus up to 454
+          back-cover thumbnails (227 releases with one available, verified live,
           &times; 2 sizes), so catalog size should be sanity-checked against
           that budget before finalizing the seed list.
         </li>
@@ -284,11 +284,14 @@
       <ul>
         <li>
           <strong>Product listing page (PLP):</strong> Grid display of records
-          with cover art, album title, artist name, price, and condition badge.
+          with cover art, album title, artist name, and an inline condition
+          selector (e.g., Mint, Very Good+) — price updates to match the
+          selected condition without leaving the grid.
         </li>
         <li>
           <strong>Multi-attribute filtering &amp; sorting:</strong> Filter by
-          genre, era/decade, and media condition; sort by price and date added.
+          genre, era/decade, and media condition; sort by price, date added, and
+          artist name.
         </li>
         <li>
           <strong>Product detail page (PDP):</strong>
@@ -376,6 +379,16 @@
           <strong>Payment event handling:</strong> Medusa's payment module
           handles provider webhook events and order-status transitions natively;
           no custom webhook endpoint required.
+        </li>
+        <li>
+          <strong>Custom Store API route:</strong> a
+          <code>/store/product-options</code> route exposes store-wide
+          (non-exclusive) product options and their values — e.g., the shared
+          "Condition" option every variant uses — since Medusa's default Store
+          API only ever returns options nested under a specific product, with
+          no route to list a catalog-wide option's values directly. Needed for
+          the storefront's condition filter to resolve filter selections to
+          option-value IDs.
         </li>
       </ul>
 

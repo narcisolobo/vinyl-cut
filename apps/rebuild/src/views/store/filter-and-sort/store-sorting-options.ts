@@ -1,4 +1,11 @@
-const SORTING_OPTIONS = [
+import { type SortOptions } from "@/types/sort-options";
+
+type SortingOption = {
+  label: string;
+  value: SortOptions;
+};
+
+const SORTING_OPTIONS: SortingOption[] = [
   {
     label: "Latest Arrivals",
     value: "latest",
