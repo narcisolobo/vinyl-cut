@@ -1,3 +1,4 @@
+import ScrollRestoration from "@/components/ScrollRestoration";
 import { resolveProductFilters } from "@/lib/data/product-filters";
 import { DEFAULT_PRODUCTS_PER_PAGE } from "@/lib/data/product-list-defaults";
 import { listProductsWithSort } from "@/lib/data/products";
@@ -47,23 +48,26 @@ async function Albums({
   const currentPage = page ? Number(page) : 1;
 
   return (
-    <section className="px-8 2xl:px-0">
-      <div className="max-w-8xl mx-auto">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          basePath={`/${countryCode}/store`}
-          searchParams={{ sort, genre, era, condition }}
-        />
-        <AlbumGrid albums={albums} />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          basePath={`/${countryCode}/store`}
-          searchParams={{ sort, genre, era, condition }}
-        />
-      </div>
-    </section>
+    <>
+      <ScrollRestoration />
+      <section className="px-8 2xl:px-0">
+        <div className="max-w-8xl mx-auto">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            basePath={`/${countryCode}/store`}
+            searchParams={{ sort, genre, era, condition }}
+          />
+          <AlbumGrid albums={albums} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            basePath={`/${countryCode}/store`}
+            searchParams={{ sort, genre, era, condition }}
+          />
+        </div>
+      </section>
+    </>
   );
 }
 

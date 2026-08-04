@@ -3,7 +3,7 @@ import { type SortOptions } from "@/types/sort-options";
 import Albums from "@/views/store/albums/Albums";
 import StoreFilterAndSort from "@/views/store/filter-and-sort/StoreFilterAndSort";
 import { Metadata } from "next";
-import { Suspense } from "react";
+import { Suspense, ViewTransition } from "react";
 
 const metadata: Metadata = {
   title: "Store | The Vinyl Cut",
@@ -39,21 +39,34 @@ async function StorePage({ params, searchParams }: StorePageProps) {
   const { "country-code": countryCode } = await params;
   const { sort, page, genre, era, condition } = await searchParams;
   return (
-    <main className="vc-gradient">
-      <Divider />
-      <Suspense fallback={<div className="bg-base-300 h-27" />}>
-        <StoreFilterAndSort />
-      </Suspense>
-      <Divider />
-      <Albums
-        countryCode={countryCode}
-        sort={sort}
-        page={page}
-        genre={genre}
-        era={era}
-        condition={condition}
-      />
-    </main>
+    <ViewTransition
+      enter={{
+        "nav-back": "nav-back",
+        default: "none",
+      }}
+      exit={{
+        "nav-back": "nav-back",
+        default: "none",
+      }}
+      default="none"
+    >
+      {/* page content */}
+      <main className="vc-gradient">
+        <Divider />
+        <Suspense fallback={<div className="bg-base-300 h-27" />}>
+          <StoreFilterAndSort />
+        </Suspense>
+        <Divider />
+        <Albums
+          countryCode={countryCode}
+          sort={sort}
+          page={page}
+          genre={genre}
+          era={era}
+          condition={condition}
+        />
+      </main>
+    </ViewTransition>
   );
 }
 

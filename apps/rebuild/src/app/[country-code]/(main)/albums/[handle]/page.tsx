@@ -4,6 +4,7 @@ import { toAlbum } from "@/lib/utils/map-to-album";
 import AlbumDetails from "@/views/store/albums/AlbumDetails";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 
 interface AlbumDetailsPageProps {
   params: Promise<{ "country-code": string; handle: string }>;
@@ -31,9 +32,21 @@ async function AlbumDetailsPage(props: AlbumDetailsPageProps) {
   if (!product) notFound();
 
   return (
-    <main>
-      <AlbumDetails album={toAlbum(product)} />
-    </main>
+    <ViewTransition
+      enter={{
+        "nav-back": "nav-back",
+        default: "none",
+      }}
+      exit={{
+        "nav-back": "nav-back",
+        default: "none",
+      }}
+      default="none"
+    >
+      <main>
+        <AlbumDetails album={toAlbum(product)} />
+      </main>
+    </ViewTransition>
   );
 }
 

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ViewTransition } from "react";
 import Image from "next/image";
 import { formatPrice } from "@/lib/utils/format-price";
+import { saveScrollPosition } from "@/lib/utils/scroll-restore";
 import { type Album, type AlbumVariant } from "@/types/album";
 import LocalizedClientLink from "@/components/LocalizedClientLink";
 
@@ -33,18 +34,25 @@ function AlbumGridCard({ album }: AlbumGridCardProps) {
     <li className="card bg-base-300 relative shadow-sm">
       <LocalizedClientLink
         href={`/albums/${album.handle}`}
+        onClick={saveScrollPosition}
         className="absolute inset-0 z-10"
       >
         <span className="sr-only">{`${album.artist} — ${album.title}`}</span>
       </LocalizedClientLink>
       <figure className="relative aspect-square">
-        <Image
-          src={album.frontImage}
-          alt={`${album.artist} — ${album.title} cover art`}
-          fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover"
-        />
+        <ViewTransition
+          name={`album-cover-${album.handle}`}
+          share="morph"
+          default="none"
+        >
+          <Image
+            src={album.frontImage}
+            alt={`${album.artist} — ${album.title} cover art`}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover"
+          />
+        </ViewTransition>
       </figure>
       <div className="card-body">
         <h4 className="card-title line-clamp-2">{album.title}</h4>
