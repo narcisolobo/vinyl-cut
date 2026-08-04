@@ -70,6 +70,7 @@ __pycache__/
 # Not reproducible (fresh random timestamps every run, unlike the other
 # etl/seed/ run artifacts), so not meaningful to keep committed.
 etl/seed/randomize_created_at.sql
+etl/seed/curated_new_arrivals.sql
 
 # Agents
 .claude
