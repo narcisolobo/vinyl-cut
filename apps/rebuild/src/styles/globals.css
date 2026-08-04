@@ -52,14 +52,6 @@
   }
 }
 
-/*
- * "Back to Store" directional slide (PDP -> PLP, tagged via
- * `transitionTypes={['nav-back']}` on the Link in AlbumDetails.tsx,
- * consumed by the `enter`/`exit` type maps on the ViewTransitions
- * wrapping each page's content in Albums.tsx / AlbumDetails.tsx).
- * Only "back" is wired up so far -- add matching `.nav-forward` rules
- * if forward navigation ever gets the same treatment.
- */
 ::view-transition-old(.nav-back) {
   --slide-offset: 60px;
   animation:
@@ -89,12 +81,6 @@
   }
 }
 
-/*
- * Keeps the fixed NavBar (viewTransitionName: "site-header") from
- * moving or ghosting during the directional slide above -- without
- * this, the default view-transition snapshot includes the header and
- * it visibly slides/duplicates along with the page content.
- */
 ::view-transition-group(site-header) {
   animation: none;
   z-index: 100;
