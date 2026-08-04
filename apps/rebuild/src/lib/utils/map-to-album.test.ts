@@ -16,6 +16,7 @@ function conditionOption(value: string) {
 // one condition (NM), a front+back photo pair, one genre + one era.
 const marvinGaye = {
   id: "prod_01KYYXZ9J7FZKDE7E8DEFABK93",
+  handle: "marvin-gaye-what-s-going-on",
   title: "What’s Going On",
   subtitle: "Marvin Gaye",
   images: [
@@ -68,22 +69,23 @@ const petSounds = {
 } as unknown as HttpTypes.StoreProduct;
 
 describe("toAlbum", () => {
-  it("maps title, artist, and id", () => {
+  it("maps title, artist, id, and handle", () => {
     const album = toAlbum(marvinGaye);
 
     expect(album.id).toBe("prod_01KYYXZ9J7FZKDE7E8DEFABK93");
+    expect(album.handle).toBe("marvin-gaye-what-s-going-on");
     expect(album.title).toBe("What’s Going On");
     expect(album.artist).toBe("Marvin Gaye");
   });
 
-  it("resolves the 250px front and back images from the URL, ignoring the 500px pair", () => {
+  it("resolves the 500px front and back images from the URL, ignoring the 250px pair", () => {
     const album = toAlbum(marvinGaye);
 
     expect(album.frontImage).toBe(
-      "http://localhost:9000/static/TS310-front-250.jpg",
+      "http://localhost:9000/static/TS310-front-500.jpg",
     );
     expect(album.backImage).toBe(
-      "http://localhost:9000/static/TS310-back-250.jpg",
+      "http://localhost:9000/static/TS310-back-500.jpg",
     );
   });
 

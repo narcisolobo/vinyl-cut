@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { formatPrice } from "@/lib/utils/format-price";
 import { type Album, type AlbumVariant } from "@/types/album";
+import LocalizedClientLink from "@/components/LocalizedClientLink";
 
 type AlbumGridCardProps = {
   album: Album;
@@ -29,7 +30,13 @@ function AlbumGridCard({ album }: AlbumGridCardProps) {
   );
 
   return (
-    <li className="card bg-base-300 shadow-sm">
+    <li className="card bg-base-300 relative shadow-sm">
+      <LocalizedClientLink
+        href={`/albums/${album.handle}`}
+        className="absolute inset-0 z-10"
+      >
+        <span className="sr-only">{`${album.artist} — ${album.title}`}</span>
+      </LocalizedClientLink>
       <figure className="relative aspect-square">
         <Image
           src={album.frontImage}
@@ -42,7 +49,7 @@ function AlbumGridCard({ album }: AlbumGridCardProps) {
       <div className="card-body">
         <h4 className="card-title line-clamp-2">{album.title}</h4>
         <p className="text-primary line-clamp-2">{album.artist}</p>
-        <div className="card-actions bg-base-200 justify-between">
+        <div className="card-actions bg-base-200 relative z-20 justify-between">
           {selectedVariant && (
             <p className="text-2xl font-semibold">
               {formatPrice(selectedVariant.price)}

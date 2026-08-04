@@ -9,8 +9,15 @@ type AlbumVariant = {
   price: AlbumPrice;
 };
 
+type AlbumTrack = {
+  position: string | null;
+  title: string;
+  durationMs: number | null;
+};
+
 type Album = {
   id: string;
+  handle: string;
   title: string;
   artist: string;
   genre: string;
@@ -18,6 +25,11 @@ type Album = {
   frontImage: string;
   backImage: string | null;
   variants: AlbumVariant[];
+  label: string | null;
+  catalogNumber: string | null;
+  releaseYear: string | null;
+  pressType: string | null;
+  tracklist: AlbumTrack[];
 };
 
-export type { Album, AlbumVariant, AlbumPrice };
+export type { Album, AlbumVariant, AlbumPrice, AlbumTrack };

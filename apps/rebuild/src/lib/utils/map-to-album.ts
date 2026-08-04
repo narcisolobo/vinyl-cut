@@ -1,5 +1,5 @@
 import { type HttpTypes } from "@medusajs/types";
-import { type Album, type AlbumVariant } from "@/types/album";
+import { type Album, type AlbumTrack, type AlbumVariant } from "@/types/album";
 
 const PLACEHOLDER_IMAGE = "/placeholder-album.svg";
 const FRONT_IMAGE_MARKER = "-front-500";
@@ -47,6 +47,40 @@ function resolveGenreAndEra(categories: HttpTypes.StoreProductCategory[]): {
   };
 }
 
+/**
+ * `product.metadata` is a loosely-typed `Record<string, unknown>` on
+ * the Medusa side, but its shape is guaranteed by this store's own ETL
+ * (`transform()` in etl/tools/load_catalog.py) — label/catalog_number/
+ * release_year/press_type as strings-or-null, tracklist as a list of
+ * {position, title, length_ms}. Read defensively anyway rather than
+ * trusting the cast, since nothing enforces that shape at the type level.
+ */
+function readMetadataString(
+  metadata: Record<string, unknown> | null | undefined,
+  key: string,
+): string | null {
+  const value = metadata?.[key];
+  return typeof value === "string" ? value : null;
+}
+
+function toTracklist(
+  metadata: Record<string, unknown> | null | undefined,
+): AlbumTrack[] {
+  const rawTracklist = metadata?.tracklist;
+  if (!Array.isArray(rawTracklist)) {
+    return [];
+  }
+
+  return rawTracklist.map((track) => ({
+    position:
+      typeof track?.position === "string" || typeof track?.position === "number"
+        ? String(track.position)
+        : null,
+    title: typeof track?.title === "string" ? track.title : "",
+    durationMs: typeof track?.length_ms === "number" ? track.length_ms : null,
+  }));
+}
+
 function toAlbumVariant(variant: HttpTypes.StoreProductVariant): AlbumVariant {
   const condition =
     variant.options?.find(
@@ -70,6 +104,7 @@ function toAlbum(product: HttpTypes.StoreProduct): Album {
 
   return {
     id: product.id,
+    handle: product.handle,
     title: product.title,
     artist: product.subtitle ?? "",
     genre,
@@ -77,6 +112,11 @@ function toAlbum(product: HttpTypes.StoreProduct): Album {
     frontImage: findImageUrl(images, FRONT_IMAGE_MARKER) ?? PLACEHOLDER_IMAGE,
     backImage: findImageUrl(images, BACK_IMAGE_MARKER) ?? null,
     variants: (product.variants ?? []).map(toAlbumVariant),
+    label: readMetadataString(product.metadata, "label"),
+    catalogNumber: readMetadataString(product.metadata, "catalog_number"),
+    releaseYear: readMetadataString(product.metadata, "release_year"),
+    pressType: readMetadataString(product.metadata, "press_type"),
+    tracklist: toTracklist(product.metadata),
   };
 }
 

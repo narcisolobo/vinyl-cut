@@ -185,4 +185,24 @@ async function listProductsWithSort({
   };
 }
 
-export { listProducts, listProductsWithSort };
+/**
+ * Fetches a single product by its handle, for the PDP. Returns `null`
+ * on no match rather than calling `notFound()` itself — callers like
+ * `generateMetadata` and the page component both need this lookup but
+ * want to handle a miss differently (metadata can't call `notFound()`).
+ */
+async function getProductByHandle(
+  handle: string,
+  countryCode: string,
+): Promise<HttpTypes.StoreProduct | null> {
+  const {
+    response: { products },
+  } = await listProducts({
+    queryParams: { handle, limit: 1 },
+    countryCode,
+  });
+
+  return products[0] ?? null;
+}
+
+export { getProductByHandle, listProducts, listProductsWithSort };
