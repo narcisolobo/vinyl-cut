@@ -1,3 +1,4 @@
+import { buildStoreUrl } from "@/lib/utils/build-store-url";
 import {
   CaretDoubleLeftIcon,
   CaretDoubleRightIcon,
@@ -41,27 +42,6 @@ function getPageWindow(currentPage: number, totalPages: number): number[] {
   return pages;
 }
 
-/** Rebuilds the current query string with `page` swapped in, dropping it entirely for page 1 so `?page=` doesn't linger in the URL. */
-function buildPageHref(
-  basePath: string,
-  searchParams: Record<string, string | undefined>,
-  page: number,
-): string {
-  const params = new URLSearchParams();
-  for (const [key, value] of Object.entries(searchParams)) {
-    if (value) {
-      params.set(key, value);
-    }
-  }
-  if (page > 1) {
-    params.set("page", String(page));
-  } else {
-    params.delete("page");
-  }
-  const query = params.toString();
-  return query ? `${basePath}?${query}` : basePath;
-}
-
 function Pagination({
   currentPage,
   totalPages,
@@ -84,7 +64,7 @@ function Pagination({
       <div className="join">
         {hasPrevious ? (
           <Link
-            href={buildPageHref(basePath, searchParams, 1)}
+            href={buildStoreUrl(basePath, searchParams, 1)}
             aria-label="First page"
             className="join-item btn btn-sm btn-square btn-primary rounded-s-md"
           >
@@ -101,7 +81,7 @@ function Pagination({
         )}
         {hasPrevious ? (
           <Link
-            href={buildPageHref(basePath, searchParams, currentPage - 1)}
+            href={buildStoreUrl(basePath, searchParams, currentPage - 1)}
             aria-label="Previous page"
             className="join-item btn btn-sm btn-square btn-primary"
           >
@@ -128,7 +108,7 @@ function Pagination({
           ) : (
             <Link
               key={page}
-              href={buildPageHref(basePath, searchParams, page)}
+              href={buildStoreUrl(basePath, searchParams, page)}
               className="join-item btn btn-sm btn-square btn-primary"
             >
               {page}
@@ -137,7 +117,7 @@ function Pagination({
         )}
         {hasNext ? (
           <Link
-            href={buildPageHref(basePath, searchParams, currentPage + 1)}
+            href={buildStoreUrl(basePath, searchParams, currentPage + 1)}
             aria-label="Next page"
             className="join-item btn btn-sm btn-square btn-primary"
           >
@@ -154,7 +134,7 @@ function Pagination({
         )}
         {hasNext ? (
           <Link
-            href={buildPageHref(basePath, searchParams, totalPages)}
+            href={buildStoreUrl(basePath, searchParams, totalPages)}
             aria-label="Last page"
             className="join-item btn btn-sm btn-square btn-primary rounded-e-md"
           >

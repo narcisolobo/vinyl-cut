@@ -8,7 +8,12 @@ import { ViewTransition } from "react";
 
 interface AlbumDetailsPageProps {
   params: Promise<{ "country-code": string; handle: string }>;
-  searchParams: Promise<{ variantId?: string }>;
+  searchParams: Promise<{ variantId?: string; from?: string }>;
+}
+
+/** Only accept `from` as the PLP's own return URL, not an arbitrary redirect target passed through the query string. */
+function sanitizeBackHref(from: string | undefined): string {
+  return from && from.startsWith("/store") ? from : "/store";
 }
 
 async function generateMetadata(
@@ -27,6 +32,7 @@ async function generateMetadata(
 
 async function AlbumDetailsPage(props: AlbumDetailsPageProps) {
   const { "country-code": countryCode, handle } = await props.params;
+  const { from } = await props.searchParams;
 
   const product = await getProductByHandle(handle, countryCode);
   if (!product) notFound();
@@ -44,7 +50,10 @@ async function AlbumDetailsPage(props: AlbumDetailsPageProps) {
       default="none"
     >
       <main>
-        <AlbumDetails album={toAlbum(product)} />
+        <AlbumDetails
+          album={toAlbum(product)}
+          backHref={sanitizeBackHref(from)}
+        />
       </main>
     </ViewTransition>
   );

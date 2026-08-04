@@ -9,6 +9,7 @@ import LocalizedClientLink from "@/components/LocalizedClientLink";
 
 type AlbumGridCardProps = {
   album: Album;
+  returnTo: string;
 };
 
 /** Cheapest variant — selected by default so the card's price starts low. */
@@ -22,7 +23,7 @@ function getLowestPriceVariant(
   );
 }
 
-function AlbumGridCard({ album }: AlbumGridCardProps) {
+function AlbumGridCard({ album, returnTo }: AlbumGridCardProps) {
   const [selectedVariantId, setSelectedVariantId] = useState(
     () => getLowestPriceVariant(album.variants)?.id,
   );
@@ -33,7 +34,7 @@ function AlbumGridCard({ album }: AlbumGridCardProps) {
   return (
     <li className="card bg-base-300 relative shadow-sm">
       <LocalizedClientLink
-        href={`/albums/${album.handle}`}
+        href={`/albums/${album.handle}?from=${encodeURIComponent(returnTo)}`}
         onClick={saveScrollPosition}
         className="absolute inset-0 z-10"
       >
