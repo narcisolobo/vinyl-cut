@@ -1,4 +1,4 @@
-import { bungee, geistMono, lobster, spaceGrotesk } from "@/fonts";
+import { bungee, geistMono, lobster, outfit } from "@/fonts";
 import "@/styles/globals.css";
 import { type ReactNode } from "react";
 
@@ -11,7 +11,7 @@ function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       data-theme="vinyl-cut"
-      className={`${bungee.variable} ${geistMono.variable} ${lobster.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${bungee.variable} ${geistMono.variable} ${lobster.variable} ${outfit.variable} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col">{children}</body>
     </html>
