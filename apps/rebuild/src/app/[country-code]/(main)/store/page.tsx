@@ -11,16 +11,7 @@ const metadata: Metadata = {
     "Browse new and used vinyl by genre, era, or condition — from Mint to Good, honestly graded and ready to ship across the Mountain West and Pacific Coast.",
 };
 
-// TEMPORARY: overrides products.ts's `cache: "force-cache"` so catalog
-// fixes (replace_release.py, admin edits) show up immediately instead
-// of needing a `.next/cache` wipe. Remove once done verifying the
-// catalog — the store page should go back to being cacheable.
-//
-// Must be `export const` right here, not re-exported below — Next.js
-// statically parses route segment config and won't recognize it
-// otherwise ("Next.js can't recognize the exported `dynamic` field in
-// route. It mustn't be reexported.").
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 type StorePageSearchParams = {
   sort?: SortOptions;

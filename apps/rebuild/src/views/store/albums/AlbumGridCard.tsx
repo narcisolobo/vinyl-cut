@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, ViewTransition } from "react";
-import Image from "next/image";
+import Divider from "@/components/Divider";
+import LocalizedClientLink from "@/components/LocalizedClientLink";
 import { formatPrice } from "@/lib/utils/format-price";
 import { saveScrollPosition } from "@/lib/utils/scroll-restore";
 import { type Album, type AlbumVariant } from "@/types/album";
-import LocalizedClientLink from "@/components/LocalizedClientLink";
+import Image from "next/image";
+import { useState, ViewTransition } from "react";
+import VariantButton from "./VariantButton";
 
 type AlbumGridCardProps = {
   album: Album;
@@ -32,7 +34,7 @@ function AlbumGridCard({ album, returnTo }: AlbumGridCardProps) {
   );
 
   return (
-    <li className="card bg-base-300 relative shadow-sm">
+    <li className="card card-sm lg:card-md bg-base-300 relative shadow-sm">
       <LocalizedClientLink
         href={`/albums/${album.handle}?from=${encodeURIComponent(returnTo)}`}
         onClick={saveScrollPosition}
@@ -58,27 +60,21 @@ function AlbumGridCard({ album, returnTo }: AlbumGridCardProps) {
       <div className="card-body">
         <h4 className="card-title line-clamp-2">{album.title}</h4>
         <p className="text-primary line-clamp-2">{album.artist}</p>
-        <div className="card-actions bg-base-200 relative z-20 justify-between">
+        <Divider />
+        <div className="card-actions relative z-20 items-center justify-between">
           {selectedVariant && (
-            <p className="text-2xl font-semibold">
+            <p className="text-2xl font-semibold md:text-lg xl:text-2xl">
               {formatPrice(selectedVariant.price)}
             </p>
           )}
           <div className="join">
             {album.variants.map((variant) => (
-              <button
+              <VariantButton
                 key={variant.id}
-                type="button"
-                onClick={() => setSelectedVariantId(variant.id)}
-                aria-pressed={variant.id === selectedVariantId}
-                className={`join-item btn btn-sm uppercase ${
-                  variant.id === selectedVariantId
-                    ? "btn-accent"
-                    : "btn-primary"
-                }`}
-              >
-                {variant.condition}
-              </button>
+                variant={variant}
+                selectedVariantId={selectedVariantId}
+                onSelect={setSelectedVariantId}
+              />
             ))}
           </div>
         </div>

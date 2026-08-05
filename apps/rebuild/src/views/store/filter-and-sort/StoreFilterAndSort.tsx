@@ -5,6 +5,8 @@ import StoreFilter from "./StoreFilter";
 import StoreFilterBadge from "./StoreFilterBadge";
 import { CONDITIONS, ERAS, GENRES, toggleValue } from "./store-filter-utils";
 import { SORTING_OPTIONS } from "./store-sorting-options";
+import StoreFilterContainer from "./StoreFilterContainer";
+import StoreFilterButton from "./StoreFilterButton";
 
 function StoreFilterAndSort() {
   const router = useRouter();
@@ -72,26 +74,31 @@ function StoreFilterAndSort() {
     <section className="mt-18 bg-transparent px-8 py-4">
       <h2 className="sr-only">Filter and Sort Products</h2>
       <div className="max-w-8xl mx-auto flex justify-between">
-        <section className="flex items-center gap-2">
+        <section>
           <h3 className="sr-only">Filtering Options</h3>
-          {filters.map(({ label, options, selected, handleToggle }) => (
-            <StoreFilter
-              key={label}
-              label={label}
-              options={options}
-              selected={selected}
-              onToggle={handleToggle}
-            />
-          ))}
+          <StoreFilterButton filterCount={selectedFilters.length} />
+          <StoreFilterContainer className="hidden items-center gap-2 lg:flex">
+            {filters.map(({ label, options, selected, handleToggle }) => (
+              <StoreFilter
+                key={label}
+                label={label}
+                options={options}
+                selected={selected}
+                onToggle={handleToggle}
+              />
+            ))}
+          </StoreFilterContainer>
         </section>
         <section>
           <h3 className="sr-only">Sorting Options</h3>
           <fieldset className="flex items-center gap-2">
-            <label htmlFor="sorting-options">Sort: </label>
+            <label htmlFor="sorting-options" className="hidden sm:block">
+              Sort:{" "}
+            </label>
             <select
               name="sorting-options"
               value={selectedSort}
-              className="select select-soft max-w-80 min-w-52 font-semibold"
+              className="select select-sm md:select-md select-soft max-w-80 min-w-52 font-semibold"
               onChange={(e) => updateSort(e.target.value)}
             >
               {SORTING_OPTIONS.map(({ value, label }) => (
