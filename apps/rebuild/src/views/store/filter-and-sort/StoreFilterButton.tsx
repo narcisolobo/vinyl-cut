@@ -4,10 +4,13 @@ interface StoreFilterButtonProps {
 
 function StoreFilterButton({ filterCount }: StoreFilterButtonProps) {
   return (
-    <button className="btn btn-sm md:btn-md btn-primary btn-soft lg:hidden">
+    <label
+      htmlFor="mobile-filter-drawer"
+      className="btn btn-sm md:btn-md btn-primary btn-soft drawer-button lg:hidden"
+    >
       Filter
       <span className="badge badge-sm badge-primary">{filterCount}</span>
-    </button>
+    </label>
   );
 }
 

@@ -7,6 +7,7 @@ import { CONDITIONS, ERAS, GENRES, toggleValue } from "./store-filter-utils";
 import { SORTING_OPTIONS } from "./store-sorting-options";
 import StoreFilterContainer from "./StoreFilterContainer";
 import StoreFilterButton from "./StoreFilterButton";
+import StoreFilterDrawer from "./StoreFilterDrawer";
 
 function StoreFilterAndSort() {
   const router = useRouter();
@@ -88,6 +89,7 @@ function StoreFilterAndSort() {
               />
             ))}
           </StoreFilterContainer>
+          <StoreFilterDrawer filters={filters} />
         </section>
         <section>
           <h3 className="sr-only">Sorting Options</h3>
