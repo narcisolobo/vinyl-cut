@@ -1,6 +1,7 @@
 import Divider from "@/components/Divider";
 import { type SortOptions } from "@/types/sort-options";
 import Albums from "@/views/store/albums/Albums";
+import AlbumsSkeleton from "@/views/store/albums/AlbumsSkeleton";
 import StoreFilterAndSort from "@/views/store/filter-and-sort/StoreFilterAndSort";
 import { Metadata } from "next";
 import { Suspense, ViewTransition } from "react";
@@ -48,14 +49,16 @@ async function StorePage({ params, searchParams }: StorePageProps) {
           <StoreFilterAndSort />
         </Suspense>
         <Divider />
-        <Albums
-          countryCode={countryCode}
-          sort={sort}
-          page={page}
-          genre={genre}
-          era={era}
-          condition={condition}
-        />
+        <Suspense fallback={<AlbumsSkeleton />}>
+          <Albums
+            countryCode={countryCode}
+            sort={sort}
+            page={page}
+            genre={genre}
+            era={era}
+            condition={condition}
+          />
+        </Suspense>
       </main>
     </ViewTransition>
   );
