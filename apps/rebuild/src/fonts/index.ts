@@ -1,4 +1,4 @@
-import { Bungee, Geist_Mono, Lobster, Space_Grotesk } from "next/font/google";
+import { Bungee, Geist_Mono, Lobster, Outfit } from "next/font/google";
 
 const lobster = Lobster({
   subsets: ["latin"],
@@ -19,10 +19,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-space-grotesk",
+  variable: "--font-outfit",
 });
 
-export { bungee, geistMono, lobster, spaceGrotesk };
+export { bungee, geistMono, lobster, outfit };
