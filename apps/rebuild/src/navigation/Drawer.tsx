@@ -6,12 +6,14 @@ import DrawerSide from "./DrawerSide";
 import NavBar from "./NavBar";
 import Footer from "@/layout/Footer";
 import Disclaimer from "@/layout/Disclaimer";
+import { HttpTypes } from "@medusajs/types";
 
 interface DrawerProps {
   children: ReactNode;
+  cart: HttpTypes.StoreCart | null;
 }
 
-function Drawer({ children }: DrawerProps) {
+function Drawer({ children, cart }: DrawerProps) {
   const { checkboxRef } = useDrawer();
 
   return (
@@ -25,7 +27,7 @@ function Drawer({ children }: DrawerProps) {
         tabIndex={-1}
       />
       <div className="drawer-content flex min-h-dvh flex-col">
-        <NavBar />
+        <NavBar cart={cart} />
         {children}
         <Footer />
         <Disclaimer />

@@ -131,7 +131,11 @@ type AddToCartParams = {
  * invalidates the fulfillment cache tag, since adding an item can
  * change which shipping options are available.
  */
-async function addToCart({ variantId, quantity, countryCode }: AddToCartParams) {
+async function addToCart({
+  variantId,
+  quantity,
+  countryCode,
+}: AddToCartParams) {
   if (!variantId) {
     throw new Error("cart.ts: Missing variant ID when adding to cart.");
   }
