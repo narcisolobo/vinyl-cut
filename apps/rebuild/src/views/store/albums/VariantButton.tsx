@@ -18,7 +18,7 @@ function VariantButton({
       type="button"
       onClick={() => onSelect(variant.id)}
       aria-pressed={variant.id === selectedVariantId}
-      className={`join-item btn btn-xs uppercase ${
+      className={`join-item btn btn-xs xl:btn-sm uppercase ${
         variant.id === selectedVariantId ? "btn-accent" : "btn-primary"
       }`}
     >

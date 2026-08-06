@@ -1,3 +1,4 @@
+import { retrieveCart } from "@/lib/data/cart";
 import Providers from "@/context/Providers";
 import Drawer from "@/navigation/Drawer";
 import { type ReactNode } from "react";
@@ -6,10 +7,12 @@ interface MainLayoutProps {
   children: ReactNode;
 }
 
-function MainLayout({ children }: MainLayoutProps) {
+async function MainLayout({ children }: MainLayoutProps) {
+  const cart = await retrieveCart();
+
   return (
     <Providers>
-      <Drawer>{children}</Drawer>
+      <Drawer cart={cart}>{children}</Drawer>
     </Providers>
   );
 }

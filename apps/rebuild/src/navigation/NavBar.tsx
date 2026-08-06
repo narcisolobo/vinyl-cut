@@ -1,8 +1,13 @@
 import Link from "next/link";
 import DrawerTrigger from "./DrawerTrigger";
 import NavMenu from "./NavMenu";
+import { HttpTypes } from "@medusajs/types";
 
-function NavBar() {
+interface NavBarProps {
+  cart: HttpTypes.StoreCart | null;
+}
+
+function NavBar({ cart }: NavBarProps) {
   return (
     <div
       className="bg-base-200 fixed top-0 z-30 w-full shadow-sm transition-all duration-300 ease-in-out"
@@ -21,7 +26,7 @@ function NavBar() {
           </div>
         </div>
         <div className="flex-none">
-          <NavMenu />
+          <NavMenu cart={cart} />
         </div>
       </div>
     </div>
