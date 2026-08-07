@@ -1,13 +1,15 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 interface CartEmptyProps {
   close?: () => void;
-  countryCode?: string;
 }
 
-function CartEmpty({ close, countryCode }: CartEmptyProps) {
+function CartEmpty({ close }: CartEmptyProps) {
+  const { "country-code": countryCode } = useParams() as {
+    "country-code": string;
+  };
   const router = useRouter();
 
   const handleClick = () => {

@@ -67,7 +67,7 @@ function CartButton({ cart: cartState }: CartButtonProps) {
               countryCode={countryCode}
             />
           ) : (
-            <CartEmpty close={close} countryCode={countryCode} />
+            <CartEmpty close={close} />
           )}
         </div>
       </div>
