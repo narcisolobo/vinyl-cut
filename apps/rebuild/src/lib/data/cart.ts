@@ -8,6 +8,18 @@ import { redirect } from "next/navigation";
 import { getCacheOptions, getCacheTag, getCartId, setCartId } from "./cookies";
 import { getRegion } from "./regions";
 
+const DEFAULT_CART_FIELDS =
+  "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, +shipping_methods.name";
+
+/**
+ * Adds per-variant stock levels on top of `DEFAULT_CART_FIELDS`, for
+ * the cart page's quantity stepper to cap increments at real
+ * available inventory. Not part of the default fields since no other
+ * cart-fetching site (nav dropdown, layout) needs this extra query
+ * depth.
+ */
+const CART_FIELDS_WITH_INVENTORY = `${DEFAULT_CART_FIELDS}, +items.variant.inventory_items.inventory.location_levels.available_quantity`;
+
 /**
  * Retrieves a cart by ID, falling back to the cart ID cookie when
  * none is given. Soft-fails to `null` on a missing ID or a failed
@@ -17,8 +29,7 @@ import { getRegion } from "./regions";
  */
 async function retrieveCart(cartId?: string, fields?: string) {
   const id = cartId || (await getCartId());
-  fields ??=
-    "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, +shipping_methods.name";
+  fields ??= DEFAULT_CART_FIELDS;
 
   if (!id) {
     return null;
@@ -45,6 +56,15 @@ async function retrieveCart(cartId?: string, fields?: string) {
     console.error("cart.ts: Failed to retrieve cart.", error);
     return null;
   }
+}
+
+/**
+ * Same as `retrieveCart()`, but also fetches per-variant stock levels
+ * for the cart page's quantity stepper to cap increments at real
+ * available inventory.
+ */
+async function retrieveCartWithInventory() {
+  return retrieveCart(undefined, CART_FIELDS_WITH_INVENTORY);
 }
 
 /**
@@ -252,6 +272,7 @@ async function updateRegion(countryCode: string, currentPath: string) {
 
 export {
   retrieveCart,
+  retrieveCartWithInventory,
   getOrSetCart,
   updateCart,
   addToCart,

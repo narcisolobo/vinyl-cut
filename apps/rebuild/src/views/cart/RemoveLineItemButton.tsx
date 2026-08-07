@@ -31,9 +31,11 @@ function RemoveLineItemButton({ lineId }: RemoveLineItemButtonProps) {
       type="button"
       onClick={handleRemove}
       disabled={isRemoving}
-      className="link link-hover hover:link-error flex items-center gap-2 self-start"
+      className="link group flex items-center gap-2 self-start text-xs no-underline"
     >
-      {isRemoving ? <Spinner /> : <TrashIcon size={16} weight="fill" />}
+      <span className="group-hover:text-error transition-colors">
+        {isRemoving ? <Spinner /> : <TrashIcon size={16} weight="fill" />}
+      </span>
       <span>Remove</span>
     </button>
   );

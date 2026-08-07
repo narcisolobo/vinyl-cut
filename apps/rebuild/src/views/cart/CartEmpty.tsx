@@ -3,17 +3,17 @@
 import { useParams, useRouter } from "next/navigation";
 
 interface CartEmptyProps {
-  close: () => void;
+  close?: () => void;
 }
 
 function CartEmpty({ close }: CartEmptyProps) {
-  const router = useRouter();
   const { "country-code": countryCode } = useParams() as {
     "country-code": string;
   };
+  const router = useRouter();
 
   const handleClick = () => {
-    close();
+    close?.();
     router.push(`/${countryCode}/store`);
   };
 

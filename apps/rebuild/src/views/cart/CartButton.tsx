@@ -3,11 +3,11 @@
 import Divider from "@/components/Divider";
 import { HttpTypes } from "@medusajs/types";
 import { ShoppingCartIcon } from "@phosphor-icons/react/dist/ssr";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import CartEmpty from "./CartEmpty";
 import CartDropdownItems from "./CartDropdownItems";
-import type { CartWithItems } from "./types";
+import { hasItems } from "./types";
 
 interface CartButtonProps {
   cart?: HttpTypes.StoreCart | null;
@@ -15,15 +15,14 @@ interface CartButtonProps {
 
 const AUTO_CLOSE_MS = 5000;
 
-function hasItems(cart?: HttpTypes.StoreCart | null): cart is CartWithItems {
-  return Boolean(cart?.items?.length);
-}
-
 function totalQuantity(cart?: HttpTypes.StoreCart | null): number {
   return cart?.items?.reduce((total, item) => total + item.quantity, 0) ?? 0;
 }
 
 function CartButton({ cart: cartState }: CartButtonProps) {
+  const { "country-code": countryCode } = useParams() as {
+    "country-code": string;
+  };
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
   const pathname = usePathname();
@@ -62,7 +61,11 @@ function CartButton({ cart: cartState }: CartButtonProps) {
           <p className="card-title">Cart</p>
           <Divider />
           {hasItems(cartState) ? (
-            <CartDropdownItems cartState={cartState} />
+            <CartDropdownItems
+              cartState={cartState}
+              close={close}
+              countryCode={countryCode}
+            />
           ) : (
             <CartEmpty close={close} />
           )}

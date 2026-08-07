@@ -1,4 +1,6 @@
-import { retrieveCart } from "@/lib/data/cart";
+import { retrieveCartWithInventory } from "@/lib/data/cart";
+import Cart from "@/views/cart/Cart";
+import { StoreCart } from "@medusajs/types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -10,14 +12,16 @@ export const metadata: Metadata = {
 };
 
 async function CartPage() {
+  let cart: StoreCart | null = null;
+
   try {
-    const cart = await retrieveCart();
+    cart = await retrieveCartWithInventory();
   } catch (error) {
     console.error(error);
     return notFound();
   }
 
-  return <div />;
+  return <Cart cart={cart} />;
 }
 
 export default CartPage;
