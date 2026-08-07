@@ -44,7 +44,7 @@ function CartItemQuantitySelect({
         −
       </button>
       <span
-        className="btn btn-sm join-item pointer-events-none"
+        className="btn btn-sm join-item pointer-events-none flex w-10 items-center justify-center"
         aria-live="polite"
       >
         {quantity}

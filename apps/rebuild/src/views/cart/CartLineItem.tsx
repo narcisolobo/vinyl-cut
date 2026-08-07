@@ -34,7 +34,10 @@ function CartLineItem({ item, currencyCode }: CartLineItemProps) {
             {item.title}
           </LocalizedClientLink>
         </h3>
-        <p className="text-xs opacity-70">Condition: {item.variant?.title}</p>
+        <p className="mb-2 text-xs opacity-70">
+          Condition: {item.variant?.title}
+        </p>
+        <RemoveLineItemButton lineId={item.id} />
       </td>
       <td>
         <div className="flex items-center gap-3">
@@ -43,7 +46,6 @@ function CartLineItem({ item, currencyCode }: CartLineItemProps) {
             quantity={item.quantity}
             item={item}
           />
-          <RemoveLineItemButton lineId={item.id} />
         </div>
       </td>
       <td className="hidden sm:table-cell">
