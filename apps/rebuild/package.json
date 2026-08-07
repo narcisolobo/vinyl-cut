@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "revalidate": "curl -sf -X POST \"http://localhost:${PORT:-8000}/api/revalidate?tag=products\""
   },
   "dependencies": {
     "@medusajs/js-sdk": "^2.18.0",
