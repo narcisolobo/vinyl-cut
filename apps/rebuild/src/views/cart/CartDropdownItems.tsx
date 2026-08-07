@@ -5,12 +5,23 @@ import { Fragment } from "react";
 import type { CartWithItems } from "./types";
 import Image from "next/image";
 import RemoveLineItemButton from "./RemoveLineItemButton";
+import { useRouter } from "next/navigation";
 
 interface CartDropdownItemsProps {
   cartState: CartWithItems;
+  countryCode: string;
+  close: () => void;
 }
 
-function CartDropdownItems({ cartState }: CartDropdownItemsProps) {
+function CartDropdownItems(props: CartDropdownItemsProps) {
+  const { cartState, close, countryCode } = props;
+  const router = useRouter();
+
+  const handleClickGoToCart = () => {
+    close?.();
+    router.push(`/${countryCode}/cart`);
+  };
+
   return (
     <Fragment>
       <div className="no-scrollbar grid max-h-full grid-cols-1 gap-y-8 overflow-y-scroll">
@@ -21,7 +32,7 @@ function CartDropdownItems({ cartState }: CartDropdownItemsProps) {
           .map((item) => (
             <div className="grid grid-cols-[122px_1fr] gap-x-4" key={item.id}>
               <LocalizedClientLink
-                href={`/store/${item.product_handle}`}
+                href={`/albums/${item.product_handle}`}
                 className="relative aspect-square w-24"
               >
                 <Image
@@ -29,7 +40,7 @@ function CartDropdownItems({ cartState }: CartDropdownItemsProps) {
                   alt={item.title}
                   className="rounded-box absolute inset-0 object-cover object-center"
                   draggable={false}
-                  quality={50}
+                  quality={75}
                   sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
                   fill
                 />
@@ -40,7 +51,7 @@ function CartDropdownItems({ cartState }: CartDropdownItemsProps) {
                     <div className="flex min-w-0 flex-1 flex-col">
                       <h3 className="truncate text-sm font-semibold">
                         <LocalizedClientLink
-                          href={`/products/${item.product_handle}`}
+                          href={`/albums/${item.product_handle}`}
                           data-testid="product-link"
                         >
                           {item.title}
@@ -88,13 +99,12 @@ function CartDropdownItems({ cartState }: CartDropdownItemsProps) {
             })}
           </span>
         </div>
-        <LocalizedClientLink
-          href="/cart"
+        <button
           className="btn btn-accent w-full uppercase"
-          data-testid="go-to-cart-button"
+          onClick={handleClickGoToCart}
         >
           Go to Cart
-        </LocalizedClientLink>
+        </button>
       </div>
     </Fragment>
   );

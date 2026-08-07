@@ -71,6 +71,7 @@ function AlbumDetails({ album, backHref }: AlbumDetailsProps) {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="rounded-box object-cover"
+                loading="eager"
                 priority
               />
             </div>
