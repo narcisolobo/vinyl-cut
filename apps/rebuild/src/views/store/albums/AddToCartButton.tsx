@@ -6,16 +6,17 @@ import { useState } from "react";
 
 type AddToCartButtonProps = {
   variantId: string | undefined;
+  inStock: boolean;
 };
 
-function AddToCartButton({ variantId }: AddToCartButtonProps) {
+function AddToCartButton({ variantId, inStock }: AddToCartButtonProps) {
   const [isAdding, setIsAdding] = useState(false);
   const { "country-code": countryCode } = useParams() as {
     "country-code": string;
   };
 
   async function handleAddToCart() {
-    if (!variantId) {
+    if (!variantId || !inStock) {
       return;
     }
 
@@ -34,9 +35,9 @@ function AddToCartButton({ variantId }: AddToCartButtonProps) {
       type="button"
       onClick={handleAddToCart}
       className="btn btn-accent btn-lg"
-      disabled={!variantId || isAdding}
+      disabled={!variantId || !inStock || isAdding}
     >
-      {isAdding ? "Adding…" : "Add to Cart"}
+      {isAdding ? "Adding…" : inStock ? "Add to Cart" : "Out of Stock"}
     </button>
   );
 }

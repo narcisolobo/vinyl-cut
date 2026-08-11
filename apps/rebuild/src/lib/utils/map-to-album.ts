@@ -81,6 +81,19 @@ function toTracklist(
   }));
 }
 
+/**
+ * Mirrors `getAvailableQuantity` in `views/cart/types.ts`: unmanaged
+ * inventory or backorders mean there's no cap to enforce, so the
+ * variant is always in stock.
+ */
+function isVariantInStock(variant: HttpTypes.StoreProductVariant): boolean {
+  if (!variant.manage_inventory || variant.allow_backorder) {
+    return true;
+  }
+
+  return (variant.inventory_quantity ?? 0) > 0;
+}
+
 function toAlbumVariant(variant: HttpTypes.StoreProductVariant): AlbumVariant {
   const condition =
     variant.options?.find(
@@ -94,6 +107,7 @@ function toAlbumVariant(variant: HttpTypes.StoreProductVariant): AlbumVariant {
       amount: variant.calculated_price?.calculated_amount ?? 0,
       currencyCode: variant.calculated_price?.currency_code ?? "usd",
     },
+    inStock: isVariantInStock(variant),
   };
 }
 

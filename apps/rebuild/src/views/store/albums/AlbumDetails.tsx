@@ -129,7 +129,10 @@ function AlbumDetails({ album, backHref }: AlbumDetailsProps) {
             </div>
           </div>
 
-          <AddToCartButton variantId={selectedVariantId} />
+          <AddToCartButton
+            variantId={selectedVariantId}
+            inStock={selectedVariant?.inStock ?? false}
+          />
 
           {album.tracklist.length > 0 && (
             <AlbumTracklist tracklist={album.tracklist} />

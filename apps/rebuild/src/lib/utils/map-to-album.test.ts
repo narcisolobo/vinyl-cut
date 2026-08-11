@@ -121,12 +121,68 @@ describe("toAlbum", () => {
         id: "variant_new",
         condition: "New",
         price: { amount: 3828, currencyCode: "usd" },
+        inStock: true,
       },
       {
         id: "variant_g",
         condition: "G",
         price: { amount: 725, currencyCode: "usd" },
+        inStock: true,
       },
     ]);
+  });
+
+  it("treats a variant as in stock when Medusa doesn't manage its inventory", () => {
+    const album = toAlbum(petSounds);
+
+    expect(album.variants[0].inStock).toBe(true);
+  });
+
+  it("treats a managed, backorderable variant as in stock even with zero quantity", () => {
+    const backorderable = {
+      ...petSounds,
+      variants: [
+        {
+          ...petSounds.variants![0],
+          manage_inventory: true,
+          allow_backorder: true,
+          inventory_quantity: 0,
+        },
+      ],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(backorderable).variants[0].inStock).toBe(true);
+  });
+
+  it("treats a managed, non-backorderable variant with zero quantity as out of stock", () => {
+    const soldOut = {
+      ...petSounds,
+      variants: [
+        {
+          ...petSounds.variants![0],
+          manage_inventory: true,
+          allow_backorder: false,
+          inventory_quantity: 0,
+        },
+      ],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(soldOut).variants[0].inStock).toBe(false);
+  });
+
+  it("treats a managed, non-backorderable variant with positive quantity as in stock", () => {
+    const inStock = {
+      ...petSounds,
+      variants: [
+        {
+          ...petSounds.variants![0],
+          manage_inventory: true,
+          allow_backorder: false,
+          inventory_quantity: 3,
+        },
+      ],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(inStock).variants[0].inStock).toBe(true);
   });
 });
