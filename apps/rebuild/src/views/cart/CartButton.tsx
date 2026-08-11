@@ -56,7 +56,7 @@ function CartButton({ cart: cartState }: CartButtonProps) {
         <ShoppingCartIcon size={24} />
         <div className="badge badge-sm badge-neutral">{itemCount}</div>
       </summary>
-      <div className="card card-sm dropdown-content bg-primary text-primary-content w-96 shadow-sm">
+      <div className="card card-sm dropdown-content bg-primary text-primary-content w-80 shadow-sm sm:w-96">
         <div className="card-body">
           <p className="card-title">Cart</p>
           <Divider />
