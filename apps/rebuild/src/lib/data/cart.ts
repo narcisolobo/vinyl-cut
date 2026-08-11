@@ -76,6 +76,15 @@ async function retrieveCartWithInventory() {
 }
 
 /**
+ * Same as `retrieveCart()`, but also fetches shipping-method pricing
+ * and payment-session data, for checkout's step-completion checks and
+ * price display.
+ */
+async function retrieveCheckoutCart() {
+  return retrieveCart(undefined, CHECKOUT_CART_FIELDS);
+}
+
+/**
  * Retrieves the current cart from the cart ID cookie, creating one
  * for the resolved region if none exists. If a cart already exists
  * but was created under a different region than `countryCode`
@@ -281,11 +290,11 @@ async function updateRegion(countryCode: string, currentPath: string) {
 export {
   retrieveCart,
   retrieveCartWithInventory,
+  retrieveCheckoutCart,
   getOrSetCart,
   updateCart,
   addToCart,
   updateLineItem,
   deleteLineItem,
   updateRegion,
-  CHECKOUT_CART_FIELDS,
 };

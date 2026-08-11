@@ -56,6 +56,7 @@ vi.mock("next/navigation", () => ({ redirect: redirectMock }));
 
 import {
   retrieveCart,
+  retrieveCheckoutCart,
   getOrSetCart,
   updateCart,
   addToCart,
@@ -125,6 +126,26 @@ describe("retrieveCart", () => {
     expect(consoleError).toHaveBeenCalledOnce();
 
     consoleError.mockRestore();
+  });
+});
+
+describe("retrieveCheckoutCart", () => {
+  it("requests shipping-method amount and payment-session fields", async () => {
+    fetchMock.mockResolvedValue({ cart: { id: "cart_123" } });
+
+    await retrieveCheckoutCart();
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/store/carts/cart_123",
+      expect.objectContaining({
+        query: {
+          fields: expect.stringContaining("+shipping_methods.amount"),
+        },
+      }),
+    );
+    expect(fetchMock.mock.calls[0][1].query.fields).toContain(
+      "*payment_collection.payment_sessions",
+    );
   });
 });
 
