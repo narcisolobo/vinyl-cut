@@ -2,6 +2,7 @@ import { retrieveCheckoutCart } from "@/lib/data/cart";
 import { listShippingOptions } from "@/lib/data/checkout";
 import { listPaymentProviders } from "@/lib/data/payment";
 import AddressStep from "@/views/checkout/AddressStep";
+import ShippingStep from "@/views/checkout/ShippingStep";
 import { resolveActiveStep } from "@/views/checkout/types";
 import { HttpTypes } from "@medusajs/types";
 import { Metadata } from "next";
@@ -49,10 +50,15 @@ async function CheckoutPage({ params, searchParams }: CheckoutPageProps) {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-8 p-4">
       <AddressStep cart={cart} isOpen={step === "address"} />
-      {/* Placeholder for the remaining steps — Phase 4+ replaces this
-          with ShippingStep/PaymentStep/ReviewStep + CheckoutSummary. */}
+      <ShippingStep
+        cart={cart}
+        shippingOptions={shippingOptions}
+        isOpen={step === "delivery"}
+      />
+      {/* Placeholder for the remaining steps — Phase 5+ replaces this
+          with PaymentStep/ReviewStep + CheckoutSummary. */}
       <pre className="overflow-x-auto text-xs">
-        {JSON.stringify({ step, shippingOptions, paymentProviders }, null, 2)}
+        {JSON.stringify({ step, paymentProviders }, null, 2)}
       </pre>
     </div>
   );
