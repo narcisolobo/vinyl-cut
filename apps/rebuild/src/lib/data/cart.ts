@@ -21,6 +21,14 @@ const DEFAULT_CART_FIELDS =
 const CART_FIELDS_WITH_INVENTORY = `${DEFAULT_CART_FIELDS}, +items.variant.inventory_items.inventory.location_levels.available_quantity`;
 
 /**
+ * Adds shipping-method pricing and payment-session data on top of
+ * `DEFAULT_CART_FIELDS`, for checkout's step-completion checks and
+ * price display. Not part of the default fields since no other
+ * cart-fetching site needs this extra query depth.
+ */
+const CHECKOUT_CART_FIELDS = `${DEFAULT_CART_FIELDS}, +shipping_methods.amount, *payment_collection.payment_sessions`;
+
+/**
  * Retrieves a cart by ID, falling back to the cart ID cookie when
  * none is given. Soft-fails to `null` on a missing ID or a failed
  * fetch — callers like `getOrSetCart` already treat "no cart" as
@@ -65,6 +73,15 @@ async function retrieveCart(cartId?: string, fields?: string) {
  */
 async function retrieveCartWithInventory() {
   return retrieveCart(undefined, CART_FIELDS_WITH_INVENTORY);
+}
+
+/**
+ * Same as `retrieveCart()`, but also fetches shipping-method pricing
+ * and payment-session data, for checkout's step-completion checks and
+ * price display.
+ */
+async function retrieveCheckoutCart() {
+  return retrieveCart(undefined, CHECKOUT_CART_FIELDS);
 }
 
 /**
@@ -273,6 +290,7 @@ async function updateRegion(countryCode: string, currentPath: string) {
 export {
   retrieveCart,
   retrieveCartWithInventory,
+  retrieveCheckoutCart,
   getOrSetCart,
   updateCart,
   addToCart,

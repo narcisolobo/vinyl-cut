@@ -4,16 +4,23 @@ import { z } from "zod";
  * States within the shop's Western U.S. shipping/tax region (PRD:
  * "Shipping region restriction"). Checkout only accepts shipping
  * addresses within these states; billing is unrestricted.
+ *
+ * Lower-case to match Medusa's fulfillment geo zones, which store
+ * `province_code` lower-case with no country prefix (e.g. `"ca"`,
+ * not `"CA"` or `"us-ca"`) and match a cart's `shipping_address.province`
+ * against it by exact string equality — any case mismatch between
+ * this list, the `province` transform below, and the geo zone data
+ * silently breaks shipping-option matching.
  */
 const WESTERN_US_STATES = [
-  "CA",
-  "OR",
-  "WA",
-  "NV",
-  "AZ",
-  "CO",
-  "UT",
-  "NM",
+  "ca",
+  "or",
+  "wa",
+  "nv",
+  "az",
+  "co",
+  "ut",
+  "nm",
 ] as const;
 type WesternUsState = (typeof WESTERN_US_STATES)[number];
 
@@ -34,7 +41,7 @@ const AddressSchema = z.object({
   company: z.string().trim(),
   city: z.string().trim().min(1, "City is required."),
   postal_code: z.string().trim().min(1, "Postal code is required."),
-  province: z.string().trim().min(1, "State is required.").toUpperCase(),
+  province: z.string().trim().min(1, "State is required.").toLowerCase(),
   country_code: z
     .string()
     .trim()
@@ -110,5 +117,10 @@ function toFieldErrors(error: z.ZodError): SetAddressesFieldErrors {
   return fieldErrors;
 }
 
-export { SetSharedAddressSchema, SetAddressesSchema, toFieldErrors };
-export type { SetAddressesState };
+export {
+  SetSharedAddressSchema,
+  SetAddressesSchema,
+  toFieldErrors,
+  WESTERN_US_STATES,
+};
+export type { SetAddressesState, WesternUsState };

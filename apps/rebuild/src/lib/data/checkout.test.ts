@@ -120,16 +120,33 @@ describe("setAddresses", () => {
         email: "ada@example.com",
         shipping_address: expect.objectContaining({
           country_code: "us",
-          province: "CA",
+          province: "ca",
         }),
         billing_address: expect.objectContaining({
           country_code: "us",
-          province: "CA",
+          province: "ca",
         }),
       }),
     );
     expect(redirectMock).toHaveBeenCalledWith("/us/checkout?step=delivery");
     expect(result).toBeUndefined();
+  });
+
+  it("lower-cases the province regardless of input case, to match Medusa's geo zone convention", async () => {
+    const formData = buildFormData({
+      ...validShippingFields,
+      "shipping_address.province": "CA",
+      same_as_billing: "on",
+    });
+
+    await setAddresses(undefined, formData);
+
+    expect(updateCartResourceMock).toHaveBeenCalledWith(
+      "cart_123",
+      expect.objectContaining({
+        shipping_address: expect.objectContaining({ province: "ca" }),
+      }),
+    );
   });
 
   it("rejects a shipping province outside the Western-U.S. allow-list", async () => {
@@ -233,7 +250,7 @@ describe("setAddresses", () => {
       expect.objectContaining({
         billing_address: expect.objectContaining({
           city: "New York",
-          province: "NY",
+          province: "ny",
         }),
       }),
     );
@@ -286,6 +303,14 @@ describe("listShippingOptions", () => {
     await expect(listShippingOptions()).rejects.toThrow(
       /Failed to fetch shipping options/,
     );
+  });
+
+  it("caches under the 'fulfillment' tag, so cart/address mutations invalidate it", async () => {
+    fetchMock.mockResolvedValue({ shipping_options: [] });
+
+    await listShippingOptions();
+
+    expect(getCacheOptionsMock).toHaveBeenCalledWith("fulfillment");
   });
 });
 
