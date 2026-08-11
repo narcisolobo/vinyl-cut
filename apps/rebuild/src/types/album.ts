@@ -7,6 +7,7 @@ type AlbumVariant = {
   id: string;
   condition: string;
   price: AlbumPrice;
+  inStock: boolean;
 };
 
 type AlbumTrack = {
