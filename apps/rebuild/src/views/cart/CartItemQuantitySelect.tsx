@@ -36,7 +36,7 @@ function CartItemQuantitySelect({
   return (
     <div className="join" role="group" aria-label="Quantity">
       <button
-        className="btn btn-sm join-item"
+        className="btn btn-xs sm:btn-sm join-item"
         aria-label={`Decrease quantity of ${item.title}`}
         disabled={isUpdating || quantity <= 1}
         onClick={() => handleChange(-1)}
@@ -44,13 +44,13 @@ function CartItemQuantitySelect({
         −
       </button>
       <span
-        className="btn btn-sm join-item pointer-events-none flex w-10 items-center justify-center"
+        className="btn btn-xs sm:btn-sm join-item pointer-events-none flex w-6 items-center justify-center sm:w-10"
         aria-live="polite"
       >
         {quantity}
       </span>
       <button
-        className="btn btn-sm join-item"
+        className="btn btn-xs sm:btn-sm join-item"
         aria-label={`Increase quantity of ${item.title}`}
         disabled={
           isUpdating || (maxQuantity !== undefined && quantity >= maxQuantity)

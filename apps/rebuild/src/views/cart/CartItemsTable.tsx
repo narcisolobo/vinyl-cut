@@ -11,7 +11,7 @@ function CartItemsTable({ cartState }: CartItemsTableProps) {
       <table className="table">
         <thead>
           <tr>
-            <th></th>
+            <th className="hidden sm:table-cell"></th>
             <th>Item</th>
             <th>Quantity</th>
             <th className="hidden sm:table-cell">Price</th>

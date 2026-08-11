@@ -13,7 +13,7 @@ type CartLineItemProps = {
 function CartLineItem({ item, currencyCode }: CartLineItemProps) {
   return (
     <tr>
-      <td className="w-24">
+      <td className="hidden w-24 sm:table-cell">
         <LocalizedClientLink
           href={`/albums/${item.product_handle}`}
           className="relative block aspect-square w-20"
@@ -29,7 +29,7 @@ function CartLineItem({ item, currencyCode }: CartLineItemProps) {
         </LocalizedClientLink>
       </td>
       <td>
-        <h3 className="text-sm font-semibold">
+        <h3 className="line-clamp-2 text-sm font-semibold">
           <LocalizedClientLink href={`/albums/${item.product_handle}`}>
             {item.title}
           </LocalizedClientLink>
