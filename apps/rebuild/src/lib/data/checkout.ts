@@ -113,12 +113,17 @@ type ShippingOptionsResponse = {
 };
 
 /**
- * Lists the shipping options available for the current cart.
+ * Lists the shipping options available for the current cart. Tagged
+ * under `"fulfillment"`, not a dedicated tag — that's the tag
+ * `updateCart()`/`addToCart()`/etc. already invalidate on any
+ * mutation that can change availability (address, items, region), so
+ * reusing it means this cache is actually kept fresh instead of
+ * going stale with no invalidation path of its own.
  */
 async function listShippingOptions() {
   const cartId = await getCartId();
   const next = {
-    ...(await getCacheOptions("shippingOptions")),
+    ...(await getCacheOptions("fulfillment")),
   };
 
   try {
