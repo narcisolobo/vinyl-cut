@@ -110,5 +110,10 @@ function toFieldErrors(error: z.ZodError): SetAddressesFieldErrors {
   return fieldErrors;
 }
 
-export { SetSharedAddressSchema, SetAddressesSchema, toFieldErrors };
-export type { SetAddressesState };
+export {
+  SetSharedAddressSchema,
+  SetAddressesSchema,
+  toFieldErrors,
+  WESTERN_US_STATES,
+};
+export type { SetAddressesState, WesternUsState };
