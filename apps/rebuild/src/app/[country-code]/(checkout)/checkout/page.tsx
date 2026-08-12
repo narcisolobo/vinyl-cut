@@ -1,10 +1,7 @@
 import { retrieveCheckoutCart } from "@/lib/data/cart";
 import { listShippingOptions } from "@/lib/data/checkout";
 import { listPaymentProviders } from "@/lib/data/payment";
-import AddressStep from "@/views/checkout/AddressStep";
-import PaymentStep from "@/views/checkout/PaymentStep";
-import ReviewStep from "@/views/checkout/ReviewStep";
-import ShippingStep from "@/views/checkout/ShippingStep";
+import Checkout from "@/views/checkout/Checkout";
 import { resolveActiveStep } from "@/views/checkout/types";
 import { HttpTypes } from "@medusajs/types";
 import { Metadata } from "next";
@@ -50,20 +47,13 @@ async function CheckoutPage({ params, searchParams }: CheckoutPageProps) {
   const step = resolveActiveStep(requestedStep, cart);
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col gap-8 p-4">
-      <AddressStep cart={cart} isOpen={step === "address"} />
-      <ShippingStep
+    <div className="mx-auto w-full max-w-5xl p-4">
+      <Checkout
         cart={cart}
         shippingOptions={shippingOptions}
-        isOpen={step === "delivery"}
-      />
-      <PaymentStep
-        cart={cart}
         paymentProviders={paymentProviders}
-        isOpen={step === "payment"}
+        step={step}
       />
-      <ReviewStep cart={cart} isOpen={step === "review"} />
-      {/* Placeholder for CheckoutSummary — Phase 7 replaces this. */}
     </div>
   );
 }
