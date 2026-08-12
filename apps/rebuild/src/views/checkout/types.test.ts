@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { HttpTypes } from "@medusajs/types";
 import {
+  getPaymentProviderLabel,
   isAddressComplete,
   isDeliveryComplete,
   isPaymentComplete,
@@ -62,6 +63,12 @@ describe("isAddressComplete", () => {
 describe("isDeliveryComplete", () => {
   it("is false with no shipping methods", () => {
     expect(isDeliveryComplete(makeCart())).toBe(false);
+  });
+
+  it("is false when shipping_methods is undefined", () => {
+    expect(
+      isDeliveryComplete(makeCart({ shipping_methods: undefined })),
+    ).toBe(false);
   });
 
   it("is true once a shipping method is set", () => {
@@ -141,5 +148,19 @@ describe("resolveActiveStep", () => {
     });
     expect(resolveActiveStep(undefined, cart)).toBe("review");
     expect(resolveActiveStep("review", cart)).toBe("review");
+  });
+});
+
+describe("getPaymentProviderLabel", () => {
+  it("returns a human-readable label for a known provider ID", () => {
+    expect(getPaymentProviderLabel("pp_system_default")).toBe(
+      "Manual Payment (Test Mode)",
+    );
+  });
+
+  it("falls back to the raw provider ID for an unmapped provider", () => {
+    expect(getPaymentProviderLabel("pp_stripe_stripe")).toBe(
+      "pp_stripe_stripe",
+    );
   });
 });

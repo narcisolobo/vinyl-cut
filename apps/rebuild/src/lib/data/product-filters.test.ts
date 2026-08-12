@@ -86,6 +86,24 @@ describe("resolveProductFilters", () => {
     expect(result.optionValueIds).toEqual([]);
   });
 
+  it("drops all conditions when the Condition option has no values", async () => {
+    fetchMock.mockImplementation(async (path: string) => {
+      if (path === "/store/product-categories") {
+        return { product_categories: categories };
+      }
+      if (path === "/store/product-options") {
+        return { product_options: [] };
+      }
+      throw new Error(`unexpected path: ${path}`);
+    });
+
+    const result = await productFilters.resolveProductFilters({
+      conditions: ["Mint (M)"],
+    });
+
+    expect(result.optionValueIds).toEqual([]);
+  });
+
   it("doesn't fetch the Condition option when no conditions are given", async () => {
     await productFilters.resolveProductFilters({ genres: ["Rock"] });
 

@@ -185,4 +185,131 @@ describe("toAlbum", () => {
 
     expect(toAlbum(inStock).variants[0].inStock).toBe(true);
   });
+
+  it("treats a managed, non-backorderable variant with no inventory_quantity field as out of stock", () => {
+    const noQuantityField = {
+      ...petSounds,
+      variants: [
+        {
+          ...petSounds.variants![0],
+          manage_inventory: true,
+          allow_backorder: false,
+        },
+      ],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(noQuantityField).variants[0].inStock).toBe(false);
+  });
+
+  it("returns an empty-string genre when no category exists outside 'Eras'", () => {
+    const onlyEra = {
+      ...marvinGaye,
+      categories: [
+        { id: "pcat_1970s", name: "1970s", parent_category: erasCategory },
+      ],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(onlyEra).genre).toBe("");
+  });
+
+  it("returns an empty-string condition when no matching Condition option exists", () => {
+    const noConditionOption = {
+      ...petSounds,
+      variants: [
+        {
+          id: "variant_x",
+          options: [{ value: "Blue", option: { title: "Color" } }],
+        },
+      ],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(noConditionOption).variants[0].condition).toBe("");
+  });
+
+  it("defaults price to zero USD when calculated_price is missing", () => {
+    const noPrice = {
+      ...petSounds,
+      variants: [{ id: "variant_x", options: [conditionOption("NM")] }],
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(noPrice).variants[0].price).toEqual({
+      amount: 0,
+      currencyCode: "usd",
+    });
+  });
+
+  it("defaults artist, genre, era, images, and variants when the product omits them entirely", () => {
+    const bareProduct = {
+      id: "prod_bare",
+      handle: "bare-product",
+      title: "Untitled",
+    } as unknown as HttpTypes.StoreProduct;
+
+    const album = toAlbum(bareProduct);
+
+    expect(album.artist).toBe("");
+    expect(album.genre).toBe("");
+    expect(album.era).toBeNull();
+    expect(album.frontImage).toBe("/placeholder-album.svg");
+    expect(album.backImage).toBeNull();
+    expect(album.variants).toEqual([]);
+  });
+
+  it("reads label, catalog number, release year, and press type from metadata", () => {
+    const withMetadata = {
+      ...marvinGaye,
+      metadata: {
+        label: "Tamla",
+        catalog_number: "TS310",
+        release_year: "1971",
+        press_type: "Original Pressing",
+      },
+    } as unknown as HttpTypes.StoreProduct;
+
+    const album = toAlbum(withMetadata);
+
+    expect(album.label).toBe("Tamla");
+    expect(album.catalogNumber).toBe("TS310");
+    expect(album.releaseYear).toBe("1971");
+    expect(album.pressType).toBe("Original Pressing");
+  });
+
+  it("treats a non-string metadata value as absent", () => {
+    const badMetadata = {
+      ...marvinGaye,
+      metadata: { label: 12345 },
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(badMetadata).label).toBeNull();
+  });
+
+  it("maps a valid tracklist from metadata, defaulting malformed track fields", () => {
+    const withTracklist = {
+      ...marvinGaye,
+      metadata: {
+        tracklist: [
+          { position: "A1", title: "Track One", length_ms: 200000 },
+          { position: 2, title: "Track Two", length_ms: null },
+          { title: "Track Three" },
+          { position: "A2", title: 42, length_ms: "nope" },
+        ],
+      },
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(withTracklist).tracklist).toEqual([
+      { position: "A1", title: "Track One", durationMs: 200000 },
+      { position: "2", title: "Track Two", durationMs: null },
+      { position: null, title: "Track Three", durationMs: null },
+      { position: "A2", title: "", durationMs: null },
+    ]);
+  });
+
+  it("returns an empty tracklist when metadata has no tracklist array", () => {
+    const noTracklist = {
+      ...marvinGaye,
+      metadata: {},
+    } as unknown as HttpTypes.StoreProduct;
+
+    expect(toAlbum(noTracklist).tracklist).toEqual([]);
+  });
 });
