@@ -3,6 +3,7 @@ import { listShippingOptions } from "@/lib/data/checkout";
 import { listPaymentProviders } from "@/lib/data/payment";
 import AddressStep from "@/views/checkout/AddressStep";
 import PaymentStep from "@/views/checkout/PaymentStep";
+import ReviewStep from "@/views/checkout/ReviewStep";
 import ShippingStep from "@/views/checkout/ShippingStep";
 import { resolveActiveStep } from "@/views/checkout/types";
 import { HttpTypes } from "@medusajs/types";
@@ -61,9 +62,8 @@ async function CheckoutPage({ params, searchParams }: CheckoutPageProps) {
         paymentProviders={paymentProviders}
         isOpen={step === "payment"}
       />
-      {/* Placeholder for the remaining steps — Phase 6+ replaces this
-          with ReviewStep + CheckoutSummary. */}
-      <pre className="overflow-x-auto text-xs">{JSON.stringify({ step }, null, 2)}</pre>
+      <ReviewStep cart={cart} isOpen={step === "review"} />
+      {/* Placeholder for CheckoutSummary — Phase 7 replaces this. */}
     </div>
   );
 }
