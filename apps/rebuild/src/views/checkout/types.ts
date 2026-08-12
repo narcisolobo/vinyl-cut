@@ -74,6 +74,15 @@ function resolveActiveStep(
   return requestedIndex <= ceilingIndex ? (requested as CheckoutStep) : ceiling;
 }
 
+/** Medusa's payment provider API returns only an `id` — no display name — so labels are mapped by hand. */
+const PAYMENT_PROVIDER_LABELS: Record<string, string> = {
+  pp_system_default: "Manual Payment (Test Mode)",
+};
+
+function getPaymentProviderLabel(providerId: string): string {
+  return PAYMENT_PROVIDER_LABELS[providerId] ?? providerId;
+}
+
 export {
   STEP_ORDER,
   isAddressComplete,
@@ -81,5 +90,6 @@ export {
   isPaymentComplete,
   isReviewReady,
   resolveActiveStep,
+  getPaymentProviderLabel,
 };
 export type { CheckoutStep };
