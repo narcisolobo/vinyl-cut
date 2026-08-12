@@ -87,6 +87,14 @@ describe("sortProducts", () => {
     ]);
   });
 
+  it("falls through the exhaustiveness guard for an unrecognized sort value", () => {
+    const cheap = product("cheap", { variants: [variant(500)] });
+
+    // @ts-expect-error — exercising the runtime fallback for a value TypeScript's
+    // exhaustive switch would otherwise never let through.
+    expect(sortProducts([cheap], "bogus")).toBe("bogus");
+  });
+
   it("does not mutate the input array", () => {
     const cheap = product("cheap", { variants: [variant(500)] });
     const pricey = product("pricey", { variants: [variant(2000)] });

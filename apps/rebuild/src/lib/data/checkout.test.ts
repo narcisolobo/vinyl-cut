@@ -165,6 +165,22 @@ describe("setAddresses", () => {
     expect(redirectMock).not.toHaveBeenCalled();
   });
 
+  it("rejects a shipping country outside the United States", async () => {
+    const formData = buildFormData({
+      ...validShippingFields,
+      "shipping_address.country_code": "gb",
+      same_as_billing: "on",
+    });
+
+    const result = await setAddresses(undefined, formData);
+
+    expect(result?.fieldErrors["shipping_address.country_code"]).toEqual([
+      "We currently only ship within the United States.",
+    ]);
+    expect(updateCartResourceMock).not.toHaveBeenCalled();
+    expect(redirectMock).not.toHaveBeenCalled();
+  });
+
   it("reports only the required-field error for a blank province, not also the region error", async () => {
     const formData = buildFormData({
       ...validShippingFields,

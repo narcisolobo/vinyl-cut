@@ -34,6 +34,17 @@ describe("listPaymentProviders", () => {
     ]);
   });
 
+  it("reorders providers given out of ID order", async () => {
+    fetchMock.mockResolvedValueOnce({
+      payment_providers: [manualProvider, stripeProvider],
+    });
+
+    expect(await payment.listPaymentProviders("reg_us")).toEqual([
+      stripeProvider,
+      manualProvider,
+    ]);
+  });
+
   it("queries by region ID", async () => {
     fetchMock.mockResolvedValueOnce({ payment_providers: [] });
 

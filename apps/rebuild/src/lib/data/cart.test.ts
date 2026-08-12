@@ -56,6 +56,7 @@ vi.mock("next/navigation", () => ({ redirect: redirectMock }));
 
 import {
   retrieveCart,
+  retrieveCartWithInventory,
   retrieveCheckoutCart,
   getOrSetCart,
   updateCart,
@@ -126,6 +127,18 @@ describe("retrieveCart", () => {
     expect(consoleError).toHaveBeenCalledOnce();
 
     consoleError.mockRestore();
+  });
+});
+
+describe("retrieveCartWithInventory", () => {
+  it("requests per-variant inventory levels", async () => {
+    fetchMock.mockResolvedValue({ cart: { id: "cart_123" } });
+
+    await retrieveCartWithInventory();
+
+    expect(fetchMock.mock.calls[0][1].query.fields).toContain(
+      "+items.variant.inventory_items.inventory.location_levels.available_quantity",
+    );
   });
 });
 
