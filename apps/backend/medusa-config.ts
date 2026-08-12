@@ -46,6 +46,18 @@ module.exports = defineConfig({
       resolve: './src/modules/restock',
     },
     {
+      resolve: '@medusajs/medusa/notification',
+      options: {
+        providers: [
+          {
+            resolve: '@medusajs/medusa/notification-local',
+            id: 'local',
+            options: { channels: ['email', 'feed'] },
+          },
+        ],
+      },
+    },
+    {
       resolve: '@medusajs/file',
       options: {
         providers: [
