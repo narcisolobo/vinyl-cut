@@ -1,6 +1,6 @@
-import { loadEnv, defineConfig } from '@medusajs/framework/utils'
+import { loadEnv, defineConfig } from '@medusajs/framework/utils';
 
-loadEnv(process.env.NODE_ENV || 'development', process.cwd())
+loadEnv(process.env.NODE_ENV || 'development', process.cwd());
 
 module.exports = defineConfig({
   projectConfig: {
@@ -12,7 +12,7 @@ module.exports = defineConfig({
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET,
       cookieSecret: process.env.COOKIE_SECRET,
-    }
+    },
   },
   admin: {
     // @medusajs/medusa's admin loader auto-registers src/admin as a
@@ -33,20 +33,25 @@ module.exports = defineConfig({
       resolve: {
         ...config.resolve,
         alias: [
-          ...(Array.isArray(config.resolve?.alias) ? config.resolve!.alias : []),
-          { find: /^\/apps\/backend\//, replacement: "/app/apps/backend/" },
+          ...(Array.isArray(config.resolve?.alias)
+            ? config.resolve!.alias
+            : []),
+          { find: /^\/apps\/backend\//, replacement: '/app/apps/backend/' },
         ],
       },
     }),
   },
   modules: [
     {
-      resolve: "@medusajs/file",
+      resolve: './src/modules/restock',
+    },
+    {
+      resolve: '@medusajs/file',
       options: {
         providers: [
           {
-            resolve: "@medusajs/file-s3",
-            id: "s3",
+            resolve: '@medusajs/file-s3',
+            id: 's3',
             options: {
               file_url: process.env.S3_FILE_URL,
               access_key_id: process.env.S3_ACCESS_KEY_ID,
@@ -66,4 +71,4 @@ module.exports = defineConfig({
       },
     },
   ],
-})
+});
