@@ -7,6 +7,7 @@ import { CaretLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { useState, ViewTransition } from "react";
 import AddToCartButton from "./AddToCartButton";
+import NotifyMeButton from "./NotifyMeButton";
 import VariantButton from "./VariantButton";
 import ImageButton from "./ImageButton";
 import AlbumTracklist from "./AlbumTracklist";
@@ -129,10 +130,18 @@ function AlbumDetails({ album, backHref }: AlbumDetailsProps) {
             </div>
           </div>
 
-          <AddToCartButton
-            variantId={selectedVariantId}
-            inStock={selectedVariant?.inStock ?? false}
-          />
+          {selectedVariant && !selectedVariant.inStock ? (
+            <NotifyMeButton
+              key={selectedVariant.id}
+              album={album}
+              variant={selectedVariant}
+            />
+          ) : (
+            <AddToCartButton
+              variantId={selectedVariantId}
+              inStock={selectedVariant?.inStock ?? false}
+            />
+          )}
 
           {album.tracklist.length > 0 && (
             <AlbumTracklist tracklist={album.tracklist} />
