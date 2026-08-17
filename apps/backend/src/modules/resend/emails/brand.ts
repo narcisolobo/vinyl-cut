@@ -1,6 +1,6 @@
 /**
  * Vinyl Cut brand tokens for transactional emails. Colors are hex, converted
- * from the site's real oklch theme (apps/rebuild/src/styles/themes/vinyl-cut.css)
+ * from the site's real oklch theme (apps/storefront/src/styles/themes/vinyl-cut.css)
  * since oklch() isn't reliably supported by email clients. Fonts include
  * web-safe fallback stacks since custom @font-face fonts are unreliable in
  * email (Outlook desktop especially) — the Google-Fonts name is a

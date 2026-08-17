@@ -4,7 +4,7 @@ import { createStep, StepResponse } from '@medusajs/framework/workflows-sdk';
 
 /**
  * Invalidates the storefront's global "products" cache tag (see
- * apps/rebuild/src/lib/data/products.ts) so a variant that just sold out
+ * apps/storefront/src/lib/data/products.ts) so a variant that just sold out
  * stops showing "Add to Cart" instead of "Notify Me" for however long the
  * cache would otherwise have lived (effectively indefinite — no
  * time-based revalidate is set). Soft-fails: a stale product page is low

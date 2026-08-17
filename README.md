@@ -20,7 +20,7 @@ custom restock-notification module as the centerpiece.
 
 | Layer           | Choice                                                                                        |
 | --------------- | --------------------------------------------------------------------------------------------- |
-| Storefront      | Next.js 15 (Turbopack in dev), React 19                                                       |
+| Storefront      | Next.js 16 (Turbopack in dev), React 19, Tailwind CSS v4 + daisyUI                            |
 | Commerce engine | Medusa.js 2.18 (native cart, checkout, payment modules)                                       |
 | Payments        | Stripe (via Medusa payment provider + `@stripe/react-stripe-js` on the storefront), test mode |
 | Database        | PostgreSQL (Supabase, hosted; Supabase CLI, local — see `supabase/`)                          |
@@ -36,10 +36,8 @@ custom restock-notification module as the centerpiece.
 ├── apps/
 │   ├── backend/          # @dtc/backend — Medusa.js commerce engine
 │   │   └── medusa-config.ts
-│   ├── rebuild/            # @vc/storefront — active from-scratch storefront rebuild
-│   │   └── next.config.ts
-│   └── storefront/        # @dtc/storefront — original medusa-next starter (reference only)
-│       └── check-env-variables.js
+│   └── storefront/        # @vc/storefront — Next.js storefront
+│       └── next.config.ts
 ├── etl/                   # Python catalog ETL pipeline (not a pnpm workspace)
 │   ├── requirements.txt
 │   ├── seed/              # generated seed data + run artifacts (gitignore candidate)
@@ -62,10 +60,10 @@ custom restock-notification module as the centerpiece.
 └── package.json
 ```
 
-`apps/rebuild` is a from-scratch rebuild of the storefront and is the actively
-developed app. `apps/storefront` is the original `medusa-next` starter
-template, kept temporarily as a reference during the rebuild; it will be
-deleted once `apps/rebuild` reaches feature parity.
+`apps/storefront` is a from-scratch Next.js storefront, built with the
+official `medusa-next` starter open as a reference rather than reimplemented
+from documentation alone (see `notes/vc-storefront-rebuild-sequence.md`).
+The starter itself has since been moved out of this repo.
 
 ## Prerequisites
 
@@ -149,7 +147,7 @@ then `pnpm storefront:dev` (or skip straight to `pnpm dev:full`).
 
 | Script                                                    | Description                                                                                                                                                       |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm storefront:dev`                                     | Run the storefront in dev mode (`pnpm --filter=@dtc/storefront dev`) — the backend runs via Docker Compose, not this script, to avoid a port collision on 9000    |
+| `pnpm storefront:dev`                                     | Run the storefront in dev mode (`pnpm --filter=@vc/storefront dev`) — the backend runs via Docker Compose, not this script, to avoid a port collision on 9000     |
 | `pnpm dev:full`                                           | `env:up`, then `pnpm storefront:dev` — one command for a fresh session                                                                                            |
 | `pnpm build`                                              | Build all apps (`pnpm -r build`)                                                                                                                                  |
 | `pnpm start`                                              | Start all apps in production mode (`turbo start`)                                                                                                                 |
@@ -170,23 +168,22 @@ then `pnpm storefront:dev` (or skip straight to `pnpm dev:full`).
 | `test:integration:http`    | HTTP-level integration tests (e.g. checkout)                  |
 | `test:integration:modules` | Module-level integration tests (e.g. restock-notify workflow) |
 
-### `apps/storefront` (`@dtc/storefront`)
+### `apps/storefront` (`@vc/storefront`)
 
-| Script    | Description                                 |
-| --------- | ------------------------------------------- |
-| `dev`     | `next dev --turbopack -p 8000`              |
-| `build`   | `next build`                                |
-| `start`   | `next start -p 8000`                        |
-| `lint`    | `next lint`                                 |
-| `analyze` | `ANALYZE=true next build` — bundle analysis |
+| Script       | Description                                           |
+| ------------ | ------------------------------------------------------ |
+| `dev`        | `next dev -p 8000`                                     |
+| `build`      | `next build`                                            |
+| `start`      | `next start`                                            |
+| `lint`       | `eslint`                                                |
+| `analyze`    | `ANALYZE=true next build` — bundle analysis             |
+| `test`       | `vitest run` — unit tests                               |
+| `test:e2e`   | `playwright test`                                       |
+| `revalidate` | POST the dev server's `/api/revalidate?tag=products`    |
 
 ## Environment Variables
 
-Each app manages its own `.env`. The storefront includes
-`check-env-variables.js`, which validates required variables are present
-before starting — run `node check-env-variables.js` (or let `next dev`/`next
-build` invoke it) to confirm your `.env` is complete rather than guessing at
-the required keys here. At minimum, expect:
+Each app manages its own `.env`. At minimum, expect:
 
 - **Backend**: Postgres connection string (Supabase, direct or session-mode pooler — not the transaction-mode pooler), Redis URL (Upstash), Stripe secret key, Resend API key, Supabase Storage (S3) credentials.
 - **Storefront**: Medusa backend URL, Medusa publishable API key, Stripe publishable key.

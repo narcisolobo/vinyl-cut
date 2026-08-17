@@ -1,59 +1,102 @@
-"use server"
+"use server";
 
-import { sdk } from "@lib/config"
-import { HttpTypes } from "@medusajs/types"
-import { getCacheOptions } from "./cookies"
+import { medusa } from "@/lib/medusa/config";
+import { type HttpTypes } from "@medusajs/types";
+import { getCacheOptions } from "./cookies";
 
-export const listRegions = async () => {
+type RegionResponse = { region: HttpTypes.StoreRegion };
+type RegionsResponse = { regions: HttpTypes.StoreRegion[] };
+
+/**
+ * Fetches every region from Medusa. Throws — rather than failing
+ * soft — since callers need real region data to render.
+ */
+async function listRegions(): Promise<HttpTypes.StoreRegion[]> {
   const next = {
     ...(await getCacheOptions("regions")),
-  }
+  };
 
-  return await sdk.client
-    .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
-      method: "GET",
-      next,
-      cache: "force-cache",
-    })
-    .then(({ regions }) => regions)
+  try {
+    const { regions } = await medusa.client.fetch<RegionsResponse>(
+      `/store/regions`,
+      {
+        method: "GET",
+        next,
+        cache: "force-cache",
+      },
+    );
+
+    return regions;
+  } catch (error) {
+    throw new Error("regions.ts: Failed to fetch regions from Medusa.", {
+      cause: error,
+    });
+  }
 }
 
-export const retrieveRegion = async (id: string) => {
+/**
+ * Fetches a single region by ID. Throws — rather than failing
+ * soft — since callers need real region data to render.
+ */
+async function retrieveRegion(id: string): Promise<HttpTypes.StoreRegion> {
   const next = {
     ...(await getCacheOptions(["regions", id].join("-"))),
-  }
+  };
 
-  return await sdk.client
-    .fetch<{ region: HttpTypes.StoreRegion }>(`/store/regions/${id}`, {
-      method: "GET",
-      next,
-      cache: "force-cache",
-    })
-    .then(({ region }) => region)
+  try {
+    const { region } = await medusa.client.fetch<RegionResponse>(
+      `/store/regions/${id}`,
+      {
+        method: "GET",
+        next,
+        cache: "force-cache",
+      },
+    );
+
+    return region;
+  } catch (error) {
+    throw new Error(`regions.ts: Failed to fetch region "${id}" from Medusa.`, {
+      cause: error,
+    });
+  }
 }
 
-const regionMap = new Map<string, HttpTypes.StoreRegion>()
+const regionMap = new Map<string, HttpTypes.StoreRegion>();
 
-export const getRegion = async (countryCode: string) => {
-  if (regionMap.has(countryCode)) {
-    return regionMap.get(countryCode)
+/**
+ * Resolves a region by country code, caching the full country-code
+ * → region map in memory after the first successful fetch so repeat
+ * calls don't re-hit Medusa. Falls back to `"us"` when no country
+ * code is given. Fails soft — logs and returns `null` — rather than
+ * throwing, since callers already handle a missing region instead
+ * of crashing the page.
+ */
+async function getRegion(
+  countryCode: string,
+): Promise<HttpTypes.StoreRegion | undefined | null> {
+  const cacheKey = countryCode || "us";
+
+  if (regionMap.has(cacheKey)) {
+    return regionMap.get(cacheKey);
   }
 
-  const regions = await listRegions()
+  try {
+    const regions = await listRegions();
 
-  if (!regions) {
-    return null
+    regions.forEach((region) => {
+      region.countries?.forEach((c) => {
+        regionMap.set(c?.iso_2 ?? "", region);
+      });
+    });
+
+    return regionMap.get(cacheKey);
+  } catch (error) {
+    console.error(
+      `regions.ts: Could not resolve region for country code "${countryCode}".`,
+      error,
+    );
+    return null;
   }
-
-  regions.forEach((region) => {
-    region.countries?.forEach((c) => {
-      regionMap.set(c?.iso_2 ?? "", region)
-    })
-  })
-
-  const region = countryCode
-    ? regionMap.get(countryCode)
-    : regionMap.get("us")
-
-  return region
 }
+
+export { getRegion, listRegions, retrieveRegion };
