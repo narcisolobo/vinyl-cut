@@ -8,6 +8,9 @@ import { validateVariantOutOfStockStep } from './steps/validate-variant-out-of-s
 import { useQueryGraphStep } from '@medusajs/medusa/core-flows';
 import { createOrGetRestockSubscriptionStep } from './steps/create-restock-subscription';
 import { updateRestockSubscriptionStep } from './steps/update-restock-subscription';
+import { sendNotificationStep } from '../steps/send-notification';
+import { buildRestockUrl } from '../../lib/build-restock-url';
+import { Templates } from '../../modules/resend/service';
 
 type CreateRestockSubscriptionWorkflowInput = {
   variant_id: string;
@@ -100,13 +103,29 @@ const createRestockSubscriptionWorkflow = createWorkflow(
 
     const { data: restockSubscription } = useQueryGraphStep({
       entity: 'restock_subscription',
-      fields: ['*'],
+      fields: ['*', 'product_variant.*', 'product_variant.product.handle'],
       filters: {
         email,
         variant_id,
         sales_channel_id,
       },
     }).config({ name: 'retrieve-restock-subscription' });
+
+    const notificationData = transform(
+      { restockSubscription },
+      (data) =>
+        data.restockSubscription.map((subscription) => ({
+          to: subscription.email,
+          channel: 'email',
+          template: Templates.RESTOCK_SUBSCRIBED,
+          data: {
+            variant: subscription.product_variant,
+            url: buildRestockUrl(subscription.product_variant?.product?.handle),
+          },
+        })),
+    );
+
+    sendNotificationStep(notificationData);
 
     return new WorkflowResponse(restockSubscription);
   },
