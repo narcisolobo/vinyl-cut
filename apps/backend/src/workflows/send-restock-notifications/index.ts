@@ -36,7 +36,7 @@ const sendRestockNotificationsWorkflow = createWorkflow(
 
     const { data: restockedSubscriptionsWithEmails } = useQueryGraphStep({
       entity: 'restock_subscription',
-      fields: ['*', 'product_variant.*'],
+      fields: ['*', 'product_variant.*', 'product_variant.product.handle'],
       filters: {
         variant_id: variant_ids,
         sales_channel_id: sales_channel_ids,
