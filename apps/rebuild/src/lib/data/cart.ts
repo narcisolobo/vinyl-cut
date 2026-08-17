@@ -281,8 +281,9 @@ async function updateRegion(countryCode: string, currentPath: string) {
   const regionCacheTag = await getCacheTag("regions");
   updateTag(regionCacheTag);
 
-  const productsCacheTag = await getCacheTag("products");
-  updateTag(productsCacheTag);
+  // "products" is a global tag (see products.ts), not per-visitor like
+  // "regions"/"carts" — no getCacheTag() lookup needed.
+  updateTag("products");
 
   redirect(`/${countryCode}${currentPath}`);
 }

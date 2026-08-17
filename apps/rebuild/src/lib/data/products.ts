@@ -8,7 +8,6 @@ import {
 import { sortProducts } from "@/lib/utils/sort-products";
 import { type SortOptions } from "@/types/sort-options";
 import { type HttpTypes } from "@medusajs/types";
-import { getCacheOptions } from "./cookies";
 import { DEFAULT_PRODUCTS_PER_PAGE } from "./product-list-defaults";
 import { getRegion, retrieveRegion } from "./regions";
 
@@ -81,9 +80,11 @@ async function listProducts({
     };
   }
 
-  const next = {
-    ...(await getCacheOptions("products")),
-  };
+  // Global tag, not per-visitor: product/catalog data isn't visitor-specific
+  // like carts or customers are, and a backend-triggered revalidation (on
+  // order placement) has no way to know which visitors' cache-id-namespaced
+  // tags to invalidate.
+  const next = { tags: ["products"] };
 
   try {
     const { products, count } = await medusa.client.fetch<ProductListResponse>(

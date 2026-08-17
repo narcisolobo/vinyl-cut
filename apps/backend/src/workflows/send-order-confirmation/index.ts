@@ -5,6 +5,7 @@ import {
 } from '@medusajs/framework/workflows-sdk';
 import { useQueryGraphStep } from '@medusajs/medusa/core-flows';
 import { sendNotificationStep } from '../steps/send-notification';
+import { revalidateProductsStep } from '../steps/revalidate-products';
 import { Templates } from '../../modules/resend/service';
 
 type WorkflowInput = {
@@ -43,6 +44,8 @@ export const sendOrderConfirmationWorkflow = createWorkflow(
         throwIfKeyNotFound: true,
       },
     });
+
+    revalidateProductsStep({});
 
     const notification = when(
       { orders },
