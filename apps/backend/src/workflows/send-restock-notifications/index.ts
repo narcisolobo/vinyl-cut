@@ -4,10 +4,12 @@ import {
   WorkflowResponse,
 } from '@medusajs/framework/workflows-sdk';
 import { useQueryGraphStep } from '@medusajs/medusa/core-flows';
+import { buildRestockUrl } from '../../lib/build-restock-url';
+import { Templates } from '../../modules/resend/service';
 import { deleteRestockSubscriptionStep } from './steps/delete-restock-subscriptions';
 import { getDistinctSubscriptionsStep } from './steps/get-distinct-subscriptions';
 import { getRestockedStep } from './steps/get-restocked';
-import { sendRestockNotificationStep } from './steps/send-restock-notification';
+import { sendNotificationStep } from '../steps/send-notification';
 
 const sendRestockNotificationsWorkflow = createWorkflow(
   'send-restock-notifications',
@@ -43,10 +45,21 @@ const sendRestockNotificationsWorkflow = createWorkflow(
       },
     });
 
-    // @ts-expect-error useQueryGraphStep's joined `product_variant` resolves
-    // to the MikroORM ProductVariant entity, not ProductVariantDTO, and the
-    // two disagree recursively through nested relations (options.option, ...).
-    sendRestockNotificationStep(restockedSubscriptionsWithEmails);
+    const notificationData = transform(
+      { restockedSubscriptionsWithEmails },
+      (data) =>
+        data.restockedSubscriptionsWithEmails.map((subscription) => ({
+          to: subscription.email,
+          channel: 'email',
+          template: Templates.RESTOCK_NOTIFY,
+          data: {
+            variant: subscription.product_variant,
+            url: buildRestockUrl(subscription.product_variant?.product?.handle),
+          },
+        })),
+    );
+
+    sendNotificationStep(notificationData);
 
     deleteRestockSubscriptionStep(restockedSubscriptionsWithEmails);
 
