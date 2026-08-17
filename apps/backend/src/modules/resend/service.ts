@@ -9,6 +9,9 @@ import {
 } from '@medusajs/framework/utils';
 import { ReactNode } from 'react';
 import { CreateEmailOptions, Resend } from 'resend';
+import { orderPlacedEmail } from './emails/order-placed';
+import { variantRestockEmail } from './emails/variant-restock';
+import { variantRestockSubscribedEmail } from './emails/variant-restock-subscribed';
 
 type ResendOptions = {
   api_key: string;
@@ -29,10 +32,13 @@ type InjectedDependencies = {
 enum Templates {
   ORDER_PLACED = 'order-placed',
   RESTOCK_NOTIFY = 'variant-restock',
+  RESTOCK_SUBSCRIBED = 'variant-restock-subscribed',
 }
 
 const templates: { [key in Templates]?: (props: unknown) => ReactNode } = {
-  // TODO: add templates
+  [Templates.ORDER_PLACED]: orderPlacedEmail,
+  [Templates.RESTOCK_NOTIFY]: variantRestockEmail,
+  [Templates.RESTOCK_SUBSCRIBED]: variantRestockSubscribedEmail,
 };
 
 class ResendNotificationProviderService extends AbstractNotificationProviderService {
@@ -87,6 +93,8 @@ class ResendNotificationProviderService extends AbstractNotificationProviderServ
         return 'Order Confirmation';
       case Templates.RESTOCK_NOTIFY:
         return 'Restock Notification';
+      case Templates.RESTOCK_SUBSCRIBED:
+        return "You're on the list";
       default:
         return 'New Email';
     }
@@ -139,3 +147,4 @@ class ResendNotificationProviderService extends AbstractNotificationProviderServ
 }
 
 export default ResendNotificationProviderService;
+export { Templates };

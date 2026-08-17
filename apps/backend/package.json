@@ -17,6 +17,7 @@
     "start": "medusa start",
     "dev": "medusa develop",
     "lint": "medusa lint",
+    "email:dev": "email dev --dir src/modules/resend/emails",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@medusajs/test-utils": "2.18.0",
     "@playwright/test": "^1.62.0",
+    "@react-email/ui": "^6.9.2",
     "@swc/core": "^1.7.28",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.13",
@@ -52,6 +54,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-email": "^6.9.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "vite": "^5.4.14",

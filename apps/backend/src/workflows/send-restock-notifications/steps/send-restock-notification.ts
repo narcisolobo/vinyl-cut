@@ -4,6 +4,7 @@ import {
 } from '@medusajs/framework/types';
 import { Modules } from '@medusajs/framework/utils';
 import { createStep } from '@medusajs/framework/workflows-sdk';
+import { Templates } from '../../../modules/resend/service';
 
 type SendRestockNotificationStepInput = {
   email: string;
@@ -33,7 +34,7 @@ export const sendRestockNotificationStep = createStep(
     const notificationData = input.map((subscription) => ({
       to: subscription.email,
       channel: 'email',
-      template: 'variant-restock',
+      template: Templates.RESTOCK_NOTIFY,
       data: {
         variant: subscription.product_variant,
         url: buildRestockUrl(subscription.product_variant?.product?.handle),
