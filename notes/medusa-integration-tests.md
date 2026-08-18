@@ -15,12 +15,12 @@ two integration Jest projects (`jest.config.js`):
 `@medusajs/test-utils` version before writing the first spec — Medusa's
 testing APIs have shifted across versions.)
 
-## Status: `integration:http` implemented, `integration:modules` not started
+## Status: `integration:http` and `integration:modules` both implemented
 
 All five suggested `integration:http` specs below are written and passing
 (`pnpm test:integration:http`, run against a local Supabase Postgres —
-see Running locally below). `integration:modules` specs are intentionally
-not started yet.
+see Running locally below). All three suggested `integration:modules`
+specs are also written and passing (`pnpm test:integration:modules`).
 
 `integration-tests/setup.js`:
 
@@ -177,30 +177,95 @@ country-level region.
   Resend `send` is called with the right recipient. Polled per the
   async-timing note above, not asserted synchronously.
 
-## Suggested `integration:modules` tests
+## Implemented `integration:modules` tests
 
-### 1. Restock module service — `restock/__tests__/service.spec.ts`
+### 1. Restock module service — `restock/__tests__/service.spec.ts` — done
 
 - `getUniqueSubscriptions()` — seed subscriptions across multiple emails
   for the same `(variant_id, sales_channel_id)`, confirm only distinct
   pairs are returned.
+- `moduleIntegrationTestRunner` requires a `resolve` option for any
+  module that isn't one of Medusa's built-ins — without it,
+  `registerMedusaModule` throws `Cannot resolve module ''` trying to
+  `require.resolve` an empty path. Unlike `medusaIntegrationTestRunner`
+  (which boots the whole app, so `RESTOCK_MODULE` alone is enough to
+  resolve it from `medusa-config.ts`'s already-registered `modules`
+  list), this runner boots only the target module in isolation and needs
+  the same resolve string `medusa-config.ts` uses for it:
+  `resolve: './src/modules/restock'`.
+- The shared `integration-tests/setup.js` `afterAllHookDropDatabase()`
+  hook logs a caught, non-fatal `password authentication failed for user
+  "postgres"` error on every run — it targets `DB_TEMP_NAME`, which only
+  `medusaIntegrationTestRunner` sets; harmless here since
+  `moduleIntegrationTestRunner` manages its own per-suite database
+  lifecycle (`beforeEach`/`afterEach` around `MikroOrmWrapper`).
 
-### 2. Create-restock-subscription workflow — `restock/__tests__/create-subscription-workflow.spec.ts`
+### 2. Create-restock-subscription workflow — `restock/__tests__/create-subscription-workflow.spec.ts` — done
 
 - Full run against a real out-of-stock variant creates a
   `RestockSubscription` row.
 - Full run against an in-stock variant throws at the validation step and
-  leaves no row behind (confirms the workflow's compensation, not just the
-  step in isolation).
+  leaves no row behind. In practice `validateVariantOutOfStockStep` runs
+  *before* the create step, so this is really confirming the workflow
+  never reaches creation — not a create-then-roll-back — but it's still
+  the right level to test at (a step-level test can't see whether a
+  later, unrelated step run first would have left a row).
+- This workflow needs the full app — Product/Inventory/Sales-Channel
+  module links and the query graph, none of which
+  `moduleIntegrationTestRunner` (used by test #1) boots. Uses
+  `medusaIntegrationTestRunner` instead, same as the `integration:http`
+  specs, even though the file still has to live under
+  `src/modules/restock/__tests__/` to match this project's `testMatch`.
+  Seeds sales channel/stock location/product/variants/inventory via the
+  Admin API exactly like `restock-subscriptions.spec.ts`, then calls
+  `createRestockSubscriptionWorkflow(getContainer()).run({ input })`
+  directly instead of going through the store route. Needs the same
+  `jest.mock('resend', ...)` as that file, since the workflow really
+  does call `sendNotificationStep` on success.
+- **`workflow.run()`'s promise rejection (the default `throwOnError:
+  true` path) is not reliable for asserting a step failure** — confirmed
+  by direct repro: `await expect(workflow(...).run({...})).rejects.toThrow(...)`
+  failed non-deterministically (sometimes 3/3 runs, sometimes 0/3),
+  even in complete isolation with no other spec file involved, despite
+  a debug log confirming the validation step's `throw` line did execute
+  every time. Root cause (read from
+  `@medusajs/workflows-sdk`'s `dist/helper/workflow-export.js`): the
+  thrown error only surfaces if `transaction.getState()` has already
+  reached `FAILED`/`REVERTED` by the time `run()`'s promise resolves,
+  and that transition is asynchronous relative to the step's own
+  `throw`. `transaction.getErrors(TransactionHandlerType.INVOKE)`,
+  by contrast, is populated unconditionally in the same code path and
+  read every time regardless of transaction state. Fix: call
+  `.run({ input, throwOnError: false })` and assert on the returned
+  `errors` array (`errors[0].error.message`) instead of on promise
+  rejection. Reran the exact failing case 3/3 times after switching to
+  this pattern with no failures. Apply the same pattern in test #3 and
+  any future workflow-failure-path test in this repo.
 
-### 3. Send-restock-notifications workflow — `restock/__tests__/send-notifications-workflow.spec.ts`
+### 3. Send-restock-notifications workflow — `restock/__tests__/send-notifications-workflow.spec.ts` — done
 
-- Seed a restocked variant with subscriptions plus an unrelated,
-  still-out-of-stock variant's subscriptions.
-- Run the workflow: confirm a notification fires per subscriber on the
-  restocked variant, those subscriptions are removed afterward (per
-  `delete-restock-subscriptions.ts`), and the unrelated subscriptions are
-  untouched.
+- Seed a restocked variant (inventory already at a positive quantity —
+  the workflow only reads current availability, so there's no need to
+  actually transition 0→5 mid-test) with two subscriptions, plus an
+  unrelated, still-out-of-stock variant's subscription. Subscriptions
+  are seeded directly via `RestockModuleService.createRestockSubscriptions`,
+  bypassing the create-subscription workflow's out-of-stock validation
+  entirely (not needed here — this test is about the *send* workflow).
+- `sendRestockNotificationsWorkflow(getContainer()).run()` takes no
+  input (`getDistinctSubscriptionsStep` reads directly off the module).
+  Confirms a Resend `send` call per subscriber on the restocked variant
+  (2 calls, correct recipient emails), that variant's subscriptions
+  removed afterward (per `delete-restock-subscriptions.ts`), and the
+  unrelated subscription left untouched.
+- Unlike test #2, this workflow's happy path needed no
+  `throwOnError`/`errors`-array workaround — nothing here asserts on a
+  step failure, so `run()`'s ordinary resolved `result` is fine.
+- The Resend client (`new Resend(apiKey)`) is constructed lazily, on the
+  *first* `send` call, not at module-boot time — capturing
+  `(Resend as jest.Mock).mock.results[0]` in `beforeAll` throws
+  (`results[0]` is `undefined`, nothing has called `new Resend()` yet
+  since this file never exercises the create-subscription workflow).
+  Capture it after `.run()` resolves, inside the `it()`, instead.
 
 ### Not worth a separate test
 
