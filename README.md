@@ -1,20 +1,40 @@
 # The Vinyl Cut
 
-A fictional record shop e-commerce demo, built to showcase a production-grade
-headless commerce architecture on [Medusa.js](https://medusajs.com/), with a
-custom restock-notification module as the centerpiece.
+A fictional record shop, built as a full-stack portfolio piece: a headless
+commerce architecture on [Medusa.js](https://medusajs.com/), with a custom
+restock-notification system as the centerpiece — a real framework
+extension (new module, data model, and workflow), not just default
+configuration wearing a new theme.
 
-> This is a non-commercial demo project. Stripe runs in test mode throughout;
-> no real payments, customer data, or inventory are involved.
+> This is a non-commercial portfolio project — no real payments, customer
+> data, or inventory are involved.
 
-## Documentation
+## Highlights
 
-- [`notes/vinyl_cut_prd.html`](./notes/vinyl_cut_prd.html) — full product
-  requirements document: features, architecture, infrastructure, and phased
-  roadmap.
-- [`notes/vinyl_cut_etl_pipeline.html`](./notes/vinyl_cut_etl_pipeline.html) —
-  companion spec for the catalog ETL pipeline (MusicBrainz + Cover Art
-  Archive → Medusa).
+- **Custom Medusa module, not just configuration.** The restock-notify
+  system — the project's flagship feature — adds a new data model,
+  service, and workflow on top of Medusa rather than only wiring up what
+  ships by default. See [Flagship Differentiator](./notes/vc-prd.md#7-flagship-differentiator)
+  in the PRD.
+- **Real domain modeling for used-goods retail.** Condition-graded
+  inventory (Mint through Good), one-off stock per condition, and restock
+  semantics that account for a used record actually being irreplaceable —
+  problems a generic product catalog never has to solve.
+- **A genuine ETL pipeline, not synthetic seed data.** A standalone Python
+  pipeline pulls real release metadata and cover art from two live APIs
+  (MusicBrainz, the Cover Art Archive), with retry logic, idempotency, and
+  per-record error tracking — see [`notes/vc-etl-pipeline.md`](./notes/vc-etl-pipeline.md).
+- **Tested, not just demoed.** Unit, module-level, and HTTP-level
+  integration suites on the backend, all passing — see Testing below.
+- **Infrastructure trade-offs reasoned through, not glossed over.** Three
+  free-tier services (Render, Supabase, Upstash) each pause or spin down
+  on a different timer; the plan is one health-check endpoint that resets
+  all three rather than three bespoke workarounds — designed and written
+  up, ahead of the deployment itself. See Infrastructure & Deployment in
+  [`notes/vc-prd.md`](./notes/vc-prd.md).
+- **Written process artifacts, not just code.** A full product
+  requirements document, a phased roadmap, and suite-by-suite testing
+  specs — see Documentation below.
 
 ## Tech Stack
 
@@ -22,19 +42,46 @@ custom restock-notification module as the centerpiece.
 | --------------- | --------------------------------------------------------------------------------------------- |
 | Storefront      | Next.js 16 (Turbopack in dev), React 19, Tailwind CSS v4 + daisyUI                            |
 | Commerce engine | Medusa.js 2.18 (native cart, checkout, payment modules)                                       |
-| Payments        | Stripe (via Medusa payment provider + `@stripe/react-stripe-js` on the storefront), test mode |
+| Payments        | Stripe, via Medusa's payment provider — planned, not yet wired (see Project Status)            |
 | Database        | PostgreSQL (Supabase, hosted; Supabase CLI, local — see `supabase/`)                          |
 | Cache / events  | Redis (Upstash, hosted; plain Redis container, local)                                         |
 | File storage    | Supabase Storage (S3-compatible), via Medusa's File Module                                    |
 | Catalog ETL     | Python (MusicBrainz + Cover Art Archive → Medusa Admin API)                                   |
 | Hosting         | Render (backend, via the root `Dockerfile`); storefront hosting TBD                           |
 
+## Project Status
+
+The core shopping experience is complete and working end to end: catalog
+browsing and filtering, cart, guest checkout, flat-rate shipping for the
+shop's Western-U.S. service region, and the restock-notify system
+described above. Three pieces are still ahead of a live deployment: tax
+configuration (a flat regional rate is designed but not yet set up),
+wiring Stripe as the checkout payment provider (checkout currently
+completes against Medusa's default system provider), and standing up the
+hosted Render/Supabase/Upstash stack itself. See the Phased Roadmap in
+[`notes/vc-prd.md`](./notes/vc-prd.md) for what's next.
+
+## Documentation
+
+Written up in full rather than left implicit in the code:
+
+- [`notes/vc-prd.md`](./notes/vc-prd.md) — product requirements: features,
+  architecture, infrastructure, and phased roadmap.
+- [`notes/vc-etl-pipeline.md`](./notes/vc-etl-pipeline.md) — the catalog
+  ETL pipeline's design (MusicBrainz + Cover Art Archive → Medusa).
+- [`notes/vc-storefront-rebuild-sequence.md`](./notes/vc-storefront-rebuild-sequence.md) —
+  the storefront's build sequence.
+- [`notes/todo.md`](./notes/todo.md) — open backend follow-ups.
+- Testing specs: [`notes/medusa-unit-tests.md`](./notes/medusa-unit-tests.md),
+  [`notes/medusa-integration-tests.md`](./notes/medusa-integration-tests.md),
+  [`notes/e2e-tests.md`](./notes/e2e-tests.md).
+
 ## Monorepo Structure
 
 ```
 .
 ├── apps/
-│   ├── backend/          # @dtc/backend — Medusa.js commerce engine
+│   ├── backend/          # @vc/backend — Medusa.js commerce engine
 │   │   └── medusa-config.ts
 │   └── storefront/        # @vc/storefront — Next.js storefront
 │       └── next.config.ts
@@ -45,13 +92,8 @@ custom restock-notification module as the centerpiece.
 │       ├── build_seed.py  # Extract + Transform: MusicBrainz/CAA → seed.json
 │       ├── genres.py      # curated genre lookup table
 │       └── load_catalog.py # Load: seed.json → Medusa Admin API
-├── notes/                 # project documentation
-│   ├── vinyl_cut_prd.html
-│   ├── vinyl_cut_etl_pipeline.html
-│   └── pico.amber.min.css
+├── notes/                 # product spec, roadmap, testing specs
 ├── supabase/               # local Supabase CLI config (Postgres parity)
-│   ├── config.toml
-│   └── snippets/
 ├── docker-compose.yml      # local Postgres (Supabase CLI) + Redis + Medusa
 ├── Dockerfile              # builds the Medusa backend for deployment (Render)
 ├── pnpm-workspace.yaml
@@ -61,19 +103,28 @@ custom restock-notification module as the centerpiece.
 ```
 
 `apps/storefront` is a from-scratch Next.js storefront, built with the
-official `medusa-next` starter open as a reference rather than reimplemented
-from documentation alone (see `notes/vc-storefront-rebuild-sequence.md`).
+official `medusa-next` starter open as a reference rather than
+reimplemented from documentation alone — see
+[`notes/vc-storefront-rebuild-sequence.md`](./notes/vc-storefront-rebuild-sequence.md).
 The starter itself has since been moved out of this repo.
 
-## Prerequisites
+## Running This Locally
+
+The sections below are for anyone who wants to actually run the project —
+a reviewer digging into the code, or a future collaborator. Each app also
+has its own README with app-specific detail:
+[`apps/backend/README.md`](./apps/backend/README.md),
+[`apps/storefront/README.md`](./apps/storefront/README.md).
+
+### Prerequisites
 
 - Node.js ≥ 20
-- [pnpm](https://pnpm.io/) 11.13.0 (via Corepack: `corepack enable`)
+- [pnpm](https://pnpm.io/) 11.17.0 (via Corepack: `corepack enable`)
 - Docker (for local Postgres and Redis)
 - [Supabase CLI](https://supabase.com/docs/guides/local-development) (local Postgres parity with the hosted project — config already in `supabase/`)
 - Python 3.x + `pip install -r etl/requirements.txt` (for the catalog ETL pipeline)
 
-## Getting Started
+### Quick Start
 
 1. **Install dependencies**
 
@@ -87,7 +138,7 @@ The starter itself has since been moved out of this repo.
    pnpm env:up
    ```
 
-3. **Bootstrap Medusa** (one-time per environment: admin user, region, sales channel, stock location, shipping profile — see Bootstrap Prerequisites in `notes/vinyl_cut_etl_pipeline.html`)
+3. **Bootstrap Medusa** (one-time per environment: admin user, region, sales channel, stock location, shipping profile — see Bootstrap in `notes/vc-etl-pipeline.md`)
 
    ```bash
    cd apps/backend
@@ -116,95 +167,89 @@ The starter itself has since been moved out of this repo.
    Or combine steps 2 and 5 into one command for a fresh session:
    `pnpm dev:full`.
 
-## Session Management
-
-Local infra (Supabase CLI + Docker Compose) doesn't share a lifecycle with
-the Next.js dev server, and none of these processes stop each other
-automatically — worth being deliberate about start/stop rather than leaving
-things running indefinitely across sessions.
+### Session Management
 
 | Script              | Description                                                                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `pnpm env:up`       | `supabase start` + `docker compose up -d` — brings up Postgres, Storage, Redis, and the Medusa container                           |
 | `pnpm env:down`     | `docker compose down` + `supabase stop` — full teardown; named volumes (Postgres/Storage data, `node_modules`, pnpm store) persist |
-| `pnpm env:status`   | `supabase status` + `docker compose ps` — quick check before starting a session                                                    |
-| `pnpm env:restart`  | `env:down` then `env:up` — useful if the backend is behaving oddly after a long-running session                                    |
+| `pnpm env:status`   | `supabase status` + `docker compose ps`                                                                                             |
+| `pnpm env:restart`  | `env:down` then `env:up`                                                                                                            |
 | `pnpm backend:logs` | Tail the Medusa container's logs (`docker compose logs -f medusa`)                                                                 |
 
-**End of session**: `Ctrl+C` the storefront dev server, then `pnpm env:down`.
-Prefer a full teardown over leaving containers paused indefinitely — a
-long-lived Medusa dev process that's been through many hot-reloads is more
-prone to drifting into an odd state (e.g. a route not re-registering
-cleanly) than one restarted fresh each session, and Docker Desktop plus
-Supabase's local stack is meaningful sustained load to leave idling.
+`pnpm env:up` to start a session; `Ctrl+C` the storefront dev server, then
+`pnpm env:down` to end one. Nothing here shuts down on its own.
 
-**Start of a new session**: `pnpm env:up`, confirm with `pnpm env:status`,
-then `pnpm storefront:dev` (or skip straight to `pnpm dev:full`).
+### Available Scripts
 
-## Available Scripts
-
-### Root
+**Root**
 
 | Script                                                    | Description                                                                                                                                                       |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pnpm storefront:dev`                                     | Run the storefront in dev mode (`pnpm --filter=@vc/storefront dev`) — the backend runs via Docker Compose, not this script, to avoid a port collision on 9000     |
 | `pnpm dev:full`                                           | `env:up`, then `pnpm storefront:dev` — one command for a fresh session                                                                                            |
-| `pnpm build`                                              | Build all apps (`pnpm -r build`)                                                                                                                                  |
-| `pnpm start`                                              | Start all apps in production mode (`turbo start`)                                                                                                                 |
-| `pnpm lint`                                               | Lint all apps (`turbo lint`)                                                                                                                                      |
-| `pnpm test`                                               | Run tests across all apps (`turbo test`)                                                                                                                          |
 | `pnpm env:up` / `env:down` / `env:status` / `env:restart` | Local infrastructure lifecycle — see Session Management above                                                                                                     |
 | `pnpm backend:logs`                                       | Tail the Medusa container's logs                                                                                                                                  |
 
-### `apps/backend` (`@dtc/backend`)
+No root `build`/`start`/`lint`/`test` script yet (`turbo.json` defines
+those tasks; nothing wires them up). `pnpm -r build` and `pnpm -r lint`
+work today — for `start` and tests, use the app-specific scripts below.
 
-| Script                     | Description                                                   |
-| -------------------------- | ------------------------------------------------------------- |
-| `dev`                      | `medusa develop`                                              |
-| `build`                    | `medusa build`                                                |
-| `start`                    | `medusa start`                                                |
-| `lint`                     | `medusa lint`                                                 |
-| `test:unit`                | Unit tests (pure functions — pricing/tax/shipping helpers)    |
-| `test:integration:http`    | HTTP-level integration tests (e.g. checkout)                  |
-| `test:integration:modules` | Module-level integration tests (e.g. restock-notify workflow) |
+**`apps/backend`** (`@vc/backend`)
 
-### `apps/storefront` (`@vc/storefront`)
+| Script                     | Description                                                    |
+| -------------------------- | ---------------------------------------------------------------|
+| `dev`                      | `medusa develop`                                               |
+| `build`                    | `medusa build`                                                 |
+| `start`                    | `medusa start`                                                 |
+| `lint`                     | `medusa lint`                                                  |
+| `email:dev`                | Live-preview Resend email templates (`email dev`)              |
+| `test:unit`                | Unit tests (pure functions — pricing/tax/shipping helpers)     |
+| `test:integration:http`    | HTTP-level integration tests (e.g. checkout)                   |
+| `test:integration:modules` | Module-level integration tests (e.g. restock-notify workflow)  |
 
-| Script       | Description                                           |
-| ------------ | ------------------------------------------------------ |
-| `dev`        | `next dev -p 8000`                                     |
-| `build`      | `next build`                                            |
-| `start`      | `next start`                                            |
-| `lint`       | `eslint`                                                |
-| `analyze`    | `ANALYZE=true next build` — bundle analysis             |
-| `test`       | `vitest run` — unit tests                               |
-| `test:e2e`   | `playwright test`                                       |
-| `revalidate` | POST the dev server's `/api/revalidate?tag=products`    |
+See Testing in [`apps/backend/README.md`](./apps/backend/README.md) for how
+to actually run the two integration scripts locally — they need env vars
+the plain script name doesn't show.
 
-## Environment Variables
+**`apps/storefront`** (`@vc/storefront`)
+
+| Script            | Description                                            |
+| ----------------- | -------------------------------------------------------|
+| `dev`              | `next dev -p 8000`                                     |
+| `build`            | `next build`                                            |
+| `start`            | `next start`                                            |
+| `lint`             | `eslint`                                                |
+| `analyze`          | `ANALYZE=true next build` — bundle analysis             |
+| `test`             | `vitest run` — unit tests                               |
+| `test:watch`       | `vitest` — unit tests in watch mode                     |
+| `test:coverage`    | `vitest run --coverage`                                 |
+| `test:e2e`         | `playwright test`                                       |
+| `test:e2e:ui`      | `playwright test --ui`                                  |
+| `revalidate`       | POST the dev server's `/api/revalidate?tag=products`    |
+
+### Environment Variables
 
 Each app manages its own `.env`. At minimum, expect:
 
-- **Backend**: Postgres connection string (Supabase, direct or session-mode pooler — not the transaction-mode pooler), Redis URL (Upstash), Stripe secret key, Resend API key, Supabase Storage (S3) credentials.
-- **Storefront**: Medusa backend URL, Medusa publishable API key, Stripe publishable key.
+- **Backend**: Postgres connection string (Supabase, direct or session-mode pooler — not the transaction-mode pooler), Redis URL (Upstash), JWT/cookie secrets, Resend API key, Supabase Storage (S3) credentials. See `apps/backend/.env.template` for the full list.
+- **Storefront**: Medusa backend URL (`NEXT_PUBLIC_MEDUSA_BACKEND_URL`), Medusa publishable API key (`NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`), default region (`NEXT_PUBLIC_DEFAULT_REGION`), site base URL (`NEXT_PUBLIC_BASE_URL`), revalidate secret (`REVALIDATE_SECRET`, must match the backend's). There's no tracked `.env.example` for this app yet — start a `.env.local` from this list.
 
-## Deployment
-
-- **Backend**: the root `Dockerfile` builds the Medusa backend for deployment
-  to Render (free tier). See Infrastructure & Deployment in
-  `notes/vinyl_cut_prd.html` for the full rationale, including the
-  Render/Supabase/Upstash free-tier interactions and the UptimeRobot
-  keep-alive setup.
-- **Storefront**: hosting not yet finalized.
+Stripe isn't wired up on either side yet (see Project Status above) —
+`medusa-config.ts` registers no payment provider, so there's no Stripe
+secret key to set on the backend, and the storefront's
+`NEXT_PUBLIC_STRIPE_KEY` placeholder is currently unused.
 
 ## Testing
 
-Testing scope is intentionally limited for a demo project — see
-Non-Functional Requirements in `notes/vinyl_cut_prd.html`. In scope: unit
-tests for pure functions (`test:unit`) and integration tests for checkout
-(`test:integration:http`) and the restock-notify workflow
-(`test:integration:modules`).
+Scoped deliberately rather than exhaustively for a demo project — see
+Non-Functional Requirements in `notes/vc-prd.md`. Backend unit, module, and
+HTTP-level integration suites are implemented and passing (see Testing in
+[`apps/backend/README.md`](./apps/backend/README.md) to run them).
+Storefront unit tests cover the data layer; end-to-end coverage
+(Playwright) is one smoke test today, with the full per-journey plan
+written up in [`notes/e2e-tests.md`](./notes/e2e-tests.md).
 
 ## License
 
-See [`LICENSE`](./LICENSE).
+MIT — see [`LICENSE`](./LICENSE).

@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Add an `inventory-level-updated` subscriber (apps/backend/src/subscribers/)
+- [x] Add an `inventory-level-updated` subscriber (apps/backend/src/subscribers/)
       that calls the storefront's `/api/revalidate?tag=products` (see
       apps/backend/src/workflows/steps/revalidate-products.ts), the same way
       `send-order-confirmation`'s workflow does on `order.placed`.
@@ -25,3 +25,13 @@
       react-email's preview server) also uses dollar-scale example values
       instead of cents — worth fixing alongside so the preview doesn't
       mislead the same way.
+
+- [ ] Update `LICENSE` — it still carries `Copyright (c) 2022 Medusa`,
+      inherited from the `medusa-next` starter this project bootstrapped
+      from (apps/backend and the storefront's original scaffold).
+
+      Now that the root README is written for a portfolio audience
+      (clients/employers), a license file crediting Medusa rather than the
+      actual author reads as an oversight if anyone checks. Decide on
+      copyright holder/year and license terms, then update the file
+      accordingly.
