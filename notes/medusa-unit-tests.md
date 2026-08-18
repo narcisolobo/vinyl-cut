@@ -4,17 +4,21 @@ Companion to `vc-prd.md` §9's testing strategy, scoped to `apps/backend`'s
 `unit` Jest project (`jest.config.js`: `TEST_TYPE=unit` →
 `**/src/**/__tests__/**/*.unit.spec.[jt]s`).
 
-## Blocking prerequisite
+## Status: implemented
 
-`jest.config.js`'s `setupFiles: ["./integration-tests/setup.js"]` is set
-once at the top level, before the `TEST_TYPE` branches that pick
-`testMatch` — so it applies to the `unit` project too, even though unit
-tests shouldn't need an integration-test bootstrap at all. That file
-doesn't exist yet (confirmed — `test:unit` currently fails immediately with
-a Jest validation error, before running anything). Worth fixing two ways:
-create `integration-tests/setup.js` (see `medusa-integration-tests.md`),
-and/or make `setupFiles` conditional on `TEST_TYPE` so unit tests aren't
-coupled to integration bootstrap at all.
+`setupFiles` is now conditional per `TEST_TYPE` in `jest.config.js`, so the
+`unit` project no longer loads `integration-tests/setup.js` (that file now
+exists too — see `medusa-integration-tests.md` — but only the two
+integration projects reference it). All three suggested tests below are
+written and passing via `pnpm test:unit`.
+
+Testing the Resend templates (#3) surfaced two more real gaps, now fixed
+alongside: `jest.config.js`'s `transform`/`moduleFileExtensions` didn't
+cover `.tsx` at all, so nothing could import the email components; and
+`@react-email/components`' `Tailwind` wrapper renders inside a Suspense
+boundary, which only React's async streaming APIs support — `@react-email/render`
+(now a devDependency) handles that correctly where `react-dom/server`'s
+synchronous `renderToStaticMarkup` can't.
 
 ## Reality check on what's actually unit-testable today
 
@@ -38,43 +42,37 @@ Admin data, not custom calculation code in this repo. Nothing to unit test
 here yet; revisit if a custom pricing-display or tax-formatting helper
 gets written later.
 
-## Suggested tests
+## Implemented tests
 
-### 1. Restock subscription request validation
+### 1. Restock subscription request validation — done
 
-`api/store/restock-subscriptions/validators.ts` — `PostStoreCreateRestockSubscription`
-is a plain Zod schema, zero DB/container dependency, ready to test now.
+`api/store/restock-subscriptions/__tests__/validators.unit.spec.ts` covers
+`PostStoreCreateRestockSubscription`: a full payload, a payload with only
+`variant_id` (confirming `email`/`sales_channel_id` are genuinely
+optional), a missing `variant_id`, and a wrong-typed `variant_id`.
 
-- Valid payload (`variant_id` + `email`) parses successfully.
-- Missing `variant_id` fails.
-- `email` and `sales_channel_id` are genuinely optional — omitting either
-  still parses.
-- Wrong types (e.g. `variant_id` as a number) are rejected.
+### 2. Extracted and tested: variant-availability check — done
 
-### 2. Extract and test: variant-availability check
-
-The same `(availability || 0) > 0` check is duplicated in two places —
+The duplicated `(availability || 0) > 0` check now lives in one place,
+`lib/is-variant-available.ts`'s `isVariantAvailable(availability: number | null | undefined): boolean`
+(the real `getVariantAvailability` return type includes `null`, not just
+`undefined`). Both
 `workflows/create-restock-subscription/steps/validate-variant-out-of-stock.ts`
-and `workflows/send-restock-notifications/steps/get-restocked.ts` — each
-inline inside a container-coupled step. Pull it out into one named,
-exported helper (e.g. `isVariantAvailable(availability: number): boolean`
-in a small `lib/` module), have both steps call it, and unit test the
-helper directly:
+and `workflows/send-restock-notifications/steps/get-restocked.ts` call it
+instead of repeating the inline check. Tested directly in
+`lib/__tests__/is-variant-available.unit.spec.ts`: `0` → `false`,
+`null`/`undefined` → `false`, positive → `true`.
 
-- `0` → `false`.
-- `undefined`/missing → `false` (matches the existing `|| 0` fallback).
-- Positive number → `true`.
+### 3. Resend email content — done
 
-This also removes the duplication, not just adds test coverage.
-
-### 3. Resend email content
-
-`modules/resend/emails/` — if the restock-notify and order-confirmation
-templates are plain functions/components mapping props to subject + body
-content, unit test the mapping directly (no live Resend call needed):
-
-- Restock-notify email includes the restocked variant/release title.
-- Order-confirmation email includes the order ID and line items.
+`modules/resend/emails/__tests__/order-placed.unit.spec.ts` and
+`variant-restock.unit.spec.ts` render each template with
+`@react-email/render`'s `render()` against a minimal typed fixture (cast
+through the template's own exported prop type, e.g.
+`OrderPlacedEmailProps['order']`, rather than hand-typing a parallel
+shape) and assert on the rendered HTML: the order-confirmation email
+includes the order ID and each line item's title/grade, the
+restock-notify email includes the restocked release's title and grade.
 
 ## As the codebase grows
 

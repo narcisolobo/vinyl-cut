@@ -15,15 +15,20 @@ two integration Jest projects (`jest.config.js`):
 `@medusajs/test-utils` version before writing the first spec — Medusa's
 testing APIs have shifted across versions.)
 
-## Blocking prerequisite
+## Status
 
-Neither project can run yet: `jest.config.js` points `setupFiles` at
-`./integration-tests/setup.js`, which doesn't exist — `test:integration:http`
-and `test:integration:modules` both fail immediately with a Jest
-validation error. **First task, before any spec below:** create
-`integration-tests/setup.js`. A typical Medusa v2 setup file just raises
-Jest's default test timeout to accommodate booting a real app/DB per run
-(`jest.setTimeout(60000)` or similar) — nothing else is usually required.
+`integration-tests/setup.js` now exists:
+
+```js
+const { JestUtils } = require("@medusajs/test-utils")
+
+JestUtils.afterAllHookDropDatabase()
+```
+
+`jest.config.js` only wires `setupFiles` to it for the two integration
+projects now (the `unit` project no longer depends on it — see
+`medusa-unit-tests.md`). None of the specs below are written yet — this
+just unblocks them.
 
 ## On the tax test specifically
 

@@ -4,6 +4,7 @@ import {
   promiseAll,
 } from '@medusajs/framework/utils';
 import { createStep, StepResponse } from '@medusajs/framework/workflows-sdk';
+import { isVariantAvailable } from '../../../lib/is-variant-available';
 
 type GetRestockedStepInput = {
   variant_id: string;
@@ -26,8 +27,9 @@ const getRestockedStep = createStep(
         });
 
         if (
-          (variantAvailability[restockSubscription.variant_id].availability ||
-            0) > 0
+          isVariantAvailable(
+            variantAvailability[restockSubscription.variant_id].availability,
+          )
         ) {
           restocked.push(restockSubscription);
         }

@@ -434,3 +434,4 @@ const OrderPlacedEmailPreview = () => (
  * service.ts's `templates` map actually imports and uses.
  */
 export { orderPlacedEmail, OrderPlacedEmailPreview as default };
+export type { OrderPlacedEmailProps };

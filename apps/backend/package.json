@@ -43,6 +43,7 @@
   "devDependencies": {
     "@medusajs/test-utils": "2.18.0",
     "@playwright/test": "^1.62.0",
+    "@react-email/render": "2.0.6",
     "@react-email/ui": "^6.9.2",
     "@swc/core": "^1.7.28",
     "@swc/jest": "^0.2.36",

@@ -214,3 +214,4 @@ const VariantRestockEmailPreview = () => (
  * service.ts's `templates` map actually imports and uses.
  */
 export { variantRestockEmail, VariantRestockEmailPreview as default };
+export type { VariantRestockEmailProps };
