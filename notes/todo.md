@@ -11,7 +11,7 @@
       the PDP can keep showing stale Add to Cart / Notify Me state until the
       next order touches that product.
 
-- [ ] Fix cents-to-dollars conversion in the order confirmation email
+- [x] Fix cents-to-dollars conversion in the order confirmation email
       (apps/backend/src/modules/resend/emails/order-placed.tsx, `formatPrice`,
       lines 46-56).
 

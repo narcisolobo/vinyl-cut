@@ -45,11 +45,11 @@ function OrderPlacedEmailComponent({
 
   const formatPrice = (price: BigNumberValue) => {
     if (typeof price === 'number') {
-      return formatter.format(price);
+      return formatter.format(price / 100);
     }
 
     if (typeof price === 'string') {
-      return formatter.format(parseFloat(price));
+      return formatter.format(parseFloat(price) / 100);
     }
 
     return price?.toString() || '';
@@ -278,13 +278,13 @@ const mockOrder = {
     display_id: 1,
     email: 'afsaf@gmail.com',
     currency_code: 'usd',
-    total: 26.75,
-    subtotal: 16.75,
+    total: 2675,
+    subtotal: 1675,
     discount_total: 0,
-    shipping_total: 10,
+    shipping_total: 1000,
     tax_total: 0,
-    item_subtotal: 16.75,
-    item_total: 16.75,
+    item_subtotal: 1675,
+    item_total: 1675,
     item_tax_total: 0,
     customer_id: 'cus_01JSNXD6VQC1YH56E4TGC81NWX',
     items: [
@@ -314,26 +314,26 @@ const mockOrder = {
         is_tax_inclusive: false,
         is_custom_price: false,
         metadata: {},
-        raw_unit_price: { value: '16.75', precision: 20 },
+        raw_unit_price: { value: '1675', precision: 20 },
         created_at: new Date(),
         updated_at: new Date(),
         deleted_at: null,
         tax_lines: [],
         adjustments: [],
         compare_at_unit_price: null,
-        unit_price: 16.75,
+        unit_price: 1675,
         quantity: 1,
         raw_quantity: { value: '1', precision: 20 },
-        subtotal: 16.75,
-        total: 16.75,
-        original_total: 16.75,
+        subtotal: 1675,
+        total: 1675,
+        original_total: 1675,
         discount_total: 0,
         discount_subtotal: 0,
         discount_tax_total: 0,
         tax_total: 0,
         original_tax_total: 0,
-        refundable_total_per_unit: 16.75,
-        refundable_total: 16.75,
+        refundable_total_per_unit: 1675,
+        refundable_total: 1675,
         fulfilled_total: 0,
         shipped_total: 0,
         return_requested_total: 0,
@@ -388,17 +388,17 @@ const mockOrder = {
         shipping_option_id: 'so_01JSNXAQA64APG6BNHGCMCTN6V',
         data: {},
         metadata: null,
-        raw_amount: { value: '10', precision: 20 },
+        raw_amount: { value: '1000', precision: 20 },
         created_at: new Date(),
         updated_at: new Date(),
         deleted_at: null,
         tax_lines: [],
         adjustments: [],
-        amount: 10,
+        amount: 1000,
         order_id: 'order_01JSNXDH9BPJWWKVW03B9E9KW8',
-        subtotal: 10,
-        total: 10,
-        original_total: 10,
+        subtotal: 1000,
+        total: 1000,
+        original_total: 1000,
         discount_total: 0,
         discount_subtotal: 0,
         discount_tax_total: 0,
