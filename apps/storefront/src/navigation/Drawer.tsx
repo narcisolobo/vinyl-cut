@@ -28,7 +28,7 @@ function Drawer({ children, cart }: DrawerProps) {
       />
       <div className="drawer-content flex min-h-dvh flex-col">
         <NavBar cart={cart} />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
         <Disclaimer />
       </div>
