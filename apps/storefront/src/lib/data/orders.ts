@@ -1,112 +1,43 @@
-"use server"
+"use server";
 
-import { sdk } from "@lib/config"
-import medusaError from "@lib/util/medusa-error"
-import { getAuthHeaders, getCacheOptions } from "./cookies"
-import { HttpTypes } from "@medusajs/types"
+import { medusa } from "@/lib/medusa/config";
+import { type HttpTypes } from "@medusajs/types";
+import { getCacheOptions } from "./cookies";
 
-export const retrieveOrder = async (id: string) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
+const ORDER_FIELDS =
+  "*items,*items.variant,*items.product,*payment_collections.payments,*shipping_address,*billing_address,*shipping_methods";
 
-  const next = {
-    ...(await getCacheOptions("orders")),
-  }
-
-  return sdk.client
-    .fetch<HttpTypes.StoreOrderResponse>(`/store/orders/${id}`, {
-      method: "GET",
-      query: {
-        fields:
-          "*payment_collections.payments,*items,*items.metadata,*items.variant,*items.product",
-      },
-      headers,
-      next,
-      cache: "force-cache",
-    })
-    .then(({ order }) => order)
-    .catch((err) => medusaError(err))
-}
-
-export const listOrders = async (
-  limit: number = 10,
-  offset: number = 0,
-  filters?: Record<string, unknown>
-) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
-
-  const next = {
-    ...(await getCacheOptions("orders")),
-  }
-
-  return sdk.client
-    .fetch<HttpTypes.StoreOrderListResponse>(`/store/orders`, {
-      method: "GET",
-      query: {
-        limit,
-        offset,
-        order: "-created_at",
-        fields: "*items,+items.metadata,*items.variant,*items.product",
-        ...filters,
-      },
-      headers,
-      next,
-      cache: "force-cache",
-    })
-    .then(({ orders }) => orders)
-    .catch((err) => medusaError(err))
-}
-
-export const createTransferRequest = async (
-  state: {
-    success: boolean
-    error: string | null
-    order: HttpTypes.StoreOrder | null
-  },
-  formData: FormData
-): Promise<{
-  success: boolean
-  error: string | null
-  order: HttpTypes.StoreOrder | null
-}> => {
-  const id = formData.get("order_id") as string
-
+/**
+ * Fetches a placed order by ID, for the order-confirmation page.
+ * Throws — rather than failing soft — since its only caller already
+ * wraps it in a try/catch that renders a 404 on failure.
+ */
+async function retrieveOrder(id: string): Promise<HttpTypes.StoreOrder> {
   if (!id) {
-    return { success: false, error: "Order ID is required", order: null }
+    throw new Error("orders.ts: Missing order ID when retrieving order.");
   }
 
-  const headers = await getAuthHeaders()
+  const next = {
+    ...(await getCacheOptions("orders")),
+  };
 
-  return await sdk.store.order
-    .requestTransfer(
-      id,
-      {},
+  try {
+    const { order } = await medusa.client.fetch<HttpTypes.StoreOrderResponse>(
+      `/store/orders/${id}`,
       {
-        fields: "id, email",
+        method: "GET",
+        query: { fields: ORDER_FIELDS },
+        next,
+        cache: "force-cache",
       },
-      headers
-    )
-    .then(({ order }) => ({ success: true, error: null, order }))
-    .catch((err) => ({ success: false, error: err.message, order: null }))
+    );
+
+    return order;
+  } catch (error) {
+    throw new Error(`orders.ts: Failed to retrieve order "${id}".`, {
+      cause: error,
+    });
+  }
 }
 
-export const acceptTransferRequest = async (id: string, token: string) => {
-  const headers = await getAuthHeaders()
-
-  return await sdk.store.order
-    .acceptTransfer(id, { token }, {}, headers)
-    .then(({ order }) => ({ success: true, error: null, order }))
-    .catch((err) => ({ success: false, error: err.message, order: null }))
-}
-
-export const declineTransferRequest = async (id: string, token: string) => {
-  const headers = await getAuthHeaders()
-
-  return await sdk.store.order
-    .declineTransfer(id, { token }, {}, headers)
-    .then(({ order }) => ({ success: true, error: null, order }))
-    .catch((err) => ({ success: false, error: err.message, order: null }))
-}
+export { retrieveOrder };

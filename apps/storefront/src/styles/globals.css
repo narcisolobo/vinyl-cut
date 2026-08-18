@@ -1,112 +1,109 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
 
-@layer utilities {
-  /* Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+@plugin "daisyui";
+@import "./themes/vinyl-cut.css";
 
-  .no-scrollbar::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-
-  input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
-    @apply -translate-y-2 text-xsmall-regular;
-  }
-
-  input:focus ~ label {
-    @apply left-0;
-  }
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  textarea:-webkit-autofill:focus,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover,
-  select:-webkit-autofill:focus {
-    border: 1px solid #212121;
-    -webkit-text-fill-color: #212121;
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-    transition: background-color 5000s ease-in-out 0s;
-  }
-
-  input[type="search"]::-webkit-search-decoration,
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-results-button,
-  input[type="search"]::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-  }
+@theme inline {
+  --breakpoint-8xl: 1536px;
+  --container-8xl: 1536px;
+  --font-brand: var(--font-lobster), cursive;
+  --font-heading:
+    var(--font-bungee), ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-sans:
+    var(--font-outfit), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --text-shadow-headline:
+    4px 4px 0px color-mix(in oklch, var(--color-accent) 85%, transparent),
+    8px 8px 0px oklch(0.52 0.16 25 / 0.4);
+  --text-shadow-headline-inverted:
+    4px 4px 0px color-mix(in oklch, var(--color-base-content) 85%, transparent),
+    8px 8px 0px oklch(0.52 0.16 25 / 0.4);
+  --text-shadow-logo: 2px 2px 0px oklch(0.52 0.16 25 / 0.6);
+  --text-shadow-cta: 4px 4px 0px oklch(75% 0.183 55.934);
+  --text-heading: clamp(2rem, 3.6vw, 3.2rem);
 }
 
 @layer components {
-  .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
+  .heading {
+    @apply font-heading;
+    font-optical-sizing: auto;
   }
 
-  .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  .vc-gradient {
+    background: radial-gradient(
+      90% 70% at 78% 30%,
+      oklch(0.27949 0.036 260.03) 0%,
+      oklch(0.20768 0.039 265.754) 45%,
+      oklch(0.1786 0.034 265.754) 100%
+    );
   }
+}
 
-  .text-xsmall-regular {
-    @apply text-[10px] leading-4 font-normal;
+::view-transition-group(.morph) {
+  animation-duration: 400ms;
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  30% {
+    filter: blur(3px);
   }
+}
 
-  .text-small-regular {
-    @apply text-xs leading-5 font-normal;
+::view-transition-old(.nav-back) {
+  --slide-offset: 60px;
+  animation:
+    150ms ease-in both fade reverse,
+    400ms ease-in-out both slide reverse;
+}
+::view-transition-new(.nav-back) {
+  --slide-offset: -60px;
+  animation:
+    210ms ease-out 150ms both fade,
+    400ms ease-in-out both slide;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
 
-  .text-small-semi {
-    @apply text-xs leading-5 font-semibold;
-  }
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
 
-  .text-base-regular {
-    @apply text-sm leading-6 font-normal;
-  }
-
-  .text-base-semi {
-    @apply text-sm leading-6 font-semibold;
-  }
-
-  .text-large-regular {
-    @apply text-base leading-6 font-normal;
-  }
-
-  .text-large-semi {
-    @apply text-base leading-6 font-semibold;
-  }
-
-  .text-xl-regular {
-    @apply text-2xl leading-[36px] font-normal;
-  }
-
-  .text-xl-semi {
-    @apply text-2xl leading-[36px] font-semibold;
-  }
-
-  .text-2xl-regular {
-    @apply text-[30px] leading-[48px] font-normal;
-  }
-
-  .text-2xl-semi {
-    @apply text-[30px] leading-[48px] font-semibold;
-  }
-
-  .text-3xl-regular {
-    @apply text-[32px] leading-[44px] font-normal;
-  }
-
-  .text-3xl-semi {
-    @apply text-[32px] leading-[44px] font-semibold;
-  }
+@utility select-soft {
+  --select-soft-color: var(--color-primary);
+  background-color: color-mix(
+    in oklab,
+    var(--select-soft-color) 8%,
+    var(--color-base-100)
+  );
+  border-color: color-mix(
+    in oklab,
+    var(--select-soft-color) 10%,
+    var(--color-base-100)
+  );
+  color: var(--select-soft-color);
+  box-shadow: none;
 }

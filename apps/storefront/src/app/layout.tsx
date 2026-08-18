@@ -1,17 +1,21 @@
-import { getBaseURL } from "@lib/util/env"
-import { Metadata } from "next"
-import "styles/globals.css"
+import { bungee, geistMono, lobster, outfit } from "@/fonts";
+import "@/styles/globals.css";
+import { type ReactNode } from "react";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(getBaseURL()),
+interface RootLayoutProps {
+  children: ReactNode;
 }
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" data-mode="light">
-      <body>
-        <main className="relative">{props.children}</main>
-      </body>
+    <html
+      lang="en"
+      data-theme="vinyl-cut"
+      className={`${bungee.variable} ${geistMono.variable} ${lobster.variable} ${outfit.variable} h-full antialiased`}
+    >
+      <body className="relative flex min-h-full flex-col">{children}</body>
     </html>
-  )
+  );
 }
+
+export default RootLayout;
