@@ -4,7 +4,7 @@ The Vinyl Cut - Product Requirements Document
 
 **Project:** The Vinyl Cut (fictional record shop, demo project)
 
-**Document status:** Draft v4
+**Document status:** Draft v5
 
 **Target stack:** Next.js, Medusa.js (native cart, checkout, and payment modules), Stripe (as Medusa payment provider), PostgreSQL
 
@@ -118,10 +118,10 @@ This is the feature the project is built to showcase — a custom Medusa module 
 
 ### Restock / pre-order notify system
 
-- Custom Medusa module tracking "notify me" requests against out-of-stock, one-off used variants.
-- Custom workflow triggered on inventory restock that resolves pending notify requests for the affected variant.
+- Custom Medusa module (`RestockSubscription`) tracking "notify me" requests against out-of-stock, one-off used variants.
+- A daily cron job checks variant availability and triggers a workflow that resolves pending subscriptions for any variant that's come back in stock.
 - Transactional email sent to subscribed customers when a watched variant is restocked.
-- Demonstrates designing a custom module and event-driven workflow on top of Medusa, rather than only configuring what ships out of the box.
+- Demonstrates designing a custom module and workflow on top of Medusa, rather than only configuring what ships out of the box.
 
 #### Restock semantics
 
@@ -130,15 +130,17 @@ A genuinely one-off item (a specific physical disc) can never literally restock 
 #### Flow
 
 - No account or login required — a customer submits only an email address on an out-of-stock variant's "Notify Me" form.
-- Backend creates a `NotifyRequest` record: email, variant ID, status (`pending_verification`), a verification token (hashed at rest, single-use), and a timestamp. A partial unique index on `(email, variant_id)`, scoped to `status IN ('pending_verification', 'verified')`, prevents duplicate rows and duplicate restock emails from a normal user resubmitting the same request — a data-integrity rule, distinct from the abuse-prevention scope decision below. Scoping the index to active statuses (rather than an unconditional constraint) means a request that has already reached `notified` doesn't block the same customer from signing up again the next time that variant sells out.
-- Resend sends a confirmation email containing a tokenized verification link, similar to a magic-link auth flow.
-- Clicking the link flips the request's status to `verified`. Unverified requests expire and are pruned after a short window (e.g., 24-48 hours).
-- The restock workflow, triggered on inventory update, queries verified `NotifyRequest`s for that variant, sends the restock email via Resend, and flips status to `notified`.
+- Backend creates a `RestockSubscription` record: email, variant ID, sales channel ID, and (when available) customer ID. Subscribing is a single step — no verification email, no status field, no expiry/pruning window. A unique index on `(email, variant_id)` prevents duplicate rows from a normal user resubmitting the same request.
+- A daily cron job (`check-restock`, running at midnight) checks availability across watched variants. For any variant that's come back in stock, it triggers a workflow that queries subscriptions for that variant, sends the restock email via Resend, and resolves them.
 - If Customer Account Auth ships as well, a logged-in customer's email can pre-fill the notify form, but the notify system does not depend on auth to function.
+
+#### Design note
+
+An earlier draft of this document called for a double opt-in (a hashed, single-use verification token behind a magic-link email) and a workflow triggered directly off inventory-update events, with the request's unique index scoped to active statuses only. Both were simplified during implementation: a daily cron poll turned out simpler to reason about than a bespoke inventory-update listener, and dropping verification removes a whole status/expiry state machine that a non-production demo doesn't need. This simpler design is the accepted, final implementation — this section describes it, not the original spec.
 
 #### Explicit scope decision
 
-- Abuse prevention (rate-limiting repeated submissions, capping pending unverified requests per email) is intentionally out of scope. This is a legitimate production concern but not one this demo needs to demonstrate.
+- Abuse prevention (rate-limiting repeated submissions, capping pending requests per email) is intentionally out of scope. This is a legitimate production concern but not one this demo needs to demonstrate.
 
 ---
 
@@ -169,7 +171,7 @@ Additions that demonstrate specialized domain features and a polished user exper
 - Storefront pages should meet reasonable performance and accessibility baselines (responsive contrast, keyboard-navigable filters and cart).
 - Backend and storefront are deployed independently: Medusa backend on Render (free tier, persistent Node process), Postgres on Supabase, Redis on Upstash. See Infrastructure & Deployment for keep-alive handling.
 - Catalog content (artists, albums, cover art) is real, sourced via MusicBrainz and the Cover Art Archive; the disclaimer banner explicitly notes demonstration-only use with no commercial affiliation.
-- **Testing strategy:** scoped rather than comprehensive, given the Goals section's "production-grade" claim needs some backing without requiring full coverage for a demo project. In scope: unit tests for pure functions (e.g., condition-grade pricing logic, tax/shipping calculation helpers), plus integration tests for checkout and for the restock-notify workflow specifically, since that's the flagship feature. Broader end-to-end or UI test coverage is out of scope.
+- **Testing strategy:** scoped rather than comprehensive, given the Goals section's "production-grade" claim needs some backing without requiring full coverage for a demo project. In scope: backend unit tests for isolated, dependency-free logic and integration tests for checkout and the restock-notify workflow specifically, since that's the flagship feature — see **medusa-unit-tests.md** and **medusa-integration-tests.md** for the current suggested lists — plus end-to-end tests covering the storefront's key user journeys (catalog browsing/filtering, PDP, cart, guest checkout, shipping-region restriction, restock-notify signup) via Playwright, building on the existing `apps/storefront/e2e/` smoke test — see **e2e-tests.md** for that spec list. Full UI coverage (every viewport, every edge case) is still out of scope; the e2e suite targets the golden path per journey, not exhaustive coverage.
 
 ## 10\. Phased Roadmap
 

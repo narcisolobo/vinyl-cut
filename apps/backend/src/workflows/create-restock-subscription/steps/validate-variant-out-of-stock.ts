@@ -4,6 +4,7 @@ import {
   MedusaError,
 } from '@medusajs/framework/utils';
 import { createStep } from '@medusajs/framework/workflows-sdk';
+import { isVariantAvailable } from '../../../lib/is-variant-available';
 
 type ValidateVariantOutOfStockStepInput = {
   variant_id: string;
@@ -24,7 +25,7 @@ const validateVariantOutOfStockStep = createStep(
       sales_channel_id,
     });
 
-    if ((availability[variant_id].availability || 0) > 0) {
+    if (isVariantAvailable(availability[variant_id].availability)) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
         "Variant isn't out of stock.",
