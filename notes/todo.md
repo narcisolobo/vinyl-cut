@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Add an `inventory-level-updated` subscriber (apps/backend/src/subscribers/)
+- [x] Add an `inventory-level-updated` subscriber (apps/backend/src/subscribers/)
       that calls the storefront's `/api/revalidate?tag=products` (see
       apps/backend/src/workflows/steps/revalidate-products.ts), the same way
       `send-order-confirmation`'s workflow does on `order.placed`.
