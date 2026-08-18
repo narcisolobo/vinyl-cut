@@ -6,6 +6,7 @@ import { buildStoreUrl } from "@/lib/utils/build-store-url";
 import { toAlbum } from "@/lib/utils/map-to-album";
 import { type SortOptions } from "@/types/sort-options";
 import AlbumGrid from "./AlbumGrid";
+import AlbumGridEmptyState from "./AlbumGridEmptyState";
 import Pagination from "./Pagination";
 
 interface AlbumsProps {
@@ -64,7 +65,11 @@ async function Albums({
             basePath={`/${countryCode}/store`}
             searchParams={{ sort, genre, era, condition }}
           />
-          <AlbumGrid albums={albums} returnTo={returnTo} />
+          {albums.length > 0 ? (
+            <AlbumGrid albums={albums} returnTo={returnTo} />
+          ) : (
+            <AlbumGridEmptyState />
+          )}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
