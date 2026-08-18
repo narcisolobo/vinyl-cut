@@ -15,9 +15,14 @@ two integration Jest projects (`jest.config.js`):
 `@medusajs/test-utils` version before writing the first spec — Medusa's
 testing APIs have shifted across versions.)
 
-## Status
+## Status: `integration:http` implemented, `integration:modules` not started
 
-`integration-tests/setup.js` now exists:
+All five suggested `integration:http` specs below are written and passing
+(`pnpm test:integration:http`, run against a local Supabase Postgres —
+see Running locally below). `integration:modules` specs are intentionally
+not started yet.
+
+`integration-tests/setup.js`:
 
 ```js
 const { JestUtils } = require("@medusajs/test-utils")
@@ -25,62 +30,152 @@ const { JestUtils } = require("@medusajs/test-utils")
 JestUtils.afterAllHookDropDatabase()
 ```
 
-`jest.config.js` only wires `setupFiles` to it for the two integration
-projects now (the `unit` project no longer depends on it — see
-`medusa-unit-tests.md`). None of the specs below are written yet — this
-just unblocks them.
+`jest.config.js` wires `setupFiles` to it for both integration projects
+only (the `unit` project doesn't depend on it — see `medusa-unit-tests.md`).
 
-## On the tax test specifically
+Shared fixtures live in `integration-tests/helpers/`:
 
-Per the earlier discussion on TDD for tax: write test #4 below (the tax
-line assertion) *before* configuring tax regions in Admin, not after. It's
-the only verification signal for that configuration step other than
-manually checking the Admin UI or re-running the `curl`-based check this
-audit used — it'll fail against the current empty `tax_regions` table,
-then pass once the 8-state flat rates are configured.
+- `admin-auth.ts` — `createAdminUser`/`generateStoreHeaders`, trimmed
+  from Medusa's own `integration-tests/helpers/create-admin-user.ts`
+  (no RBAC, no real password hash — the JWT is minted directly).
+- `create-checkout-seeder.ts` — region, sales channel, stock location,
+  inventory, shipping profile/option, product+variant, and (optionally)
+  tax regions. Modeled closely on Medusa's own
+  `integration-tests/http/__tests__/fixtures/order.ts`.
+- `poll-for-notification.ts` — see the async-timing note below.
 
-## Suggested `integration:http` tests
+### Running locally
 
-### 1. Restock subscription creation — `restock-subscriptions.spec.ts`
+`medusaIntegrationTestRunner` builds its own DB connection from
+`DB_HOST`/`DB_USERNAME`/`DB_PASSWORD`/`DB_PORT` (defaults: `localhost`,
+`postgres`, empty, `5432`) — it ignores `DATABASE_URL` entirely, and the
+project's own `.env` uses `host.docker.internal`, which only resolves
+from inside a container anyway, not from the host process Jest runs in.
+Bring up just Postgres and Redis (not the `medusa` container — the app
+boots in-process inside Jest) and point at their host-published ports:
+
+```bash
+supabase start
+docker compose up -d redis
+DB_HOST=localhost DB_USERNAME=postgres DB_PASSWORD=postgres DB_PORT=54322 \
+REDIS_URL=redis://localhost:6379 \
+pnpm test:integration:http
+```
+
+### Real Resend calls — a genuine hazard, not hypothetical
+
+Both the restock-subscribe and order-placed workflows send a real
+notification as a side effect of the actions these tests take —
+confirmed the hard way: the first `restock-subscriptions.spec.ts` run
+made a genuine outbound call to Resend's API, and only failed to send
+because Resend itself rejects `example.com` as a test recipient domain.
+Every spec that can reach either of those workflows starts with:
+
+```ts
+jest.mock('resend', () => ({
+  Resend: jest.fn().mockImplementation(() => ({
+    emails: { send: jest.fn().mockResolvedValue({ data: { id: 'test' }, error: null }) },
+  })),
+}));
+```
+
+This mock is the actual fix — it removes the network call entirely.
+`apps/backend/.env.test` (`@medusajs/utils`'s `loadEnv` loads it
+alongside `.env` whenever `NODE_ENV=test`, which Jest sets by default;
+`.env.test`'s values win for any key both files define, everything else
+still comes from `.env`) is a second-layer backstop with placeholder
+`RESEND_API_KEY`/`RESEND_FROM_EMAIL` values, for the case a future spec
+reaches one of these workflows without adding the mock — it fails loudly
+with a real auth error against Resend instead of silently sending
+through the real production key.
+
+### `--runInBand` breaks multi-file runs under `--experimental-vm-modules`
+
+`test:integration:http`/`test:integration:modules` originally ran with
+`--runInBand`. Running all five specs together that way, four of five
+failed with `Method Map.prototype.set called on incompatible receiver` —
+a signature of Jest's `--experimental-vm-modules` giving each test file
+its own VM context, which Medusa's module registry doesn't tolerate
+sharing across files within one process. Each file passed individually;
+only the combined run under `--runInBand` broke. Dropping `--runInBand`
+(letting Jest use separate worker processes instead) fixed it — both
+scripts no longer pass that flag. `--experimental-vm-modules` itself is
+still required (confirmed: removing it breaks every file immediately,
+including ones with no Resend involvement — Medusa's own boot path uses
+a dynamic `import()` internally).
+
+### `waitWorkflowExecutions()` doesn't reliably track subscriber-dispatched workflows
+
+`order.placed` fires over the local, in-process event bus this harness
+forces regardless of `REDIS_URL`. Timing to the subscriber's workflow
+actually running varied from near-instant to ~60s across observed runs
+(DB connection-pool contention, not a fixed delay), and
+`utils.waitWorkflowExecutions()` didn't reliably track it either —
+observed once returning before the subscriber's workflow had even
+started. `poll-for-notification.ts` polls instead. `checkout.spec.ts`'s
+order-completion test also drains it (without asserting on the result)
+purely so it settles before that file's `afterAll` DB-drop hook runs —
+Postgres refuses to drop a database with an active connection still
+querying it, which otherwise timed out the hook.
+
+### Tax region `provider_id` — only settable on the top-level region
+
+Omitting `provider_id` when creating a tax region doesn't default to
+Medusa's built-in system provider — it stores `null`, and resolving it
+later throws (`AwilixResolutionError: Could not resolve 'null'`). The
+real provider key is `tp_system`. Setting it on a *province-level child*
+region, however, trips a DB check constraint
+(`CK_tax_region_provider_top_level`) — a child inherits its parent's
+provider automatically. Set `provider_id: 'tp_system'` only on the
+country-level region.
+
+## Implemented `integration:http` tests
+
+### 1. Restock subscription creation — `restock-subscriptions.spec.ts` — done
 
 - `POST /store/restock-subscriptions` on an out-of-stock variant succeeds.
 - Same request on an in-stock variant is rejected — exercises
   `validate-variant-out-of-stock` end to end.
-- Submitting the same `(email, variant_id)` pair twice is deduped/rejected
-  by the unique index, not silently duplicated.
+- Submitting the same `(email, variant_id)` pair twice leaves exactly one
+  row (queried directly via `RestockModuleService`), not two.
 
-### 2. Product options — `product-options.spec.ts`
+### 2. Product options — `product-options.spec.ts` — done
 
 - `GET /store/product-options` returns only options with
-  `is_exclusive: false`.
-- The `Condition` option and its grade values (`New`, `M`, `NM`, `VG+`,
-  `VG`, `G`) are present in the response shape the storefront's filter UI
-  depends on.
+  `is_exclusive: false`. Confirmed live: inline product options
+  (`options: [{ title, values }]` on `/admin/products`) default to
+  `is_exclusive: true` — a genuinely shared option has to be created
+  directly via `POST /admin/product-options` first and referenced by ID,
+  exactly matching `etl/tools/load_catalog.py`'s `get_or_create_condition_option`.
+- The option's values are present in the response shape the storefront's
+  filter UI depends on.
 
-### 3. Checkout — `checkout.spec.ts`
+### 3. Checkout — `checkout.spec.ts` — done
 
-The integration-test equivalent of the e2e checkout spec in
-`e2e-tests.md`, but asserting API responses rather than rendered UI:
+- Cart with a shipping address inside the seeded service zone's
+  province — the flat-rate shipping option is offered.
+- Same cart shape, address in an unlisted province — zero shipping
+  options returned (verified live via the Admin API earlier this session;
+  now codified).
+- Full guest checkout (cart → shipping method → payment session →
+  complete) — order totals match the cart exactly (item total, shipping
+  total, tax total, grand total, item count, address).
 
-- Create a cart, add a line item, set a shipping address within the
-  8-state region — confirm the flat-rate shipping option is offered.
-- Same cart, address outside the region — confirm no shipping option is
-  returned (this is exactly what the live `/admin` check this session
-  confirmed manually; codify it).
-- Complete the order — confirm totals, shipping cost, and item lines on
-  the resulting order match the cart.
+### 4. Tax line on checkout — `checkout-tax.spec.ts` — done
 
-### 4. Tax line on checkout — `checkout-tax.spec.ts`
+- CA (province-level override, 10% in the test fixture for a
+  round-number assertion) and OR (falls back to the country-level 0%
+  default, mirroring the real Admin config) both assert on
+  `cart.tax_total` after `POST /store/carts/:id/taxes` — not
+  `items[0].tax_total`, which the live response doesn't populate the way
+  the item-level field name suggests.
 
-- A cart with a CA shipping address includes the expected flat-rate tax
-  line once configured. Write this first — see the TDD note above.
+### 5. Order confirmation triggers — `order-confirmation.spec.ts` — done
 
-### 5. Order confirmation triggers — `order-confirmation.spec.ts`
-
-- Placing an order fires `order.placed` → `send-order-confirmation`
-  workflow. Assert via the `local`/`feed` notification provider already
-  configured in `medusa-config.ts` alongside Resend (a notification
-  record gets created) rather than intercepting a live Resend send.
+- Completing an order eventually produces a `Notification` row for the
+  `order-placed` template addressed to the cart's email, and the mocked
+  Resend `send` is called with the right recipient. Polled per the
+  async-timing note above, not asserted synchronously.
 
 ## Suggested `integration:modules` tests
 
