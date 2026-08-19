@@ -150,7 +150,6 @@ Additions that demonstrate specialized domain features and a polished user exper
 
 ### Vinyl-specific features
 
-- **Spinning record animation:** CSS/JS interactive animation where vinyl slides out of the sleeve and spins on hover/play.
 - **Goldmine grading scale guide:** interactive modal or tooltip explaining vinyl condition grades (M, NM, VG+, VG, G).
 
 ### Discovery & engagement
@@ -180,7 +179,7 @@ Additions that demonstrate specialized domain features and a polished user exper
 - **Phase 3: Cart & checkout** — wire up Medusa's cart module and Stripe-backed checkout flow (test mode), locally; add unit tests for pricing/tax/shipping helpers and integration tests for checkout.
 - **Phase 4: Restock-notify module** — build the custom Medusa module and workflow, wire to transactional email, locally; add integration tests for the notify/verify/restock workflow.
 - **Phase 5: Deployment** — provision Render, Supabase, and Upstash; deploy the Medusa Dockerfile to Render; point Redis at Upstash; bootstrap the deployed Medusa instance the same way as local (admin user, region, sales channel, stock location, shipping profile); re-run the catalog ETL pipeline (see vinyl\_cut\_etl\_pipeline.html) against it to seed the hosted database; set up the UptimeRobot health-check monitor; deploy the Next.js storefront.
-- **Phase 6: Polish & flex** — footer disclaimer, spinning record animation, grading-scale guide, responsive tweaks, SEO metadata, OG image, thumbnail.
+- **Phase 6: Polish & flex** — footer disclaimer, grading-scale guide, responsive tweaks, SEO metadata, OG image, thumbnail.
 
 ## 11\. Appendix: Vinyl Condition Grading Reference
 
