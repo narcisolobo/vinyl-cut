@@ -18,17 +18,19 @@ function isDeliveryComplete(cart: HttpTypes.StoreCart): boolean {
 }
 
 /**
- * A payment session only needs to be initiated (`"pending"`), not
- * confirmed, to count as this step being done — confirmation happens
- * at `placeOrder`.
+ * Stripe sessions stay `"pending"` from initiation straight through
+ * client-side confirmation — this project has no webhook wired up
+ * locally to flip that status, so `session.status` can't distinguish
+ * "just initiated" from "card confirmed." Completion is tracked
+ * instead via this cart metadata flag, set by `PaymentMethodForm`
+ * once `stripe.confirmPayment` actually succeeds.
  */
+const STRIPE_PAYMENT_CONFIRMED_METADATA_KEY = "stripe_payment_confirmed";
+
 function isPaymentComplete(cart: HttpTypes.StoreCart): boolean {
   return (
     isDeliveryComplete(cart) &&
-    (cart.payment_collection?.payment_sessions?.some(
-      (session) => session.status === "pending",
-    ) ??
-      false)
+    cart.metadata?.[STRIPE_PAYMENT_CONFIRMED_METADATA_KEY] === true
   );
 }
 
@@ -77,6 +79,7 @@ function resolveActiveStep(
 /** Medusa's payment provider API returns only an `id` — no display name — so labels are mapped by hand. */
 const PAYMENT_PROVIDER_LABELS: Record<string, string> = {
   pp_system_default: "Manual Payment (Test Mode)",
+  pp_stripe_stripe: "Credit Card",
 };
 
 function getPaymentProviderLabel(providerId: string): string {
@@ -85,6 +88,7 @@ function getPaymentProviderLabel(providerId: string): string {
 
 export {
   STEP_ORDER,
+  STRIPE_PAYMENT_CONFIRMED_METADATA_KEY,
   isAddressComplete,
   isDeliveryComplete,
   isPaymentComplete,

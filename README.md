@@ -71,6 +71,8 @@ Written up in full rather than left implicit in the code:
   ETL pipeline's design (MusicBrainz + Cover Art Archive → Medusa).
 - [`notes/vc-storefront-rebuild-sequence.md`](./notes/vc-storefront-rebuild-sequence.md) —
   the storefront's build sequence.
+- [`notes/vc-stripe-integration-sequence.md`](./notes/vc-stripe-integration-sequence.md) —
+  wiring Stripe in as the checkout payment provider.
 - [`notes/todo.md`](./notes/todo.md) — open backend follow-ups.
 - Testing specs: [`notes/medusa-unit-tests.md`](./notes/medusa-unit-tests.md),
   [`notes/medusa-integration-tests.md`](./notes/medusa-integration-tests.md),

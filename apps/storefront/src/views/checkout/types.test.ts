@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { HttpTypes } from "@medusajs/types";
 import {
+  STRIPE_PAYMENT_CONFIRMED_METADATA_KEY,
   getPaymentProviderLabel,
   isAddressComplete,
   isDeliveryComplete,
@@ -17,6 +18,7 @@ type CartFixture = {
   email?: string | null;
   shipping_methods?: unknown[];
   payment_collection?: unknown;
+  metadata?: Record<string, unknown> | null;
 };
 
 function makeCart(overrides: CartFixture = {}): HttpTypes.StoreCart {
@@ -27,6 +29,7 @@ function makeCart(overrides: CartFixture = {}): HttpTypes.StoreCart {
     email: null,
     shipping_methods: [],
     payment_collection: null,
+    metadata: null,
     ...overrides,
   } as unknown as HttpTypes.StoreCart;
 }
@@ -41,10 +44,15 @@ const completeDeliveryFields: CartFixture = {
   shipping_methods: [{ id: "sm_1" }],
 };
 
-const completePaymentFields: CartFixture = {
+const pendingPaymentSessionFields: CartFixture = {
   payment_collection: {
     payment_sessions: [{ status: "pending" }],
   },
+};
+
+const completePaymentFields: CartFixture = {
+  ...pendingPaymentSessionFields,
+  metadata: { [STRIPE_PAYMENT_CONFIRMED_METADATA_KEY]: true },
 };
 
 describe("isAddressComplete", () => {
@@ -77,15 +85,23 @@ describe("isDeliveryComplete", () => {
 });
 
 describe("isPaymentComplete", () => {
-  it("is false without a completed delivery step, even with a pending payment session", () => {
+  it("is false without a completed delivery step, even with payment confirmed", () => {
     expect(isPaymentComplete(makeCart(completePaymentFields))).toBe(false);
   });
 
-  it("is false with delivery complete but no pending payment session", () => {
+  it("is false with delivery complete but payment not confirmed", () => {
     expect(isPaymentComplete(makeCart(completeDeliveryFields))).toBe(false);
   });
 
-  it("is true once delivery is complete and a payment session is pending", () => {
+  it("is false with delivery complete and a pending session, but not yet confirmed — session status alone can't tell the two apart", () => {
+    expect(
+      isPaymentComplete(
+        makeCart({ ...completeDeliveryFields, ...pendingPaymentSessionFields }),
+      ),
+    ).toBe(false);
+  });
+
+  it("is true once delivery is complete and the confirmation metadata flag is set", () => {
     expect(
       isPaymentComplete(
         makeCart({ ...completeDeliveryFields, ...completePaymentFields }),
@@ -95,7 +111,7 @@ describe("isPaymentComplete", () => {
 });
 
 describe("isReviewReady", () => {
-  it("is true only once address, delivery, and payment are all complete", () => {
+  it("is true once address, delivery, and payment are all complete", () => {
     const cart = makeCart({
       ...completeAddressFields,
       ...completeDeliveryFields,
@@ -149,6 +165,16 @@ describe("resolveActiveStep", () => {
     expect(resolveActiveStep(undefined, cart)).toBe("review");
     expect(resolveActiveStep("review", cart)).toBe("review");
   });
+
+  it("caps at 'payment' with only a pending session — confirmation hasn't happened yet", () => {
+    const cart = makeCart({
+      ...completeAddressFields,
+      ...completeDeliveryFields,
+      ...pendingPaymentSessionFields,
+    });
+    expect(resolveActiveStep(undefined, cart)).toBe("payment");
+    expect(resolveActiveStep("review", cart)).toBe("payment");
+  });
 });
 
 describe("getPaymentProviderLabel", () => {
@@ -156,11 +182,12 @@ describe("getPaymentProviderLabel", () => {
     expect(getPaymentProviderLabel("pp_system_default")).toBe(
       "Manual Payment (Test Mode)",
     );
+    expect(getPaymentProviderLabel("pp_stripe_stripe")).toBe("Credit Card");
   });
 
   it("falls back to the raw provider ID for an unmapped provider", () => {
-    expect(getPaymentProviderLabel("pp_stripe_stripe")).toBe(
-      "pp_stripe_stripe",
+    expect(getPaymentProviderLabel("pp_unmapped_provider")).toBe(
+      "pp_unmapped_provider",
     );
   });
 });

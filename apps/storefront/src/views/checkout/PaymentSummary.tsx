@@ -1,4 +1,3 @@
-import LocalizedClientLink from "@/components/LocalizedClientLink";
 import { HttpTypes } from "@medusajs/types";
 import { getPaymentProviderLabel } from "./types";
 
@@ -17,12 +16,6 @@ function PaymentSummary({ cart }: PaymentSummaryProps) {
           {session && getPaymentProviderLabel(session.provider_id)}
         </p>
       </div>
-      <LocalizedClientLink
-        href="/checkout?step=payment"
-        className="link link-hover w-fit text-sm"
-      >
-        Edit
-      </LocalizedClientLink>
     </div>
   );
 }
