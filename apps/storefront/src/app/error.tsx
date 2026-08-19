@@ -1,6 +1,7 @@
 "use client";
 
 import Eyebrow from "@/components/Eyebrow";
+import * as Sentry from "@sentry/nextjs";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -11,8 +12,7 @@ interface ErrorPageProps {
 
 function ErrorPage({ error, retry }: ErrorPageProps) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
+    Sentry.captureException(error);
   }, [error]);
 
   return (
