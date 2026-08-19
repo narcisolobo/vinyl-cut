@@ -35,3 +35,15 @@
       actual author reads as an oversight if anyone checks. Decide on
       copyright holder/year and license terms, then update the file
       accordingly.
+
+- [ ] Set `metadataBase` in the storefront's root metadata config — it's
+      not set anywhere in the app, and `next start` logs a warning about it
+      on every boot.
+
+      Without it, relative OG/Twitter image URLs resolve against
+      `http://localhost:3000` by default (Next's fallback), so once the
+      site is deployed off `localhost` the `og:image` tags will still
+      point at a local URL instead of the real deployed domain. Set it to
+      the production URL (`https://vinylcut.narcisolobo.com`, per the
+      `openGraph.url` values already hardcoded across the page metadata)
+      in `apps/storefront/src/app/layout.tsx`.

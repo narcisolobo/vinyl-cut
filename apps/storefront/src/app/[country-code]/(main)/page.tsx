@@ -7,10 +7,21 @@ import HomeNewArrivals from "@/views/landing-page/sections/new-arrivals/HomeNewA
 import HomeUsedAndRare from "@/views/landing-page/sections/used-and-rare/HomeUsedAndRare";
 import { type Metadata } from "next";
 
-const metadata: Metadata = {
+const meta = {
   title: "Home | The Vinyl Cut",
   description:
     "Browse new and used vinyl at The Vinyl Cut — condition-graded records, genre and era filters, and restock alerts when sold-out pressings come back in.",
+};
+
+const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: "https://vinylcut.narcisolobo.com",
+    type: "website",
+  },
 };
 
 export default function Home() {

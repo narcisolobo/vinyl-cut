@@ -1,0 +1,1 @@
+The Vinyl Cut store page showing a grid of vinyl records with cover art, artist names, prices, and condition badges.

@@ -1,7 +1,8 @@
 "use client";
 
 import { formatPrice } from "@/lib/utils/format-price";
-import { type Album, type AlbumVariant } from "@/types/album";
+import { getLowestPriceVariant } from "@/lib/utils/get-lowest-price-variant";
+import { type Album } from "@/types/album";
 import LocalizedClientLink from "@/components/LocalizedClientLink";
 import { CaretLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
@@ -15,17 +16,6 @@ import AlbumTracklist from "./AlbumTracklist";
 interface AlbumDetailsProps {
   album: Album;
   backHref: string;
-}
-
-/** Cheapest variant — selected by default so the price starts low. */
-function getLowestPriceVariant(
-  variants: AlbumVariant[],
-): AlbumVariant | undefined {
-  return variants.reduce<AlbumVariant | undefined>(
-    (lowest, variant) =>
-      !lowest || variant.price.amount < lowest.price.amount ? variant : lowest,
-    undefined,
-  );
 }
 
 function AlbumDetails({ album, backHref }: AlbumDetailsProps) {
