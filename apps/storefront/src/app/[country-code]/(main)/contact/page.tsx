@@ -5,10 +5,21 @@ import ContactHero from "@/views/contact-us/hero/ContactHero";
 import DropUsALine from "@/views/contact-us/email/DropUsALine";
 import type { Metadata } from "next";
 
-const metadata: Metadata = {
+const meta = {
   title: "Contact Us | The Vinyl Cut",
   description:
     "Get in touch with The Vinyl Cut — questions about an order, selling your records, or grading. Visit us on SE Hawthorne Blvd in Portland, or drop us a line.",
+};
+
+const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: "https://vinylcut.narcisolobo.com/contact",
+    type: "website",
+  },
 };
 
 function ContactUsPage() {

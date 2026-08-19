@@ -6,10 +6,21 @@ import SellHowTo from "@/views/sell-your-records/sections/how-to/SellHowTo";
 import SellSpecs from "@/views/sell-your-records/sections/specs/SellSpecs";
 import { Metadata } from "next";
 
-const metadata: Metadata = {
+const meta = {
   title: "Sell Your Records | The Vinyl Cut",
   description:
     "Bring your vinyl to The Vinyl Cut. Fair, honest grading from graders with fifty years combined experience — walk-ins welcome, no appointment needed.",
+};
+
+const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: "https://vinylcut.narcisolobo.com/sell",
+    type: "website",
+  },
 };
 
 function SellYourRecordsPage() {

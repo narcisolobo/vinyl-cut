@@ -1,78 +1,124 @@
 "use client";
 
+import { updateCart } from "@/lib/data/cart";
 import { initiatePaymentSession } from "@/lib/data/checkout";
-import { cn } from "@/lib/utils/cn";
+import { stripePromise } from "@/lib/stripe/config";
 import { HttpTypes } from "@medusajs/types";
+import {
+  Elements,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
-import { getPaymentProviderLabel } from "./types";
+import { SyntheticEvent, useEffect, useRef, useState } from "react";
+import { STRIPE_PAYMENT_CONFIRMED_METADATA_KEY } from "./types";
 
 type PaymentMethodFormProps = {
   cart: HttpTypes.StoreCart;
   paymentProviders: HttpTypes.StorePaymentProvider[];
 };
 
-function PaymentMethodForm({ cart, paymentProviders }: PaymentMethodFormProps) {
+function PaymentForm() {
+  const stripe = useStripe();
+  const elements = useElements();
   const router = useRouter();
   const pathname = usePathname();
-  const [selectedId, setSelectedId] = useState(
-    () => cart.payment_collection?.payment_sessions?.at(-1)?.provider_id ?? "",
-  );
   const [isUpdating, setIsUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleSelect(providerId: string) {
-    setSelectedId(providerId);
+  const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+
     setIsUpdating(true);
     setError(null);
 
+    const result = await stripe.confirmPayment({
+      elements,
+      redirect: "if_required",
+    });
+
+    if (result.error) {
+      setError(result.error.message ?? "Your payment could not be confirmed.");
+      setIsUpdating(false);
+      return;
+    }
+
     try {
-      await initiatePaymentSession(cart, { provider_id: providerId });
+      await updateCart({
+        metadata: { [STRIPE_PAYMENT_CONFIRMED_METADATA_KEY]: true },
+      });
       router.push(`${pathname}?step=review`);
     } catch (err) {
       console.error(
-        "PaymentMethodForm.tsx: Failed to initiate payment session.",
+        "PaymentMethodForm.tsx: Failed to record payment confirmation.",
         err,
       );
       setError(err instanceof Error ? err.message : String(err));
       setIsUpdating(false);
     }
-  }
+  };
 
   return (
-    <div className="flex flex-col gap-4">
-      <div
-        role="radiogroup"
-        aria-label="Payment method"
-        className="flex flex-col gap-2"
-      >
-        {paymentProviders.map((provider) => (
-          <label
-            key={provider.id}
-            className={cn(
-              "border-base-300 rounded-box flex cursor-pointer items-center gap-3 border p-4",
-              selectedId === provider.id && "border-accent",
-            )}
-          >
-            <input
-              type="radio"
-              name="payment_provider"
-              className="radio"
-              checked={selectedId === provider.id}
-              disabled={isUpdating}
-              onChange={() => handleSelect(provider.id)}
-            />
-            {getPaymentProviderLabel(provider.id)}
-          </label>
-        ))}
-      </div>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <PaymentElement />
 
       {error && (
         <div role="alert" className="alert alert-error">
           <span>{error}</span>
         </div>
       )}
-    </div>
+
+      <div className="text-right">
+        <button
+          type="submit"
+          className="btn btn-accent w-fit uppercase"
+          disabled={isUpdating || !stripe || !elements}
+        >
+          {isUpdating ? "Confirming…" : "Continue to Review"}
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function PaymentMethodForm({ cart, paymentProviders }: PaymentMethodFormProps) {
+  const router = useRouter();
+  const hasRequestedSession = useRef(false);
+  const clientSecret = cart.payment_collection?.payment_sessions?.at(-1)?.data
+    .client_secret as string | undefined;
+
+  useEffect(() => {
+    if (clientSecret || hasRequestedSession.current) {
+      return;
+    }
+
+    const [stripeProvider] = paymentProviders;
+
+    if (!stripeProvider) {
+      return;
+    }
+
+    hasRequestedSession.current = true;
+
+    initiatePaymentSession(cart, {
+      provider_id: stripeProvider.id,
+      data: { payment_method_types: ["card"] },
+    }).then(() => router.refresh());
+  }, [cart, clientSecret, paymentProviders, router]);
+
+  if (!clientSecret) {
+    return <span className="loading loading-spinner" />;
+  }
+
+  return (
+    <Elements stripe={stripePromise} options={{ clientSecret }}>
+      <PaymentForm />
+    </Elements>
   );
 }
 

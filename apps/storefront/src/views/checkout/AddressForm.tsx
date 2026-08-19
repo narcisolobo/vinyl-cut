@@ -23,12 +23,16 @@ type AddressFieldProps = {
   type?: string;
   defaultValue?: string;
   className?: string;
+  autoComplete?: string;
 };
 
 const initialState: SetAddressesState = { fieldErrors: {}, formError: null };
 
 /** Rough heuristic for whether a cart's billing address was originally set as "same as shipping". */
-function isSameAddress(a?: CartAddress | null, b?: CartAddress | null): boolean {
+function isSameAddress(
+  a?: CartAddress | null,
+  b?: CartAddress | null,
+): boolean {
   if (!a || !b) {
     return false;
   }
@@ -43,6 +47,7 @@ function AddressField({
   type = "text",
   defaultValue,
   className,
+  autoComplete,
 }: AddressFieldProps) {
   return (
     <div className={className}>
@@ -53,6 +58,7 @@ function AddressField({
           required={required}
           defaultValue={defaultValue}
           placeholder={label}
+          autoComplete={autoComplete}
           className={cn("input w-full", errors?.length && "input-error")}
         />
         <span>
@@ -70,9 +76,14 @@ function AddressField({
 }
 
 function AddressForm({ cart }: AddressFormProps) {
-  const [state, formAction, pending] = useActionState(setAddresses, initialState);
+  const [state, formAction, pending] = useActionState(
+    setAddresses,
+    initialState,
+  );
   const [sameAsBilling, setSameAsBilling] = useState(
-    () => !cart.billing_address || isSameAddress(cart.shipping_address, cart.billing_address),
+    () =>
+      !cart.billing_address ||
+      isSameAddress(cart.shipping_address, cart.billing_address),
   );
   const { fieldErrors, formError } = state;
 
@@ -84,6 +95,7 @@ function AddressForm({ cart }: AddressFormProps) {
         </legend>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <AddressField
+            autoComplete="given-name"
             name="shipping_address.first_name"
             label="First name"
             required
@@ -91,6 +103,7 @@ function AddressForm({ cart }: AddressFormProps) {
             errors={fieldErrors["shipping_address.first_name"]}
           />
           <AddressField
+            autoComplete="family-name"
             name="shipping_address.last_name"
             label="Last name"
             required
@@ -98,6 +111,7 @@ function AddressForm({ cart }: AddressFormProps) {
             errors={fieldErrors["shipping_address.last_name"]}
           />
           <AddressField
+            autoComplete="street-address"
             name="shipping_address.address_1"
             label="Address"
             required
@@ -106,12 +120,14 @@ function AddressForm({ cart }: AddressFormProps) {
             errors={fieldErrors["shipping_address.address_1"]}
           />
           <AddressField
+            autoComplete="organization"
             name="shipping_address.company"
             label="Company"
             defaultValue={cart.shipping_address?.company ?? undefined}
             errors={fieldErrors["shipping_address.company"]}
           />
           <AddressField
+            autoComplete="postal-code"
             name="shipping_address.postal_code"
             label="Postal code"
             required
@@ -119,6 +135,7 @@ function AddressForm({ cart }: AddressFormProps) {
             errors={fieldErrors["shipping_address.postal_code"]}
           />
           <AddressField
+            autoComplete="address-level2"
             name="shipping_address.city"
             label="City"
             required
@@ -132,7 +149,8 @@ function AddressForm({ cart }: AddressFormProps) {
               defaultValue={cart.shipping_address?.province ?? ""}
               className={cn(
                 "select w-full",
-                fieldErrors["shipping_address.province"]?.length && "select-error",
+                fieldErrors["shipping_address.province"]?.length &&
+                  "select-error",
               )}
             >
               <option value="" disabled>
@@ -154,7 +172,11 @@ function AddressForm({ cart }: AddressFormProps) {
             {/* A `disabled` select is excluded from FormData entirely,
                 so the actual submitted value comes from this hidden
                 input instead — the select is display-only. */}
-            <input type="hidden" name="shipping_address.country_code" value="us" />
+            <input
+              type="hidden"
+              name="shipping_address.country_code"
+              value="us"
+            />
             <select defaultValue="us" disabled className="select w-full">
               <option value="us">United States</option>
             </select>
@@ -229,7 +251,11 @@ function AddressForm({ cart }: AddressFormProps) {
               errors={fieldErrors["billing_address.province"]}
             />
             <div>
-              <input type="hidden" name="billing_address.country_code" value="us" />
+              <input
+                type="hidden"
+                name="billing_address.country_code"
+                value="us"
+              />
               <select defaultValue="us" disabled className="select w-full">
                 <option value="us">United States</option>
               </select>
@@ -240,6 +266,7 @@ function AddressForm({ cart }: AddressFormProps) {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <AddressField
+          autoComplete="email"
           name="email"
           label="Email"
           type="email"
@@ -248,6 +275,7 @@ function AddressForm({ cart }: AddressFormProps) {
           errors={fieldErrors["email"]}
         />
         <AddressField
+          autoComplete="tel"
           name="shipping_address.phone"
           label="Phone"
           type="tel"
@@ -262,13 +290,15 @@ function AddressForm({ cart }: AddressFormProps) {
         </div>
       )}
 
-      <button
-        type="submit"
-        className="btn btn-accent w-fit uppercase"
-        disabled={pending}
-      >
-        {pending ? "Saving…" : "Continue to delivery"}
-      </button>
+      <div className="text-right">
+        <button
+          type="submit"
+          className="btn btn-accent w-fit uppercase"
+          disabled={pending}
+        >
+          {pending ? "Saving…" : "Continue to delivery"}
+        </button>
+      </div>
     </form>
   );
 }

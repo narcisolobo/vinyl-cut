@@ -25,7 +25,7 @@ function OrderConfirmed({ order }: OrderConfirmedProps) {
   });
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 p-4">
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 pt-24 pb-16">
       <div className="flex flex-col items-center gap-2 text-center">
         <CheckCircleIcon className="text-success" size={48} weight="fill" />
         <h1 className="text-3xl font-semibold">Thank you for your order!</h1>

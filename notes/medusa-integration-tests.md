@@ -129,6 +129,24 @@ region, however, trips a DB check constraint
 provider automatically. Set `provider_id: 'tp_system'` only on the
 country-level region.
 
+### Tax region `province_code` — bare code, not the Admin dashboard's format
+
+`createTaxRegions` (the Tax Module Service call this fixture uses) expects
+a bare province code (`'ca'`), matching `shipping_address.province`
+throughout Medusa — that's what `checkout-tax.spec.ts` relies on and what
+the tax-matching query compares against directly (only lowercased, no
+country prefix added).
+
+The Admin *dashboard* doesn't follow this: its province Tax Region form
+stores the full ISO 3166-2 code lowercased instead (`'us-ca'`), sourced
+from `@medusajs/dashboard`'s country/province option table. A region
+created that way silently never matches a real cart's address and tax
+falls back to the country default — confirmed live against a real store
+(2026-08-19; see `apps/backend/src/migration-scripts/fix-tax-region-province-codes.ts`,
+which fixed 7 mis-coded state regions). If a test or script ever creates
+tax regions to mirror what Admin produces, use the module API directly
+with bare codes — not the dashboard's format.
+
 ## Implemented `integration:http` tests
 
 ### 1. Restock subscription creation — `restock-subscriptions.spec.ts` — done

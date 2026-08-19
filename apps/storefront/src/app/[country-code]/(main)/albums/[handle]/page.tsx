@@ -24,9 +24,20 @@ async function generateMetadata(
   const album = await getProductByHandle(handle, countryCode);
   if (!album) notFound();
 
-  return {
+  const meta = {
     title: `${album.subtitle} — ${album.title} | The Vinyl Cut`,
     description: buildMetaDescription(album.description ?? ""),
+  };
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `https://vinylcut.narcisolobo.com/albums/${handle}`,
+      type: "website",
+    },
   };
 }
 

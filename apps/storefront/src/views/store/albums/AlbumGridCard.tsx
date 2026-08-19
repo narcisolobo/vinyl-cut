@@ -3,8 +3,9 @@
 import Divider from "@/components/Divider";
 import LocalizedClientLink from "@/components/LocalizedClientLink";
 import { formatPrice } from "@/lib/utils/format-price";
+import { getLowestPriceVariant } from "@/lib/utils/get-lowest-price-variant";
 import { saveScrollPosition } from "@/lib/utils/scroll-restore";
-import { type Album, type AlbumVariant } from "@/types/album";
+import { type Album } from "@/types/album";
 import Image from "next/image";
 import { useState, ViewTransition } from "react";
 import VariantButton from "./VariantButton";
@@ -13,17 +14,6 @@ type AlbumGridCardProps = {
   album: Album;
   returnTo: string;
 };
-
-/** Cheapest variant — selected by default so the card's price starts low. */
-function getLowestPriceVariant(
-  variants: AlbumVariant[],
-): AlbumVariant | undefined {
-  return variants.reduce<AlbumVariant | undefined>(
-    (lowest, variant) =>
-      !lowest || variant.price.amount < lowest.price.amount ? variant : lowest,
-    undefined,
-  );
-}
 
 function AlbumGridCard({ album, returnTo }: AlbumGridCardProps) {
   const [selectedVariantId, setSelectedVariantId] = useState(

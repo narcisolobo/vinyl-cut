@@ -1,4 +1,3 @@
-import LocalizedClientLink from "@/components/LocalizedClientLink";
 import { formatPrice } from "@/lib/utils/format-price";
 import { HttpTypes } from "@medusajs/types";
 
@@ -23,12 +22,6 @@ function ShippingSummary({ cart }: ShippingSummaryProps) {
           </p>
         )}
       </div>
-      <LocalizedClientLink
-        href="/checkout?step=delivery"
-        className="link link-hover w-fit text-sm"
-      >
-        Edit
-      </LocalizedClientLink>
     </div>
   );
 }

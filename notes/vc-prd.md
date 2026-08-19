@@ -93,8 +93,8 @@ Baseline functionality required for a complete, end-to-end shopping experience a
 - **Checkout & payment:** Medusa's checkout flow with Stripe configured as the payment provider, supporting test card numbers.
 - **Order confirmation page:** post-purchase route displaying order ID, purchased items summary, shipping address, shipping cost, and payment status.
 - **Order confirmation email:** transactional confirmation email sent via Resend upon successful checkout, matching the on-site confirmation page. Promoted from Nice-to-Have to Core MVP since Resend is already required for the restock-notify system, making this a near-zero-cost addition to a complete checkout experience.
-- **Basic tax display:** Medusa's native tax module configured with flat rates for CA, OR, WA, NV, AZ, CO, UT, and NM (the shop's shipping region), shown as a line item at checkout. Not compliance-accurate; demonstrates module configuration only.
-- **Shipping cost:** a single flat rate applied across the entire Western U.S. shipping region, consistent with the flat-rate approach already used for tax. No carrier-calculated or distance-based shipping.
+- **Basic tax display:** Medusa's native tax module configured with per-state sales tax rates for CA, WA, NV, AZ, CO, UT, and NM (the shop's shipping region), shown as a line item at checkout. OR intentionally falls back to the 0% country default, since Oregon has no state sales tax. Not compliance-accurate; demonstrates module configuration only.
+- **Shipping cost:** a single flat rate applied across the entire Western U.S. shipping region. No carrier-calculated or distance-based shipping.
 - **Shipping region restriction:** checkout only accepts shipping addresses within CA, OR, WA, NV, AZ, CO, UT, and NM. Framed in-store as a Western U.S.-only shipping policy (shorter transit times, lower breakage risk for a small independent shop).
 
 ### Commerce engine & data (Medusa.js + PostgreSQL)
