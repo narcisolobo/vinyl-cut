@@ -27,7 +27,7 @@ function NotFound({ eyebrow, headline, message, cta }: NotFoundProps) {
         <p className="mb-8 text-[clamp(1.05rem,1.4vw,1.3rem)] md:max-w-[35ch] lg:max-w-[50ch]">
           {message}
         </p>
-        <Link href={cta.href} className="btn btn-lg btn-primary">
+        <Link href={cta.href} className="btn btn-lg btn-primary uppercase">
           {cta.label}
         </Link>
       </div>
