@@ -19,6 +19,32 @@ import {
   type SetAddressesState,
 } from "./checkout-address";
 
+type RecalculateTaxesResponse = {
+  cart: HttpTypes.StoreCart;
+};
+
+/**
+ * Forces Medusa to recompute the cart's tax lines. Region-level
+ * "Automatic taxes" alone only makes tax calculation *possible* — it
+ * doesn't run on every cart mutation, so address/shipping changes can
+ * leave `tax_total` stale (or 0) until something explicitly asks for
+ * a recalculation. Mirrors the pattern the backend's own
+ * `checkout-tax.spec.ts` integration test relies on.
+ */
+async function recalculateTaxes(cartId: string) {
+  try {
+    await medusa.client.fetch<RecalculateTaxesResponse>(
+      `/store/carts/${cartId}/taxes`,
+      { method: "POST" },
+    );
+
+    const cartCacheTag = await getCacheTag("carts");
+    updateTag(cartCacheTag);
+  } catch (error) {
+    medusaError(error);
+  }
+}
+
 async function setAddresses(
   currentState: unknown,
   formData: FormData,
@@ -98,6 +124,7 @@ async function setAddresses(
     }
 
     await updateCart(data);
+    await recalculateTaxes(cartId);
   } catch (e) {
     return {
       fieldErrors: {},
@@ -173,6 +200,8 @@ async function setShippingMethod({
 
     const cartCacheTag = await getCacheTag("carts");
     updateTag(cartCacheTag);
+
+    await recalculateTaxes(cartId);
   } catch (error) {
     medusaError(error);
   }

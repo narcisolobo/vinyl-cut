@@ -52,11 +52,10 @@ Highest-stakes flow in the app — most careful spec of the set.
 - Add to cart → checkout → address within the 8-state shipping region →
   shipping method → payment → order confirmation page shows order ID,
   items, shipping address, shipping cost, and payment status.
-- **Blocked today:** the audit found Stripe isn't actually registered as a
-  payment provider (`medusa-config.ts` has no `@medusajs/payment` module;
-  only `pp_system_default` is available). This spec can exercise the flow
-  up through order placement, but can't assert a real Stripe test-card
-  charge until that gap is closed.
+- Stripe is now registered and wired up end-to-end (embedded Payment
+  Element, cards only, `capture: true`) — this spec can exercise a real
+  Stripe test-card charge (success and decline, e.g. `4242 4242 4242
+  4242` and `4000 0000 0000 0002`) through to order confirmation.
 
 ## 5. Shipping region restriction — `checkout-shipping-restriction.spec.ts`
 
