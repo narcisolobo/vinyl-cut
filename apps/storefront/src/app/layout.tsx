@@ -1,10 +1,15 @@
 import { bungee, geistMono, lobster, outfit } from "@/fonts";
 import "@/styles/globals.css";
+import { type Metadata } from "next";
 import { type ReactNode } from "react";
 
 interface RootLayoutProps {
   children: ReactNode;
 }
+
+const metadata: Metadata = {
+  metadataBase: new URL("https://vinylcut.narcisolobo.com"),
+};
 
 function RootLayout({ children }: RootLayoutProps) {
   return (
@@ -19,3 +24,4 @@ function RootLayout({ children }: RootLayoutProps) {
 }
 
 export default RootLayout;
+export { metadata };
