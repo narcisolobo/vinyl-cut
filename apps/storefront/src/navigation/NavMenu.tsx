@@ -26,7 +26,10 @@ function NavMenu({ cart }: NavMenuProps) {
           const isActive = link.href === pathWithoutCountryCode;
           return (
             <li key={link.href} className="hidden uppercase lg:block">
-              <Link href={link.href} className={isActive ? "menu-active" : ""}>
+              <Link
+                href={link.href}
+                className={isActive ? "text-accent menu-active" : ""}
+              >
                 {link.label}
               </Link>
             </li>
