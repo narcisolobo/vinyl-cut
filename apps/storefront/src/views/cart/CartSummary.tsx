@@ -17,7 +17,7 @@ function CartSummary({ cartState }: CartSummaryProps) {
       <div className="flex flex-col gap-2 text-sm">
         <div className="flex justify-between">
           <span>Subtotal (excl. shipping and taxes)</span>
-          <span>
+          <span data-testid="cart-summary-subtotal">
             {formatPrice({
               amount: cartState.item_subtotal ?? 0,
               currencyCode,
