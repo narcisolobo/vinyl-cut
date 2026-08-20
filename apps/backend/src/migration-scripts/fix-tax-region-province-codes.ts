@@ -1,5 +1,9 @@
 import { MedusaContainer } from "@medusajs/framework";
-import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
+import {
+  ContainerRegistrationKeys,
+  MedusaError,
+  Modules,
+} from "@medusajs/framework/utils";
 
 // One-time data fix. The Admin dashboard's province Tax Region form
 // stores `province_code` as the full ISO 3166-2 code lowercased (e.g.
@@ -36,7 +40,8 @@ export default async function fix_tax_region_province_codes({
   });
 
   if (!usRegion) {
-    throw new Error(
+    throw new MedusaError(
+      MedusaError.Types.NOT_FOUND,
       "fix-tax-region-province-codes.ts: No top-level US tax region found.",
     );
   }
