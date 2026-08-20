@@ -10,6 +10,7 @@ function AlbumGrid({ albums, returnTo }: AlbumGridProps) {
   return (
     <ul
       role="list"
+      data-testid="album-grid"
       className="grid list-none grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
       {albums.map((album) => (

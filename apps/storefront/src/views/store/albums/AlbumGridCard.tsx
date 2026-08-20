@@ -24,7 +24,10 @@ function AlbumGridCard({ album, returnTo }: AlbumGridCardProps) {
   );
 
   return (
-    <li className="card card-sm lg:card-md bg-base-300 relative shadow-sm">
+    <li
+      data-testid="album-card"
+      className="card card-sm lg:card-md bg-base-300 relative shadow-sm"
+    >
       <LocalizedClientLink
         href={`/albums/${album.handle}?from=${encodeURIComponent(returnTo)}`}
         onClick={saveScrollPosition}
