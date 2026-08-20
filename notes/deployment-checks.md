@@ -126,8 +126,6 @@ sequence note rather than repeating their detail here.
 - [ ] Update the README's Project Status and Tech Stack rows —
       "storefront hosting TBD" and the not-yet-deployed framing can
       come out once this is live
-- [ ] Fix the README's link to `notes/vc-stripe-integration-sequence.md`
+- [x] Fix the README's link to `notes/vc-stripe-integration-sequence.md`
       (referenced twice — Documentation section and Environment
-      Variables) — that file doesn't exist in `notes/`; either create
-      it or repoint the links at whatever actually documents the
-      Stripe integration
+      Variables) — recreated the doc, so both links now resolve.
