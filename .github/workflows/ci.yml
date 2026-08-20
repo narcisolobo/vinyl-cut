@@ -5,6 +5,9 @@ on:
     branches: [main, dev]
   pull_request:
 
+permissions:
+  contents: read
+
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -12,6 +15,7 @@ concurrency:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -22,9 +26,17 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter=@vc/backend lint
       - run: pnpm --filter=@vc/storefront lint
+      # Neither lint config is type-aware (no parserOptions.project), so
+      # this is the only thing that actually catches type errors on the
+      # backend -- the storefront gets the same coverage for free from
+      # `next build` (storefront-build below), which type-checks by
+      # default.
+      - run: pnpm --filter=@vc/backend exec tsc --noEmit
 
   storefront-unit:
+    needs: lint
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -36,7 +48,9 @@ jobs:
       - run: pnpm --filter=@vc/storefront test
 
   backend-unit:
+    needs: lint
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -48,7 +62,9 @@ jobs:
       - run: pnpm --filter=@vc/backend test:unit
 
   backend-integration:
+    needs: lint
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     services:
       postgres:
         image: postgres:16-alpine
@@ -100,3 +116,39 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter=@vc/backend test:integration:http
       - run: pnpm --filter=@vc/backend test:integration:modules
+
+  backend-build:
+    needs: lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter=@vc/backend build
+
+  storefront-build:
+    needs: lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      # Both of these are read at module-eval time and hard-throw if
+      # unset (src/lib/medusa/config.ts, src/lib/stripe/config.ts) --
+      # `next build` server-renders client components during static
+      # generation, so it needs real-looking values even with no
+      # backend or Stripe account reachable in CI.
+      NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: placeholder
+      NEXT_PUBLIC_STRIPE_KEY: pk_test_placeholder
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter=@vc/storefront build

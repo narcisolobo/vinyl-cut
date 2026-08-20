@@ -36,6 +36,12 @@ export default async function fix_tax_region_province_codes({
 
   const [usRegion] = await taxService.listTaxRegions({
     country_code: "us",
+    // The entity type allows `province_code: string | null` (a top-level
+    // region has none), but the filter type only accepts
+    // `string | string[] | OperatorMap<string>` -- an upstream Medusa
+    // type gap, not a runtime restriction: the underlying DAL filter
+    // value type does support `null` for an IS NULL query.
+    // @ts-expect-error -- see comment above
     province_code: null,
   });
 

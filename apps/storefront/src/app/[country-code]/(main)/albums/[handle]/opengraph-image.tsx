@@ -4,9 +4,13 @@ import { getLowestPriceVariant } from "@/lib/utils/get-lowest-price-variant";
 import { toAlbum } from "@/lib/utils/map-to-album";
 import { type Album } from "@/types/album";
 import { ImageResponse } from "next/og";
-import { notFound } from "next/navigation";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+
+const FALLBACK_IMAGE_PATH = join(
+  process.cwd(),
+  "src/app/[country-code]/(main)/albums/[handle]/fallback.png",
+);
 
 interface OpengraphImageParams {
   params: Promise<{ "country-code": string; handle: string }>;
@@ -25,22 +29,39 @@ const COLOR_MUTED = "#c9cbd0";
  * before the request's actual `[country-code]` segment is resolved, so
  * `countryCode` can arrive empty — fall back to the store's only region
  * (mirrors the default in `src/proxy.ts`) rather than throwing.
+ *
+ * Returns `null` rather than throwing when the product can't be fetched
+ * — this runs at build time too (`generateImageMetadata` always executes
+ * during `next build`'s page-data collection, regardless of route
+ * dynamic config), where there's no live backend to reach. Callers fall
+ * back to a generic branded image instead of failing the build.
  */
 async function getAlbum(
   params: OpengraphImageParams["params"],
-): Promise<Album> {
+): Promise<Album | null> {
   const { "country-code": countryCode, handle } = await params;
   const resolvedCountryCode =
     countryCode || process.env.NEXT_PUBLIC_DEFAULT_REGION || "us";
 
   const product = await getProductByHandle(handle, resolvedCountryCode);
-  if (!product) notFound();
+  if (!product) return null;
 
   return toAlbum(product);
 }
 
 async function generateImageMetadata({ params }: OpengraphImageParams) {
   const album = await getAlbum(params);
+
+  if (!album) {
+    return [
+      {
+        id: "fallback",
+        alt: "The Vinyl Cut",
+        ...size,
+        contentType,
+      },
+    ];
+  }
 
   return [
     {
@@ -54,6 +75,23 @@ async function generateImageMetadata({ params }: OpengraphImageParams) {
 
 async function Image({ params }: OpengraphImageParams) {
   const album = await getAlbum(params);
+
+  if (!album) {
+    const fallbackImageData = await readFile(FALLBACK_IMAGE_PATH);
+
+    return new ImageResponse(
+      (
+        <img
+          src={`data:image/png;base64,${fallbackImageData.toString("base64")}`}
+          alt=""
+          width={size.width}
+          height={size.height}
+        />
+      ),
+      { ...size },
+    );
+  }
+
   const lowestPriceVariant = getLowestPriceVariant(album.variants);
 
   const [lobsterData, bungeeData, outfitData] = await Promise.all([
