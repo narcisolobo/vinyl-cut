@@ -1,5 +1,7 @@
 # The Vinyl Cut
 
+[![CI](https://github.com/narcisolobo/vinyl-cut/actions/workflows/ci.yml/badge.svg)](https://github.com/narcisolobo/vinyl-cut/actions/workflows/ci.yml)
+
 A fictional record shop, built as a full-stack portfolio piece: a headless
 commerce architecture on [Medusa.js](https://medusajs.com/), with a custom
 restock-notification system as the centerpiece — a real framework
@@ -25,7 +27,12 @@ configuration wearing a new theme.
   (MusicBrainz, the Cover Art Archive), with retry logic, idempotency, and
   per-record error tracking — see [`notes/vc-etl-pipeline.md`](./notes/vc-etl-pipeline.md).
 - **Tested, not just demoed.** Unit, module-level, and HTTP-level
-  integration suites on the backend, all passing — see Testing below.
+  integration suites on the backend, all running in CI on every push and
+  PR — see Testing below.
+- **Errors surfaced, not swallowed.** Sentry error tracking on the
+  storefront, plus an app-wide error boundary and custom 404 pages,
+  rather than letting an unhandled exception show a blank screen or a
+  framework default. See [`notes/vc-sentry-integration-sequence.md`](./notes/vc-sentry-integration-sequence.md).
 - **Infrastructure trade-offs reasoned through, not glossed over.** Three
   free-tier services (Render, Supabase, Upstash) each pause or spin down
   on a different timer; the plan is one health-check endpoint that resets
@@ -42,24 +49,26 @@ configuration wearing a new theme.
 | --------------- | --------------------------------------------------------------------------------------------- |
 | Storefront      | Next.js 16 (Turbopack in dev), React 19, Tailwind CSS v4 + daisyUI                            |
 | Commerce engine | Medusa.js 2.18 (native cart, checkout, payment modules)                                       |
-| Payments        | Stripe, via Medusa's payment provider — planned, not yet wired (see Project Status)            |
+| Payments        | Stripe (test mode), via Medusa's payment provider — Payment Element, cards only                |
 | Database        | PostgreSQL (Supabase, hosted; Supabase CLI, local — see `supabase/`)                          |
 | Cache / events  | Redis (Upstash, hosted; plain Redis container, local)                                         |
 | File storage    | Supabase Storage (S3-compatible), via Medusa's File Module                                    |
 | Catalog ETL     | Python (MusicBrainz + Cover Art Archive → Medusa Admin API)                                   |
+| Error tracking  | Sentry (storefront)                                                                            |
 | Hosting         | Render (backend, via the root `Dockerfile`); storefront hosting TBD                           |
+| CI              | GitHub Actions — lint, unit, and integration suites on every push/PR                          |
 
 ## Project Status
 
 The core shopping experience is complete and working end to end: catalog
-browsing and filtering, cart, guest checkout, flat-rate shipping for the
-shop's Western-U.S. service region, and the restock-notify system
-described above. Three pieces are still ahead of a live deployment: tax
-configuration (a flat regional rate is designed but not yet set up),
-wiring Stripe as the checkout payment provider (checkout currently
-completes against Medusa's default system provider), and standing up the
-hosted Render/Supabase/Upstash stack itself. See the Phased Roadmap in
-[`notes/vc-prd.md`](./notes/vc-prd.md) for what's next.
+browsing and filtering, cart, guest checkout with Stripe (test mode) as
+the payment provider, per-state sales tax for the shop's Western-U.S.
+service region, flat-rate shipping, and the restock-notify system
+described above. What's still ahead of a live deployment: standing up
+the hosted Render/Supabase/Upstash stack itself, and wiring the Stripe
+webhook, deferred until that hosted backend exists to receive it. See
+the Phased Roadmap in [`notes/vc-prd.md`](./notes/vc-prd.md) for what's
+next.
 
 ## Documentation
 
@@ -73,6 +82,8 @@ Written up in full rather than left implicit in the code:
   the storefront's build sequence.
 - [`notes/vc-stripe-integration-sequence.md`](./notes/vc-stripe-integration-sequence.md) —
   wiring Stripe in as the checkout payment provider.
+- [`notes/vc-sentry-integration-sequence.md`](./notes/vc-sentry-integration-sequence.md) —
+  wiring Sentry error tracking into the storefront.
 - [`notes/todo.md`](./notes/todo.md) — open backend follow-ups.
 - Testing specs: [`notes/medusa-unit-tests.md`](./notes/medusa-unit-tests.md),
   [`notes/medusa-integration-tests.md`](./notes/medusa-integration-tests.md),
@@ -234,13 +245,12 @@ the plain script name doesn't show.
 
 Each app manages its own `.env`. At minimum, expect:
 
-- **Backend**: Postgres connection string (Supabase, direct or session-mode pooler — not the transaction-mode pooler), Redis URL (Upstash), JWT/cookie secrets, Resend API key, Supabase Storage (S3) credentials. See `apps/backend/.env.template` for the full list.
-- **Storefront**: Medusa backend URL (`NEXT_PUBLIC_MEDUSA_BACKEND_URL`), Medusa publishable API key (`NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`), default region (`NEXT_PUBLIC_DEFAULT_REGION`), site base URL (`NEXT_PUBLIC_BASE_URL`), revalidate secret (`REVALIDATE_SECRET`, must match the backend's). There's no tracked `.env.example` for this app yet — start a `.env.local` from this list.
+- **Backend**: Postgres connection string (Supabase, direct or session-mode pooler — not the transaction-mode pooler), Redis URL (Upstash), JWT/cookie secrets, Resend API key, Supabase Storage (S3) credentials, Stripe secret key (`STRIPE_API_KEY`, test mode). See `apps/backend/.env.template` for the full list.
+- **Storefront**: Medusa backend URL (`NEXT_PUBLIC_MEDUSA_BACKEND_URL`), Medusa publishable API key (`NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`), default region (`NEXT_PUBLIC_DEFAULT_REGION`), site base URL (`NEXT_PUBLIC_BASE_URL`), revalidate secret (`REVALIDATE_SECRET`, must match the backend's), Stripe publishable key (`NEXT_PUBLIC_STRIPE_KEY`, test mode). There's no tracked `.env.example` for this app yet — start a `.env.local` from this list.
 
-Stripe isn't wired up on either side yet (see Project Status above) —
-`medusa-config.ts` registers no payment provider, so there's no Stripe
-secret key to set on the backend, and the storefront's
-`NEXT_PUBLIC_STRIPE_KEY` placeholder is currently unused.
+Stripe's webhook isn't wired up yet — deferred until the hosted Render
+backend exists to receive it. See
+[`notes/vc-stripe-integration-sequence.md`](./notes/vc-stripe-integration-sequence.md).
 
 ## Testing
 
@@ -251,6 +261,12 @@ HTTP-level integration suites are implemented and passing (see Testing in
 Storefront unit tests cover the data layer; end-to-end coverage
 (Playwright) is one smoke test today, with the full per-journey plan
 written up in [`notes/e2e-tests.md`](./notes/e2e-tests.md).
+
+All of the above (lint, storefront unit tests, backend unit tests, and
+backend integration tests) run in GitHub Actions on every push and pull
+request — see [`.github/workflows/ci.yml`](./.github/workflows/ci.yml).
+Playwright e2e isn't wired into CI yet; it needs the full local stack
+(Supabase, Redis, Stripe) that isn't worth replicating there for now.
 
 ## License
 
