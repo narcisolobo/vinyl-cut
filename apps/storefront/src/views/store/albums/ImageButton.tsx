@@ -1,4 +1,3 @@
-import { Album } from "@/types/album";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 
