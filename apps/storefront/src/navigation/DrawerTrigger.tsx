@@ -17,7 +17,7 @@ function DrawerTrigger() {
       ref={triggerRef}
       onClick={toggleDrawer}
       aria-label="open navigation menu"
-      className="btn btn-square btn-ghost drawer-button md:hidden"
+      className="btn btn-square btn-ghost drawer-button lg:hidden"
     >
       <ListIcon size={24} />
     </button>
