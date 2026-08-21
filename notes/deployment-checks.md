@@ -21,10 +21,10 @@ sequence note rather than repeating their detail here.
 
 ### Backend readiness (blockers)
 
-- [ ] Add a `/health` route that performs a real DB query, not just a
-      200 — required by the UptimeRobot keep-alive strategy (PRD §5).
-      Doesn't exist in the codebase yet; nothing to point UptimeRobot
-      at until this lands.
+- [x] Add a `/keep-alive` route that performs a real DB query, not just
+      a 200 — required by the UptimeRobot keep-alive strategy (PRD §5).
+      Named `/keep-alive` rather than `/health` to stay distinct from
+      Medusa's own built-in static `/health` route.
 - [ ] Add `webhookSecret` to the Stripe provider options in
       `medusa-config.ts` (currently only `apiKey` and `capture` are
       set) and wire it to a new `STRIPE_WEBHOOK_SECRET` env var
@@ -115,7 +115,7 @@ sequence note rather than repeating their detail here.
 ### Monitoring
 
 - [ ] Add the UptimeRobot HTTP monitor (5-minute interval) against
-      `/health`
+      `/keep-alive`
 - [ ] Confirm it's actually resetting both Render's 15-minute
       spin-down and Supabase's separate 7-day pause (PRD §5), not just
       returning 200 — check both dashboards after a quiet period
