@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import StoreFilter from "./StoreFilter";
 import StoreFilterBadge from "./StoreFilterBadge";
@@ -13,6 +14,29 @@ function StoreFilterAndSort() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const filterCheckboxRef = useRef<HTMLInputElement>(null);
+  const filterTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const toggleFilterDrawer = () => {
+    if (filterCheckboxRef.current) {
+      filterCheckboxRef.current.checked = !filterCheckboxRef.current.checked;
+    }
+  };
+
+  const closeFilterDrawer = () => {
+    if (!filterCheckboxRef.current?.checked) return;
+    filterCheckboxRef.current.checked = false;
+    filterTriggerRef.current?.focus();
+  };
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") closeFilterDrawer();
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const selectedSort = searchParams.get("sort") ?? "latest";
 
@@ -77,7 +101,11 @@ function StoreFilterAndSort() {
       <div className="max-w-8xl mx-auto flex justify-between">
         <section>
           <h3 className="sr-only">Filtering Options</h3>
-          <StoreFilterButton filterCount={selectedFilters.length} />
+          <StoreFilterButton
+            filterCount={selectedFilters.length}
+            triggerRef={filterTriggerRef}
+            onToggle={toggleFilterDrawer}
+          />
           <StoreFilterContainer className="hidden items-center gap-2 lg:flex">
             {filters.map(({ label, options, selected, handleToggle }) => (
               <StoreFilter
@@ -89,7 +117,11 @@ function StoreFilterAndSort() {
               />
             ))}
           </StoreFilterContainer>
-          <StoreFilterDrawer filters={filters} />
+          <StoreFilterDrawer
+            filters={filters}
+            checkboxRef={filterCheckboxRef}
+            onClose={closeFilterDrawer}
+          />
         </section>
         <section>
           <h3 className="sr-only">Sorting Options</h3>

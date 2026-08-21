@@ -18,7 +18,7 @@ function Cart({ cart }: CartProps) {
           <CartSummary cartState={cart} />
         </div>
       ) : (
-        <CartEmpty />
+        <CartEmpty dataTestId="cart-page-empty" />
       )}
     </section>
   );

@@ -21,10 +21,10 @@ sequence note rather than repeating their detail here.
 
 ### Backend readiness (blockers)
 
-- [ ] Add a `/health` route that performs a real DB query, not just a
-      200 — required by the UptimeRobot keep-alive strategy (PRD §5).
-      Doesn't exist in the codebase yet; nothing to point UptimeRobot
-      at until this lands.
+- [x] Add a `/keep-alive` route that performs a real DB query, not just
+      a 200 — required by the UptimeRobot keep-alive strategy (PRD §5).
+      Named `/keep-alive` rather than `/health` to stay distinct from
+      Medusa's own built-in static `/health` route.
 - [ ] Add `webhookSecret` to the Stripe provider options in
       `medusa-config.ts` (currently only `apiKey` and `capture` are
       set) and wire it to a new `STRIPE_WEBHOOK_SECRET` env var
@@ -115,7 +115,7 @@ sequence note rather than repeating their detail here.
 ### Monitoring
 
 - [ ] Add the UptimeRobot HTTP monitor (5-minute interval) against
-      `/health`
+      `/keep-alive`
 - [ ] Confirm it's actually resetting both Render's 15-minute
       spin-down and Supabase's separate 7-day pause (PRD §5), not just
       returning 200 — check both dashboards after a quiet period
@@ -126,8 +126,6 @@ sequence note rather than repeating their detail here.
 - [ ] Update the README's Project Status and Tech Stack rows —
       "storefront hosting TBD" and the not-yet-deployed framing can
       come out once this is live
-- [ ] Fix the README's link to `notes/vc-stripe-integration-sequence.md`
+- [x] Fix the README's link to `notes/vc-stripe-integration-sequence.md`
       (referenced twice — Documentation section and Environment
-      Variables) — that file doesn't exist in `notes/`; either create
-      it or repoint the links at whatever actually documents the
-      Stripe integration
+      Variables) — recreated the doc, so both links now resolve.

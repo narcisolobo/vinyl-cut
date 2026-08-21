@@ -64,6 +64,7 @@ async function Albums({
             totalPages={totalPages}
             basePath={`/${countryCode}/store`}
             searchParams={{ sort, genre, era, condition }}
+            position="top"
           />
           {albums.length > 0 ? (
             <AlbumGrid albums={albums} returnTo={returnTo} />
@@ -75,6 +76,7 @@ async function Albums({
             totalPages={totalPages}
             basePath={`/${countryCode}/store`}
             searchParams={{ sort, genre, era, condition }}
+            position="bottom"
           />
         </div>
       </section>

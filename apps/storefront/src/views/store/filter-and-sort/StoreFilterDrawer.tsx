@@ -1,3 +1,4 @@
+import { type RefObject } from "react";
 import StoreFilterOptionList from "./StoreFilterOptionList";
 
 type StoreFilterDrawerFilter = {
@@ -9,12 +10,19 @@ type StoreFilterDrawerFilter = {
 
 interface StoreFilterDrawerProps {
   filters: StoreFilterDrawerFilter[];
+  checkboxRef: RefObject<HTMLInputElement | null>;
+  onClose: () => void;
 }
 
-function StoreFilterDrawer({ filters }: StoreFilterDrawerProps) {
+function StoreFilterDrawer({
+  filters,
+  checkboxRef,
+  onClose,
+}: StoreFilterDrawerProps) {
   return (
     <div className="drawer drawer-end lg:hidden">
       <input
+        ref={checkboxRef}
         id="mobile-filter-drawer"
         type="checkbox"
         className="drawer-toggle"
@@ -22,8 +30,9 @@ function StoreFilterDrawer({ filters }: StoreFilterDrawerProps) {
         tabIndex={-1}
       />
       <div className="drawer-side z-30">
-        <label
-          htmlFor="mobile-filter-drawer"
+        <button
+          type="button"
+          onClick={onClose}
           aria-label="close filters"
           className="drawer-overlay"
         />
@@ -51,12 +60,13 @@ function StoreFilterDrawer({ filters }: StoreFilterDrawerProps) {
               </div>
             </div>
           ))}
-          <label
-            htmlFor="mobile-filter-drawer"
+          <button
+            type="button"
+            onClick={onClose}
             className="btn btn-primary mt-2 w-full"
           >
             Show Results
-          </label>
+          </button>
         </div>
       </div>
     </div>

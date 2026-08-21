@@ -2,7 +2,11 @@ import LocalizedClientLink from "@/components/LocalizedClientLink";
 
 function AlbumGridEmptyState() {
   return (
-    <div role="status" className="hero py-16">
+    <div
+      role="status"
+      data-testid="album-grid-empty-state"
+      className="hero py-16"
+    >
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h3 className="text-2xl font-semibold">

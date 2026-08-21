@@ -12,6 +12,7 @@ interface PaginationProps {
   totalPages: number;
   basePath: string;
   searchParams: Record<string, string | undefined>;
+  position: "top" | "bottom";
 }
 
 /**
@@ -47,6 +48,7 @@ function Pagination({
   totalPages,
   basePath,
   searchParams,
+  position,
 }: PaginationProps) {
   if (totalPages <= 1) {
     return null;
@@ -59,6 +61,7 @@ function Pagination({
   return (
     <nav
       aria-label="Store pagination"
+      data-testid={`pagination-${position}`}
       className="flex items-center justify-center gap-4 py-6"
     >
       <div className="join">

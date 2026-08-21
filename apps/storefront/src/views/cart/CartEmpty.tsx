@@ -4,9 +4,10 @@ import { useParams, useRouter } from "next/navigation";
 
 interface CartEmptyProps {
   close?: () => void;
+  dataTestId?: string;
 }
 
-function CartEmpty({ close }: CartEmptyProps) {
+function CartEmpty({ close, dataTestId }: CartEmptyProps) {
   const { "country-code": countryCode } = useParams() as {
     "country-code": string;
   };
@@ -18,7 +19,10 @@ function CartEmpty({ close }: CartEmptyProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-y-4 py-16">
+    <div
+      data-testid={dataTestId}
+      className="flex flex-col items-center justify-center gap-y-4 py-16"
+    >
       <div className="bg-base-300 text-base-content flex h-8 w-8 items-center justify-center rounded-full">
         <span className="text-lg font-bold">0</span>
       </div>
