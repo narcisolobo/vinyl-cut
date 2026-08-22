@@ -1,0 +1,92 @@
+services:
+  - type: web
+    name: vinyl-cut-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: ohio
+    healthCheckPath: /keep-alive
+    # preDeployCommand (medusa db:migrate) isn't available on the free plan.
+    # Not needed for this deploy -- the hosted Supabase DB is already fully
+    # migrated (see project_hosted_supabase_deployment_status memory). Future
+    # schema changes will need a manual migration step (render ssh) or a
+    # plan upgrade to automate this again.
+    envVars:
+      # Hosted Supabase Postgres (already migrated + seeded) -- paste the
+      # value from apps/backend/.env.production.local's DATABASE_URL,
+      # including ?sslmode=no-verify (pg 8.16 rejects Supabase's cert chain
+      # otherwise -- see project_supabase_hosted_ssl_gotcha memory).
+      - key: DATABASE_URL
+        sync: false
+      # Upstash Redis -- from apps/backend/.env.production.local's REDIS_URL.
+      - key: REDIS_URL
+        sync: false
+
+      # Hosted Supabase Storage (S3-compatible). Endpoint/file-url/region/
+      # bucket aren't secret, but the access keys are.
+      - key: S3_ENDPOINT
+        value: https://ecszkgdcjqldzunofbwj.storage.supabase.co/storage/v1/s3
+      - key: S3_FILE_URL
+        value: https://ecszkgdcjqldzunofbwj.supabase.co/storage/v1/object/public/vinyl-cut
+      - key: S3_REGION
+        value: us-east-2
+      - key: S3_BUCKET
+        value: vinyl-cut
+      - key: S3_ACCESS_KEY_ID
+        sync: false
+      - key: S3_SECRET_ACCESS_KEY
+        sync: false
+
+      # Real secrets, not the local "supersecret" placeholders -- paste
+      # freshly generated values (e.g. `openssl rand -base64 32`).
+      - key: JWT_SECRET
+        sync: false
+      - key: COOKIE_SECRET
+        sync: false
+      - key: AUTH_MFA_ENCRYPTION_KEY
+        sync: false
+
+      # Stripe (test-mode keys for now, per project_stripe_integration_plan).
+      # STRIPE_WEBHOOK_SECRET only exists once a Dashboard webhook endpoint
+      # is pointed at this service's live URL, so it can't be filled until
+      # after the first deploy.
+      - key: STRIPE_API_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+
+      # Resend (order confirmation emails).
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_EMAIL
+        value: vinylcut@narcisolobo.com
+
+      # Admin dashboard is served from this same service, so its own
+      # Render URL is a known value already. AUTH_CORS additionally needs
+      # the storefront's origin appended once that's deployed (comma-
+      # separated) -- see notes/deployment-checks.md.
+      - key: ADMIN_CORS
+        value: https://vinyl-cut-backend.onrender.com
+      - key: AUTH_CORS
+        value: https://vinyl-cut-backend.onrender.com
+      # No known value yet -- only the storefront calls the Store API, and
+      # it isn't deployed. Fill in once that has a URL.
+      - key: STORE_CORS
+        sync: false
+
+      # Storefront isn't deployed yet -- same reasoning as STORE_CORS.
+      - key: STOREFRONT_URL
+        sync: false
+      - key: STOREFRONT_INTERNAL_URL
+        sync: false
+      - key: STOREFRONT_DEFAULT_COUNTRY_CODE
+        value: us
+      # Must match the storefront's own REVALIDATE_SECRET once it's set up.
+      - key: REVALIDATE_SECRET
+        sync: false
+
+      - key: MEDUSA_ADMIN_ONBOARDING_TYPE
+        value: nextjs
+      - key: MEDUSA_ADMIN_ONBOARDING_NEXTJS_DIRECTORY
+        value: apps/storefront
