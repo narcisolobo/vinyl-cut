@@ -480,9 +480,20 @@ class MedusaAdminClient:
         )
 
 
+def safe_sku_prefix(sku_prefix: str) -> str:
+    """MusicBrainz catalog numbers are free text and sometimes contain
+    brackets, spaces, or non-ASCII punctuation (e.g. "[none]" for releases
+    with no printed catalog number, or "549 974‐2" with a Unicode hyphen).
+    Used as-is as an S3 object-key prefix, these consistently 500 against
+    Supabase's S3 gateway -- same character class migrate_images_to_s3.py's
+    safe_filename() already sanitizes for its own (separate) upload path."""
+    return re.sub(r"[^A-Za-z0-9._-]", "-", sku_prefix)
+
+
 def build_images(
     mbid: str, sku_prefix: str, client: MedusaAdminClient, front: dict | None, back: dict | None
 ) -> tuple[list[dict], str | None]:
+    sku_prefix = safe_sku_prefix(sku_prefix)
     images = []
     if front:
         for size in ("250", "500"):
