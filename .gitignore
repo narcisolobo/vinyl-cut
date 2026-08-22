@@ -76,9 +76,16 @@ etl/seed/curated_new_arrivals.sql
 .claude
 .agents
 skills-lock.json
+.mcp.json
 
 # Notes
 notes/store-implementation-plan.md
 
 # Secrets
 admin/
+stripe-recover-code.txt
+
+.projects/
+.env
+.env.*
+!.env.example

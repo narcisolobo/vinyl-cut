@@ -12,10 +12,13 @@ sequence note rather than repeating their detail here.
 ### Accounts & provisioning
 
 - [ ] Create/confirm the Render workspace and connect this repo
-- [ ] Provision (or confirm) the hosted Supabase project — Postgres +
+- [x] Provision (or confirm) the hosted Supabase project — Postgres +
       Storage bucket, public-read (PRD §5); local dev only uses the
       Supabase CLI's local stack today, not a hosted project
-- [ ] Create the Upstash Redis database (free tier)
+- [x] Create the Upstash Redis database (free tier) — provisioned via the
+      Stripe Projects CLI (`stripe projects add upstash/redis`), us-east-2;
+      `REDIS_URL` composed and verified in
+      `apps/backend/.env.production.local`
 - [ ] Decide and provision storefront hosting — currently listed as
       TBD in the README's Tech Stack table
 
