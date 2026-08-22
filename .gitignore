@@ -66,6 +66,7 @@ Thumbs.db
 .venv
 __pycache__/
 *.pyc
+etl/seed/load_run.log
 
 # Not reproducible (fresh random timestamps every run, unlike the other
 # etl/seed/ run artifacts), so not meaningful to keep committed.
@@ -76,9 +77,19 @@ etl/seed/curated_new_arrivals.sql
 .claude
 .agents
 skills-lock.json
+.mcp.json
+AGENTS.md
+CLAUDE.md
 
 # Notes
 notes/store-implementation-plan.md
 
 # Secrets
 admin/
+stripe-recover-code.txt
+
+.cursor
+.projects/
+.env
+.env.*
+!.env.example
