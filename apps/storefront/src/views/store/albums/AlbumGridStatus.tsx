@@ -2,7 +2,7 @@
 
 import { type ReactNode } from "react";
 import AlbumGridSkeleton from "./AlbumGridSkeleton";
-import { useStoreGridTransition } from "./StoreGridTransition";
+import { useStoreGridTransition } from "../StoreGridTransition";
 
 interface AlbumGridStatusProps {
   children: ReactNode;

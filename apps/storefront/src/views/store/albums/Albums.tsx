@@ -9,7 +9,6 @@ import AlbumGrid from "./AlbumGrid";
 import AlbumGridEmptyState from "./AlbumGridEmptyState";
 import AlbumGridStatus from "./AlbumGridStatus";
 import Pagination from "./Pagination";
-import { StoreGridTransition } from "./StoreGridTransition";
 
 interface AlbumsProps {
   sort?: SortOptions;
@@ -61,29 +60,27 @@ async function Albums({
       <ScrollRestoration />
       <section className="px-8 2xl:px-0">
         <div className="max-w-8xl mx-auto">
-          <StoreGridTransition>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              basePath={`/${countryCode}/store`}
-              searchParams={{ sort, genre, era, condition }}
-              position="top"
-            />
-            <AlbumGridStatus>
-              {albums.length > 0 ? (
-                <AlbumGrid albums={albums} returnTo={returnTo} />
-              ) : (
-                <AlbumGridEmptyState />
-              )}
-            </AlbumGridStatus>
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              basePath={`/${countryCode}/store`}
-              searchParams={{ sort, genre, era, condition }}
-              position="bottom"
-            />
-          </StoreGridTransition>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            basePath={`/${countryCode}/store`}
+            searchParams={{ sort, genre, era, condition }}
+            position="top"
+          />
+          <AlbumGridStatus>
+            {albums.length > 0 ? (
+              <AlbumGrid albums={albums} returnTo={returnTo} />
+            ) : (
+              <AlbumGridEmptyState />
+            )}
+          </AlbumGridStatus>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            basePath={`/${countryCode}/store`}
+            searchParams={{ sort, genre, era, condition }}
+            position="bottom"
+          />
         </div>
       </section>
     </>

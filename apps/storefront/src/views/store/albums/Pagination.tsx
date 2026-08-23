@@ -9,7 +9,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { type MouseEvent } from "react";
-import { useStoreGridTransition } from "./StoreGridTransition";
+import { useStoreGridTransition } from "../StoreGridTransition";
 
 interface PaginationProps {
   currentPage: number;
@@ -52,14 +52,14 @@ function getPageWindow(currentPage: number, totalPages: number): number[] {
  * clicks fall through to the browser's native new-tab/new-window handling
  * for the link's real `href`. */
 function useNavigateOnClick(href: string) {
-  const { navigate } = useStoreGridTransition();
+  const { push } = useStoreGridTransition();
 
   return (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
       return;
     }
     event.preventDefault();
-    navigate(href);
+    push(href);
   };
 }
 

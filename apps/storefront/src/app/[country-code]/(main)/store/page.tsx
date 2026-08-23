@@ -3,6 +3,7 @@ import { type SortOptions } from "@/types/sort-options";
 import Albums from "@/views/store/albums/Albums";
 import AlbumsSkeleton from "@/views/store/albums/AlbumsSkeleton";
 import StoreFilterAndSort from "@/views/store/filter-and-sort/StoreFilterAndSort";
+import { StoreGridTransition } from "@/views/store/StoreGridTransition";
 import { Metadata } from "next";
 import { Suspense, ViewTransition } from "react";
 
@@ -44,21 +45,23 @@ async function StorePage({ params, searchParams }: StorePageProps) {
     >
       {/* page content */}
       <main className="vc-gradient">
-        <Divider />
-        <Suspense fallback={<div className="bg-base-300 h-27" />}>
-          <StoreFilterAndSort />
-        </Suspense>
-        <Divider />
-        <Suspense fallback={<AlbumsSkeleton />}>
-          <Albums
-            countryCode={countryCode}
-            sort={sort}
-            page={page}
-            genre={genre}
-            era={era}
-            condition={condition}
-          />
-        </Suspense>
+        <StoreGridTransition>
+          <Divider />
+          <Suspense fallback={<div className="bg-base-300 h-27" />}>
+            <StoreFilterAndSort />
+          </Suspense>
+          <Divider />
+          <Suspense fallback={<AlbumsSkeleton />}>
+            <Albums
+              countryCode={countryCode}
+              sort={sort}
+              page={page}
+              genre={genre}
+              era={era}
+              condition={condition}
+            />
+          </Suspense>
+        </StoreGridTransition>
       </main>
     </ViewTransition>
   );
