@@ -11,7 +11,9 @@ sequence note rather than repeating their detail here.
 
 ### Accounts & provisioning
 
-- [ ] Create/confirm the Render workspace and connect this repo
+- [x] Create/confirm the Render workspace and connect this repo —
+      Blueprint applied, `vinyl-cut-backend` web service live at
+      https://vinyl-cut-backend.onrender.com
 - [x] Provision (or confirm) the hosted Supabase project — Postgres +
       Storage bucket, public-read (PRD §5); local dev only uses the
       Supabase CLI's local stack today, not a hosted project
@@ -19,8 +21,8 @@ sequence note rather than repeating their detail here.
       Stripe Projects CLI (`stripe projects add upstash/redis`), us-east-2;
       `REDIS_URL` composed and verified in
       `apps/backend/.env.production.local`
-- [ ] Decide and provision storefront hosting — currently listed as
-      TBD in the README's Tech Stack table
+- [x] Decide and provision storefront hosting — Vercel, linked to this
+      repo's `apps/storefront`, live at https://vinylcut.narcisolobo.com
 
 ### Backend readiness (blockers)
 
@@ -28,12 +30,18 @@ sequence note rather than repeating their detail here.
       a 200 — required by the UptimeRobot keep-alive strategy (PRD §5).
       Named `/keep-alive` rather than `/health` to stay distinct from
       Medusa's own built-in static `/health` route.
-- [ ] Add `webhookSecret` to the Stripe provider options in
+- [x] Add `webhookSecret` to the Stripe provider options in
       `medusa-config.ts` (currently only `apiKey` and `capture` are
       set) and wire it to a new `STRIPE_WEBHOOK_SECRET` env var
-- [ ] Set backend env vars on Render — derived from `medusa-config.ts`
+- [x] Set backend env vars on Render — derived from `medusa-config.ts`
       and `apps/backend/.env.template` (which is currently missing
-      several of these; worth updating alongside):
+      several of these; worth updating alongside). `STORE_CORS`/
+      `AUTH_CORS`/`STOREFRONT_URL`/`STOREFRONT_INTERNAL_URL` needed a
+      manual Blueprint sync (a regular deploy only rebuilds from env
+      vars already stored on the service, it doesn't re-read
+      `render.yaml`) -- done and verified live: a preflight from
+      `https://vinylcut.narcisolobo.com` gets a matching
+      `access-control-allow-origin`, a bogus origin gets none:
   - `DATABASE_URL` — Supabase, direct connection (port 5432) or
     session-mode pooler, **not** the transaction-mode pooler
     (incompatible with MikroORM migrations/prepared statements, PRD §5)
@@ -49,39 +57,48 @@ sequence note rather than repeating their detail here.
   - `STOREFRONT_URL` / `STOREFRONT_INTERNAL_URL` /
     `STOREFRONT_DEFAULT_COUNTRY_CODE`
   - `REVALIDATE_SECRET` — must match the storefront's value
-- [ ] Confirm Render builds the Dockerfile itself rather than pulling
+- [x] Confirm Render builds the Dockerfile itself rather than pulling
       a locally-built image, so local Apple Silicon has no bearing on
-      the deployed (amd64) image (PRD §5)
+      the deployed (amd64) image (PRD §5) — `render.yaml` uses
+      `runtime: docker` with `dockerfilePath`/`dockerContext`, and
+      Render's own build logs confirm it builds from source each deploy
 
 ### Storefront readiness
 
-- [ ] Set storefront env vars on the chosen host:
+- [x] Set storefront env vars on the chosen host:
       `NEXT_PUBLIC_MEDUSA_BACKEND_URL`,
       `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`,
       `NEXT_PUBLIC_DEFAULT_REGION`, `NEXT_PUBLIC_BASE_URL`,
       `REVALIDATE_SECRET` (must match the backend), `NEXT_PUBLIC_STRIPE_KEY`
-      (Stripe test-mode publishable key)
-- [ ] Set `SENTRY_AUTH_TOKEN` on whatever host runs `next build` — the
+      (Stripe test-mode publishable key) — set via `vercel env add` for
+      Production and Preview
+- [x] Set `SENTRY_AUTH_TOKEN` on whatever host runs `next build` — the
       Sentry DSN itself is already hardcoded in `instrumentation-client.ts`
       / `sentry.server.config.ts` / `sentry.edge.config.ts` (DSNs
       aren't secret), only the build-time source-map upload needs
       this token. Missing it doesn't break the app, just leaves stack
-      traces in Sentry unmapped.
-- [ ] Confirm the hardcoded production domain
+      traces in Sentry unmapped. Reused the existing wizard-generated
+      token from `apps/storefront/.env.sentry-build-plugin`; set on
+      Vercel for Production and Preview via `vercel env add`.
+- [x] Confirm the hardcoded production domain
       (`https://vinylcut.narcisolobo.com`, used in `layout.tsx`'s
       `metadataBase` and OG metadata) matches wherever the storefront
-      actually ends up deployed; update if not
+      actually ends up deployed; update if not — matches; that's the
+      subdomain the storefront is actually live on
 
 ### Data & seeding
 
-- [ ] Bootstrap the hosted Medusa instance the same way as local:
+- [x] Bootstrap the hosted Medusa instance the same way as local:
       admin user, region, sales channel, stock location, shipping
       profile (PRD Phase 5)
-- [ ] Re-run the catalog ETL pipeline (`etl/tools/build_seed.py` +
-      `load_catalog.py`) against the hosted Admin API
-- [ ] Sanity-check total catalog image size against Supabase's 1 GB
-      free-tier storage cap before finalizing the seed list (PRD §5)
-- [ ] Configure the 7-state tax regions carefully via bare province
+- [x] Re-run the catalog ETL pipeline (`etl/tools/build_seed.py` +
+      `load_catalog.py`) against the hosted Admin API — 500/500 products
+      loaded (see `project_hosted_supabase_deployment_status` memory)
+- [x] Sanity-check total catalog image size against Supabase's 1 GB
+      free-tier storage cap before finalizing the seed list (PRD §5) —
+      `aws s3 ls --recursive --summarize` against the S3-compatible
+      endpoint: 1,463 objects, ~64.6 MB total (~6% of the 1 GB cap)
+- [x] Configure the 7-state tax regions carefully via bare province
       codes (`ca`, not `us-ca`) — see the `province_code` bug noted in
       `medusa-integration-tests.md`; re-run
       `fix-tax-region-province-codes.ts` via `medusa exec` against the
@@ -89,10 +106,10 @@ sequence note rather than repeating their detail here.
 
 ### Stripe
 
-- [ ] Create a test-mode webhook endpoint in the Stripe Dashboard
+- [x] Create a test-mode webhook endpoint in the Stripe Dashboard
       pointed at the deployed backend's webhook URL, once that URL
       exists
-- [ ] Copy the resulting signing secret into `STRIPE_WEBHOOK_SECRET`
+- [x] Copy the resulting signing secret into `STRIPE_WEBHOOK_SECRET`
 
 ## Post-Deployment
 

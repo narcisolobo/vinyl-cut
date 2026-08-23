@@ -47,3 +47,13 @@
           the production URL (`https://vinylcut.narcisolobo.com`, per the
           `openGraph.url` values already hardcoded across the page metadata)
           in `apps/storefront/src/app/layout.tsx`.
+
+- [ ] Update the copy in `UsedAndRareMockup`
+      (apps/storefront/src/views/landing-page/sections/used-and-rare/UsedAndRareMockup.tsx).
+
+      Step 2 ("Confirm it's you" / "One click on the link we send over")
+          describes an email-verification-token flow that doesn't exist --
+          the actual restock-notify implementation is a cron-poll design with
+          no verification step, by design (an accepted simplification, not a
+          gap). The mockup's copy needs to match what the feature actually
+          does instead of implying a confirmation link.
