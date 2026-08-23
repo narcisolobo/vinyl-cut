@@ -35,6 +35,8 @@ type ListProductsParams = {
   regionId?: string;
 };
 
+type FetchProductsParams = ListProductsParams & { fields: string };
+
 type ListProductsWithSortParams = {
   page?: number;
   queryParams?: ProductListQueryParams;
@@ -44,19 +46,51 @@ type ListProductsWithSortParams = {
 };
 
 /**
- * Fetches a page of products for a region, resolved from either
- * `countryCode` or `regionId` (exactly one is required). Requests a
- * fixed `fields` selection covering what product cards/detail pages
- * need — calculated price, inventory, variant/product images, options,
- * categories (with `parent_category`, needed to tell a genre category
- * from an era category), metadata, tags.
+ * The Store API's `/store/products` defaults include several relations
+ * this store's `toAlbum` mapper never reads at all (`type`, `collection`,
+ * top-level `options`, `tags`) or only reads a couple of sub-fields from
+ * (`images`, `variants.options`) despite the default being a full `*`
+ * expansion. Omitting an already-defaulted relation from `fields` does
+ * NOT stop the API from fetching it -- it must be excluded explicitly
+ * with `-field`, then the wanted sub-fields re-added with `+` (see
+ * `FieldParser` in `@medusajs/framework`'s `field-parser.js`). `-`
+ * exclusions must precede the `+` sub-field they narrow down to, or the
+ * exclusion deletes the just-added field too (it matches by prefix).
+ *
+ * `calculated_price` isn't a default at all, so it's a real addition
+ * either way -- narrowed here since only two of its many sub-fields are
+ * used, though the expensive part (price-list/rule resolution) runs
+ * regardless of which sub-fields are requested.
  */
-async function listProducts({
+const BASE_FIELDS =
+  "-type,-collection,-options,-tags,-images,-variants.options," +
+  "+images.url,+variants.options.value,+variants.options.option.title," +
+  "+variants.calculated_price.calculated_amount,+variants.calculated_price.currency_code";
+
+/**
+ * Adds what only the PDP needs on top of `BASE_FIELDS`: genre/era
+ * (`categories`) and label/catalog number/release year/press
+ * type/tracklist (`metadata`) -- `AlbumGridCard` doesn't render any of
+ * these, only `AlbumDetails` does -- plus per-variant inventory for the
+ * in-stock/out-of-stock state (`AlbumGridCard`'s `VariantButton` doesn't
+ * read `inStock` either, only `AlbumDetails`'s does).
+ */
+const PRODUCT_DETAIL_FIELDS = `${BASE_FIELDS},+categories.name,+categories.parent_category.name,+metadata,+variants.inventory_quantity`;
+
+/**
+ * Fetches a page of products for a region, resolved from either
+ * `countryCode` or `regionId` (exactly one is required), with a given
+ * `fields` selection. Shared by `listProducts` (PDP, `BASE_FIELDS` plus
+ * detail-only relations) and `listProductsForGrid` (PLP, `BASE_FIELDS`
+ * alone).
+ */
+async function fetchProducts({
   pageParam = 1,
   queryParams,
   countryCode,
   regionId,
-}: ListProductsParams): Promise<ProductListResult> {
+  fields,
+}: FetchProductsParams): Promise<ProductListResult> {
   if (!countryCode && !regionId) {
     throw new Error("Country code or region ID is required");
   }
@@ -95,8 +129,7 @@ async function listProducts({
           limit,
           offset,
           region_id: region.id,
-          fields:
-            "*variants.calculated_price,+variants.inventory_quantity,*variants.images,*variants.options,*images,+categories.name,+categories.parent_category.name,+metadata,+tags,",
+          fields,
           ...queryParams,
         },
         next,
@@ -116,6 +149,20 @@ async function listProducts({
       cause: error,
     });
   }
+}
+
+/** Fetches a page of products with the full field set the PDP needs. */
+async function listProducts(
+  params: ListProductsParams,
+): Promise<ProductListResult> {
+  return fetchProducts({ ...params, fields: PRODUCT_DETAIL_FIELDS });
+}
+
+/** Fetches a page of products with only the fields `AlbumGridCard` renders. */
+async function listProductsForGrid(
+  params: ListProductsParams,
+): Promise<ProductListResult> {
+  return fetchProducts({ ...params, fields: BASE_FIELDS });
 }
 
 /**
@@ -145,7 +192,7 @@ async function listProductsWithSort({
     const {
       response: { products, count },
       nextPage,
-    } = await listProducts({
+    } = await listProductsForGrid({
       pageParam: page,
       queryParams: { ...queryParams, ...optionValueIdParams, order },
       countryCode,
@@ -160,7 +207,7 @@ async function listProductsWithSort({
 
   const {
     response: { products },
-  } = await listProducts({
+  } = await listProductsForGrid({
     pageParam: 0,
     queryParams: {
       ...queryParams,

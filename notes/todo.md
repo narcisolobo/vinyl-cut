@@ -57,3 +57,18 @@
           no verification step, by design (an accepted simplification, not a
           gap). The mockup's copy needs to match what the feature actually
           does instead of implying a confirmation link.
+
+- [ ] Clean up the orphaned "Default Sales Channel" on the hosted
+      backend (`sc_01M0HDKMBCVNSX584FDT84C0V0`) and its original
+      publishable key ("Default Publishable API Key" was actually the
+      one on the *real* channel, `sc_01M0HDKJ1E5WDMB7TAZKZ84YF0` --
+      the orphan is a second, empty one).
+
+      Leftover from the hosted bootstrap creating two identically-named
+          sales channels (root-caused while fixing the empty-storefront
+          and every-album-out-of-stock bugs -- the storefront's
+          publishable key and the warehouse stock location were both
+          initially linked to the empty orphan instead of the real
+          channel). Harmless as-is since nothing points at it anymore,
+          but worth deleting so the Admin UI's Sales Channels list isn't
+          confusing to a future reader.
