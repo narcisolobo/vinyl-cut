@@ -72,3 +72,18 @@
           channel). Harmless as-is since nothing points at it anymore,
           but worth deleting so the Admin UI's Sales Channels list isn't
           confusing to a future reader.
+
+- [ ] Add an empty-state to `ShippingMethodForm`
+      (apps/storefront/src/views/checkout/ShippingMethodForm.tsx) for
+      when `shippingOptions` comes back empty -- currently just an
+      infinite spinner with no error shown.
+
+      Not reachable through the real checkout form today -- the state
+          `<select>` in `AddressForm.tsx` only ever offers the 8
+          `WESTERN_US_STATES` options, so a customer can't submit an
+          out-of-region address that would produce zero shipping
+          options. Still a latent gap for anything that bypasses the
+          dropdown (devtools, a scripted request, stale browser
+          autofill), and the failure mode (silent hang) is worse than
+          a bug that's merely inconvenient -- worth a defensive fix
+          when touching this component next, not urgent otherwise.
