@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useStoreGridTransition } from "../StoreGridTransition";
 import StoreFilter from "./StoreFilter";
 import StoreFilterBadge from "./StoreFilterBadge";
 import { CONDITIONS, ERAS, GENRES, toggleValue } from "./store-filter-utils";
@@ -11,7 +12,7 @@ import StoreFilterButton from "./StoreFilterButton";
 import StoreFilterDrawer from "./StoreFilterDrawer";
 
 function StoreFilterAndSort() {
-  const router = useRouter();
+  const { replace } = useStoreGridTransition();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -47,7 +48,7 @@ function StoreFilterAndSort() {
     } else {
       params.delete("sort");
     }
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    replace(`${pathname}?${params.toString()}`);
   };
 
   const selectedGenres =
@@ -64,7 +65,7 @@ function StoreFilterAndSort() {
     } else {
       params.delete(key);
     }
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    replace(`${pathname}?${params.toString()}`);
   };
 
   const filters = [

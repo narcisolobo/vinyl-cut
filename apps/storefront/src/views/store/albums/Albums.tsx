@@ -7,6 +7,7 @@ import { toAlbum } from "@/lib/utils/map-to-album";
 import { type SortOptions } from "@/types/sort-options";
 import AlbumGrid from "./AlbumGrid";
 import AlbumGridEmptyState from "./AlbumGridEmptyState";
+import AlbumGridStatus from "./AlbumGridStatus";
 import Pagination from "./Pagination";
 
 interface AlbumsProps {
@@ -66,11 +67,13 @@ async function Albums({
             searchParams={{ sort, genre, era, condition }}
             position="top"
           />
-          {albums.length > 0 ? (
-            <AlbumGrid albums={albums} returnTo={returnTo} />
-          ) : (
-            <AlbumGridEmptyState />
-          )}
+          <AlbumGridStatus>
+            {albums.length > 0 ? (
+              <AlbumGrid albums={albums} returnTo={returnTo} />
+            ) : (
+              <AlbumGridEmptyState />
+            )}
+          </AlbumGridStatus>
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

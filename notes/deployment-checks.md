@@ -115,9 +115,9 @@ sequence note rather than repeating their detail here.
 
 ### Smoke test
 
-- [ ] Full guest checkout with a Stripe test card against the live
+- [x] Full guest checkout with a Stripe test card against the live
       storefront + backend URLs
-- [ ] Order confirmation email arrives via Resend with real (not
+- [x] Order confirmation email arrives via Resend with real (not
       `localhost`) image URLs — the local dev gap was expected and
       deferred to exactly this point
 - [ ] Restock-notify signup works, and the daily `check-restock` cron
@@ -134,7 +134,7 @@ sequence note rather than repeating their detail here.
 
 ### Monitoring
 
-- [ ] Add the UptimeRobot HTTP monitor (5-minute interval) against
+- [x] Add the UptimeRobot HTTP monitor (5-minute interval) against
       `/keep-alive`
 - [ ] Confirm it's actually resetting both Render's 15-minute
       spin-down and Supabase's separate 7-day pause (PRD §5), not just
