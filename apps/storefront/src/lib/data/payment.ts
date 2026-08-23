@@ -2,12 +2,17 @@
 
 import { medusa } from "@/lib/medusa/config";
 import { type HttpTypes } from "@medusajs/types";
-import { getCacheOptions } from "./cookies";
 
 /**
  * Fetches the payment providers enabled for a region, sorted by ID
  * for a stable render order. Throws — rather than failing soft —
  * since the payment step needs real provider data to render.
+ *
+ * Uncached (`no-store`), unlike most of this app's reads: this list
+ * is only fetched on the low-traffic checkout page, and which
+ * provider is live is exactly the kind of thing that must never be
+ * stale — a cached, since-removed provider silently breaks Payment
+ * for every visitor until someone thinks to bust the cache by hand.
  */
 async function listPaymentProviders(
   regionId: string,
@@ -18,10 +23,6 @@ async function listPaymentProviders(
     );
   }
 
-  const next = {
-    ...(await getCacheOptions("payment_providers")),
-  };
-
   try {
     const { payment_providers } =
       await medusa.client.fetch<HttpTypes.StorePaymentProviderListResponse>(
@@ -29,8 +30,7 @@ async function listPaymentProviders(
         {
           method: "GET",
           query: { region_id: regionId },
-          next,
-          cache: "force-cache",
+          cache: "no-store",
         },
       );
 

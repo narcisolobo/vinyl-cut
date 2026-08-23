@@ -7,10 +7,6 @@ vi.mock("@/lib/medusa/config", () => ({
   medusa: { client: { fetch: fetchMock } },
 }));
 
-vi.mock("./cookies", () => ({
-  getCacheOptions: vi.fn(async () => ({})),
-}));
-
 const manualProvider = { id: "pp_system_default", is_enabled: true };
 const stripeProvider = { id: "pp_stripe_stripe", is_enabled: true };
 
