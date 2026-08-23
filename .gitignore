@@ -93,3 +93,4 @@ stripe-recover-code.txt
 .env
 .env.*
 !.env.example
+.env*

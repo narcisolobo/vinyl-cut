@@ -63,23 +63,23 @@ services:
         value: vinylcut@narcisolobo.com
 
       # Admin dashboard is served from this same service, so its own
-      # Render URL is a known value already. AUTH_CORS additionally needs
-      # the storefront's origin appended once that's deployed (comma-
-      # separated) -- see notes/deployment-checks.md.
+      # Render URL is a known value already. AUTH_CORS also carries the
+      # storefront's origin (comma-separated) now that it's deployed
+      # (https://vinylcut.narcisolobo.com, on Vercel).
       - key: ADMIN_CORS
         value: https://vinyl-cut-backend.onrender.com
       - key: AUTH_CORS
-        value: https://vinyl-cut-backend.onrender.com
-      # No known value yet -- only the storefront calls the Store API, and
-      # it isn't deployed. Fill in once that has a URL.
+        value: https://vinyl-cut-backend.onrender.com,https://vinylcut.narcisolobo.com
       - key: STORE_CORS
-        sync: false
+        value: https://vinylcut.narcisolobo.com
 
-      # Storefront isn't deployed yet -- same reasoning as STORE_CORS.
+      # Storefront is on Vercel, not on Render's private network, so
+      # STOREFRONT_INTERNAL_URL is the same public URL as STOREFRONT_URL --
+      # there's no container-to-container shortcut across providers.
       - key: STOREFRONT_URL
-        sync: false
+        value: https://vinylcut.narcisolobo.com
       - key: STOREFRONT_INTERNAL_URL
-        sync: false
+        value: https://vinylcut.narcisolobo.com
       - key: STOREFRONT_DEFAULT_COUNTRY_CODE
         value: us
       # Must match the storefront's own REVALIDATE_SECRET once it's set up.
