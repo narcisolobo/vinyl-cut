@@ -5,7 +5,6 @@ import {
   dedupeTruthy,
   type OptionValueIds,
 } from "@/lib/utils/product-option-filters";
-import { sortProducts } from "@/lib/utils/sort-products";
 import { type SortOptions } from "@/types/sort-options";
 import { type HttpTypes } from "@medusajs/types";
 import { DEFAULT_PRODUCTS_PER_PAGE } from "./product-list-defaults";
@@ -166,13 +165,23 @@ async function listProductsForGrid(
 }
 
 /**
- * Fetches products sorted by `sortBy`. `artist-asc`/`latest` sort on
- * plain columns (`subtitle`/`created_at`), so those are sorted and
- * paginated server-side via the Store API's `order` param. Price
- * isn't a real column (it's calculated per-request), so `price-asc`/
- * `price-desc` fall back to fetching 100 products to the Next.js
- * cache and sorting/paginating them client-side.
+ * Every sort option maps to a plain, indexable `order` value: `latest`/
+ * `artist-asc` sort on real columns (`created_at`/`subtitle`), and
+ * `price-asc`/`price-desc` sort on `metadata.sort_price` -- a zero-padded
+ * string set at ETL time (see `sort_price_for` in `load_catalog.py`) so
+ * that Medusa's JSONB `order=metadata.X` lexicographic comparison (verified
+ * empirically against the live Store API -- it does NOT compare numerically)
+ * still lands in true price order. All four sort server-side, so there's
+ * no over-fetch and no client-side sort/slice at any catalog size.
  */
+const SORT_ORDER: Record<SortOptions, string> = {
+  latest: "-created_at",
+  "artist-asc": "subtitle",
+  "price-asc": "metadata.sort_price",
+  "price-desc": "-metadata.sort_price",
+};
+
+/** Fetches products sorted by `sortBy`, paginated server-side via the Store API's `order` param. */
 async function listProductsWithSort({
   page = 1,
   queryParams,
@@ -180,54 +189,26 @@ async function listProductsWithSort({
   countryCode,
   optionValueIds,
 }: ListProductsWithSortParams): Promise<ProductListResult> {
-  const limit = queryParams?.limit ?? DEFAULT_PRODUCTS_PER_PAGE;
   const optionFilters = dedupeTruthy(optionValueIds ?? []);
   const optionValueIdParams = optionFilters.length
     ? { option_value_id: optionFilters }
     : {};
 
-  if (sort === "artist-asc" || sort === "latest") {
-    const order = sort === "artist-asc" ? "subtitle" : "-created_at";
-
-    const {
-      response: { products, count },
-      nextPage,
-    } = await listProductsForGrid({
-      pageParam: page,
-      queryParams: { ...queryParams, ...optionValueIdParams, order },
-      countryCode,
-    });
-
-    return {
-      response: { products, count },
-      nextPage,
-      queryParams,
-    };
-  }
-
   const {
-    response: { products },
+    response: { products, count },
+    nextPage,
   } = await listProductsForGrid({
-    pageParam: 0,
+    pageParam: page,
     queryParams: {
       ...queryParams,
       ...optionValueIdParams,
-      limit: 100,
+      order: SORT_ORDER[sort],
     },
     countryCode,
   });
 
-  const sortedProducts = sortProducts(products, sort);
-  const offset = (page - 1) * limit;
-  const fetchedCount = products.length;
-  const nextPage = fetchedCount > offset + limit ? page + 1 : null;
-  const paginatedProducts = sortedProducts.slice(offset, offset + limit);
-
   return {
-    response: {
-      products: paginatedProducts,
-      count: fetchedCount,
-    },
+    response: { products, count },
     nextPage,
     queryParams,
   };

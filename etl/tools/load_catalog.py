@@ -293,12 +293,24 @@ def decade_for(release_year: str | None) -> str | None:
     return f"{(int(release_year) // 10) * 10}s"
 
 
+def sort_price_for(variants: list[dict]) -> str:
+    """Zero-pads the lowest variant price to a fixed width so Medusa's
+    `order=metadata.sort_price` (a JSONB text comparison, not numeric --
+    verified empirically against the live Store API) sorts lexicographically
+    in the same order as the underlying cents value. 6 digits covers cents up
+    to $9,999.99, far above this store's $3-$42 fabricated range."""
+    lowest_cents = min(v["price_cents"] for v in variants)
+    return f"{lowest_cents:06d}"
+
+
 def transform(seed_row: dict, mb: dict) -> dict:
     artist = mb["artist"] or seed_row["artist"]
     title = mb["title"] or seed_row["title"]
     genre, was_curated = genre_for(seed_row["artist"], seed_row["mbid"])
     if not was_curated:
         print(f"  [warn] no curated genre for artist '{seed_row['artist']}', defaulting to '{genre}'")
+
+    variants = fabricate_variants(seed_row["mbid"], seed_row["rank"])
 
     return {
         "title": title,
@@ -313,8 +325,9 @@ def transform(seed_row: dict, mb: dict) -> dict:
             "release_year": mb["release_year"],
             "press_type": mb["press_type"],
             "tracklist": mb["tracklist"],
+            "sort_price": sort_price_for(variants),
         },
-        "variants": fabricate_variants(seed_row["mbid"], seed_row["rank"]),
+        "variants": variants,
     }
 
 

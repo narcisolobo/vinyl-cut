@@ -1,13 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { getProductByHandle, listProducts, listProductsWithSort } from "./products";
 
-const { fetchMock, getRegionMock, retrieveRegionMock, sortProductsMock } =
-  vi.hoisted(() => ({
-    fetchMock: vi.fn(),
-    getRegionMock: vi.fn(),
-    retrieveRegionMock: vi.fn(),
-    sortProductsMock: vi.fn(),
-  }));
+const { fetchMock, getRegionMock, retrieveRegionMock } = vi.hoisted(() => ({
+  fetchMock: vi.fn(),
+  getRegionMock: vi.fn(),
+  retrieveRegionMock: vi.fn(),
+}));
 
 vi.mock("@/lib/medusa/config", () => ({
   medusa: { client: { fetch: fetchMock } },
@@ -22,21 +20,15 @@ vi.mock("./regions", () => ({
   retrieveRegion: retrieveRegionMock,
 }));
 
-vi.mock("@/lib/utils/sort-products", () => ({
-  sortProducts: sortProductsMock,
-}));
-
 const region = { id: "reg_us" };
 
 beforeEach(() => {
   fetchMock.mockReset();
   getRegionMock.mockReset();
   retrieveRegionMock.mockReset();
-  sortProductsMock.mockReset();
 
   getRegionMock.mockResolvedValue(region);
   retrieveRegionMock.mockResolvedValue(region);
-  sortProductsMock.mockImplementation((products) => products);
 });
 
 describe("listProducts", () => {
@@ -142,7 +134,6 @@ describe("listProductsWithSort", () => {
         query: expect.objectContaining({ order: "-created_at" }),
       }),
     );
-    expect(sortProductsMock).not.toHaveBeenCalled();
     expect(result.response.products).toEqual([{ id: "p1" }]);
   });
 
@@ -157,12 +148,13 @@ describe("listProductsWithSort", () => {
         query: expect.objectContaining({ order: "subtitle" }),
       }),
     );
-    expect(sortProductsMock).not.toHaveBeenCalled();
   });
 
-  it("over-fetches 100 and slices client-side for price-asc, defaulting to page 1", async () => {
-    const fetched = Array.from({ length: 15 }, (_, i) => ({ id: `p${i}` }));
-    fetchMock.mockResolvedValueOnce({ products: fetched, count: 15 });
+  it("requests order=metadata.sort_price for price-asc, no over-fetch", async () => {
+    fetchMock.mockResolvedValueOnce({
+      products: [{ id: "p1" }],
+      count: 42,
+    });
 
     const result = await listProductsWithSort({
       countryCode: "us",
@@ -170,21 +162,37 @@ describe("listProductsWithSort", () => {
       queryParams: { limit: 12 },
     });
 
+    expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith(
       "/store/products",
       expect.objectContaining({
-        query: expect.objectContaining({ limit: 100 }),
+        query: expect.objectContaining({
+          limit: 12,
+          order: "metadata.sort_price",
+        }),
       }),
     );
-    expect(sortProductsMock).toHaveBeenCalledWith(fetched, "price-asc");
-    expect(result.response.products).toHaveLength(12);
-    expect(result.response.count).toBe(15);
-    expect(result.nextPage).toBe(2);
+    expect(result.response.count).toBe(42);
   });
 
-  it("returns null nextPage on the last price-sorted page", async () => {
-    const fetched = Array.from({ length: 15 }, (_, i) => ({ id: `p${i}` }));
-    fetchMock.mockResolvedValueOnce({ products: fetched, count: 15 });
+  it("requests order=-metadata.sort_price for price-desc", async () => {
+    fetchMock.mockResolvedValueOnce({ products: [], count: 0 });
+
+    await listProductsWithSort({ countryCode: "us", sort: "price-desc" });
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/store/products",
+      expect.objectContaining({
+        query: expect.objectContaining({ order: "-metadata.sort_price" }),
+      }),
+    );
+  });
+
+  it("paginates price-sorted results server-side via pageParam, not client-side slicing", async () => {
+    fetchMock.mockResolvedValueOnce({
+      products: Array(12).fill({ id: "p" }),
+      count: 40,
+    });
 
     const result = await listProductsWithSort({
       countryCode: "us",
@@ -193,8 +201,13 @@ describe("listProductsWithSort", () => {
       queryParams: { limit: 12 },
     });
 
-    expect(result.response.products).toHaveLength(3);
-    expect(result.nextPage).toBeNull();
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/store/products",
+      expect.objectContaining({
+        query: expect.objectContaining({ offset: 12, limit: 12 }),
+      }),
+    );
+    expect(result.nextPage).toBe(3);
   });
 
   it("dedupes optionValueIds and passes them as option_value_id", async () => {
