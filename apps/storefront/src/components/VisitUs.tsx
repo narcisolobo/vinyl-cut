@@ -8,7 +8,10 @@ interface VisitUsProps {
 
 function VisitUs({ className }: VisitUsProps) {
   return (
-    <section className={cn("px-8 py-12 md:py-16 lg:py-20 2xl:px-0", className)}>
+    <section
+      id="visit"
+      className={cn("px-8 py-12 md:py-16 lg:py-20 2xl:px-0", className)}
+    >
       <div className="mx-auto max-w-7xl">
         <hgroup
           role="group"

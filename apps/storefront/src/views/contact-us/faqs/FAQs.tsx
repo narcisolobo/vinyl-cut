@@ -4,7 +4,10 @@ import FaqItem from "./FaqItem";
 
 function FAQs() {
   return (
-    <section className="bg-base-300 px-8 py-12 md:py-16 lg:py-20 2xl:px-0">
+    <section
+      id="faq"
+      className="bg-base-300 px-8 py-12 md:py-16 lg:py-20 2xl:px-0"
+    >
       <div className="mx-auto max-w-7xl">
         <hgroup
           role="group"

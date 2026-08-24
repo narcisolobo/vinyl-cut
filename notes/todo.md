@@ -1,5 +1,34 @@
 # TODO
 
+## Dud Buttons/Links
+
+- [x] Wire up the footer nav links in
+      apps/storefront/src/layout/Footer.tsx -- seven `<a>` tags with no
+      `href` (not even focusable) now use `LocalizedClientLink`.
+      "New Arrivals" / "Browse by Genre" / "Browse by Era" all point at
+      `/store` (no "view all genres/eras" URL exists, so linking to a
+      specific filter would be misleading -- accepted as a deliberate
+      duplication with "New Arrivals"). "Sell Your Records" -> `/sell`,
+      "Shipping & Returns" -> `/shipping`, "Contact" -> `/contact`, "FAQ"
+      -> `/contact#faq` (added `id="faq"` to the section's wrapping
+      `<section>` in apps/storefront/src/views/contact-us/faqs/FAQs.tsx).
+
+- [x] Wire up the "Get Directions" button in
+      apps/storefront/src/views/sell-your-records/sections/SellHero.tsx
+      -- was a plain `<button>` with no `onClick`. Now a
+      `LocalizedClientLink` to `/contact#visit`, deep-linking into the
+      address/map section in apps/storefront/src/components/VisitUs.tsx
+      (added `id="visit"` to that section).
+
+- [x] Social icons in apps/storefront/src/layout/Footer.tsx (bare
+      `TiktokLogoIcon` / `YoutubeLogoIcon` / `InstagramLogoIcon`, no
+      `href`/`onClick`/`aria-label`) -- decided to leave these inert.
+      This is a portfolio demo with no real social presence, and that's
+      already disclosed elsewhere on the site (see the "not a real,
+      visitable location" disclaimer in VisitUs.tsx); linking to
+      fictional handles risked resolving to unrelated real accounts on
+      those platforms. Not a bug -- closed as intentional.
+
 - [x] Add an `inventory-level-updated` subscriber (apps/backend/src/subscribers/)
       that calls the storefront's `/api/revalidate?tag=products` (see
       apps/backend/src/workflows/steps/revalidate-products.ts), the same way

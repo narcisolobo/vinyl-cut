@@ -1,4 +1,5 @@
 import GradingGuideButton from "@/components/GradingGuide/GradingGuideButton";
+import Link from "@/components/LocalizedClientLink";
 import {
   TiktokLogoIcon,
   YoutubeLogoIcon,
@@ -37,17 +38,31 @@ function Footer() {
       </aside>
       <nav>
         <h4 className="text-primary font-bold uppercase">Shop</h4>
-        <a className="link link-hover">New Arrivals</a>
-        <a className="link link-hover">Browse by Genre</a>
-        <a className="link link-hover">Browse by Era</a>
-        <a className="link link-hover">Sell Your Records</a>
+        <Link className="link link-hover" href="/store">
+          New Arrivals
+        </Link>
+        <Link className="link link-hover" href="/store">
+          Browse by Genre
+        </Link>
+        <Link className="link link-hover" href="/store">
+          Browse by Era
+        </Link>
+        <Link className="link link-hover" href="/sell">
+          Sell Your Records
+        </Link>
       </nav>
       <nav>
         <h4 className="text-primary font-bold uppercase">Help</h4>
         <GradingGuideButton label="Grading Guide" />
-        <a className="link link-hover">Shipping & Returns</a>
-        <a className="link link-hover">FAQ</a>
-        <a className="link link-hover">Contact</a>
+        <Link className="link link-hover" href="/shipping">
+          Shipping & Returns
+        </Link>
+        <Link className="link link-hover" href="/contact#faq">
+          FAQ
+        </Link>
+        <Link className="link link-hover" href="/contact">
+          Contact
+        </Link>
       </nav>
       <nav>
         <h4 className="text-primary font-bold uppercase">Where We Ship</h4>
