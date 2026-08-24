@@ -1,4 +1,5 @@
 import Eyebrow from "@/components/Eyebrow";
+import Link from "@/components/LocalizedClientLink";
 import { ArrowRightIcon } from "@phosphor-icons/react/ssr";
 import Image from "next/image";
 import recordCrate from "../images/record-crate.jpg";
@@ -30,10 +31,13 @@ function SellHero() {
             come in and let&apos;s see what you&apos;ve got. No appointment, no
             pressure, no lowball games.
           </p>
-          <button className="btn btn-lg text-primary btn-accent md:btn-outline hover:text-primary-content font-bold tracking-widest uppercase">
+          <Link
+            href="/contact#visit"
+            className="btn btn-lg text-primary btn-accent md:btn-outline hover:text-primary-content font-bold tracking-widest uppercase"
+          >
             Get Directions
             <ArrowRightIcon />
-          </button>
+          </Link>
         </div>
         <div className="outline-accent border-base-content absolute z-0 hidden aspect-square w-[clamp(400px,80vw,1024px)] overflow-hidden rounded-full border-8 shadow-[0px_30px_60px_oklch(0_0_0/0.4)] outline-4 md:top-1/4 md:left-1/2 md:block">
           <Image

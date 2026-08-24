@@ -97,7 +97,7 @@ function StoreFilterAndSort() {
   );
 
   return (
-    <section className="mt-18 bg-transparent px-8 py-4">
+    <section className="mt-18 bg-transparent px-8 py-4 2xl:px-0">
       <h2 className="sr-only">Filter and Sort Products</h2>
       <div className="max-w-8xl mx-auto flex justify-between">
         <section>
